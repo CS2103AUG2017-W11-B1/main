@@ -78,7 +78,12 @@
 </ul>
 </li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
-<li><a href="#use-cases">Appendix C: Use Cases</a></li>
+<li><a href="#use-cases">Appendix C: Use Cases</a>
+<ul class="sectlevel2">
+<li><a href="#use-case-add-multiple-phone-numbers">C.1. Use case: Add multiple phone numbers</a></li>
+<li><a href="#use-case-sort-persons-names-in-alphabetical-order">C.2. Use case: Sort persons names in alphabetical order</a></li>
+</ul>
+</li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
 <li><a href="#product-survey">Appendix F: Product Survey</a></li>
@@ -1694,6 +1699,12 @@ for <code>RemarkCommandParser</code>.</p>
 <p>|Priority |As a &#8230;&#8203; |I want to &#8230;&#8203; |So that I can&#8230;&#8203;</p>
 </div>
 <div class="paragraph">
+<p>|<code>* * *</code> |user |backup and restore my contacts |recover my contacts in case of unexpected incidents</p>
+</div>
+<div class="paragraph">
+<p>|<code>* * *</code> |user |filter my contacts by multiple criteria |search for specific contacts more easily</p>
+</div>
+<div class="paragraph">
 <p>|<code>* * *</code> |user |have autocorrection for my misspelt words |my contact details will be properly spelt</p>
 </div>
 <div class="paragraph">
@@ -1712,7 +1723,10 @@ for <code>RemarkCommandParser</code>.</p>
 <p>|<code>* * *</code> |user |sort friends by tags |search friends by group</p>
 </div>
 <div class="paragraph">
-<p>|<code>* *</code> |user |hide <a href="#private-contact-detail">private contact details</a> by default |minimize chance of someone else seeing them by accident</p>
+<p>|<code>* *</code> |user |delete multiple users simultaneously|perform bookeeping more easily</p>
+</div>
+<div class="paragraph">
+<p>|<code>* *</code> |user |view different contacts in different font color |identify different groups easily</p>
 </div>
 <div class="paragraph">
 <p>|<code>* *</code> |user |delete a person |remove entries that I no longer need</p>
@@ -1757,6 +1771,12 @@ for <code>RemarkCommandParser</code>.</p>
 <p>|<code>*</code> |user |change the colour theme |make my address book more personalised</p>
 </div>
 <div class="paragraph">
+<p>|<code>*</code> |user |display avatars for each contact|recall who a particular person is</p>
+</div>
+<div class="paragraph">
+<p>|<code>*</code> |user |change the font size and font family of my contacts' records|have a more aesthetically pleasing addressbook interface.</p>
+</div>
+<div class="paragraph">
 <p>{More to be added}</p>
 </div>
 </div>
@@ -1767,7 +1787,65 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-add-multiple-phone-numbers" class="discrete">Use case: Add multiple phone numbers</h3>
+<h3 id="use-case-backup-and-restore-contacts" class="discrete">Use case: Backup and restore contacts</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to backup contacts to a particular location.</p>
+</li>
+<li>
+<p>AddressBook makes a copy of the existing contacts database to the specified location.</p>
+</li>
+<li>
+<p>User requests to restore contacts from a particular location on the local disk.</p>
+</li>
+<li>
+<p>AddressBook makes a backup of the current database and overrides the existing file with
+the user&#8217;s backup.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The backup file cannot be read during restoration.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3a. The specified location cannot be written to during backup.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>3a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="use-case-add-multiple-phone-numbers"><a class="link" href="#use-case-add-multiple-phone-numbers">C.1. Use case: Add multiple phone numbers</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1784,39 +1862,56 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 <li>
 <p>AddressBook add multiple phone numbers of the person</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
 </li>
 </ol>
 </div>
 <div class="paragraph">
 <p><strong>Extensions</strong></p>
 </div>
-<div class="ulist none">
-<ul class="none">
+<div class="ulist">
+<ul>
 <li>
-<p>2a. The list is empty.</p>
+<p>3a. The number added is already existed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>3a1. AddressBook shows an error message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
-<li>
-<p>3a. The number added is already existed.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. AddressBook shows an error message.</p>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-search-contacts-by-multiple-criteria" class="discrete">Use case: Search contacts by multiple criteria</h3>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p><strong>MSS</strong></p>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list contacts by specifying substrings of name and/or address.</p>
 </li>
-</ul>
-</div>
+<li>
+<p>AddressBook displays the matching contacts in the GUI interface (if any).</p>
 </li>
-</ul>
+</ol>
 </div>
-<h3 id="use-case-sort-persons-names-in-alphabetical-order" class="discrete">Use case: Sort persons names in alphabetical order</h3>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="paragraph">
+<p>2a. The list is empty</p>
+</div>
+<div class="paragraph">
+<p>+
+Use case ends</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-sort-persons-names-in-alphabetical-order"><a class="link" href="#use-case-sort-persons-names-in-alphabetical-order">C.2. Use case: Sort persons names in alphabetical order</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1925,6 +2020,24 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </li>
 </ul>
+</div>
+<h3 id="use-case-delete-many-contacts-simultaneously" class="discrete">Use case: Delete many contacts simultaneously</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to delete contacts with a certain tag</p>
+</li>
+<li>
+<p>AddressBook deletes the contacts with the stated tag and reports the entries
+that have been deleted (if any).</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
 </div>
 <h3 id="use-case-load-more-than-100-000-persons-at-one-time" class="discrete">Use case: Load more than 100,000 persons at one time</h3>
 <div class="paragraph">
@@ -2185,6 +2298,7 @@ Use cas eends.</p>
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></h2>
 <div class="sectionbody">
@@ -2195,6 +2309,12 @@ Use cas eends.</p>
 </li>
 <li>
 <p>Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.</p>
+</li>
+<li>
+<p>Should be compatible with Mac and Windows users</p>
+</li>
+<li>
+<p>Should be able to handle unicode (UTF-8) text</p>
 </li>
 <li>
 <p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
@@ -2249,6 +2369,15 @@ Use cas eends.</p>
 <pre>A contact detail that is not meant to be shared with others</pre>
 </div>
 </div>
+<div id="Substring" class="paragraph">
+<p>Substring</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>A string containing one or more consecutive characters of
+a longer string. E.g. ppl is a substring of apple but ae is not.</pre>
+</div>
+</div>
 <div id="error-message" class="paragraph">
 <p>Error Message</p>
 </div>
@@ -2299,7 +2428,7 @@ Use cas eends.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-03 18:17:53 +00:00
+Last updated 2017-10-03 18:33:09 +00:00
 </div>
 </div>
 </body>
