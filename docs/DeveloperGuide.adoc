@@ -746,8 +746,6 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 
 |`* *` |busy businessma |delete multiple users simultaneously|perform bookeeping more easily
 
-|`* *` |efficient user |view different contacts in different font color |identify different groups easily
-
 |`* *` |user |delete a person |remove entries that I no longer need
 
 |`* *` |businessman |share my contact |easier for my client to contact me
@@ -898,13 +896,35 @@ Use case ends
 Use case ends
 
 [discrete]
-=== Use case: Delete many contacts simultaneously
+=== Use case: Delete a tag with a particular name
 
 *MSS*
 
-1.  User requests to delete contacts specified by indices
+1.  User requests to delete a tag with a particular name
+2.  AddressBook deletes the specified tag from all contacts in
+ AddressBook and updates the GUI.
+ +
+Use case ends
+
+*Extensions*
+
+* 1a. The tag is not found
++
+Use case ends
+ 
+=== Use case: Delete many persons simultaneously
+
+*MSS*
+
+1.  User requests to delete persons specified by indices
 2.  AddressBook deletes the requested contacts
-3.  Addressbook reports the entries that have been deleted (if any)
+3.  Addressbook reports the entries that have been deleted
++
+Use case ends
+
+*Extensions*
+
+* 1a. The index is invalid
 +
 Use case ends
 
@@ -1035,7 +1055,10 @@ Use case ends.
 *MSS*
 
 1.  User types a command halfway and press the autocomplete hotkey
-2.  AddressBook returns the command that is to be completed
+2.  AddressBook prints suggested commands, whose prefixes are the same as
+the text entered by user, in the GUI.
+3. User enters one of the suggested commands to perform
+his task.
 +
 Use case ends.
 
@@ -1043,6 +1066,12 @@ Use case ends.
 
 * 3a. No command has been typed
 ** 3a1. AddressBook will not respond.
+* 3b. Prefix entered is incorrectly spelt
+** 3b1. AddressBook will not respond.
+* 3c. There is only 1 command whose prefix matches
+the word typed by the user.
+** 3c1. AddressBook replaces the text entered by user, in
+the command bar, by the matching command.
 +
 Use case ends
 
