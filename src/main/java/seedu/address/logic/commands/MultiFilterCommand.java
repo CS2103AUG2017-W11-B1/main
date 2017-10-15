@@ -78,14 +78,12 @@ public class MultiFilterCommand extends Command {
         if (!(other instanceof MultiFilterCommand)) {
             return false;
         }
-        assert(this.namePredicate != null && other != null
-                || this.namePredicate == null && ((MultiFilterCommand) other).namePredicate == null);
-        assert(this.phonePredicate != null && other != null
-                || this.phonePredicate == null && ((MultiFilterCommand) other).phonePredicate == null);
-        assert(this.emailPredicate != null && other != null
-                || this.emailPredicate == null && ((MultiFilterCommand) other).emailPredicate == null);
-        assert(this.addressPredicate != null && other != null
-                || this.addressPredicate == null && ((MultiFilterCommand) other).addressPredicate == null);
+
+        // Check that objects are either both null or non null
+        assert(verifyBothNullOrNonNull(this.namePredicate, ((MultiFilterCommand) other).namePredicate));
+        assert(verifyBothNullOrNonNull(this.phonePredicate, ((MultiFilterCommand) other).phonePredicate));
+        assert(verifyBothNullOrNonNull(this.emailPredicate, ((MultiFilterCommand) other).emailPredicate));
+        assert(verifyBothNullOrNonNull(this.addressPredicate, ((MultiFilterCommand) other).addressPredicate));
 
         return other == this // short circuit if same object
                 || ((this.namePredicate == null
@@ -96,5 +94,9 @@ public class MultiFilterCommand extends Command {
                 || this.emailPredicate.equals(((MultiFilterCommand) other).emailPredicate)) // state check
                 && (this.addressPredicate == null // short circuit if null
                 || this.addressPredicate.equals(((MultiFilterCommand) other).addressPredicate))); // state check
+    }
+
+    private boolean verifyBothNullOrNonNull(Predicate p1, Predicate p2) {
+        return p1 == null && p2 == null || p1 != null && p2 != null;
     }
 }
