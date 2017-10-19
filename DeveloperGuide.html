@@ -841,15 +841,17 @@ completed for users. It is invoked in the <code>LogicManager</code> class.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The hotkey for lauching Autocomplete is indicated in the <code>CommandBox</code> class.
+<p>The hotkey for lauching <code>Autocomplete</code> is indicated in the <code>CommandBox</code> class.
 Currently, the hotkey is <code>TAB</code>.</p>
 </li>
 <li>
 <p>The <code>COMMAND_WORD</code> for every command must be added to
-the <code>listOfAvaliableCommands</code> list in the  <code>Command</code> class.</p>
+the <code>listOfAvaliableCommands</code> list in the  <code>Command</code> class.
+If the developer forgets to perform this step, <code>AddressBook</code> will work
+normally but there will be no hints for those commands.</p>
 </li>
 <li>
-<p>Although the autocomplete feature currently does not support autocompletion
+<p>Although <code>Autocomplete</code> currently does not support autocompletion
 for aliases. The <code>COMMAND_WORD_ALIAS</code> alias for every command, that has an alias,
 should be added to the <code>listOfCommandAliases</code> list in the <code>Command</code> class
 for completeness and testing purposes.</p>
@@ -873,12 +875,30 @@ another method should be implemented in the <code>AutoCompleteUtil</code> class.
 <p><code>COMMAND_WORD</code> starts with user-entered prefix (e.g. del matchs <code>Delete</code> commmand).</p>
 </li>
 <li>
-<p><code>If no prefix is entered</code>, all commands are displayed to the user.</p>
+<p>If no prefix is entered, all commands are displayed to the user.</p>
 </li>
 <li>
 <p>Match is case-insensitive.</p>
 </li>
 </ul>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.4.1. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of <code>Autocomplete</code><br>
+<strong>Alternative 1 (current choice):</strong> Add a list of names of available commands to <code>Command</code> class.<br>
+<strong>Pros:</strong> We do not need to care about how <code>Autocomplete</code> works when adding new commands. We simply need to add the
+ <code>COMMAND_WORD</code> of new commands to the Command class and <code>Autocomplete</code> will automatically use them for hints.
+ Furthermore, command names can be dynamically obtained via the <code>COMMAND_WORD</code> field for every command.<br>
+<strong>Cons:</strong> Additional level of dependency as the developer has to consistently update the <code>Command</code> class whenever
+ a new type of command is created.<br>
+<strong>Alternative 2:</strong> Place the <code>COMMAND_WORD</code> of all commands into a text file and read it when <code>AddressBook</code> starts.<br>
+<strong>Pros:</strong> No additional dependency among classes as <code>AddressBook</code> gets all command names from a text file rather
+ than obtaining them from the <code>COMMAND_WORD</code> field of each type of command.<br>
+<strong>Cons:</strong> The developer has to add the <code>COMMAND_WORD</code> of every new command to the text file.
+ Furthermore, there is repeated work (and higher risk of error) as the developer must take care to ensure that the text file&#8217;s entry corresponds with the
+<code>COMMAND WORD</code> field.</p>
+</div>
 </div>
 </div>
 </div>
@@ -1765,7 +1785,7 @@ for <code>RemarkCommandParser</code>.</p>
 <p>|Priority |As a &#8230;&#8203; |I want to &#8230;&#8203; |So that I can&#8230;&#8203;</p>
 </div>
 <div class="paragraph">
-<p>|<code>* * *</code> |university student |backup and restore my contacts |recover my contacts in case of unexpected incidents</p>
+<p>|<code>* * *</code> |university student |backup and restore my contacts |recover my contacts in case of unexpected incidents.</p>
 </div>
 <div class="paragraph">
 <p>|<code>* * *</code> |person with a large social circle |filter my contacts by multiple criteria |search for specific contacts more easily</p>
@@ -1787,9 +1807,6 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <div class="paragraph">
 <p>|<code>* *</code> |busy businessma |delete multiple users simultaneously|perform bookeeping more easily</p>
-</div>
-<div class="paragraph">
-<p>|<code>* *</code> |efficient user |view different contacts in different font color |identify different groups easily</p>
 </div>
 <div class="paragraph">
 <p>|<code>* *</code> |user |delete a person |remove entries that I no longer need</p>
@@ -1828,7 +1845,7 @@ for <code>RemarkCommandParser</code>.</p>
 <p>|<code>*</code> |user likes customization |change the colour theme |make my address book more personalised</p>
 </div>
 <div class="paragraph">
-<p>|<code>*</code> |forgetful person |display avatars for each contact|recall who a particular person is</p>
+<p>|<code>*</code> |forgetful person |display avatars for each contact|recall who a particular person is.</p>
 </div>
 <div class="paragraph">
 <p>|<code>*</code> |lazy user |voice out the commands rather than typing |be more efficient at adding contacts</p>
@@ -2597,7 +2614,7 @@ It is a contract between the component and its clients.</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-19 09:05:49 +00:00
+Last updated 2017-10-19 15:27:10 +00:00
 </div>
 </div>
 </body>

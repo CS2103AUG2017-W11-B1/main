@@ -34,18 +34,21 @@
 <li><a href="#locating-persons-by-name-code-find-code">2.5. Locating persons by name: <code>find</code></a></li>
 <li><a href="#locating-persons-by-tag-code-search-code">2.6. Locating persons by tag: <code>search</code></a></li>
 <li><a href="#add-second-phone-number-for-a-person">2.7. Add second phone number for a person</a></li>
-<li><a href="#locating-persons-by-multiple-criteria-code-multifilter-code">2.8. Locating persons by multiple criteria: <code>multifilter</code></a></li>
-<li><a href="#autocomplete-command-names">2.9. Autocomplete command names</a></li>
+<li><a href="#locating-persons-by-multiple-criteria-code-multifilter-code-since-v1-1">2.8. Locating persons by multiple criteria: <code>multifilter</code> [since v1.1]</a></li>
+<li><a href="#autocomplete-command-names-since-v1-2">2.9. Autocomplete command names [since v1.2]</a></li>
 <li><a href="#deleting-a-person-code-delete-code">2.10. Deleting a person : <code>delete</code></a></li>
 <li><a href="#deleting-multiple-person-code-delete-code">2.11. Deleting multiple person : <code>delete</code></a></li>
-<li><a href="#deleting-a-tag-code-deletetag-code">2.12. Deleting a tag : <code>deletetag</code></a></li>
+<li><a href="#deleting-a-tag-code-deletetag-code-since-v1-0">2.12. Deleting a tag : <code>deletetag</code> [since v1.0]</a></li>
 <li><a href="#selecting-a-person-code-select-code">2.13. Selecting a person : <code>select</code></a></li>
 <li><a href="#listing-entered-commands-code-history-code">2.14. Listing entered commands : <code>history</code></a></li>
 <li><a href="#undoing-previous-command-code-undo-code">2.15. Undoing previous command : <code>undo</code></a></li>
 <li><a href="#redoing-the-previously-undone-command-code-redo-code">2.16. Redoing the previously undone command : <code>redo</code></a></li>
 <li><a href="#clearing-all-entries-code-clear-code">2.17. Clearing all entries : <code>clear</code></a></li>
 <li><a href="#exiting-the-program-code-exit-code">2.18. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">2.19. Saving the data</a></li>
+<li><a href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">2.19. Tag use emoji : <code>tag emoji</code> (Coming in V2.0)</a></li>
+<li><a href="#add-no-english-words-as-input-coming-in-v2-0">2.20. Add no-English words as input (Coming in V2.0)</a></li>
+<li><a href="#add-tasks-coming-in-v2-0">2.21. Add tasks (Coming in V2.0)</a></li>
+<li><a href="#saving-the-data">2.22. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">3. FAQ</a></li>
@@ -350,7 +353,7 @@ Format: <code>COMMAND_WORD PARAMETERS p2/PHONE_NUMBER OTHER_PARAMETERS</code></p
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-multiple-criteria-code-multifilter-code"><a class="link" href="#locating-persons-by-multiple-criteria-code-multifilter-code">2.8. Locating persons by multiple criteria: <code>multifilter</code></a></h3>
+<h3 id="locating-persons-by-multiple-criteria-code-multifilter-code-since-v1-1"><a class="link" href="#locating-persons-by-multiple-criteria-code-multifilter-code-since-v1-1">2.8. Locating persons by multiple criteria: <code>multifilter</code> [since v1.1]</a></h3>
 <div class="paragraph">
 <p>Finds persons whose names, phone no., emails and addresses,<br>
 match a set of specified criteria.<br>
@@ -441,7 +444,7 @@ Returns contacts who match ALL of the following criteria:<br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="autocomplete-command-names"><a class="link" href="#autocomplete-command-names">2.9. Autocomplete command names</a></h3>
+<h3 id="autocomplete-command-names-since-v1-2"><a class="link" href="#autocomplete-command-names-since-v1-2">2.9. Autocomplete command names [since v1.2]</a></h3>
 <div class="paragraph">
 <p>Finds commands whose names start with the user-entered text.
 Names of matching commands would be suggested to the user or automatically entered
@@ -559,7 +562,7 @@ Deletes the 2nd and 3rd person in the address book.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-tag-code-deletetag-code"><a class="link" href="#deleting-a-tag-code-deletetag-code">2.12. Deleting a tag : <code>deletetag</code></a></h3>
+<h3 id="deleting-a-tag-code-deletetag-code-since-v1-0"><a class="link" href="#deleting-a-tag-code-deletetag-code-since-v1-0">2.12. Deleting a tag : <code>deletetag</code> [since v1.0]</a></h3>
 <div class="paragraph">
 <p>Deletes the specified tag from the address book.<br>
 Format: <code>delete tag_name</code></p>
@@ -579,6 +582,9 @@ address book.</p>
 <li>
 <p><code>tag_name</code> is case-sensitive (i.e. <code>Friends</code> is not the
 same as <code>friends</code>).</p>
+</li>
+<li>
+<p>The result of this command is not undoable.</p>
 </li>
 </ul>
 </div>
@@ -750,7 +756,28 @@ Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">2.19. Saving the data</a></h3>
+<h3 id="tag-use-emoji-code-tag-emoji-code-coming-in-v2-0"><a class="link" href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">2.19. Tag use emoji : <code>tag emoji</code> (Coming in V2.0)</a></h3>
+<div class="paragraph">
+<p>Input characters to represent an emoji as a tag
+Format: <code>tag :)</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-no-english-words-as-input-coming-in-v2-0"><a class="link" href="#add-no-english-words-as-input-coming-in-v2-0">2.20. Add no-English words as input (Coming in V2.0)</a></h3>
+<div class="paragraph">
+<p>Input non-English words to be saved in the application
+Format: CommandWrd + inputText</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-tasks-coming-in-v2-0"><a class="link" href="#add-tasks-coming-in-v2-0">2.21. Add tasks (Coming in V2.0)</a></h3>
+<div class="paragraph">
+<p>Add personal tasks into the application
+Format: <code>Add Task homework</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">2.22. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -817,7 +844,7 @@ e.g.<code>select 2</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-19 09:05:49 +00:00
+Last updated 2017-10-19 15:27:10 +00:00
 </div>
 </div>
 </body>
