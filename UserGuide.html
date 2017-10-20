@@ -38,7 +38,7 @@
 <li><a href="#autocomplete-command-names-since-v1-2">2.9. Autocomplete command names [since v1.2]</a></li>
 <li><a href="#autocorrect-command-names-since-v1-2">2.10. AutoCorrect command names [Since v1.2]</a></li>
 <li><a href="#deleting-a-person-code-delete-code">2.11. Deleting a person : <code>delete</code></a></li>
-<li><a href="#deleting-multiple-person-code-delete-code">2.12. Deleting multiple person : <code>delete</code></a></li>
+<li><a href="#deleting-multiple-person-code-delete-index-another-index-code">2.12. Deleting multiple person : <code>delete index/another index/&#8230;&#8203;</code></a></li>
 <li><a href="#deleting-a-tag-code-deletetag-code-since-v1-0">2.13. Deleting a tag : <code>deletetag</code> [since v1.0]</a></li>
 <li><a href="#selecting-a-person-code-select-code">2.14. Selecting a person : <code>select</code></a></li>
 <li><a href="#listing-entered-commands-code-history-code">2.15. Listing entered commands : <code>history</code></a></li>
@@ -49,7 +49,11 @@
 <li><a href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">2.20. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></li>
 <li><a href="#add-non-english-words-as-input-coming-in-v2-0">2.21. Add non-English words as input [Coming in V2.0]</a></li>
 <li><a href="#add-tasks-coming-in-v2-0">2.22. Add tasks [Coming in V2.0]</a></li>
-<li><a href="#saving-the-data">2.23. Saving the data</a></li>
+<li><a href="#add-music-coming-in-v2-0">2.23. Add music [Coming in V2.0]</a></li>
+<li><a href="#add-weather-forecast-coming-in-v2-0">2.24. Add weather forecast [Coming in V2.0]</a></li>
+<li><a href="#add-push-notification-coming-in-v2-0">2.25. Add push notification [Coming in V2.0]</a></li>
+<li><a href="#add-keyboard-shorts-coming-in-v2-0">2.26. Add keyboard shorts [Coming in V2.0]</a></li>
+<li><a href="#saving-the-data">2.27. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">3. FAQ</a></li>
@@ -532,10 +536,13 @@ Format: [mis-spelt command]</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>deleet</code> will match to <code>delete</code></p>
+<p><code>deleet</code> will match to <code>delete</code>.</p>
 </li>
 <li>
 <p><code>del</code> will not match to any command, application will display "Unkown command"</p>
+</li>
+<li>
+<p><code>d</code> will be matched to <code>delete</code> still as it is an alias.</p>
 </li>
 </ul>
 </div>
@@ -582,7 +589,7 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-multiple-person-code-delete-code"><a class="link" href="#deleting-multiple-person-code-delete-code">2.12. Deleting multiple person : <code>delete</code></a></h3>
+<h3 id="deleting-multiple-person-code-delete-index-another-index-code"><a class="link" href="#deleting-multiple-person-code-delete-index-another-index-code">2.12. Deleting multiple person : <code>delete index/another index/&#8230;&#8203;</code></a></h3>
 <div class="paragraph">
 <p>Deletes multiple person from the address book.<br>
 Format: <code>delete INDEX/INDEX</code></p>
@@ -797,26 +804,90 @@ Format: <code>exit</code></p>
 <div class="sect2">
 <h3 id="tag-use-emoji-code-tag-emoji-code-coming-in-v2-0"><a class="link" href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">2.20. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></h3>
 <div class="paragraph">
-<p>Input characters to represent an emoji as a tag
-Format: <code>tag :)</code></p>
+<p>Input characters to represent an emoji as a tag.<br>
+Format: <code>tag :wink:</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="add-non-english-words-as-input-coming-in-v2-0"><a class="link" href="#add-non-english-words-as-input-coming-in-v2-0">2.21. Add non-English words as input [Coming in V2.0]</a></h3>
 <div class="paragraph">
-<p>Input non-English words to be saved in the application
+<p>Input non-English words to be saved in the application.
 Format: CommandWrd + inputText</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="add-tasks-coming-in-v2-0"><a class="link" href="#add-tasks-coming-in-v2-0">2.22. Add tasks [Coming in V2.0]</a></h3>
 <div class="paragraph">
-<p>Add personal tasks into the application
+<p>Add personal tasks into the application.
 Format: <code>Add Task homework</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">2.23. Saving the data</a></h3>
+<h3 id="add-music-coming-in-v2-0"><a class="link" href="#add-music-coming-in-v2-0">2.23. Add music [Coming in V2.0]</a></h3>
+<div class="paragraph">
+<p>A default music folder will store serveral sounds for different events.<br></p>
+</div>
+<hr>
+<div class="ulist">
+<ul>
+<li>
+<p>The music folder should be in the same level as data folder.
+<strong>*</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete 1</code><br>
+The application will produce a sound to notify users that the deletion is performed.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-weather-forecast-coming-in-v2-0"><a class="link" href="#add-weather-forecast-coming-in-v2-0">2.24. Add weather forecast [Coming in V2.0]</a></h3>
+<div class="paragraph">
+<p>Displaying weather forecast on the application according to the location detected.</p>
+</div>
+<hr>
+<div class="ulist">
+<ul>
+<li>
+<p>Assume the location data can be gotten (depends on the specific implementation).
+<strong>*</strong></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-push-notification-coming-in-v2-0"><a class="link" href="#add-push-notification-coming-in-v2-0">2.25. Add push notification [Coming in V2.0]</a></h3>
+<div class="paragraph">
+<p>The application will prompt notifications for users on the computer for the up coming tasks.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-keyboard-shorts-coming-in-v2-0"><a class="link" href="#add-keyboard-shorts-coming-in-v2-0">2.26. Add keyboard shorts [Coming in V2.0]</a></h3>
+<div class="paragraph">
+<p>Provides keyboard shortcuts for commands.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Press <code>Command + l</code> on Mac or Press <code>Control + l</code> on Windows<br>
+The application will list all the contacts in the address book.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">2.27. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -876,6 +947,26 @@ e.g.<code>select 2</code></p>
 <li>
 <p><strong>Redo</strong> : <code>redo</code></p>
 </li>
+<li>
+<p><strong>Search</strong> : <code>search NAME</code><br>
+e.g. <code>search John</code></p>
+</li>
+<li>
+<p><strong>AutoCorrect</strong> : <code>MIS-SPELT COMMAND + correct command format</code><br>
+e.g. <code>serach John will be matched to search John</code></p>
+</li>
+<li>
+<p><strong>Multi-filter</strong>: <code>multifilter [n/NAME] [p/PHONE NO.] [e/EMAIL] [a/ADDRESS]</code><br>
+e.g. <code>mf n/iv p/9 e/g a/ge</code></p>
+</li>
+<li>
+<p><strong>Deleting multiple person</strong>: <code>delete index/another index/&#8230;&#8203;</code><br>
+e.g. <code>delete 2/3</code></p>
+</li>
+<li>
+<p><strong>AutoCompele</strong>: <code>[Prefix]</code><br>
+e.g. <code>del</code> expands to <code>delete</code> in the command bar</p>
+</li>
 </ul>
 </div>
 </div>
@@ -883,7 +974,7 @@ e.g.<code>select 2</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-20 11:16:17 +00:00
+Last updated 2017-10-20 11:17:44 +00:00
 </div>
 </div>
 </body>
