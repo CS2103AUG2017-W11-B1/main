@@ -49,6 +49,7 @@
 <li><a href="#logging">4.2. Logging</a></li>
 <li><a href="#configuration">4.3. Configuration</a></li>
 <li><a href="#autocomplete">4.4. Autocomplete</a></li>
+<li><a href="#delete-multiple-contact">4.5. Delete Multiple Contact</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -832,7 +833,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="sect2">
 <h3 id="autocomplete"><a class="link" href="#autocomplete">4.4. Autocomplete</a></h3>
 <div class="paragraph">
-<p>The <code>Autocomplete</code> feature eables commands to be automatically suggested and
+<p>The <code>Autocomplete</code> feature enables commands to be automatically suggested and
 completed for users. It is invoked in the <code>LogicManager</code> class.</p>
 </div>
 <div class="paragraph">
@@ -841,7 +842,7 @@ completed for users. It is invoked in the <code>LogicManager</code> class.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The hotkey for lauching <code>Autocomplete</code> is indicated in the <code>CommandBox</code> class.
+<p>The hotkey for launching <code>Autocomplete</code> is indicated in the <code>CommandBox</code> class.
 Currently, the hotkey is <code>TAB</code>.</p>
 </li>
 <li>
@@ -866,22 +867,6 @@ another method should be implemented in the <code>AutoCompleteUtil</code> class.
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><strong>Citeria for autocomplete</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>COMMAND_WORD</code> starts with user-entered prefix (e.g. del matchs <code>Delete</code> commmand).</p>
-</li>
-<li>
-<p>If no prefix is entered, all commands are displayed to the user.</p>
-</li>
-<li>
-<p>Match is case-insensitive.</p>
-</li>
-</ul>
-</div>
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.4.1. Design Considerations</a></h4>
 <div class="paragraph">
@@ -898,6 +883,44 @@ another method should be implemented in the <code>AutoCompleteUtil</code> class.
 <strong>Cons:</strong> The developer has to add the <code>COMMAND_WORD</code> of every new command to the text file.
  Furthermore, there is repeated work (and higher risk of error) as the developer must take care to ensure that the text file&#8217;s entry corresponds with the
 <code>COMMAND WORD</code> field.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="delete-multiple-contact"><a class="link" href="#delete-multiple-contact">4.5. Delete Multiple Contact</a></h3>
+<div class="paragraph">
+<p>The <code>Delete</code> multiple contact feature enables user to delete more than one contact in a single command. It is
+invoked in the <code>DeleteCommand</code> class.</p>
+</div>
+<div class="paragraph">
+<p><strong>Prerequisites/Dependencies</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>Index</code> to be deleted is added to an ArrayList of <code>Index</code>.</p>
+</li>
+<li>
+<p>To identify different <code>Index</code>, Regex <code>/</code> is used.</p>
+</li>
+<li>
+<p>ArrayList <code>Index</code> needs to be sorted in descending order to prevent IndexOutOfBound
+exception.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.5.1. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of <code>delete</code> Multiple Contact<br>
+<strong>Alternative 1 (current choice):</strong> Add the <code>Index</code> to be deleted to an ArrayList.<br>
+<strong>Pros:</strong> We do not need to care how many <code>Index</code> or the order of the <code>Index</code> being input by the user as long as it
+is separated by <code>/</code>.<br>
+<strong>Cons:</strong> Additional space if required for the ArrayList of <code>Index</code>.<br>
+<strong>Alternative 2:</strong> Use 'Lazy' delete by adding a boolean field to each element<br>
+<strong>Pros:</strong> We do not need to remove anything from the ArrayList. The boolean 0 or 1 will just
+indicate if the contact has been deleted.<br>
+ <strong>Cons:</strong> The whole List has to be iterated to check if the contact has been deleted.</p>
 </div>
 </div>
 </div>
@@ -1857,6 +1880,21 @@ for <code>RemarkCommandParser</code>.</p>
 <p>|<code>*</code> |artistic person |change the font size and font family of my contacts' records|have a more aesthetically pleasing addressbook interface.</p>
 </div>
 <div class="paragraph">
+<p>|<code>*</code> |music lovers |add different sound for different events|have a better feedback system to the user.</p>
+</div>
+<div class="paragraph">
+<p>|<code>*</code> |traveller |add weather forecast|plan my trips efficiently.</p>
+</div>
+<div class="paragraph">
+<p>|<code>*</code> |forgetful person |push notifications for upcoming tasks| i can be reminded of my priorities and tasks.</p>
+</div>
+<div class="paragraph">
+<p>|<code>*</code> |impatient person |date picker| so that i can input the format of the date correctly.</p>
+</div>
+<div class="paragraph">
+<p>|<code>*</code> |lazy person |have keyboard shortcuts| so i can perform the functions without typing the whole command.</p>
+</div>
+<div class="paragraph">
 <p>{More to be added}</p>
 </div>
 </div>
@@ -2614,7 +2652,7 @@ It is a contract between the component and its clients.</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-20 07:33:37 +00:00
+Last updated 2017-10-20 11:16:17 +00:00
 </div>
 </div>
 </body>
