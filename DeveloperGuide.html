@@ -48,8 +48,9 @@
 <li><a href="#undo-redo-mechanism">4.1. Undo/Redo mechanism</a></li>
 <li><a href="#logging">4.2. Logging</a></li>
 <li><a href="#configuration">4.3. Configuration</a></li>
-<li><a href="#autocomplete">4.4. Autocomplete</a></li>
-<li><a href="#delete-multiple-contact">4.5. Delete Multiple Contact</a></li>
+<li><a href="#auto-correct">4.4. Auto-Correct</a></li>
+<li><a href="#auto-complete">4.5. Auto-Complete</a></li>
+<li><a href="#delete-multiple-contact">4.6. Delete Multiple Contact</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -831,14 +832,61 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="autocomplete"><a class="link" href="#autocomplete">4.4. Autocomplete</a></h3>
+<h3 id="auto-correct"><a class="link" href="#auto-correct">4.4. Auto-Correct</a></h3>
 <div class="paragraph">
-<p>The <code>Autocomplete</code> feature enables commands to be automatically suggested and
+<p>The <code>Auto-correct</code> feature enables mis-spelt commands entered by users to be auto-corrected by the application,
+and perform the correct command.</p>
+</div>
+<div class="sect3">
+<h4 id="prerequisites-dependencies"><a class="link" href="#prerequisites-dependencies">4.4.1. Prerequisites/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>COMMAND_WORD</code> for every available command must be added to the <code>getCommandPool</code> method for the command to be auto-corrected.</p>
+</li>
+<li>
+<p>Auto-correct will only work for mis-spelt words within edit distance of 2.</p>
+</li>
+<li>
+<p>Auto-correct is based on four types of prediction of mis-spelt words, namely, addition, deletion, switch, and substitution.</p>
+</li>
+<li>
+<p>Alias will not be auto-corrected as it consists only one or two alphabets.</p>
+</li>
+<li>
+<p>The logic for auto-correcting commands is implemented in AutoCorrectCommand class.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">4.4.2. Design Consideration</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of <code>Auto-correct</code><br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> Consider edit distance is 2 and the command is predicted based on the first alphabet.<br>
+<strong>Pros:</strong> The speed of searching is improved by implementing matching command by the first alphabet as the first alphabet entered by users is often correct.
+Edit distance 2 allows a considerable number of commands to be corrected by the application.<br>
+<strong>Cons:</strong> The prediction by first alphabet limits the auto-correction on those commands that have first alphabet wrong.
+Edit distance 2 does not cover many other mis-spelt commands.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Read all the available file from an external file when the application begins.<br>
+<strong>Pros:</strong> It would be easier for developers to maintain the auto-correct feature as it is easier to update new commands into a file rather than in a method.<br>
+<strong>Cons:</strong> It would not be able to utilise <code>COMMAND_WORD</code> defined in each command class
+as it is a good practice to reused what is already defined and extend its usage (Close to modification and Open to extension Principle).<br></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="auto-complete"><a class="link" href="#auto-complete">4.5. Auto-Complete</a></h3>
+<div class="paragraph">
+<p>The <code>Auto-complete</code> feature enables commands to be automatically suggested and
 completed for users. It is invoked in the <code>LogicManager</code> class.</p>
 </div>
-<div class="paragraph">
-<p><strong>Prerequisites/Dependencies</strong></p>
-</div>
+<div class="sect3">
+<h4 id="prerequisites-dependencies-2"><a class="link" href="#prerequisites-dependencies-2">4.5.1. Prerequisites/Dependencies</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -867,17 +915,22 @@ another method should be implemented in the <code>AutoCompleteUtil</code> class.
 </li>
 </ul>
 </div>
+</div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.4.1. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.5.2. Design Considerations</a></h4>
 <div class="paragraph">
-<p><strong>Aspect:</strong> Implementation of <code>Autocomplete</code><br>
-<strong>Alternative 1 (current choice):</strong> Add a list of names of available commands to <code>Command</code> class.<br>
+<p><strong>Aspect:</strong> Implementation of <code>Autocomplete</code><br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> Add a list of names of available commands to <code>Command</code> class.<br>
 <strong>Pros:</strong> We do not need to care about how <code>Autocomplete</code> works when adding new commands. We simply need to add the
  <code>COMMAND_WORD</code> of new commands to the Command class and <code>Autocomplete</code> will automatically use them for hints.
  Furthermore, command names can be dynamically obtained via the <code>COMMAND_WORD</code> field for every command.<br>
 <strong>Cons:</strong> Additional level of dependency as the developer has to consistently update the <code>Command</code> class whenever
- a new type of command is created.<br>
-<strong>Alternative 2:</strong> Place the <code>COMMAND_WORD</code> of all commands into a text file and read it when <code>AddressBook</code> starts.<br>
+ a new type of command is created.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Place the <code>COMMAND_WORD</code> of all commands into a text file and read it when <code>AddressBook</code> starts.<br>
 <strong>Pros:</strong> No additional dependency among classes as <code>AddressBook</code> gets all command names from a text file rather
  than obtaining them from the <code>COMMAND_WORD</code> field of each type of command.<br>
 <strong>Cons:</strong> The developer has to add the <code>COMMAND_WORD</code> of every new command to the text file.
@@ -887,14 +940,13 @@ another method should be implemented in the <code>AutoCompleteUtil</code> class.
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-multiple-contact"><a class="link" href="#delete-multiple-contact">4.5. Delete Multiple Contact</a></h3>
+<h3 id="delete-multiple-contact"><a class="link" href="#delete-multiple-contact">4.6. Delete Multiple Contact</a></h3>
 <div class="paragraph">
 <p>The <code>Delete</code> multiple contact feature enables user to delete more than one contact in a single command. It is
 invoked in the <code>DeleteCommand</code> class.</p>
 </div>
-<div class="paragraph">
-<p><strong>Prerequisites/Dependencies</strong></p>
-</div>
+<div class="sect3">
+<h4 id="prerequisites-dependencies-3"><a class="link" href="#prerequisites-dependencies-3">4.6.1. Prerequisites/Dependencies</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -909,18 +961,23 @@ exception.</p>
 </li>
 </ul>
 </div>
+</div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.5.1. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.6.2. Design Considerations</a></h4>
 <div class="paragraph">
-<p><strong>Aspect:</strong> Implementation of <code>delete</code> Multiple Contact<br>
-<strong>Alternative 1 (current choice):</strong> Add the <code>Index</code> to be deleted to an ArrayList.<br>
+<p><strong>Aspect:</strong> Implementation of <code>delete</code> Multiple Contact<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> Add the <code>Index</code> to be deleted to an ArrayList.<br>
 <strong>Pros:</strong> We do not need to care how many <code>Index</code> or the order of the <code>Index</code> being input by the user as long as it
 is separated by <code>/</code>.<br>
-<strong>Cons:</strong> Additional space if required for the ArrayList of <code>Index</code>.<br>
-<strong>Alternative 2:</strong> Use 'Lazy' delete by adding a boolean field to each element<br>
+<strong>Cons:</strong> Additional space if required for the ArrayList of <code>Index</code>.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Use 'Lazy' delete by adding a boolean field to each element<br>
 <strong>Pros:</strong> We do not need to remove anything from the ArrayList. The boolean 0 or 1 will just
 indicate if the contact has been deleted.<br>
- <strong>Cons:</strong> The whole List has to be iterated to check if the contact has been deleted.</p>
+<strong>Cons:</strong> The whole List has to be iterated to check if the contact has been deleted.</p>
 </div>
 </div>
 </div>
@@ -2652,7 +2709,7 @@ It is a contract between the component and its clients.</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-20 11:17:44 +00:00
+Last updated 2017-10-20 12:59:04 +00:00
 </div>
 </div>
 </body>
