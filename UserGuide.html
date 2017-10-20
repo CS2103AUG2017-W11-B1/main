@@ -32,23 +32,24 @@
 <li><a href="#listing-all-persons-code-list-code">2.3. Listing all persons : <code>list</code></a></li>
 <li><a href="#editing-a-person-code-edit-code">2.4. Editing a person : <code>edit</code></a></li>
 <li><a href="#locating-persons-by-name-code-find-code">2.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#locating-persons-by-tag-code-search-code">2.6. Locating persons by tag: <code>search</code></a></li>
-<li><a href="#add-second-phone-number-for-a-person">2.7. Add second phone number for a person</a></li>
+<li><a href="#locating-persons-by-tag-code-search-code-since-v1-1">2.6. Locating persons by tag: <code>search</code> [since v1.1]</a></li>
+<li><a href="#add-second-phone-number-for-a-person-since-v1-1">2.7. Add second phone number for a person [since v1.1]</a></li>
 <li><a href="#locating-persons-by-multiple-criteria-code-multifilter-code-since-v1-1">2.8. Locating persons by multiple criteria: <code>multifilter</code> [since v1.1]</a></li>
 <li><a href="#autocomplete-command-names-since-v1-2">2.9. Autocomplete command names [since v1.2]</a></li>
-<li><a href="#deleting-a-person-code-delete-code">2.10. Deleting a person : <code>delete</code></a></li>
-<li><a href="#deleting-multiple-person-code-delete-code">2.11. Deleting multiple person : <code>delete</code></a></li>
-<li><a href="#deleting-a-tag-code-deletetag-code-since-v1-0">2.12. Deleting a tag : <code>deletetag</code> [since v1.0]</a></li>
-<li><a href="#selecting-a-person-code-select-code">2.13. Selecting a person : <code>select</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">2.14. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">2.15. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">2.16. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">2.17. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">2.18. Exiting the program : <code>exit</code></a></li>
-<li><a href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">2.19. Tag use emoji : <code>tag emoji</code> (Coming in V2.0)</a></li>
-<li><a href="#add-no-english-words-as-input-coming-in-v2-0">2.20. Add no-English words as input (Coming in V2.0)</a></li>
-<li><a href="#add-tasks-coming-in-v2-0">2.21. Add tasks (Coming in V2.0)</a></li>
-<li><a href="#saving-the-data">2.22. Saving the data</a></li>
+<li><a href="#autocorrect-command-names-since-v1-2">2.10. AutoCorrect command names [Since v1.2]</a></li>
+<li><a href="#deleting-a-person-code-delete-code">2.11. Deleting a person : <code>delete</code></a></li>
+<li><a href="#deleting-multiple-person-code-delete-code">2.12. Deleting multiple person : <code>delete</code></a></li>
+<li><a href="#deleting-a-tag-code-deletetag-code-since-v1-0">2.13. Deleting a tag : <code>deletetag</code> [since v1.0]</a></li>
+<li><a href="#selecting-a-person-code-select-code">2.14. Selecting a person : <code>select</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">2.15. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">2.16. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">2.17. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">2.18. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">2.19. Exiting the program : <code>exit</code></a></li>
+<li><a href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">2.20. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></li>
+<li><a href="#add-non-english-words-as-input-coming-in-v2-0">2.21. Add non-English words as input [Coming in V2.0]</a></li>
+<li><a href="#add-tasks-coming-in-v2-0">2.22. Add tasks [Coming in V2.0]</a></li>
+<li><a href="#saving-the-data">2.23. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">3. FAQ</a></li>
@@ -87,7 +88,7 @@ This app will not work with earlier versions of Java 8.
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/Ui.png" alt="Ui" width="790">
+<img src="images/UI-V1.2.png" alt="UI V1.2" width="790">
 </div>
 </div>
 </li>
@@ -284,7 +285,7 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-tag-code-search-code"><a class="link" href="#locating-persons-by-tag-code-search-code">2.6. Locating persons by tag: <code>search</code></a></h3>
+<h3 id="locating-persons-by-tag-code-search-code-since-v1-1"><a class="link" href="#locating-persons-by-tag-code-search-code-since-v1-1">2.6. Locating persons by tag: <code>search</code> [since v1.1]</a></h3>
 <div class="paragraph">
 <p>Searches persons whose tag names contain any of the given keywords.<br>
 Format: <code>search KEYWORD [MORE_KEYWORDS]</code></p>
@@ -327,7 +328,7 @@ Returns <code>Unknown tag</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-second-phone-number-for-a-person"><a class="link" href="#add-second-phone-number-for-a-person">2.7. Add second phone number for a person</a></h3>
+<h3 id="add-second-phone-number-for-a-person-since-v1-1"><a class="link" href="#add-second-phone-number-for-a-person-since-v1-1">2.7. Add second phone number for a person [since v1.1]</a></h3>
 <div class="paragraph">
 <p>Add the second phone number for a person by using prefix "p2/"<br>
 Format: <code>COMMAND_WORD PARAMETERS p2/PHONE_NUMBER OTHER_PARAMETERS</code></p>
@@ -459,7 +460,7 @@ Format: [Prefix]</p>
 <p>The hotkey for autocomplete is the <code>TAB</code> key.</p>
 </li>
 <li>
-<p>The match is case-insensitive. E.g. <code>del</code> and <code>Del</code> will both match the <code>delete</code>
+<p>The match is case-insensitive, e.g. <code>del</code> and <code>Del</code> will both match the <code>delete</code>
 command.</p>
 </li>
 <li>
@@ -502,7 +503,45 @@ name for the command will be automatically filled into the command bar instead o
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">2.10. Deleting a person : <code>delete</code></a></h3>
+<h3 id="autocorrect-command-names-since-v1-2"><a class="link" href="#autocorrect-command-names-since-v1-2">2.10. AutoCorrect command names [Since v1.2]</a></h3>
+<div class="paragraph">
+<p>Finds command whose names start with the command entered from the user.
+Application will notify the user that the command entered is corrected and perform the corrected commmand.<br>
+Format: [mis-spelt command]</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The auto-correct function will only work on the mis-spelt words within edit distance of 2.</p>
+</li>
+<li>
+<p>The match is case-insensitive, e.g. "sEarhC" is equals to "search".</p>
+</li>
+<li>
+<p>If no match is found, the application will display "Unknown command".</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deleet</code> will match to <code>delete</code></p>
+</li>
+<li>
+<p><code>del</code> will not match to any command, application will display "Unkown command"</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">2.11. Deleting a person : <code>delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified person from the address book.<br>
 Format: <code>delete INDEX</code></p>
@@ -543,7 +582,7 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-multiple-person-code-delete-code"><a class="link" href="#deleting-multiple-person-code-delete-code">2.11. Deleting multiple person : <code>delete</code></a></h3>
+<h3 id="deleting-multiple-person-code-delete-code"><a class="link" href="#deleting-multiple-person-code-delete-code">2.12. Deleting multiple person : <code>delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes multiple person from the address book.<br>
 Format: <code>delete INDEX/INDEX</code></p>
@@ -562,7 +601,7 @@ Deletes the 2nd and 3rd person in the address book.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-tag-code-deletetag-code-since-v1-0"><a class="link" href="#deleting-a-tag-code-deletetag-code-since-v1-0">2.12. Deleting a tag : <code>deletetag</code> [since v1.0]</a></h3>
+<h3 id="deleting-a-tag-code-deletetag-code-since-v1-0"><a class="link" href="#deleting-a-tag-code-deletetag-code-since-v1-0">2.13. Deleting a tag : <code>deletetag</code> [since v1.0]</a></h3>
 <div class="paragraph">
 <p>Deletes the specified tag from the address book.<br>
 Format: <code>delete tag_name</code></p>
@@ -603,7 +642,7 @@ Deletes the tag <code>friends</code> from all records in the address book.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">2.13. Selecting a person : <code>select</code></a></h3>
+<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">2.14. Selecting a person : <code>select</code></a></h3>
 <div class="paragraph">
 <p>Selects the person identified by the index number used in the last person listing.<br>
 Format: <code>select INDEX</code></p>
@@ -644,7 +683,7 @@ Selects the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">2.14. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">2.15. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -665,7 +704,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">2.15. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">2.16. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -710,7 +749,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">2.16. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">2.17. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -742,42 +781,42 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">2.17. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">2.18. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">2.18. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">2.19. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="tag-use-emoji-code-tag-emoji-code-coming-in-v2-0"><a class="link" href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">2.19. Tag use emoji : <code>tag emoji</code> (Coming in V2.0)</a></h3>
+<h3 id="tag-use-emoji-code-tag-emoji-code-coming-in-v2-0"><a class="link" href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">2.20. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></h3>
 <div class="paragraph">
 <p>Input characters to represent an emoji as a tag
 Format: <code>tag :)</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-no-english-words-as-input-coming-in-v2-0"><a class="link" href="#add-no-english-words-as-input-coming-in-v2-0">2.20. Add no-English words as input (Coming in V2.0)</a></h3>
+<h3 id="add-non-english-words-as-input-coming-in-v2-0"><a class="link" href="#add-non-english-words-as-input-coming-in-v2-0">2.21. Add non-English words as input [Coming in V2.0]</a></h3>
 <div class="paragraph">
 <p>Input non-English words to be saved in the application
 Format: CommandWrd + inputText</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-tasks-coming-in-v2-0"><a class="link" href="#add-tasks-coming-in-v2-0">2.21. Add tasks (Coming in V2.0)</a></h3>
+<h3 id="add-tasks-coming-in-v2-0"><a class="link" href="#add-tasks-coming-in-v2-0">2.22. Add tasks [Coming in V2.0]</a></h3>
 <div class="paragraph">
 <p>Add personal tasks into the application
 Format: <code>Add Task homework</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">2.22. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">2.23. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -844,7 +883,7 @@ e.g.<code>select 2</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-20 05:41:34 +00:00
+Last updated 2017-10-20 07:33:37 +00:00
 </div>
 </div>
 </body>
