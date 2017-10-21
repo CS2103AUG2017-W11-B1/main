@@ -51,6 +51,7 @@
 <li><a href="#auto-correct">4.4. Auto-Correct</a></li>
 <li><a href="#auto-complete">4.5. Auto-Complete</a></li>
 <li><a href="#delete-multiple-contact">4.6. Delete Multiple Contact</a></li>
+<li><a href="#theme-support">4.7. Theme Support</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -978,6 +979,51 @@ is separated by <code>/</code>.<br>
 <strong>Pros:</strong> We do not need to remove anything from the ArrayList. The boolean 0 or 1 will just
 indicate if the contact has been deleted.<br>
 <strong>Cons:</strong> The whole List has to be iterated to check if the contact has been deleted.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="theme-support"><a class="link" href="#theme-support">4.7. Theme Support</a></h3>
+<div class="paragraph">
+<p>The 'theme support' feature allows user to choose their favorite theme for the address book, other than the default
+Dark Theme.</p>
+</div>
+<div class="paragraph">
+<p>Currently, Contact Plus v1.2 is presented with two themes: Dark and Light.</p>
+</div>
+<div class="paragraph">
+<p>Users are also allowed to preview themes at runtime before they choose them. The previews are supported with
+screenshots of the selected theme.</p>
+</div>
+<div class="sect3">
+<h4 id="prerequisities-dependencies"><a class="link" href="#prerequisities-dependencies">4.7.1. Prerequisities/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The line &lt;URL value="@ThemeName.css" /&gt; in <code>fxml</code> files is replaced by a method call via <code>javafx.scene.Scene</code> object
+in respective models.</p>
+</li>
+<li>
+<p>The call is set to be <code>scene.getStylesheet().add(Theme Name);</code></p>
+</li>
+<li>
+<p>The theme preview images are stored in `/images/theme_image/'</p>
+</li>
+<li>
+<p>The selection window would be implemented as a pop out window.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.7.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of <code>choose theme</code> feature<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> Use a selection window with theme preview image.<br>
+<strong>Pros:</strong> Users are able to know what the theme looks like before they choose the respective theme.<br>
+<strong>Cons:</strong> Additional space for <code>Theme Selection</code> window.<br></p>
 </div>
 </div>
 </div>
@@ -2709,7 +2755,7 @@ It is a contract between the component and its clients.</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-21 02:32:45 +00:00
+Last updated 2017-10-21 03:14:11 +00:00
 </div>
 </div>
 </body>
