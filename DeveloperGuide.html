@@ -46,13 +46,14 @@
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-mechanism">4.1. Undo/Redo mechanism</a></li>
-<li><a href="#logging">4.2. Logging</a></li>
-<li><a href="#configuration">4.3. Configuration</a></li>
-<li><a href="#auto-correct">4.4. Auto-Correct</a></li>
-<li><a href="#autocomplete-feature">4.5. Autocomplete</a></li>
-<li><a href="#extended-autocomplete-feature">4.6. Extended Autocomplete</a></li>
-<li><a href="#delete-multiple-contacts">4.7. Delete Multiple Contacts</a></li>
-<li><a href="#theme-support">4.8. Theme Support</a></li>
+<li><a href="#auto-correct-mechanism">4.2. Auto-Correct Mechanism</a></li>
+<li><a href="#yahoo-weather-display-mechanism">4.3. Yahoo Weather Display Mechanism</a></li>
+<li><a href="#autocomplete-a-id-autocomplete-feature-a-mechanism">4.4. Autocomplete <a id="autocomplete-feature"></a> mechanism</a></li>
+<li><a href="#extended-autocomplete-a-id-extended-autocomplete-feature-a-mechanism">4.5. Extended Autocomplete <a id="extended-autocomplete-feature"></a> mechanism</a></li>
+<li><a href="#delete-multiple-contacts-mechanism">4.6. Delete Multiple Contacts Mechanism</a></li>
+<li><a href="#theme-support-mechanism">4.7. Theme Support Mechanism</a></li>
+<li><a href="#logging">4.8. Logging</a></li>
+<li><a href="#configuration">4.9. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -790,57 +791,38 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.2. Logging</a></h3>
+<h3 id="auto-correct-mechanism"><a class="link" href="#auto-correct-mechanism">4.2. Auto-Correct Mechanism</a></h3>
 <div class="paragraph">
-<p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#configuration">Configuration</a>)</p>
-</li>
-<li>
-<p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
-</li>
-<li>
-<p>Currently log messages are output through: <code>Console</code> and to a <code>.log</code> file.</p>
-</li>
-</ul>
+<p>The <code>Auto-correct</code> feature enables misspelt commands entered by users to be auto-corrected by the application,
+and perform the correct command. The correction of the misspelt command is based on four types of prediction of the misspelt words, namely, addition of alphabets, deletion
+of alphabets, transposing of alphabets and Substitution of alphabets. For the sake of efficiency, the edit distance is limited to 2 (refer to <code>editDistance1</code>, and <code>checkMisspeltWords</code>).</p>
 </div>
 <div class="paragraph">
-<p><strong>Logging Levels</strong></p>
+<p>This is an example of how the misspelt words are prediction by adding one more alphabet:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>SEVERE</code> : Critical problem detected which may possibly cause the termination of the application</p>
-</li>
-<li>
-<p><code>WARNING</code> : Can continue, but with caution</p>
-</li>
-<li>
-<p><code>INFO</code> : Information showing the noteworthy actions by the App</p>
-</li>
-<li>
-<p><code>FINE</code> : Details that is not usually noteworthy but may be useful in debugging e.g. print the actual list instead of just its size</p>
-</li>
-</ul>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">//Adding any one character (from the alphabet) anywhere in the word.</span>
+        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="integer">0</span>; i &lt;= formattedWord.length(); i++) {
+            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="integer">0</span>; j &lt; alphabet.length(); j++) {
+                <span class="predefined-type">String</span> newWord = formattedWord.substring(<span class="integer">0</span>, i) + alphabet.charAt(j)
+                        + formattedWord.substring(i, formattedWord.length());
+                results.add(newWord);
+            }
+        }</code></pre>
 </div>
 </div>
-<div class="sect2">
-<h3 id="configuration"><a class="link" href="#configuration">4.3. Configuration</a></h3>
 <div class="paragraph">
-<p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
+<p>Auto-Correct is only utilized in <code>AddressBoonParser</code> class to check each input command, and correct the misspelt command which has an edit distance smaller than or equal to 2.
+The following diagram shows the interaction between <code>AutoCorrect</code> and <code>AddressBookParser</code> class:</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddressBookParser.sequenceDiagram.png" alt="AddressBookParser.sequenceDiagram" width="800">
 </div>
-<div class="sect2">
-<h3 id="auto-correct"><a class="link" href="#auto-correct">4.4. Auto-Correct</a></h3>
-<div class="paragraph">
-<p>The <code>Auto-correct</code> feature enables mis-spelt commands entered by users to be auto-corrected by the application,
-and perform the correct command.</p>
 </div>
 <div class="sect3">
-<h4 id="prerequisites-dependencies"><a class="link" href="#prerequisites-dependencies">4.4.1. Prerequisites/Dependencies</a></h4>
+<h4 id="prerequisites-dependencies"><a class="link" href="#prerequisites-dependencies">4.2.1. Prerequisites/Dependencies</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -862,7 +844,7 @@ and perform the correct command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration"><a class="link" href="#design-consideration">4.4.2. Design Consideration</a></h4>
+<h4 id="design-consideration"><a class="link" href="#design-consideration">4.2.2. Design Consideration</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>Auto-correct</code><br></p>
 </div>
@@ -882,13 +864,75 @@ as it is a good practice to reused what is already defined and extend its usage 
 </div>
 </div>
 <div class="sect2">
-<h3 id="autocomplete-feature"><a class="link" href="#autocomplete-feature">4.5. Autocomplete</a></h3>
+<h3 id="yahoo-weather-display-mechanism"><a class="link" href="#yahoo-weather-display-mechanism">4.3. Yahoo Weather Display Mechanism</a></h3>
 <div class="paragraph">
-<p>The <code>autocomplete</code> feature enables commands to be automatically suggested and
-completed for users. It is invoked in the <code>LogicManager</code> class.</p>
+<p>The Yahoo weather information display is aided by the external library "yahoo-weather-java-api:2.0.2". This library queries data from Yahoo Weather API, and the application display the information returned by calling the library functions with
+a simple string parser method to format the data return. The formatted data is displayed on the <code>StatusFooterBar</code>.<br></p>
+</div>
+<div class="paragraph">
+<p>The query of weather information is closely related to the location. The location is specified by WOEID, so in this application we take the WOEID of Singapore by default.<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">private</span> <span class="directive">final</span> <span class="predefined-type">String</span> woeid = <span class="string"><span class="delimiter">&quot;</span><span class="content">1062617</span><span class="delimiter">&quot;</span></span>;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The API method is called, and data returned as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">YahooWeatherService service = <span class="keyword">new</span> YahooWeatherService();
+<span class="predefined-type">Channel</span> channel = service.getForecast(woeid, DegreeUnit.CELSIUS);
+
+<span class="keyword">return</span> conditionStringParser(channel.getItem().getCondition().toString());</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The overview of the weather displyed on the application is as follows:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/WeatherDisplay.png" alt="WeatherDisplay" width="200">
+</div>
 </div>
 <div class="sect3">
-<h4 id="autocomplete-dependencies"><a class="link" href="#autocomplete-dependencies">4.5.1. Prerequisites/Dependencies</a></h4>
+<h4 id="prerequisites-dependencies-2"><a class="link" href="#prerequisites-dependencies-2">4.3.1. Prerequisites/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>This feature has a strong dependency on Yahoo Weather Server. Some exceptions or assertions should be implemented to prevent the failure of the application
+due to the failure of Yahoo Weather Server.<br></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autocomplete-a-id-autocomplete-feature-a-mechanism"><a class="link" href="#autocomplete-a-id-autocomplete-feature-a-mechanism">4.4. Autocomplete <a id="autocomplete-feature"></a> mechanism</a></h3>
+<div class="paragraph">
+<p>The <code>autocomplete</code> feature is implemented in <code>AutoCompleteUtil</code> class. It enables commands to be automatically suggested and
+completed for users. For example, when the user type, "sea", and press <code>TAB</code> key, the complete command <code>search</code> appears on the command line. This feature saves time for users and improves the efficiency of the application in general.
+It is invoked in the <code>LogicManager</code> class.</p>
+</div>
+<div class="paragraph">
+<p>This function can be used as follows:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutoCompleteCommand.png" alt="AutoCompleteCommand" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>The interaction between <code>AutoCompleteUtil</code> and <code>LogicManager</code> classes can be seen from the following sequence diagram:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutoCompleteCommand.sequenceDiagram.png" alt="AutoCompleteCommand.sequenceDiagram" width="800">
+</div>
+</div>
+<div class="sect3">
+<h4 id="autocomplete-dependencies"><a class="link" href="#autocomplete-dependencies">4.4.1. Prerequisites/Dependencies</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -927,7 +971,7 @@ another method should be implemented in the <code>AutoCompleteUtil</code> class.
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.4.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>autocomplete</code><br></p>
 </div>
@@ -950,14 +994,22 @@ another method should be implemented in the <code>AutoCompleteUtil</code> class.
 </div>
 </div>
 <div class="sect2">
-<h3 id="extended-autocomplete-feature"><a class="link" href="#extended-autocomplete-feature">4.6. Extended Autocomplete</a></h3>
+<h3 id="extended-autocomplete-a-id-extended-autocomplete-feature-a-mechanism"><a class="link" href="#extended-autocomplete-a-id-extended-autocomplete-feature-a-mechanism">4.5. Extended Autocomplete <a id="extended-autocomplete-feature"></a> mechanism</a></h3>
 <div class="paragraph">
 <p>The <code>extended autocomplete</code> feature is an add-on to the <code>autocomplete</code> feature
 and enables the full format of commands to be automatically filled into the command bar.
 It is invoked in the <code>LogicManager</code> class.</p>
 </div>
+<div class="paragraph">
+<p>This command can be illustrated by the following diagram, the prefix is prompt automatically when the key <code>Control</code> is pressed on teh keyboard.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutoCompleteExtended.png" alt="AutoCompleteExtended" width="800">
+</div>
+</div>
 <div class="sect3">
-<h4 id="prerequisites-dependencies-2"><a class="link" href="#prerequisites-dependencies-2">4.6.1. Prerequisites/Dependencies</a></h4>
+<h4 id="prerequisites-dependencies-3"><a class="link" href="#prerequisites-dependencies-3">4.5.1. Prerequisites/Dependencies</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -991,7 +1043,7 @@ for aliases.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.5.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>extended autocomplete</code><br></p>
 </div>
@@ -1015,13 +1067,43 @@ Cons: Finite number of keys on the keyboard make it impossible to do a one-to-on
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-multiple-contacts"><a class="link" href="#delete-multiple-contacts">4.7. Delete Multiple Contacts</a></h3>
+<h3 id="delete-multiple-contacts-mechanism"><a class="link" href="#delete-multiple-contacts-mechanism">4.6. Delete Multiple Contacts Mechanism</a></h3>
 <div class="paragraph">
-<p>The <code>Delete</code> multiple contacts feature enables user to delete more than one contact in a single command. It is
+<p>The <code>Delete</code> multiple contacts feature enables user to delete more than one contact in a single command by specifying more than one indices. It is
 invoked in the <code>DeleteCommand</code> class.</p>
 </div>
+<div class="paragraph">
+<p>The source code below shows the implementation of how multiple persons are deleted by using a loop:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">for</span> (Index i : targetIndex) {
+            <span class="keyword">if</span> (i.getZeroBased() &gt;= lastShownList.size()) {
+                <span class="keyword">throw</span> <span class="keyword">new</span> CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+            }
+        }
+
+        <span class="predefined-type">String</span> result = <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>;
+        <span class="predefined-type">Collections</span>.sort(targetIndex);
+        <span class="keyword">for</span> (Index i : targetIndex) {
+            ReadOnlyPerson personToDelete = lastShownList.get(i.getZeroBased());
+
+            <span class="keyword">try</span> {
+                model.deletePerson(personToDelete);
+                <span class="keyword">if</span> (targetIndex.size() == <span class="integer">1</span>) {
+                    result = result.concat(personToDelete.toString());
+                } <span class="keyword">else</span> {
+                    result = result.concat(<span class="string"><span class="delimiter">&quot;</span><span class="char">\n</span><span class="delimiter">&quot;</span></span> + personToDelete.toString());
+                }
+            } <span class="keyword">catch</span> (PersonNotFoundException pnfe) {
+                <span class="keyword">assert</span> <span class="predefined-constant">false</span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">The target person cannot be missing</span><span class="delimiter">&quot;</span></span>;
+            }
+
+        }</code></pre>
+</div>
+</div>
 <div class="sect3">
-<h4 id="prerequisites-dependencies-3"><a class="link" href="#prerequisites-dependencies-3">4.7.1. Prerequisites/Dependencies</a></h4>
+<h4 id="prerequisites-dependencies-4"><a class="link" href="#prerequisites-dependencies-4">4.6.1. Prerequisites/Dependencies</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1038,7 +1120,7 @@ exception.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.6.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>delete</code> Multiple Contact<br></p>
 </div>
@@ -1057,7 +1139,7 @@ indicate if the contact has been deleted.<br>
 </div>
 </div>
 <div class="sect2">
-<h3 id="theme-support"><a class="link" href="#theme-support">4.8. Theme Support</a></h3>
+<h3 id="theme-support-mechanism"><a class="link" href="#theme-support-mechanism">4.7. Theme Support Mechanism</a></h3>
 <div class="paragraph">
 <p>The 'theme support' feature allows user to choose their favorite theme for the address book, other than the default
 Dark Theme.</p>
@@ -1069,8 +1151,16 @@ Dark Theme.</p>
 <p>Users are also allowed to preview themes at runtime before they choose them. The previews are supported with
 screenshots of the selected theme.</p>
 </div>
+<div class="paragraph">
+<p>The overview of the theme is as follows:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ThemeSupport.png" alt="ThemeSupport" width="800">
+</div>
+</div>
 <div class="sect3">
-<h4 id="prerequisites-dependencies-4"><a class="link" href="#prerequisites-dependencies-4">4.8.1. Prerequisites/Dependencies</a></h4>
+<h4 id="prerequisites-dependencies-5"><a class="link" href="#prerequisites-dependencies-5">4.7.1. Prerequisites/Dependencies</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1090,7 +1180,7 @@ in respective models.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.8.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.7.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>choose theme</code> feature<br></p>
 </div>
@@ -1099,6 +1189,50 @@ in respective models.</p>
 <strong>Pros:</strong> Users are able to know what the theme looks like before they choose the respective theme.<br>
 <strong>Cons:</strong> Additional space for <code>Theme Selection</code> window.<br></p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">4.8. Logging</a></h3>
+<div class="paragraph">
+<p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#configuration">Configuration</a>)</p>
+</li>
+<li>
+<p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
+</li>
+<li>
+<p>Currently log messages are output through: <code>Console</code> and to a <code>.log</code> file.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Logging Levels</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SEVERE</code> : Critical problem detected which may possibly cause the termination of the application</p>
+</li>
+<li>
+<p><code>WARNING</code> : Can continue, but with caution</p>
+</li>
+<li>
+<p><code>INFO</code> : Information showing the noteworthy actions by the App</p>
+</li>
+<li>
+<p><code>FINE</code> : Details that is not usually noteworthy but may be useful in debugging e.g. print the actual list instead of just its size</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configuration"><a class="link" href="#configuration">4.9. Configuration</a></h3>
+<div class="paragraph">
+<p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 </div>
@@ -2828,7 +2962,7 @@ It is a contract between the component and its clients.</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-24 18:15:57 +00:00
+Last updated 2017-10-24 18:16:42 +00:00
 </div>
 </div>
 </body>
