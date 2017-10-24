@@ -110,6 +110,593 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">Clearing all entries : <code>clear</code></a></h3>
+<div class="paragraph">
+<p>Clears all entries from the address book.<br>
+Format: <code>clear</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">Exiting the program : <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Exits the program.<br>
+Format: <code>exit</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-tag-code-deletetag-code-since-v1-0"><a class="link" href="#deleting-a-tag-code-deletetag-code-since-v1-0">Deleting a tag : <code>deletetag</code> [Since v1.0]</a></h3>
+<div class="paragraph">
+<p>Deletes the specified tag from the address book.<br>
+Format: <code>delete tag_name</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The alias for this command is <code>dt</code>. That means that you can type<br>
+<code>dt</code> instead of <code>deletetag</code>.</p>
+</li>
+<li>
+<p>Deletes the tag with the specified <code>tag_name</code> from all records in the
+address book.</p>
+</li>
+<li>
+<p><code>tag_name</code> is case-sensitive (i.e. <code>Friends</code> is not the
+same as <code>friends</code>).</p>
+</li>
+<li>
+<p>The result of this command is not undoable.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deletetag friends</code><br>
+Deletes the tag <code>friends</code> from all records in the address book.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locating-persons-by-tag-code-search-code-since-v1-1"><a class="link" href="#locating-persons-by-tag-code-search-code-since-v1-1">Locating persons by tag: <code>search</code> [Since v1.1]</a></h3>
+<div class="paragraph">
+<p>Searches persons whose tag names contain any of the given keywords.<br>
+Format: <code>search KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case sensitive. e.g <code>Friends</code> will not match <code>friends</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>friends colleague</code> is the same as <code>colleague friends</code></p>
+</li>
+<li>
+<p>Only the tag name is searched.</p>
+</li>
+<li>
+<p>Only full tag name will be accepted e.g. <code>friends</code> will not match <code>fri</code></p>
+</li>
+<li>
+<p>Result displays "Unknown tag" if no person has the tag</p>
+</li>
+<li>
+<p>Alias for "search" is "st"</p>
+</li>
+<li>
+<p>Persons&#8217;s tag names matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>friends colleague</code> will return persons with <code>friends</code>, or <code>colleague</code> tag</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:
+* <code>search friends</code><br>
+Returns <code>John Alice</code>
+* <code>search fri</code><br>
+Returns <code>Unknown tag</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-second-phone-number-for-a-person-since-v1-1"><a class="link" href="#add-second-phone-number-for-a-person-since-v1-1">Add second phone number for a person [Since v1.1]</a></h3>
+<div class="paragraph">
+<p>Add the second phone number for a person by using prefix "p2/"<br>
+Format: <code>COMMAND_WORD PARAMETERS p2/PHONE_NUMBER OTHER_PARAMETERS</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Input "p2/-" for add command, when no second phone number is provided.</p>
+</li>
+<li>
+<p>The order of the parameters does not matter. e.g. <code>p/87435783 p2/54729635</code> is the same as <code>p2/749374658 p/97453735</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:
+* <code>add n/John Doe p/98765432 p2/73624789 e/johnd@example.com a/John street, block 123, #01-01</code><br>
+* <code>edit 1 p/91234567 p2/73624789 e/johndoe@example.com</code><br></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locating-persons-by-multiple-criteria-code-multifilter-code-since-v1-1"><a class="link" href="#locating-persons-by-multiple-criteria-code-multifilter-code-since-v1-1">Locating persons by multiple criteria: <code>multifilter</code> [Since v1.1]</a></h3>
+<div class="paragraph">
+<p>Finds persons whose names, phone no., emails and addresses,<br>
+match a set of specified criteria.<br>
+Format: <code>multifilter [n/NAME] [p/PHONE NO.] [e/EMAIL] [a/ADDRESS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The alias for this command is <code>mf</code>. That means that you can type<br>
+<code>mf</code> instead of <code>multifilter</code>.</p>
+</li>
+<li>
+<p>The search is case-insensitive for all fields. e.g <code>mf n/hans</code> will<br>
+match <code>Hans</code>.</p>
+</li>
+<li>
+<p>The search performs a substring match. This means that the 'mf n/a'<br>
+will match both <code>alice</code> and <code>Hans</code> since both contain the letter <code>a</code>,</p>
+</li>
+<li>
+<p>The order of the fields does not matter.<br>
+e.g.<code>mf n/hans e/a@ex.com</code> and <code>mf e/a@ex.com n/hans</code><br>
+both mean the same thing.</p>
+</li>
+<li>
+<p>Matching is performed based on ALL the criteria.<br>
+i.e. <code>mf n/a p/9</code> will find the contact <code>matt</code> with a phone no. of <code>999</code>
+but it will not find the contact <code>alice</code> with a phone no. of <code>888</code>.</p>
+</li>
+<li>
+<p>None of the fields are compulsory. i.e. you can use <code>mf p/999</code> to find<br>
+contacts whose phone no. contain <code>999</code> and <code>mf e/yahoo</code> to find<br>
+contacts whose emails contain <code>yahoo</code> without entering the rest of the fields.</p>
+</li>
+<li>
+<p>If only <code>mf</code> is entered, all contacts will be displayed.</p>
+</li>
+<li>
+<p><code>mf p/987 e/gmail</code><br>
+Contact <code>alice</code> with phone no. <code>9876</code> and email <code>a@gmail.com</code><br>
+will be matched. Contact <code>Bob</code> with phone no. <code>987</code> and email <code>a@yahoo.com</code>
+will not be matched</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>mf a/gey</code><br>
+Returns contacts whose address contain <code>gey</code></p>
+</li>
+<li>
+<p><code>mf</code><br>
+Returns all contacts</p>
+</li>
+<li>
+<p><code>mf n/iv p/9 e/g a/ge</code><br>
+Returns contacts who match ALL of the following criteria:<br></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Name contains <code>iv</code></p>
+</li>
+<li>
+<p>Phone no. contains <code>9</code></p>
+</li>
+<li>
+<p>Email contains <code>g</code></p>
+</li>
+<li>
+<p>Address contains <code>ge</code></p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>An example of a matching contact for this command would be<br>
+<code>Ivan</code> that has phone no. <code>999</code>, email <code>g@y.com</code> and address <code>123 geylang road</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autocomplete-command-names-since-v1-2"><a class="link" href="#autocomplete-command-names-since-v1-2">Autocomplete command names [Since v1.2]</a></h3>
+<div class="paragraph">
+<p>Finds commands whose names start with the user-entered text.
+Names of matching commands would be suggested to the user or automatically entered
+ depending on how many matching commands were found.<br>
+Format: [Prefix]</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The hotkey for <code>autocomplete</code> is the <code>TAB</code> key.</p>
+</li>
+<li>
+<p>The match is case-insensitive, e.g. <code>del</code> and <code>Del</code> will both match the <code>delete</code>
+command.</p>
+</li>
+<li>
+<p>The system looks for commands whose names start with the user-entered text. This means that <code>del</code> will match <code>delete</code> but <code>ele</code>
+will not.</p>
+</li>
+<li>
+<p>If no text is entered before pressing the hotkey, the system displays all available commands.</p>
+</li>
+<li>
+<p>The system does not support autocompletion for command aliases.</p>
+</li>
+<li>
+<p>If there is more than one matching command, the names of all matching
+commands will be displayed as a suggestion in the result pane.</p>
+</li>
+<li>
+<p>If there is only one matching command, then the full
+name for the command will be automatically filled into the command bar instead of being displayed in the result pane.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>del</code> expands to <code>delete</code> in the command bar</p>
+</li>
+<li>
+<p><code>df</code> does not match with any command name. Hence, nothing is returned by address book.</p>
+</li>
+<li>
+<p><code>d</code> returns various command suggestions in the result pane. e.g.<code>delete</code> and <code>deletetag</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autocorrect-command-names-since-v1-2"><a class="link" href="#autocorrect-command-names-since-v1-2">AutoCorrect command names [Since v1.2]</a></h3>
+<div class="paragraph">
+<p>Finds command whose names start with the command entered from the user.
+Application will notify the user that the command entered is corrected and perform the corrected commmand.<br>
+Format: [mis-spelt command]</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The auto-correct function will only work on the mis-spelt words within edit distance of 2.</p>
+</li>
+<li>
+<p>The match is case-insensitive, e.g. "sEarhC" is equals to "search".</p>
+</li>
+<li>
+<p>If no match is found, the application will display "Unknown command".</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deleet</code> will match to <code>delete</code>.</p>
+</li>
+<li>
+<p><code>del</code> will not match to any command, application will display "Unkown command"</p>
+</li>
+<li>
+<p><code>d</code> will be matched to <code>delete</code> still as it is an alias.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-multiple-person-code-delete-index-another-index-code-since-v1-2"><a class="link" href="#deleting-multiple-person-code-delete-index-another-index-code-since-v1-2">Deleting multiple person : <code>delete index/another index/&#8230;&#8203;</code> [Since v1.2]</a></h3>
+<div class="paragraph">
+<p>Deletes multiple person from the address book.<br>
+Format: <code>delete INDEX/INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>1) Enter <code>list</code> into the Command Box<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/deleteMultiplePerson1.png" alt="deleteMultiplePerson1" width="500">
+</div>
+</div>
+<div class="paragraph">
+<p>2) <code>delete 2/3</code> deletes the 2nd and 3rd person from the address book.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/deleteMultiplePerson2.png" alt="deleteMultiplePerson2" width="500">
+</div>
+</div>
+<div class="paragraph">
+<p>3) Display the confirmation for deletion</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/deleteMultiplePerson3.png" alt="deleteMultiplePerson3" width="500">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-weather-forecast-since-v1-3"><a class="link" href="#viewing-weather-forecast-since-v1-3">Viewing Weather Forecast [Since v1.3]</a></h3>
+<div class="paragraph">
+<p>Viewing weather forecast on Yahoo Weather page.
+Accessible from <code>File</code> dropdown list, <code>Weather Forecast</code> menu item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/WeatherForecast.png" alt="WeatherForecast" width="500">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="extended-autocomplete-for-commands-since-v1-3"><a class="link" href="#extended-autocomplete-for-commands-since-v1-3">Extended autocomplete for commands [Since v1.3]</a></h3>
+<div class="paragraph">
+<p>Autofills the full syntax of the command whose name matches the user-entered text exactly.
+Format: [COMMAND_WORD]</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The hotkey for <code>extended autocomplete</code> is <code>Ctrl</code>.</p>
+</li>
+<li>
+<p>This feature uses exact matching (i.e. case and spelling of <code>COMMAND_WORD</code> must match the actual command).</p>
+</li>
+<li>
+<p>The system does not support autocompletion for command aliases.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete</code> expands to <code>delete index_number</code></p>
+</li>
+<li>
+<p><code>deletetag</code> exapnds to <code>deletetag tag_name</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="keyboard-shortcut-since-v1-3"><a class="link" href="#keyboard-shortcut-since-v1-3">Keyboard shortcut [Since v1.3]</a></h3>
+<div class="paragraph">
+<p>Keyboard shortcuts enables users to quickly get the command words without memorization.
+Format: [CONTROL] + [COMMAND_WORD_ALIAS]</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The keyborad shortcuts are created only for commands with heavy text input.</p>
+</li>
+<li>
+<p>The commands with keyboard shortcuts are: <code>add</code>, <code>multifilter</code>, <code>edit</code>, <code>search</code>, <code>delete</code>, <code>clear</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tag-use-emoji-code-tag-emoji-code-coming-in-v2-0"><a class="link" href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></h3>
+<div class="paragraph">
+<p>Input characters to represent an emoji as a tag.<br>
+Format: <code>tag :wink:</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-non-english-words-as-input-coming-in-v2-0"><a class="link" href="#add-non-english-words-as-input-coming-in-v2-0">Add non-English words as input [Coming in V2.0]</a></h3>
+<div class="paragraph">
+<p>Input non-English words to be saved in the application.
+Format: CommandWrd + inputText</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-tasks-coming-in-v2-0"><a class="link" href="#add-tasks-coming-in-v2-0">Add tasks [Coming in V2.0]</a></h3>
+<div class="paragraph">
+<p>Add personal tasks into the application.
+Format: <code>Add Task homework</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-music-coming-in-v2-0"><a class="link" href="#add-music-coming-in-v2-0">Add music [Coming in V2.0]</a></h3>
+<div class="paragraph">
+<p>A default music folder will store serveral sounds for different events.<br></p>
+</div>
+<hr>
+<div class="ulist">
+<ul>
+<li>
+<p>The music folder should be in the same level as data folder.
+<strong>*</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete 1</code><br>
+The application will produce a sound to notify users that the deletion is performed.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-weather-forecast-coming-in-v2-0"><a class="link" href="#add-weather-forecast-coming-in-v2-0">Add weather forecast [Coming in V2.0]</a></h3>
+<div class="paragraph">
+<p>Displaying weather forecast on the application according to the location detected.</p>
+</div>
+<hr>
+<div class="ulist">
+<ul>
+<li>
+<p>Assume the location data can be gotten (depends on the specific implementation).
+<strong>*</strong></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-push-notification-coming-in-v2-0"><a class="link" href="#add-push-notification-coming-in-v2-0">Add push notification [Coming in V2.0]</a></h3>
+<div class="paragraph">
+<p>The application will prompt notifications for users on the computer for the up coming tasks.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-keyboard-shortcuts-coming-in-v2-0"><a class="link" href="#add-keyboard-shortcuts-coming-in-v2-0">Add keyboard shortcuts [Coming in V2.0]</a></h3>
+<div class="paragraph">
+<p>Provides keyboard shortcuts for commands.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Press <code>Command + l</code> on Mac or Press <code>Control + l</code> on Windows<br>
+The application will list all the contacts in the address book.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">Saving the data</a></h3>
+<div class="paragraph">
+<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
+There is no need to save manually.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER p2/ PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>add n/James Ho p/22224444 p2/33335555 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
+</li>
+<li>
+<p><strong>Clear</strong> : <code>clear</code></p>
+</li>
+<li>
+<p><strong>Delete</strong> : <code>delete INDEX</code><br>
+e.g. <code>delete 3</code></p>
+</li>
+<li>
+<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [p2/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
+</li>
+<li>
+<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
+e.g. <code>find James Jake</code></p>
+</li>
+<li>
+<p><strong>List</strong> : <code>list</code></p>
+</li>
+<li>
+<p><strong>Help</strong> : <code>help</code></p>
+</li>
+<li>
+<p><strong>Select</strong> : <code>select INDEX</code><br>
+e.g.<code>select 2</code></p>
+</li>
+<li>
+<p><strong>History</strong> : <code>history</code></p>
+</li>
+<li>
+<p><strong>Undo</strong> : <code>undo</code></p>
+</li>
+<li>
+<p><strong>Redo</strong> : <code>redo</code></p>
+</li>
+<li>
+<p><strong>Search</strong> : <code>search NAME</code><br>
+e.g. <code>search John</code></p>
+</li>
+<li>
+<p><strong>AutoCorrect</strong> : <code>MIS-SPELT COMMAND + correct command format</code><br>
+e.g. <code>serach John will be matched to search John</code></p>
+</li>
+<li>
+<p><strong>Multi-filter</strong>: <code>multifilter [n/NAME] [p/PHONE NO.] [e/EMAIL] [a/ADDRESS]</code><br>
+e.g. <code>mf n/iv p/9 e/g a/ge</code></p>
+</li>
+<li>
+<p><strong>Deleting multiple person</strong>: <code>delete index/another index/&#8230;&#8203;</code><br>
+e.g. <code>delete 2/3</code></p>
+</li>
+<li>
+<p><strong>AutoCompele</strong>: <code>[Prefix]</code><br>
+e.g. <code>del</code> expands to <code>delete</code> in the command bar</p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p><mark>End of Extract</mark></p>
 </div>
@@ -130,7 +717,6 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 <p><mark>End of Extract</mark></p>
 </div>
 <hr>
-</div>
 </div>
 <div class="sect2">
 <h3 id="enhancement-proposed-add-command-code-remark-code"><a class="link" href="#enhancement-proposed-add-command-code-remark-code">Enhancement Proposed: Add command <code>remark</code></a></h3>
@@ -164,7 +750,7 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-24 19:12:21 +00:00
+Last updated 2017-10-24 19:18:18 +00:00
 </div>
 </div>
 </body>
