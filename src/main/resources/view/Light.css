@@ -20,8 +20,8 @@
     -fx-background-color: derive(grey, -20%);
     background-color: #f2f2f2; /* Used in the default.html file */
     background-image: url("../images/world_map_1.jpg");
-    background-size: 550px;
-    background-position: center 10px;
+    background-size: 500px;
+    background-position: left 1px;
     background-repeat: no-repeat;
 }
 
@@ -145,4 +145,5 @@
     -fx-background-radius: 2;
     -fx-font-size: 11;
     -fx-font-weight: bold;
+
  }
