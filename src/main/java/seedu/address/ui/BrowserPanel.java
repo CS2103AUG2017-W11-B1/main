@@ -37,8 +37,6 @@ public class BrowserPanel extends UiPart<Region> {
 
     private final Logger logger = LogsCenter.getLogger(this.getClass());
 
-    private final StringProperty displayed = new SimpleStringProperty("");
-
     @FXML
     private WebView browser;
 
@@ -116,6 +114,5 @@ public class BrowserPanel extends UiPart<Region> {
     @Subscribe
     private void handleNewTaskAvailableEvent(NewResultAvailableEvent event) {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
-        //Platform.runLater(() -> displayed.setValue());
     }
 }
