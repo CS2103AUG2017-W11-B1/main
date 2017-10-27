@@ -502,7 +502,7 @@ Examples:
 
 * `task d/CS2103 Assignment priority/2 on/26/10/2017`
 * `task d/Finish Teammate Feedback Session priority/0 on/01/11/2017`
-=======
+
 === Sound effect for system events [Since v1.3]
 
 Different sound clips will be played according to whether a command was successful or not.
