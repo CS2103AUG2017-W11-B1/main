@@ -28,7 +28,9 @@ public class YahooWeatherRequest {
     private String conditionStringParser (String rawString) {
         int startIndex = 0;
         int endIndex = 0;
-        final int unusedTermIndex = 1;
+        final int unusedCodeIndex = 1;
+        final int unusedTimeIndex = 2;
+        final String textBuffer = "     ";
         final String degree  = "\u00b0";
 
         for (int i = 0; i < rawString.length(); i++) {
@@ -46,7 +48,9 @@ public class YahooWeatherRequest {
         for (String piece : removedOverHeadString.split(",")) {
             splitStrings.add(piece);
         }
-        splitStrings.remove(unusedTermIndex);
+        splitStrings.remove(unusedCodeIndex);
+        splitStrings.remove(unusedTimeIndex);
+
         splitStrings.set(1, splitStrings.get(1) + degree);
 
         StringBuilder builder = new StringBuilder();
@@ -54,6 +58,6 @@ public class YahooWeatherRequest {
                 .append(Arrays.stream(e.split("="))
                 .reduce((first, second) -> second).get() + " "));
 
-        return builder.toString();
+        return builder.toString() + textBuffer;
     }
 }
