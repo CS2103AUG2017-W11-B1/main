@@ -5,25 +5,32 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import seedu.address.logic.commands.AddCommand;
+
 
 public class AutoCorrectCommandTest {
-
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
     private AutoCorrectCommand autoCorrectCommand = new AutoCorrectCommand();
+
+    private String defaultResult;
+
+    @Before
+    public void setUp() {
+        defaultResult = "Unknown Command";
+    }
 
     @Test
     /**
      *  Check for the situation where the misspelt word cannot be corrected.
      */
     public void executeCommandIsNotFoundThrowsException() {
-        final String defaultResult = "Unknown Command";
-
         /*
         * Check when the misspelt command with edit distance 1 which
         * cannot be auto-corrected against the wrong corresponding command
@@ -103,4 +110,18 @@ public class AutoCorrectCommandTest {
         assertEquals(defaultResult, correctCommandFind);
     }
 
+    @Test
+    /**
+     * Check the method will return the correct alias
+     * as the auto-correct is not meant to auto-correct alias
+     */
+    public void executeAliasCommandTest() {
+        final String inputCommandAdd = "a";
+        String correctCommandAdd = autoCorrectCommand.correctWord(inputCommandAdd);
+        assertEquals(AddCommand.COMMAND_WORD_ALIAS, correctCommandAdd);
+
+        final String inputCommandUnknown = "m";
+        String correctCommandUnknown = autoCorrectCommand.correctWord(inputCommandUnknown);
+        assertEquals(inputCommandUnknown, correctCommandUnknown);
+    }
 }
