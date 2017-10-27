@@ -41,7 +41,7 @@ public class StatusBarFooter extends UiPart<Region> {
     @FXML
     private StatusBar syncStatus;
     @FXML
-    private StatusBar saveLocationStatus;
+    private StatusBar saveWeatherStatus;
     @FXML
     private StatusBar totalPersons;
 
@@ -49,7 +49,7 @@ public class StatusBarFooter extends UiPart<Region> {
     public StatusBarFooter(int totalPersons) throws JAXBException, IOException {
         super(FXML);
         setSyncStatus(SYNC_STATUS_INITIAL);
-        setSaveLocation(getWeatherCondition());
+        setWeatherCondition(getWeatherCondition());
         setTotalPersons(totalPersons);
         registerAsAnEventHandler(this);
     }
@@ -73,8 +73,8 @@ public class StatusBarFooter extends UiPart<Region> {
         return clock;
     }
 
-    private void setSaveLocation(String location) {
-        Platform.runLater(() -> this.saveLocationStatus.setText(location));
+    private void setWeatherCondition(String condition) {
+        Platform.runLater(() -> this.saveWeatherStatus.setText(condition));
     }
 
     private void setSyncStatus(String status) {
