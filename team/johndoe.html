@@ -131,6 +131,8 @@ Format: <code>exit</code></p>
 <p>Deletes the specified tag from the address book.<br>
 Format: <code>delete tag_name</code></p>
 </div>
+<div class="sect3">
+<h4 id="description"><a class="link" href="#description">Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -151,16 +153,46 @@ same as <code>friends</code>).</p>
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="sect3">
+<h4 id="examples"><a class="link" href="#examples">Examples</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Result</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetag friends</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes the tag <code>friends</code> from all records in the address book.<br>
+</p><p class="tableblock">No action is performed if there is no tag named <code>friends</code> in address book.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="how-to-use"><a class="link" href="#how-to-use">How to use</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><code>deletetag friends</code><br>
-Deletes the tag <code>friends</code> from all records in the address book.</p>
+<p>Type <code>deletetag</code> followed by the name of the tag that you wish to delete.
+For example, we use the name "friends".</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/DeleteTagCommand-step-1.png" alt="DeleteTagCommand step 1" width="250"></span></p>
+</div>
 </li>
-</ul>
+<li>
+<p>After hitting <kbd>ENTER</kbd>, the tag with the specified name is deleted from all contacts in the address book.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/DeleteTagCommand-step-2.png" alt="DeleteTagCommand step 2" width="250"></span></p>
+</div>
+</li>
+</ol>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -233,12 +265,14 @@ Format: <code>COMMAND_WORD PARAMETERS p2/PHONE_NUMBER OTHER_PARAMETERS</code></p
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-multiple-criteria-code-multifilter-code-since-v1-1"><a class="link" href="#locating-persons-by-multiple-criteria-code-multifilter-code-since-v1-1">Locating persons by multiple criteria: <code>multifilter</code> [Since v1.1]</a></h3>
+<h3 id="multifilter-format"><a class="link" href="#multifilter-format">Locating persons by multiple criteria: <code>multifilter</code> [Since v1.1]</a></h3>
 <div class="paragraph">
 <p>Finds persons whose names, phone no., emails and addresses,<br>
 match a set of specified criteria.<br>
 Format: <code>multifilter [n/NAME] [p/PHONE NO.] [e/EMAIL] [a/ADDRESS]</code></p>
 </div>
+<div class="sect3">
+<h4 id="multifilter-description"><a class="link" href="#multifilter-description">Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -283,44 +317,76 @@ will not be matched</p>
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>mf a/gey</code><br>
-Returns contacts whose address contain <code>gey</code></p>
-</li>
-<li>
-<p><code>mf</code><br>
-Returns all contacts</p>
-</li>
-<li>
-<p><code>mf n/iv p/9 e/g a/ge</code><br>
-Returns contacts who match ALL of the following criteria:<br></p>
+<div class="sect3">
+<h4 id="examples-2"><a class="link" href="#examples-2">Examples</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Result</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mf a/gey</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns contacts whose address contain <code>gey</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mf</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns all contacts</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mf n/iv p/9 e/g a/ge</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns contacts who match ALL of the following criteria:<br>
+</p><p class="tableblock">1. Name contains <code>iv</code><br>
+2. Phone no. contains <code>9</code><br>
+3. Email contains <code>g</code><br>
+4. Address contains <code>ge</code><br>
+</p><p class="tableblock">An example of a matching contact for this command would be<br>
+<code>Ivan</code> that has phone no. <code>999</code>, email <code>g@y.com</code> and address <code>123 geylang road</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="how-to-use-2"><a class="link" href="#how-to-use-2">How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Name contains <code>iv</code></p>
+<p>Enter <code>multifilter</code> into the command bar followed by one or more format fields.
+See command format <a href="#multifilter-format">here</a>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/MultiFilterCommand-step-1.png" alt="MultiFilterCommand step 1" width="250"></span></p>
+</div>
 </li>
 <li>
-<p>Phone no. contains <code>9</code></p>
-</li>
-<li>
-<p>Email contains <code>g</code></p>
-</li>
-<li>
-<p>Address contains <code>ge</code></p>
+<p>Press the <kbd>ENTER</kbd> key. The results are displayed based on the criteria that
+you have entered.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/MultiFilterCommand-step-2.png" alt="MultiFilterCommand step 2" width="250"></span></p>
+</div>
 </li>
 </ol>
 </div>
-</li>
-</ul>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If no filters are used, all contacts will be displayed.
+</td>
+</tr>
+</table>
 </div>
-<div class="paragraph">
-<p>An example of a matching contact for this command would be<br>
-<code>Ivan</code> that has phone no. <code>999</code>, email <code>g@y.com</code> and address <code>123 geylang road</code></p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -331,12 +397,14 @@ Names of matching commands would be suggested to the user or automatically enter
  depending on how many matching commands were found.<br>
 Format: [Prefix]</p>
 </div>
+<div class="sect3">
+<h4 id="autocomplete-description"><a class="link" href="#autocomplete-description">Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The hotkey for <code>autocomplete</code> is the <code>TAB</code> key.</p>
+<p>The hotkey for <code>autocomplete</code> is <kbd>TAB</kbd>.</p>
 </li>
 <li>
 <p>The match is case-insensitive, e.g. <code>del</code> and <code>Del</code> will both match the <code>delete</code>
@@ -364,21 +432,47 @@ name for the command will be automatically filled into the command bar instead o
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>del</code> expands to <code>delete</code> in the command bar</p>
-</li>
-<li>
-<p><code>df</code> does not match with any command name. Hence, nothing is returned by address book.</p>
-</li>
-<li>
-<p><code>d</code> returns various command suggestions in the result pane. e.g.<code>delete</code> and <code>deletetag</code></p>
-</li>
-</ul>
+<div class="sect3">
+<h4 id="examples-3"><a class="link" href="#examples-3">Examples</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Result</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>del</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Expands to <code>delete</code> in the command bar</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>df</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nothing is returned by address book.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns various command suggestions in the result pane. e.g.<code>delete</code> and <code>deletetag</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="how-to-use-3"><a class="link" href="#how-to-use-3">How to use</a></h4>
+<div class="paragraph">
+<p>Enter some text into the command bar (as shown below) and press <kbd>TAB</kbd>.
+Commands, whose names start with the entered text, will be suggested.
+See <a href="#autocomplete-description">description</a> for more details on how
+ autocomplete works.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutoCompleteCommand-step-1.png" alt="AutoCompleteCommand step 1" width="800">
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -474,6 +568,8 @@ Accessible from <code>File</code> dropdown list, <code>Weather Forecast</code> m
 <p>Autofills the full syntax of the command whose name matches the user-entered text exactly.
 Format: [COMMAND_WORD]</p>
 </div>
+<div class="sect3">
+<h4 id="description-2"><a class="link" href="#description-2">Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -491,22 +587,39 @@ Format: [COMMAND_WORD]</p>
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete</code> expands to <code>delete index_number</code></p>
-</li>
-<li>
-<p><code>deletetag</code> exapnds to <code>deletetag tag_name</code></p>
-</li>
-</ul>
+<div class="sect3">
+<h4 id="examples-4"><a class="link" href="#examples-4">Examples</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Result</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">expands to <code>delete index_number</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetag</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">exapnds to <code>deletetag tag_name</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="how-to-use-4"><a class="link" href="#how-to-use-4">How to use</a></h4>
+<div class="paragraph">
+<p>To be filled in.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="keyboard-shortcut-since-v1-3"><a class="link" href="#keyboard-shortcut-since-v1-3">Keyboard shortcut [Since v1.3]</a></h3>
+<h3 id="keyboard-shortcuts-since-v1-3"><a class="link" href="#keyboard-shortcuts-since-v1-3">Keyboard shortcuts [Since v1.3]</a></h3>
 <div class="paragraph">
 <p>Keyboard shortcuts enables users to quickly get the command words without memorization.
 Format: [CONTROL] + [COMMAND_WORD_ALIAS]</p>
@@ -545,49 +658,71 @@ Format: <code>task d/DESCRIPTION priority/PRIORITY(0/1/2) on/DUE DATE(dd/MM/yyyy
 </li>
 </ul>
 </div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>=== Sound effect for system events [Since v1.3]</p>
 </div>
-<div class="sect2">
-<h3 id="tag-use-emoji-code-tag-emoji-code-coming-in-v2-0"><a class="link" href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></h3>
+<div class="paragraph">
+<p>Different sound clips will be played according to whether a command was successful or not.</p>
+</div>
+<div class="paragraph">
+<p>==== Description</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>System events are classified into 2 types: command success and command failure.</p>
+</li>
+<li>
+<p>One sound clip will be played for each of these event types.</p>
+</li>
+<li>
+<p>Currently, there is no way to disable the sound effect.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>==== Example</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Result</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete 1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Success sound clip is played if command is successful.<br>
+</p><p class="tableblock">Failure sound clip is played if command is unsuccessful.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>=== Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</p>
+</div>
 <div class="paragraph">
 <p>Input characters to represent an emoji as a tag.<br>
 Format: <code>tag :wink:</code></p>
 </div>
+<div class="paragraph">
+<p>=== Add non-English words as input [Coming in V2.0]</p>
 </div>
-<div class="sect2">
-<h3 id="add-non-english-words-as-input-coming-in-v2-0"><a class="link" href="#add-non-english-words-as-input-coming-in-v2-0">Add non-English words as input [Coming in V2.0]</a></h3>
 <div class="paragraph">
 <p>Input non-English words to be saved in the application.
 Format: CommandWrd + inputText</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="add-music-coming-in-v2-0"><a class="link" href="#add-music-coming-in-v2-0">Add music [Coming in V2.0]</a></h3>
 <div class="paragraph">
-<p>A default music folder will store serveral sounds for different events.<br></p>
+<p>=== Add weather forecast [Coming in V2.0]</p>
 </div>
-<hr>
-<div class="ulist">
-<ul>
-<li>
-<p>The music folder should be in the same level as data folder.
-<strong>*</strong></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-The application will produce a sound to notify users that the deletion is performed.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="add-weather-forecast-coming-in-v2-0"><a class="link" href="#add-weather-forecast-coming-in-v2-0">Add weather forecast [Coming in V2.0]</a></h3>
 <div class="paragraph">
 <p>Displaying weather forecast on the application according to the location detected.</p>
 </div>
@@ -600,15 +735,15 @@ The application will produce a sound to notify users that the deletion is perfor
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Add push notification [Coming in V2.0]</p>
 </div>
-<div class="sect2">
-<h3 id="add-push-notification-coming-in-v2-0"><a class="link" href="#add-push-notification-coming-in-v2-0">Add push notification [Coming in V2.0]</a></h3>
 <div class="paragraph">
 <p>The application will prompt notifications for users on the computer for the up coming tasks.</p>
 </div>
+<div class="paragraph">
+<p>=== Add keyboard shortcuts [Coming in V2.0]</p>
 </div>
-<div class="sect2">
-<h3 id="add-keyboard-shortcuts-coming-in-v2-0"><a class="link" href="#add-keyboard-shortcuts-coming-in-v2-0">Add keyboard shortcuts [Coming in V2.0]</a></h3>
 <div class="paragraph">
 <p>Provides keyboard shortcuts for commands.</p>
 </div>
@@ -623,28 +758,23 @@ The application will list all the contacts in the address book.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Saving the data</p>
 </div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
+<div class="paragraph">
+<p>== FAQ</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
+<div class="paragraph">
+<p>== Command Summary</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
-<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -711,14 +841,15 @@ e.g. <code>del</code> expands to <code>delete</code> in the command bar</p>
 <p><mark>End of Extract</mark></p>
 </div>
 <hr>
-<div class="sect3">
-<h4 id="justification"><a class="link" href="#justification">Justification</a></h4>
+<div class="paragraph">
+<p>==== Justification</p>
+</div>
 <div class="paragraph">
 <p>{Justify the need for, and the current design (i.e. external behavior) of, the feature}</p>
 </div>
+<div class="paragraph">
+<p>==== Implementation</p>
 </div>
-<div class="sect3">
-<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
 <hr>
 <div class="paragraph">
 <p><mark>Start of Extract [from: Developer Guide]</mark></p>
@@ -727,15 +858,15 @@ e.g. <code>del</code> expands to <code>delete</code> in the command bar</p>
 <p><mark>End of Extract</mark></p>
 </div>
 <hr>
+<div class="paragraph">
+<p>=== Enhancement Proposed: Add command <code>remark</code></p>
 </div>
-<div class="sect2">
-<h3 id="enhancement-proposed-add-command-code-remark-code"><a class="link" href="#enhancement-proposed-add-command-code-remark-code">Enhancement Proposed: Add command <code>remark</code></a></h3>
 <div class="paragraph">
 <p>{Explain similar to the Undo/Redo feature above.}</p>
 </div>
+<div class="paragraph">
+<p>=== Other contributions</p>
 </div>
-<div class="sect2">
-<h3 id="other-contributions"><a class="link" href="#other-contributions">Other contributions</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -746,21 +877,21 @@ e.g. <code>del</code> expands to <code>delete</code> in the command bar</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>== Project: PowerPointLabs</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">Project: PowerPointLabs</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>{Optionally (not graded), you may include other projects in your portfolio.}</p>
 </div>
 </div>
 </div>
 </div>
+</div>
+</div>
+</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-27 06:00:41 +00:00
+Last updated 2017-10-27 11:28:57 +00:00
 </div>
 </div>
 </body>

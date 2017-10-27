@@ -913,18 +913,10 @@ due to the failure of Yahoo Weather Server.<br></p>
 <div class="paragraph">
 <p>The <code>autocomplete</code> feature is implemented in <code>AutoCompleteUtil</code> class. It enables commands to be automatically suggested and
 completed for users. For example, when the user type, "sea", and press <code>TAB</code> key, the complete command <code>search</code> appears on the command line. This feature saves time for users and improves the efficiency of the application in general.
-It is invoked in the <code>LogicManager</code> class.</p>
+It is invoked in subclasses of <code>Logic</code> (e.g. <code>LogicManager</code>).</p>
 </div>
 <div class="paragraph">
-<p>This function can be used as follows:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/AutoCompleteCommand.png" alt="AutoCompleteCommand" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>The interaction between <code>AutoCompleteUtil</code> and <code>LogicManager</code> classes can be seen from the following sequence diagram:</p>
+<p>The interaction between <code>AutoCompleteUtil</code> and <code>Logic</code> classes can be seen from the following sequence diagram:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -961,8 +953,17 @@ for completeness and testing purposes.</p>
 </li>
 <li>
 <p>The logic for filtering matching commands is implemented in the <code>AutoCompleteUtil</code>
-class.</p>
+class. This is shown in the following code snippet:</p>
 </li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutoCompleteCommand.png" alt="AutoCompleteCommand" width="800">
+</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p>If the need arises to autocomplete other fields such as <code>name</code>, <code>address</code> and <code>email</code>,
 another method should be implemented in the <code>AutoCompleteUtil</code> class.</p>
@@ -1001,7 +1002,7 @@ and enables the full format of commands to be automatically filled into the comm
 It is invoked in the <code>LogicManager</code> class.</p>
 </div>
 <div class="paragraph">
-<p>This command can be illustrated by the following diagram, the prefix is prompt automatically when the key <code>Control</code> is pressed on teh keyboard.</p>
+<p>This command is illustrated in the following diagram, the prefix is prompt automatically when the key <code>Control</code> is pressed on the keyboard.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1014,8 +1015,18 @@ It is invoked in the <code>LogicManager</code> class.</p>
 <ul>
 <li>
 <p>The hotkey for launching <code>extended autocomplete</code> is indicated in the <code>CommandBox</code> class.
-Currently, the hotkey is <code>Ctrl</code>.</p>
+Currently, the hotkey is <code>Ctrl</code>. The following excerpt briefly shows how the <code>autocomplete</code> string
+is determined based on the <code>Command</code> entered by the user.</p>
 </li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/extended-auto-complete-snippet.png" alt="extended auto complete snippet" width="800">
+</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p>The <code>COMMAND_WORD</code> and <code>AUTOCOMPLETE_FORMAT</code> fields must exist in all class files that represent commands.</p>
 </li>
@@ -2962,7 +2973,7 @@ It is a contract between the component and its clients.</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-27 06:00:41 +00:00
+Last updated 2017-10-27 11:28:57 +00:00
 </div>
 </div>
 </body>
