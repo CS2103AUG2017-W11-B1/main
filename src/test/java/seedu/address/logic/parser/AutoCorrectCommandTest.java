@@ -14,17 +14,17 @@ import seedu.address.logic.commands.AddCommand;
 
 
 public class AutoCorrectCommandTest {
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
+    private AutoCorrectCommand autoCorrectCommand = new AutoCorrectCommand();
+
     private String defaultResult;
 
     @Before
     public void setUp() {
         defaultResult = "Unknown Command";
     }
-
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
-
-    private AutoCorrectCommand autoCorrectCommand = new AutoCorrectCommand();
 
     @Test
     /**
