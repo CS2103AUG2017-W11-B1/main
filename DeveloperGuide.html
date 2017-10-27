@@ -45,11 +45,11 @@
 </li>
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#undo-redo-mechanism">4.1. Undo/Redo mechanism</a></li>
+<li><a href="#undo-redo-mechanism">4.1. Undo/Redo Mechanism</a></li>
 <li><a href="#auto-correct-mechanism">4.2. Auto-Correct Mechanism</a></li>
 <li><a href="#yahoo-weather-display-mechanism">4.3. Yahoo Weather Display Mechanism</a></li>
-<li><a href="#autocomplete-a-id-autocomplete-feature-a-mechanism">4.4. Autocomplete <a id="autocomplete-feature"></a> mechanism</a></li>
-<li><a href="#extended-autocomplete-a-id-extended-autocomplete-feature-a-mechanism">4.5. Extended Autocomplete <a id="extended-autocomplete-feature"></a> mechanism</a></li>
+<li><a href="#autocomplete-a-id-autocomplete-feature-a-mechanism">4.4. Autocomplete <a id="autocomplete-feature"></a> Mechanism</a></li>
+<li><a href="#extended-autocomplete-a-id-extended-autocomplete-feature-a-mechanism">4.5. Extended Autocomplete <a id="extended-autocomplete-feature"></a> Mechanism</a></li>
 <li><a href="#delete-multiple-contacts-mechanism">4.6. Delete Multiple Contacts Mechanism</a></li>
 <li><a href="#theme-support-mechanism">4.7. Theme Support Mechanism</a></li>
 <li><a href="#logging">4.8. Logging</a></li>
@@ -595,7 +595,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-mechanism"><a class="link" href="#undo-redo-mechanism">4.1. Undo/Redo mechanism</a></h3>
+<h3 id="undo-redo-mechanism"><a class="link" href="#undo-redo-mechanism">4.1. Undo/Redo Mechanism</a></h3>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by an <code>UndoRedoStack</code>, which resides inside <code>LogicManager</code>. It supports undoing and redoing of commands that modifies the state of the address book (e.g. <code>add</code>, <code>edit</code>). Such commands will inherit from <code>UndoableCommand</code>.</p>
 </div>
@@ -901,7 +901,7 @@ due to the failure of Yahoo Weather Server.<br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="autocomplete-a-id-autocomplete-feature-a-mechanism"><a class="link" href="#autocomplete-a-id-autocomplete-feature-a-mechanism">4.4. Autocomplete <a id="autocomplete-feature"></a> mechanism</a></h3>
+<h3 id="autocomplete-a-id-autocomplete-feature-a-mechanism"><a class="link" href="#autocomplete-a-id-autocomplete-feature-a-mechanism">4.4. Autocomplete <a id="autocomplete-feature"></a> Mechanism</a></h3>
 <div class="paragraph">
 <p>The <code>autocomplete</code> feature is implemented in <code>AutoCompleteUtil</code> class. It enables commands to be automatically suggested and
 completed for users. For example, when the user type, "sea", and press <code>TAB</code> key, the complete command <code>search</code> appears on the command line. This feature saves time for users and improves the efficiency of the application in general.
@@ -987,7 +987,7 @@ another method should be implemented in the <code>AutoCompleteUtil</code> class.
 </div>
 </div>
 <div class="sect2">
-<h3 id="extended-autocomplete-a-id-extended-autocomplete-feature-a-mechanism"><a class="link" href="#extended-autocomplete-a-id-extended-autocomplete-feature-a-mechanism">4.5. Extended Autocomplete <a id="extended-autocomplete-feature"></a> mechanism</a></h3>
+<h3 id="extended-autocomplete-a-id-extended-autocomplete-feature-a-mechanism"><a class="link" href="#extended-autocomplete-a-id-extended-autocomplete-feature-a-mechanism">4.5. Extended Autocomplete <a id="extended-autocomplete-feature"></a> Mechanism</a></h3>
 <div class="paragraph">
 <p>The <code>extended autocomplete</code> feature is an add-on to the <code>autocomplete</code> feature
 and enables the full format of commands to be automatically filled into the command bar.
@@ -2957,7 +2957,7 @@ It is a contract between the component and its clients.</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-27 16:27:59 +00:00
+Last updated 2017-10-27 17:03:49 +00:00
 </div>
 </div>
 </body>
