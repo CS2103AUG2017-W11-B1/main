@@ -5,20 +5,20 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.3">
-<title>AddressBook Level 4 - Developer Guide</title>
+<title>Contact Plus - Developer Guide</title>
 <link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css">
 </head>
 <body class="article">
 <div id="header">
-<h1>AddressBook Level 4 - Developer Guide</h1>
+<h1>Contact Plus - Developer Guide</h1>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>Team W11-B1</code>      Since: <code>Sep 2107</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -46,10 +46,10 @@
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-mechanism">4.1. Undo/Redo Mechanism</a></li>
-<li><a href="#auto-correct-mechanism">4.2. Auto-Correct Mechanism</a></li>
+<li><a href="#autocorrect-mechanism">4.2. AutoCorrect Mechanism</a></li>
 <li><a href="#yahoo-weather-display-mechanism">4.3. Yahoo Weather Display Mechanism</a></li>
-<li><a href="#autocomplete-a-id-autocomplete-feature-a-mechanism">4.4. Autocomplete <a id="autocomplete-feature"></a> Mechanism</a></li>
-<li><a href="#extended-autocomplete-a-id-extended-autocomplete-feature-a-mechanism">4.5. Extended Autocomplete <a id="extended-autocomplete-feature"></a> Mechanism</a></li>
+<li><a href="#autocomplete-mechanism-a-id-autocomplete-feature-a">4.4. Autocomplete Mechanism<a id="autocomplete-feature"></a></a></li>
+<li><a href="#extended-autocomplete-mechanism-a-id-extended-autocomplete-feature-a">4.5. Extended Autocomplete Mechanism<a id="extended-autocomplete-feature"></a></a></li>
 <li><a href="#delete-multiple-contacts-mechanism">4.6. Delete Multiple Contacts Mechanism</a></li>
 <li><a href="#theme-support-mechanism">4.7. Theme Support Mechanism</a></li>
 <li><a href="#logging">4.8. Logging</a></li>
@@ -791,11 +791,11 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="auto-correct-mechanism"><a class="link" href="#auto-correct-mechanism">4.2. Auto-Correct Mechanism</a></h3>
+<h3 id="autocorrect-mechanism"><a class="link" href="#autocorrect-mechanism">4.2. AutoCorrect Mechanism</a></h3>
 <div class="paragraph">
-<p>The <code>Auto-correct</code> feature enables misspelt commands entered by users to be auto-corrected by the application,
+<p>The <code>AutoCorrect</code> feature enables misspelt commands entered by users to be autoCorrected by the application,
 and perform the correct command. The correction of the misspelt command is based on four types of prediction of the misspelt words, namely, addition of alphabets, deletion
-of alphabets, transposing of alphabets and Substitution of alphabets. For the sake of efficiency, the edit distance is limited to 2 (refer to <code>editDistance1</code>, and <code>checkMisspeltWords</code>).</p>
+of alphabets, transposing of alphabets and Substitution of alphabets. For the sake of efficiency, the <a href="#edit-distance">edit distance</a> is limited to 2 (refer to <code>editDistance1</code>, and <code>checkMisspeltWords</code>).</p>
 </div>
 <div class="paragraph">
 <p>This is an example of how the misspelt words are predicted by adding one more alphabet:</p>
@@ -813,7 +813,7 @@ of alphabets, transposing of alphabets and Substitution of alphabets. For the sa
 </div>
 </div>
 <div class="paragraph">
-<p>Auto-Correct is only utilized in <code>AddressBoonParser</code> class to check each input command, and correct the misspelt command which has an edit distance smaller than or equal to 2.
+<p>Auto-Correct is only utilized in <code>AddressBoonParser</code> class to check each input command, and correct the misspelt command which has an <a href="#edit-distance">edit distance</a> smaller than or equal to 2.
 The following diagram shows the interaction between <code>AutoCorrect</code> and <code>AddressBookParser</code> class:</p>
 </div>
 <div class="imageblock">
@@ -829,16 +829,16 @@ The following diagram shows the interaction between <code>AutoCorrect</code> and
 <p>The <code>COMMAND_WORD</code> for every available command must be added to the <code>getCommandPool</code> method for the command to be auto-corrected.</p>
 </li>
 <li>
-<p>Auto-correct will only work for mis-spelt words within edit distance of 2.</p>
+<p>AutoCorrect will only work for mis-spelt words within edit distance of 2.</p>
 </li>
 <li>
-<p>Auto-correct is based on four types of prediction of mis-spelt words, namely, addition, deletion, switch, and substitution.</p>
+<p>AutoCorrect is based on four types of prediction of misspelt words, namely, addition, deletion, switch, and substitution.</p>
 </li>
 <li>
-<p>Alias will not be auto-corrected as it consists only one or two alphabets.</p>
+<p>Alias will not be autoCorrected as it consists only one or two alphabets.</p>
 </li>
 <li>
-<p>The logic for auto-correcting commands is implemented in AutoCorrectCommand class.</p>
+<p>The logic for autoCorrecting commands is implemented in AutoCorrectCommand class.</p>
 </li>
 </ul>
 </div>
@@ -846,18 +846,18 @@ The following diagram shows the interaction between <code>AutoCorrect</code> and
 <div class="sect3">
 <h4 id="design-consideration"><a class="link" href="#design-consideration">4.2.2. Design Consideration</a></h4>
 <div class="paragraph">
-<p><strong>Aspect:</strong> Implementation of <code>Auto-correct</code><br></p>
+<p><strong>Aspect:</strong> Implementation of <code>AutoCorrect</code><br></p>
 </div>
 <div class="paragraph">
 <p><strong>Alternative 1 (current choice):</strong> Consider edit distance is 2 and the command is predicted based on the first alphabet.<br>
 <strong>Pros:</strong> The speed of searching is improved by implementing matching command by the first alphabet as the first alphabet entered by users is often correct.
 Edit distance 2 allows a considerable number of commands to be corrected by the application.<br>
-<strong>Cons:</strong> The prediction by first alphabet limits the auto-correction on those commands that have first alphabet wrong.
-Edit distance 2 does not cover many other mis-spelt commands.<br></p>
+<strong>Cons:</strong> The prediction by first alphabet limits the autoCorrection on those commands that have first alphabet wrong.
+Edit distance 2 does not cover many other misspelt commands.<br></p>
 </div>
 <div class="paragraph">
 <p><strong>Alternative 2:</strong> Read all the available file from an external file when the application begins.<br>
-<strong>Pros:</strong> It would be easier for developers to maintain the auto-correct feature as it is easier to update new commands into a file rather than in a method.<br>
+<strong>Pros:</strong> It would be easier for developers to maintain the autoCorrect feature as it is easier to update new commands into a file rather than in a method.<br>
 <strong>Cons:</strong> It would not be able to utilise <code>COMMAND_WORD</code> defined in each command class
 as it is a good practice to reused what is already defined and extend its usage (Close to modification and Open to extension Principle).<br></p>
 </div>
@@ -901,7 +901,7 @@ due to the failure of Yahoo Weather Server.<br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="autocomplete-a-id-autocomplete-feature-a-mechanism"><a class="link" href="#autocomplete-a-id-autocomplete-feature-a-mechanism">4.4. Autocomplete <a id="autocomplete-feature"></a> Mechanism</a></h3>
+<h3 id="autocomplete-mechanism-a-id-autocomplete-feature-a"><a class="link" href="#autocomplete-mechanism-a-id-autocomplete-feature-a">4.4. Autocomplete Mechanism<a id="autocomplete-feature"></a></a></h3>
 <div class="paragraph">
 <p>The <code>autocomplete</code> feature is implemented in <code>AutoCompleteUtil</code> class. It enables commands to be automatically suggested and
 completed for users. For example, when the user type, "sea", and press <code>TAB</code> key, the complete command <code>search</code> appears on the command line. This feature saves time for users and improves the efficiency of the application in general.
@@ -987,7 +987,7 @@ another method should be implemented in the <code>AutoCompleteUtil</code> class.
 </div>
 </div>
 <div class="sect2">
-<h3 id="extended-autocomplete-a-id-extended-autocomplete-feature-a-mechanism"><a class="link" href="#extended-autocomplete-a-id-extended-autocomplete-feature-a-mechanism">4.5. Extended Autocomplete <a id="extended-autocomplete-feature"></a> Mechanism</a></h3>
+<h3 id="extended-autocomplete-mechanism-a-id-extended-autocomplete-feature-a"><a class="link" href="#extended-autocomplete-mechanism-a-id-extended-autocomplete-feature-a">4.5. Extended Autocomplete Mechanism<a id="extended-autocomplete-feature"></a></a></h3>
 <div class="paragraph">
 <p>The <code>extended autocomplete</code> feature is an add-on to the <code>autocomplete</code> feature
 and enables the full format of commands to be automatically filled into the command bar.
@@ -2915,6 +2915,16 @@ through which other programs can interact with a software component.
 It is a contract between the component and its clients.</pre>
 </div>
 </div>
+<div id="edit-distance" class="paragraph">
+<p>Edit-distance</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>edit distance is a way of quantifying how dissimilar two strings (e.g., words)
+are to one another by counting the minimum number of operations required to
+transform one string into the other.</pre>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -2957,7 +2967,7 @@ It is a contract between the component and its clients.</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-27 17:03:49 +00:00
+Last updated 2017-10-28 02:04:48 +00:00
 </div>
 </div>
 </body>
