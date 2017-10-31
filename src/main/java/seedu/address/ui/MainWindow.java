@@ -140,8 +140,9 @@ public class MainWindow extends UiPart<Region> {
         StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getFilteredPersonList().size());
         statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
 
-        CommandBox commandBox = new CommandBox(logic);
+        CommandBox commandBox = new CommandBox(logic, browserPanel.getTaskDisplayed());
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
+
     }
 
     void hide() {

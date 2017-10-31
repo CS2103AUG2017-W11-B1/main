@@ -2,12 +2,7 @@ package seedu.address.logic.commands;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE_2;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -57,6 +52,27 @@ public class CommandTestUtil {
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
+
+
+    public static final String VALID_DESCRIPTION_ASSIGNMENT = "CS2103T Assignment";
+    public static final String VALID_DESCRIPTION_SHOPPING = "Go shopping";
+    public static final String VALID_PRIORITY_ASSIGNMENT = "2";
+    public static final String VALID_PRIORITY_SHOPPING = "0";
+    public static final String VALID_DUEDATE_ASSIGNMENT = "30/10/2017";
+    public static final String VALID_DUEDATE_SHOPPING = "01/01/2018";
+
+    public static final String INVALID_PRIORITY_SHOPPING = "6";
+    public static final String INVALID_DUEDATE_SHOPPING = "40/20/100";
+
+    public static final String DESCRIPTION_DESC_ASSIGNMENT = " " +  VALID_DESCRIPTION_ASSIGNMENT;
+    public static final String DESCRIPTION_DESC_SHOPPING = " " +  VALID_DESCRIPTION_SHOPPING;
+    public static final String PRIORITY_DESC_ASSIGNMENT = " " + PREFIX_PRIORITY + VALID_PRIORITY_ASSIGNMENT;
+    public static final String PRIORITY_DESC_SHOPPING = " " + PREFIX_PRIORITY + VALID_PRIORITY_SHOPPING;
+    public static final String DUEDATE_DESC_ASSIGNMENT = " " + PREFIX_DUEDATE + VALID_DUEDATE_ASSIGNMENT;
+    public static final String DUEDATE_DESC_SHOPPING = " " + PREFIX_DUEDATE + VALID_DUEDATE_SHOPPING;
+    public static final String INVALID_PRIORITY_DESC_SHOPPING = " " + PREFIX_PRIORITY + INVALID_PRIORITY_SHOPPING;
+    public static final String INVALID_DUEDATE_DESC_SHOPPING = " " + PREFIX_DUEDATE + INVALID_DUEDATE_SHOPPING;
+
 
     public static final EditCommand.EditPersonDescriptor DESC_AMY;
     public static final EditCommand.EditPersonDescriptor DESC_BOB;

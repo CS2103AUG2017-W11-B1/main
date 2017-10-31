@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.task.ReadOnlyTask;
+
+import static seedu.address.logic.commands.CommandTestUtil.*;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 
 
 /**
@@ -20,6 +25,13 @@ public class TypicalTasks {
             .withPriority("1")
             .withDueDate("01/11/2017").build();
 
+
+    // Manually added - Task's details found in {@code CommandTestUtil}
+    public static final ReadOnlyTask ASSIGNMENT = new TaskBuilder().withDescription(VALID_DESCRIPTION_ASSIGNMENT)
+            .withPriority(VALID_PRIORITY_ASSIGNMENT).withDueDate(VALID_DUEDATE_ASSIGNMENT).build();
+
+    public static final ReadOnlyTask SHOPPING = new TaskBuilder().withDescription(VALID_DESCRIPTION_SHOPPING)
+            .withPriority(VALID_PRIORITY_SHOPPING).withDueDate(VALID_DUEDATE_SHOPPING).build();
 
     private TypicalTasks() {} // prevents instantiation
 
