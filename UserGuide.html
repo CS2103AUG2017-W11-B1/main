@@ -53,10 +53,12 @@
 <li><a href="#keyboard-shortcuts-since-v1-3">3.23. Keyboard shortcuts [Since v1.3]</a></li>
 <li><a href="#add-tasks-since-v1-3">3.24. Add tasks [Since v1.3]</a></li>
 <li><a href="#sound-effect-for-system-events-since-v1-3">3.25. Sound effect for system events [Since v1.3]</a></li>
-<li><a href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">3.26. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></li>
-<li><a href="#add-non-english-words-as-input-coming-in-v2-0">3.27. Add non-English words as input [Coming in V2.0]</a></li>
-<li><a href="#add-push-notification-coming-in-v2-0">3.28. Add push notification [Coming in V2.0]</a></li>
-<li><a href="#saving-the-data">3.29. Saving the data</a></li>
+<li><a href="#edit-task-since-v1-4">3.26. Edit task [Since v1.4]</a></li>
+<li><a href="#clear-task-since-v1-4">3.27. Clear task [Since v1.4]</a></li>
+<li><a href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">3.28. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></li>
+<li><a href="#add-non-english-words-as-input-coming-in-v2-0">3.29. Add non-English words as input [Coming in V2.0]</a></li>
+<li><a href="#add-push-notification-coming-in-v2-0">3.30. Add push notification [Coming in V2.0]</a></li>
+<li><a href="#saving-the-data">3.31. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -1328,10 +1330,10 @@ Format: <code>task d/DESCRIPTION pr/PRIORITY(0/1/2) on DUE DATE(dd/MM/yyyy)</cod
 <div class="ulist">
 <ul>
 <li>
-<p><code>task d/CS2103 Assignment priority/2 on/26/10/2017</code></p>
+<p><code>task d/CS2103 Assignment pr/2 on 26/10/2017</code></p>
 </li>
 <li>
-<p><code>task d/Finish Teammate Feedback Session priority/0 on/01/11/2017</code></p>
+<p><code>task d/Finish Teammate Feedback Session pr/0 on 01/11/2017</code></p>
 </li>
 </ul>
 </div>
@@ -1383,27 +1385,149 @@ Format: <code>task d/DESCRIPTION pr/PRIORITY(0/1/2) on DUE DATE(dd/MM/yyyy)</cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="tag-use-emoji-code-tag-emoji-code-coming-in-v2-0"><a class="link" href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">3.26. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></h3>
+<h3 id="edit-task-since-v1-4"><a class="link" href="#edit-task-since-v1-4">3.26. Edit task [Since v1.4]</a></h3>
+<div class="paragraph">
+<p>To edit your tasks, first you should learn how to list task. Listing tasks is for you to get the index of the task you indent to edit.
+Then use "edittask" command with its index to edit the task. The format is as follows:
+Format: <code>edittask INDEX d/DESCRIPTION priority/PRIORITY(0/1/2) on DUE DATE(dd/MM/yyyy)</code></p>
+</div>
+<div class="sect3">
+<h4 id="description-4"><a class="link" href="#description-4">3.26.1. Description</a></h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Index mist be a positive number.</p>
+</li>
+<li>
+<p>At least one field (either priority or due date) has to be specified.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="how-to-use-9"><a class="link" href="#how-to-use-9">3.26.2. How to use</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter the command, the index of the task, and the details you wish to edit with its prefix. Please refer to the image below for an example:</p>
+<div class="paragraph">
+<p><span class="image"><img src="images/EditTaskStep1.png" alt="EditTaskStep1" width="300"></span></p>
+</div>
+</li>
+<li>
+<p>The application will give you conformation information displayed. Please refer to the image below for an example:</p>
+<div class="paragraph">
+<p><span class="image"><img src="images/EditTaskStep2.png" alt="EditTaskStep2" width="300"></span></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-2"><a class="link" href="#example-2">3.26.3. Example</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Result</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edittask 1 prioroty/1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The application will display "Edited task: " + the details of the task you just edited.<br></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clear-task-since-v1-4"><a class="link" href="#clear-task-since-v1-4">3.27. Clear task [Since v1.4]</a></h3>
+<div class="paragraph">
+<p>To clear your task list, "cleartask" is the command to use. The format is as follows:
+Format: <code>cleartask</code></p>
+</div>
+<div class="sect3">
+<h4 id="description-5"><a class="link" href="#description-5">3.27.1. Description</a></h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>you can perform command <code>undo</code>, if you accidentally clear your task list.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="how-to-use-10"><a class="link" href="#how-to-use-10">3.27.2. How to use</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter the command "cleartask". Please refer to the image below for an example:</p>
+<div class="paragraph">
+<p><span class="image"><img src="images/ClearTaskStep1.png" alt="ClearTaskStep1" width="300"></span></p>
+</div>
+</li>
+<li>
+<p>Confirmation message will be displayed. Please refer to the image below for an example:</p>
+<div class="paragraph">
+<p><span class="image"><img src="images/ClearTaskStep2.png" alt="ClearTaskStep2" width="300"></span></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-3"><a class="link" href="#example-3">3.27.3. Example</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Result</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cleartask</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Task list has been cleared." will be displayed on the window<br></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tag-use-emoji-code-tag-emoji-code-coming-in-v2-0"><a class="link" href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">3.28. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></h3>
 <div class="paragraph">
 <p>Input characters to represent an emoji as a tag.<br>
 Format: <code>tag :wink:</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-non-english-words-as-input-coming-in-v2-0"><a class="link" href="#add-non-english-words-as-input-coming-in-v2-0">3.27. Add non-English words as input [Coming in V2.0]</a></h3>
+<h3 id="add-non-english-words-as-input-coming-in-v2-0"><a class="link" href="#add-non-english-words-as-input-coming-in-v2-0">3.29. Add non-English words as input [Coming in V2.0]</a></h3>
 <div class="paragraph">
 <p>Input non-English words to be saved in the application.
 Format: CommandWrd + inputText</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-push-notification-coming-in-v2-0"><a class="link" href="#add-push-notification-coming-in-v2-0">3.28. Add push notification [Coming in V2.0]</a></h3>
+<h3 id="add-push-notification-coming-in-v2-0"><a class="link" href="#add-push-notification-coming-in-v2-0">3.30. Add push notification [Coming in V2.0]</a></h3>
 <div class="paragraph">
 <p>The application will prompt notifications for users on the computer for the up coming tasks.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.29. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.31. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -1604,7 +1728,7 @@ e.g. <code>del</code> expands to <code>delete</code> in the command bar</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-31 18:44:19 +00:00
+Last updated 2017-10-31 23:45:09 +00:00
 </div>
 </div>
 </body>

@@ -52,8 +52,9 @@
 <li><a href="#extended-autocomplete-mechanism-a-id-extended-autocomplete-feature-a">4.5. Extended Autocomplete Mechanism<a id="extended-autocomplete-feature"></a></a></li>
 <li><a href="#delete-multiple-contacts-mechanism">4.6. Delete Multiple Contacts Mechanism</a></li>
 <li><a href="#theme-support-mechanism">4.7. Theme Support Mechanism</a></li>
-<li><a href="#logging">4.8. Logging</a></li>
-<li><a href="#configuration">4.9. Configuration</a></li>
+<li><a href="#add-task-mechanism">4.8. Add Task Mechanism</a></li>
+<li><a href="#logging">4.9. Logging</a></li>
+<li><a href="#configuration">4.10. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1193,7 +1194,56 @@ in respective models.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.8. Logging</a></h3>
+<h3 id="add-task-mechanism"><a class="link" href="#add-task-mechanism">4.8. Add Task Mechanism</a></h3>
+<div class="paragraph">
+<p>The 'add task' feature is facilitated by AddTaskCommand class. It allows users to add tasks into the address book
+with a description, the level of priority as well as the due date. The tasks added will be shown on the stickies
+in the address book.</p>
+</div>
+<div class="paragraph">
+<p>The command word for adding a task is <code>task</code>. When users key in the command word <code>task</code>, together with valid
+description, priority and due date, the execute() function in the LogicManager class will be called, which will
+pass the value of the command string into <code>parseCommand()</code> function in the <code>AddressBookParser</code> class.
+As a result, <code>AddTaskCommandParser</code> will be returned to separate the command string into three different parts
+- <code>Description</code>, <code>Priority</code> and <code>dueDate</code>. These three fields will be passed to <code>Task</code> class to check if they
+are valid. If yes, a new <code>Task</code> object will be returned and used to call <code>AddTaskCommand</code> class. Eventually,
+the <code>executeUndoableCommand()</code> function in <code>AddTaskCommand</code> class will be called and returns a <code>CommandResult</code> object to display once a task is successfully added.</p>
+</div>
+<div class="sect3">
+<h4 id="prerequisites-dependencies-6"><a class="link" href="#prerequisites-dependencies-6">4.8.1. Prerequisites/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The format of date must follow <code>dd/MM/yyyy</code>.</p>
+</li>
+<li>
+<p>The range of priority can only be from 0 to 2. Any other values will be deemed as invalid.</p>
+</li>
+<li>
+<p>Currently, all fields must be included in the command and cannot be omitted.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.8.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of AddTaskCommand<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> Use stickies so that newly added tasks will show up in the stickies.<br>
+<strong>Pros:</strong> Tasks are easy to identify.<br>
+<strong>Cons:</strong> When too many tasks are added, it is difficult to display all the tasks.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Use a task list similar to the person list in the address book.<br>
+<strong>Pros:</strong> Easy to display and look through all the tasks.<br>
+<strong>Cons:</strong> Less attractive.<br></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">4.9. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
@@ -1231,7 +1281,7 @@ in respective models.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration"><a class="link" href="#configuration">4.9. Configuration</a></h3>
+<h3 id="configuration"><a class="link" href="#configuration">4.10. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2910,7 +2960,7 @@ originally defined by GeoPlanet and now assigned by Yahoo!, that identifies any 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-31 18:44:19 +00:00
+Last updated 2017-10-31 23:45:09 +00:00
 </div>
 </div>
 </body>
