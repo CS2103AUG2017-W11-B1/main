@@ -26,4 +26,44 @@
     <tags>criminal</tags>
     <tags>family</tags>
     <tags>friends</tags>
+    <tasks>
+        <description>d/CS Assignment</description>
+        <priority>2</priority>
+        <duedate>25/10/2017</duedate>
+    </tasks>
+    <tasks>
+        <description>d/complete cs2103</description>
+        <priority>1</priority>
+        <duedate>26/10/2017</duedate>
+    </tasks>
+    <tasks>
+        <description>d/I hate CS2103</description>
+        <priority>0</priority>
+        <duedate>27/10/2017</duedate>
+    </tasks>
+    <tasks>
+        <description>d/i hate cs2103</description>
+        <priority>1</priority>
+        <duedate>27/10/2017</duedate>
+    </tasks>
+    <tasks>
+        <description>d/CS assignment</description>
+        <priority>2</priority>
+        <duedate>28/10/2017</duedate>
+    </tasks>
+    <tasks>
+        <description>d/cs2103 sucks</description>
+        <priority>1</priority>
+        <duedate>29/10/2017</duedate>
+    </tasks>
+    <tasks>
+        <description>d/Please WORK</description>
+        <priority>2</priority>
+        <duedate>30/10/2017</duedate>
+    </tasks>
+    <tasks>
+        <description>d/I LOVE SHUOYANG</description>
+        <priority>2</priority>
+        <duedate>01/11/2017</duedate>
+    </tasks>
 </addressbook>

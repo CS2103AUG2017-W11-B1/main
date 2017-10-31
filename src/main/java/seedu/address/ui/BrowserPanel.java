@@ -97,12 +97,9 @@ public class BrowserPanel extends UiPart<Region> {
      */
     public void displayOnTextArea() {
         try {
-            Writer output;
+
             String curr = System.getProperty("user.dir");
-            output = new BufferedWriter(new FileWriter(curr + "/data/Hello.txt", true));
-            output.append("\r\n");
-            Scanner s = new Scanner(new File(curr + "/taskData1.txt")).useDelimiter
-                    (Pattern.compile("\\r\\n"));
+            Scanner s = new Scanner(new File(curr + "/taskData1.txt"));
 
             while (s.hasNext()) {
 
@@ -113,9 +110,8 @@ public class BrowserPanel extends UiPart<Region> {
 
         } catch (FileNotFoundException ex) {
             System.err.println(ex);
-        } catch (IOException e) {
-            System.err.println(e);
         }
+
     }
 
     @Subscribe

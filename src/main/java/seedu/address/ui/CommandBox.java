@@ -1,9 +1,9 @@
 package seedu.address.ui;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.logging.Logger;
 
 import javax.sound.sampled.LineUnavailableException;
@@ -252,9 +252,25 @@ public class CommandBox extends UiPart<Region> {
 
                 System.out.println("=====================" + lastTaskFieldOutput.toString());
                 try {
-                    PrintWriter out = new PrintWriter("taskData1.txt");
-                    out.println(lastTaskFieldOutput.toString());
+
+                    PrintWriter out = new PrintWriter(new FileOutputStream(new File("taskData1.txt"), true));
+                    out.append(lastTaskFieldOutput.toString());
                     out.close();
+                    try {
+
+                        String curr = System.getProperty("user.dir");
+                        Scanner s = new Scanner(new File(curr + "/taskData1.txt"));
+
+                        while (s.hasNext()) {
+
+                            taskDisplayed.appendText(s.next() + "\n");
+
+                        }
+
+
+                    } catch (FileNotFoundException ex) {
+                        System.err.println(ex);
+                    }
 
                 } catch (IOException ioe) {
                     throw new ParseException(ioe.getMessage(), ioe);

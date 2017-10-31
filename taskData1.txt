@@ -1,0 +1,9 @@
+Task added: 
+ Description: d/complete cs2103 Priority 1 DueDate 26/10/2017
+
+Task added: 
+ Description: d/cs2103 sucks Priority 1 DueDate 29/10/2017
+Task added: 
+ Description: d/Please WORK Priority 2 DueDate 30/10/2017
+Task added: 
+ Description: d/I LOVE SHUOYANG Priority 2 DueDate 01/11/2017

@@ -44,9 +44,9 @@ public class XmlTaskDataStorage implements TaskStorage {
             return Optional.empty();
         }
 
-        ReadOnlyTask taskDataOptional = XmlFileStorage.loadDataFromSaveFile(new File(filePath));
+        //ReadOnlyTask taskDataOptional = XmlFileStorage.loadDataFromSaveFile(new File(filePath));
 
-        return Optional.of(addressBookOptional);
+        return null;
 
     }
 
