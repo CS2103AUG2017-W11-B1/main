@@ -1110,14 +1110,33 @@ Auto-correct is not designed for alias.
 <div class="sect2">
 <h3 id="delete-multiple-persons"><a class="link" href="#delete-multiple-persons">3.20. Deleting multiple persons : <code>delete index/another index/&#8230;&#8203;</code> [Since v1.2]</a></h3>
 <div class="paragraph">
-<p>Deletes multiple persons from the address book.<br>
+<p>This command allows you to delete multiple persons from the address book in a
+single command line.<br>
 Format: <code>delete INDEX/INDEX</code></p>
 </div>
-<div class="paragraph">
-<p>Example:</p>
+<div class="sect3">
+<h4 id="example"><a class="link" href="#example">3.20.1. Example</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Result</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete 1/2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes the first and second contact listed</p></td>
+</tr>
+</tbody>
+</table>
 </div>
+<div class="sect3">
+<h4 id="how-to-use-7"><a class="link" href="#how-to-use-7">3.20.2. How to use</a></h4>
 <div class="paragraph">
-<p>1) Enter <code>list</code> into the Command Box<br></p>
+<p>1) Enter <code>list</code> into the Command Box. You will see all the added contacts below.<br></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1125,7 +1144,7 @@ Format: <code>delete INDEX/INDEX</code></p>
 </div>
 </div>
 <div class="paragraph">
-<p>2) <code>delete 2/3</code> deletes the 2nd and 3rd person from the address book.<br></p>
+<p>2) Enter <code>delete 2/3</code> to delete the 2nd and 3rd person from the address book.<br></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1133,11 +1152,13 @@ Format: <code>delete INDEX/INDEX</code></p>
 </div>
 </div>
 <div class="paragraph">
-<p>3) Display the confirmation for deletion</p>
+<p>3) You can now see that the 2nd and 3rd contact has been deleted and the<br>
+result is displayed to show the confirmation of deletion.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/deleteMultiplePerson3.png" alt="deleteMultiplePerson3" width="500">
+</div>
 </div>
 </div>
 </div>
@@ -1148,7 +1169,7 @@ Format: <code>delete INDEX/INDEX</code></p>
 Accessible from <kbd>File</kbd> dropdown list, <kbd>Weather Forecast</kbd> menu item.</p>
 </div>
 <div class="sect3">
-<h4 id="how-to-use-7"><a class="link" href="#how-to-use-7">3.21.1. How to use</a></h4>
+<h4 id="how-to-use-8"><a class="link" href="#how-to-use-8">3.21.1. How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1221,7 +1242,7 @@ Format: [COMMAND_WORD]</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="how-to-use-8"><a class="link" href="#how-to-use-8">3.22.3. How to use</a></h4>
+<h4 id="how-to-use-9"><a class="link" href="#how-to-use-9">3.22.3. How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1366,7 +1387,7 @@ previously using the <code><a href="#addtask">task</a></code> command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="how-to-use-9"><a class="link" href="#how-to-use-9">3.25.2. How to use</a></h4>
+<h4 id="how-to-use-10"><a class="link" href="#how-to-use-10">3.25.2. How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1459,7 +1480,7 @@ Otherwise, an error message is shown.</p></td>
 </table>
 </div>
 <div class="sect3">
-<h4 id="how-to-use-10"><a class="link" href="#how-to-use-10">3.26.3. How to use</a></h4>
+<h4 id="how-to-use-11"><a class="link" href="#how-to-use-11">3.26.3. How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1520,7 +1541,7 @@ the address book.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example"><a class="link" href="#example">3.27.2. Example</a></h4>
+<h4 id="example-2"><a class="link" href="#example-2">3.27.2. Example</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1565,7 +1586,7 @@ Format: <code>edittask INDEX d/DESCRIPTION priority/PRIORITY(0/1/2) on DUE DATE(
 </div>
 </div>
 <div class="sect3">
-<h4 id="how-to-use-11"><a class="link" href="#how-to-use-11">3.28.2. How to use</a></h4>
+<h4 id="how-to-use-12"><a class="link" href="#how-to-use-12">3.28.2. How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1584,7 +1605,7 @@ Format: <code>edittask INDEX d/DESCRIPTION priority/PRIORITY(0/1/2) on DUE DATE(
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-2"><a class="link" href="#example-2">3.28.3. Example</a></h4>
+<h4 id="example-3"><a class="link" href="#example-3">3.28.3. Example</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1624,7 +1645,7 @@ Format: <code>cleartask</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="how-to-use-12"><a class="link" href="#how-to-use-12">3.29.2. How to use</a></h4>
+<h4 id="how-to-use-13"><a class="link" href="#how-to-use-13">3.29.2. How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1643,7 +1664,7 @@ Format: <code>cleartask</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-3"><a class="link" href="#example-3">3.29.3. Example</a></h4>
+<h4 id="example-4"><a class="link" href="#example-4">3.29.3. Example</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1884,7 +1905,7 @@ e.g. <code>del</code> expands to <code>delete</code> in the command box</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-01 03:50:18 +00:00
+Last updated 2017-11-01 06:33:20 +00:00
 </div>
 </div>
 </body>
