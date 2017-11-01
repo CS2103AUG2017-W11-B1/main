@@ -51,14 +51,16 @@
 <li><a href="#viewing-weather-forecast-since-v1-3">3.21. Viewing Weather Forecast [Since v1.3]</a></li>
 <li><a href="#extended-autocomplete-for-commands-since-v1-3">3.22. Extended autocomplete for commands [Since v1.3]</a></li>
 <li><a href="#keyboard-shortcuts-since-v1-3">3.23. Keyboard shortcuts [Since v1.3]</a></li>
-<li><a href="#add-tasks-since-v1-3">3.24. Add tasks [Since v1.3]</a></li>
-<li><a href="#sound-effect-for-system-events-since-v1-3">3.25. Sound effect for system events [Since v1.3]</a></li>
-<li><a href="#edit-task-since-v1-4">3.26. Edit task [Since v1.4]</a></li>
-<li><a href="#clear-task-since-v1-4">3.27. Clear task [Since v1.4]</a></li>
-<li><a href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">3.28. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></li>
-<li><a href="#add-non-english-words-as-input-coming-in-v2-0">3.29. Add non-English words as input [Coming in V2.0]</a></li>
-<li><a href="#add-push-notification-coming-in-v2-0">3.30. Add push notification [Coming in V2.0]</a></li>
-<li><a href="#saving-the-data">3.31. Saving the data</a></li>
+<li><a href="#addtask">3.24. Add tasks [Since v1.3]</a></li>
+<li><a href="#listtask">3.25. List tasks [Since v1.4]</a></li>
+<li><a href="#deletetasks">3.26. Delete tasks : <code>deletetask</code></a></li>
+<li><a href="#sound-effect-for-system-events-since-v1-3">3.27. Sound effect for system events [Since v1.3]</a></li>
+<li><a href="#edit-task-since-v1-4">3.28. Edit task [Since v1.4]</a></li>
+<li><a href="#clear-task-since-v1-4">3.29. Clear task [Since v1.4]</a></li>
+<li><a href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">3.30. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></li>
+<li><a href="#add-non-english-words-as-input-coming-in-v2-0">3.31. Add non-English words as input [Coming in V2.0]</a></li>
+<li><a href="#add-push-notification-coming-in-v2-0">3.32. Add push notification [Coming in V2.0]</a></li>
+<li><a href="#saving-the-data">3.33. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -355,7 +357,7 @@ Keyboard shortcut: <kbd>control</kbd> + <kbd>d</kbd>/<kbd>D</kbd></p>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
-<p>This function deletes <strong>ONE</strong> person only. For deleting multple persons simultaneouly,
+<p>This function deletes <strong>ONE</strong> person only. For deleting multple persons simultaneously,
 see section <a href="#delete-multiple-persons">3.19</a>.</p>
 </li>
 </ul>
@@ -891,7 +893,7 @@ will not be matched</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Enter <code>multifilter</code> into the command bar followed by one or more format fields.
+<p>Enter <code>multifilter</code> into the command box followed by one or more format fields.
 See command format <a href="#multifilter-format">here</a>.</p>
 <div class="paragraph">
 <p><span class="image"><img src="images/MultiFilterCommand-step-1.png" alt="MultiFilterCommand step 1" width="250"></span></p>
@@ -961,7 +963,7 @@ commands will be displayed as a suggestion in the result pane.</p>
 </li>
 <li>
 <p>If there is only one matching command, then the full
-name for the command will be automatically filled into the command bar instead of being displayed in the result pane.</p>
+name for the command will be automatically filled into the command box instead of being displayed in the result pane.</p>
 </li>
 </ul>
 </div>
@@ -982,7 +984,7 @@ name for the command will be automatically filled into the command bar instead o
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>del</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Expands to <code>delete</code> in the command bar</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Expands to <code>delete</code> in the command box</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>df</code></p></td>
@@ -998,7 +1000,7 @@ name for the command will be automatically filled into the command bar instead o
 <div class="sect3">
 <h4 id="how-to-use-5"><a class="link" href="#how-to-use-5">3.18.3. How to use</a></h4>
 <div class="paragraph">
-<p>Enter some text into the command bar (as shown below) and press <kbd>TAB</kbd>.
+<p>Enter some text into the command box (as shown below) and press <kbd>TAB</kbd>.
 Commands, whose names start with the entered text, will be suggested.
 See <a href="#autocomplete-description">description</a> for more details on how
  autocomplete works.</p>
@@ -1172,7 +1174,7 @@ Accessible from <kbd>File</kbd> dropdown list, <kbd>Weather Forecast</kbd> menu 
 <div class="sect2">
 <h3 id="extended-autocomplete-for-commands-since-v1-3"><a class="link" href="#extended-autocomplete-for-commands-since-v1-3">3.22. Extended autocomplete for commands [Since v1.3]</a></h3>
 <div class="paragraph">
-<p>Autofills the full syntax of the command whose name matches the user-entered text exactly.
+<p>Autofills the full syntax of the command whose name matches the user-entered text exactly.<br>
 Format: [COMMAND_WORD]</p>
 </div>
 <div class="sect3">
@@ -1229,7 +1231,7 @@ Format: [COMMAND_WORD]</p>
 </div>
 </li>
 <li>
-<p>Press the <kbd>Ctrl</kbd> key. The command&#8217;s format is automatically filled in the command bar for you.
+<p>Press the <kbd>Ctrl</kbd> key. The command&#8217;s format is automatically filled in the command box for you.
 The help text, which explains how to use the command, is also displayed in the result pane.</p>
 <div class="paragraph">
 <p><span class="image"><img src="images/extended-autocomplete-step-2.png" alt="extended autocomplete step 2" width="1000"></span></p>
@@ -1319,7 +1321,7 @@ The keyborad shortcuts are created only for commands with heavy text input or fr
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-tasks-since-v1-3"><a class="link" href="#add-tasks-since-v1-3">3.24. Add tasks [Since v1.3]</a></h3>
+<h3 id="addtask"><a class="link" href="#addtask">3.24. Add tasks [Since v1.3]</a></h3>
 <div class="paragraph">
 <p>Add personal tasks into the address book.
 Format: <code>task d/DESCRIPTION pr/PRIORITY(0/1/2) on DUE DATE(dd/MM/yyyy)</code></p>
@@ -1339,12 +1341,166 @@ Format: <code>task d/DESCRIPTION pr/PRIORITY(0/1/2) on DUE DATE(dd/MM/yyyy)</cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="sound-effect-for-system-events-since-v1-3"><a class="link" href="#sound-effect-for-system-events-since-v1-3">3.25. Sound effect for system events [Since v1.3]</a></h3>
+<h3 id="listtask"><a class="link" href="#listtask">3.25. List tasks [Since v1.4]</a></h3>
+<div class="paragraph">
+<p>This command enables you to retrieve personal tasks that you have stored in
+the address book.<br>
+Format: <code>listtask</code></p>
+</div>
+<div class="sect3">
+<h4 id="description-3"><a class="link" href="#description-3">3.25.1. Description</a></h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>listtask</code> command shows all tasks that you have created in the address book
+previously using the <code><a href="#addtask">task</a></code> command.</p>
+</li>
+<li>
+<p>Tasks are listed in the order that you have created them.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="how-to-use-9"><a class="link" href="#how-to-use-9">3.25.2. How to use</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click on the <code>Tasks</code> tab.</p>
+<div class="paragraph">
+<p><span class="image"><img src="images/tasks-tab-pre.png" alt="tasks tab pre" width="800"></span></p>
+</div>
+</li>
+<li>
+<p>The user interface now shows a yellow text-area.</p>
+<div class="paragraph">
+<p><span class="image"><img src="images/tasks-tab-post.png" alt="tasks tab post" width="800"></span></p>
+</div>
+</li>
+<li>
+<p>Type <code>listtask</code> into the command box.</p>
+<div class="paragraph">
+<p><span class="image"><img src="images/listtask-command-pre.png" alt="listtask command pre" width="400"></span></p>
+</div>
+</li>
+<li>
+<p>Hit the <kbd>ENTER</kbd> key. All your tasks will be displayed in the
+yellow text-area as shown below.</p>
+<div class="paragraph">
+<p><span class="image"><img src="images/listtask-command-post.png" alt="listtask command post" width="800"></span></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deletetasks"><a class="link" href="#deletetasks">3.26. Delete tasks : <code>deletetask</code></a></h3>
+<div class="paragraph">
+<p>This command enables you to remove unecessary/unwanted tasks
+from the address book.<br>
+Command Format: <code>deletetask INDEX_1/INDEX_2/INDEX_3 &#8230;&#8203;</code><br></p>
+</div>
+<div class="sect3">
+<h4 id="description-4"><a class="link" href="#description-4">3.26.1. Description</a></h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>INDEX_1</code>, <code>INDEX_2</code>, etc. refer to the task numbers that
+are shown when you use the <a href="#listtask"><code>listtask</code></a> command to show your tasks
+(See <a href="#how-to-use-deletetasks">how to use</a> for an example).</p>
+</li>
+<li>
+<p><code>INDEX_1</code>, <code>INDEX_2</code>, etc. must be positive integers
+(i.e. they must be whole numbers greater than 0 such as 1, 2, 3, etc.).</p>
+</li>
+<li>
+<p>This command deletes multple tasks simultaneously (i.e. it deletes tasks with the task numbers
+that you have specified when typing the <code>deletetask</code> command).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="examples-7"><a class="link" href="#examples-7">3.26.2. Examples</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Your input</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Result</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetask</code> 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes task no. 1 from the address book.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetask</code> 1/2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes tasks no. 1 and 2 from the address book
+(if there are at least 2 tasks in the address book).
+Otherwise, an error message is shown.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetask</code> -1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An error message is shown as task numbers cannot be negative.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="how-to-use-10"><a class="link" href="#how-to-use-10">3.26.3. How to use</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Use the <code><a href="#listtask">listtask</a></code> command to display all your tasks.
+Note the number of the tasks that you wish to delete.</p>
+<div class="paragraph">
+<p><span class="image"><img src="images/deletetask-listtask.png" alt="deletetask listtask" width="800"></span></p>
+</div>
+</li>
+<li>
+<p>Type <code>deletetask INDEX_1/INDEX_2 &#8230;&#8203;</code> into the command box.</p>
+<div class="paragraph">
+<p><span class="image"><img src="images/deletetask-command-pre.png" alt="deletetask command pre" width="400"></span></p>
+</div>
+</li>
+<li>
+<p>Hit the <kbd>ENTER</kbd> key. You will see the following success
+message if the command was successful.</p>
+<div class="paragraph">
+<p><span class="image"><img src="images/deletetask-command-post.png" alt="deletetask command post" width="400"></span></p>
+</div>
+</li>
+<li>
+<p>If you use the <code><a href="#listtask">listtask</a></code> command again, observe that
+the tasks that you have specified in the previous step have been deleted from
+the address book.</p>
+<div class="paragraph">
+<p><span class="image"><img src="images/deletetask-proof.png" alt="deletetask proof" width="800"></span></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sound-effect-for-system-events-since-v1-3"><a class="link" href="#sound-effect-for-system-events-since-v1-3">3.27. Sound effect for system events [Since v1.3]</a></h3>
 <div class="paragraph">
 <p>Different sound clips will be played according to whether a command was successful or not.</p>
 </div>
 <div class="sect3">
-<h4 id="description-3"><a class="link" href="#description-3">3.25.1. Description</a></h4>
+<h4 id="description-5"><a class="link" href="#description-5">3.27.1. Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -1364,7 +1520,7 @@ Format: <code>task d/DESCRIPTION pr/PRIORITY(0/1/2) on DUE DATE(dd/MM/yyyy)</cod
 </div>
 </div>
 <div class="sect3">
-<h4 id="example"><a class="link" href="#example">3.25.2. Example</a></h4>
+<h4 id="example"><a class="link" href="#example">3.27.2. Example</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1385,14 +1541,14 @@ Format: <code>task d/DESCRIPTION pr/PRIORITY(0/1/2) on DUE DATE(dd/MM/yyyy)</cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-task-since-v1-4"><a class="link" href="#edit-task-since-v1-4">3.26. Edit task [Since v1.4]</a></h3>
+<h3 id="edit-task-since-v1-4"><a class="link" href="#edit-task-since-v1-4">3.28. Edit task [Since v1.4]</a></h3>
 <div class="paragraph">
 <p>To edit your tasks, first you should learn how to list task. Listing tasks is for you to get the index of the task you indent to edit.
 Then use "edittask" command with its index to edit the task. The format is as follows:
 Format: <code>edittask INDEX d/DESCRIPTION priority/PRIORITY(0/1/2) on DUE DATE(dd/MM/yyyy)</code></p>
 </div>
 <div class="sect3">
-<h4 id="description-4"><a class="link" href="#description-4">3.26.1. Description</a></h4>
+<h4 id="description-6"><a class="link" href="#description-6">3.28.1. Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -1409,7 +1565,7 @@ Format: <code>edittask INDEX d/DESCRIPTION priority/PRIORITY(0/1/2) on DUE DATE(
 </div>
 </div>
 <div class="sect3">
-<h4 id="how-to-use-9"><a class="link" href="#how-to-use-9">3.26.2. How to use</a></h4>
+<h4 id="how-to-use-11"><a class="link" href="#how-to-use-11">3.28.2. How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1428,7 +1584,7 @@ Format: <code>edittask INDEX d/DESCRIPTION priority/PRIORITY(0/1/2) on DUE DATE(
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-2"><a class="link" href="#example-2">3.26.3. Example</a></h4>
+<h4 id="example-2"><a class="link" href="#example-2">3.28.3. Example</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1448,13 +1604,13 @@ Format: <code>edittask INDEX d/DESCRIPTION priority/PRIORITY(0/1/2) on DUE DATE(
 </div>
 </div>
 <div class="sect2">
-<h3 id="clear-task-since-v1-4"><a class="link" href="#clear-task-since-v1-4">3.27. Clear task [Since v1.4]</a></h3>
+<h3 id="clear-task-since-v1-4"><a class="link" href="#clear-task-since-v1-4">3.29. Clear task [Since v1.4]</a></h3>
 <div class="paragraph">
 <p>To clear your task list, "cleartask" is the command to use. The format is as follows:
 Format: <code>cleartask</code></p>
 </div>
 <div class="sect3">
-<h4 id="description-5"><a class="link" href="#description-5">3.27.1. Description</a></h4>
+<h4 id="description-7"><a class="link" href="#description-7">3.29.1. Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -1468,7 +1624,7 @@ Format: <code>cleartask</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="how-to-use-10"><a class="link" href="#how-to-use-10">3.27.2. How to use</a></h4>
+<h4 id="how-to-use-12"><a class="link" href="#how-to-use-12">3.29.2. How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1487,7 +1643,7 @@ Format: <code>cleartask</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-3"><a class="link" href="#example-3">3.27.3. Example</a></h4>
+<h4 id="example-3"><a class="link" href="#example-3">3.29.3. Example</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1507,27 +1663,27 @@ Format: <code>cleartask</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="tag-use-emoji-code-tag-emoji-code-coming-in-v2-0"><a class="link" href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">3.28. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></h3>
+<h3 id="tag-use-emoji-code-tag-emoji-code-coming-in-v2-0"><a class="link" href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">3.30. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></h3>
 <div class="paragraph">
 <p>Input characters to represent an emoji as a tag.<br>
 Format: <code>tag :wink:</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-non-english-words-as-input-coming-in-v2-0"><a class="link" href="#add-non-english-words-as-input-coming-in-v2-0">3.29. Add non-English words as input [Coming in V2.0]</a></h3>
+<h3 id="add-non-english-words-as-input-coming-in-v2-0"><a class="link" href="#add-non-english-words-as-input-coming-in-v2-0">3.31. Add non-English words as input [Coming in V2.0]</a></h3>
 <div class="paragraph">
 <p>Input non-English words to be saved in the application.
 Format: CommandWrd + inputText</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-push-notification-coming-in-v2-0"><a class="link" href="#add-push-notification-coming-in-v2-0">3.30. Add push notification [Coming in V2.0]</a></h3>
+<h3 id="add-push-notification-coming-in-v2-0"><a class="link" href="#add-push-notification-coming-in-v2-0">3.32. Add push notification [Coming in V2.0]</a></h3>
 <div class="paragraph">
 <p>The application will prompt notifications for users on the computer for the up coming tasks.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.31. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.33. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -1609,7 +1765,7 @@ e.g. <code>delete 2/3</code></p>
 </li>
 <li>
 <p><strong>AutoCompele</strong>: <code>[Prefix]</code><br>
-e.g. <code>del</code> expands to <code>delete</code> in the command bar</p>
+e.g. <code>del</code> expands to <code>delete</code> in the command box</p>
 </li>
 </ul>
 </div>
@@ -1728,7 +1884,7 @@ e.g. <code>del</code> expands to <code>delete</code> in the command bar</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-01 02:05:01 +00:00
+Last updated 2017-11-01 02:43:44 +00:00
 </div>
 </div>
 </body>
