@@ -140,7 +140,7 @@ public class EditTaskCommandIntegrationTest {
      * but smaller than size of address book
      */
     @Test
-    public void execute_invalidPersonIndexFilteredList_failure() {
+    public void executeInvalidPersonIndexFilteredListFailure() {
         showFirstTaskOnly(model);
         Index outOfBoundIndex = INDEX_SECOND_TASK.get(0);
         // ensures that outOfBoundIndex is still in bounds of address book list
@@ -165,7 +165,7 @@ public class EditTaskCommandIntegrationTest {
         assertTrue(standardCommand.equals(standardCommand));
 
         // null -> returns false
-        assertFalse(standardCommand.equals(null));
+        assertFalse(standardCommand.equals(""));
 
         // different types -> returns false
         assertFalse(standardCommand.equals(new ClearTaskCommand()));
