@@ -165,7 +165,7 @@ public class EditTaskCommandIntegrationTest {
         assertTrue(standardCommand.equals(standardCommand));
 
         // null -> returns false
-        assertFalse(standardCommand.equals(""));
+        assertFalse("".equals(standardCommand));
 
         // different types -> returns false
         assertFalse(standardCommand.equals(new ClearTaskCommand()));
