@@ -26,4 +26,7 @@ public class TypicalIndexes {
             Arrays.asList(Index.fromOneBased(3)));
     public static final ArrayList<Index> INDEX_MULTIPLE_TASK = new ArrayList<Index>(
             Arrays.asList(Index.fromOneBased(1), Index.fromOneBased(2)));
+
+
+    public static final Index INDEX_FIRST_THEME = Index.fromOneBased(1);
 }

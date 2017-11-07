@@ -21,6 +21,7 @@ import seedu.address.logic.commands.MultiFilterCommand;
 import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.SearchCommand;
 import seedu.address.logic.commands.SelectCommand;
+import seedu.address.logic.commands.SwitchThemeCommand;
 import seedu.address.logic.commands.UndoCommand;
 
 
@@ -30,7 +31,7 @@ import seedu.address.logic.commands.UndoCommand;
  */
 public class AutoCorrectCommand {
     //By default, no message should be sent to user.
-    private static String messageToUser = "";
+    private String messageToUser = "";
 
     public void setMessageToUser(String messageToUser) {
         this.messageToUser = messageToUser;
@@ -186,6 +187,7 @@ public class AutoCorrectCommand {
         commandPool.add(SelectCommand.COMMAND_WORD_ALIAS);
         commandPool.add(DeleteTagCommand.COMMAND_WORD_ALIAS);
         commandPool.add(MultiFilterCommand.COMMAND_WORD_ALIAS);
+        commandPool.add(SwitchThemeCommand.COMMAND_WORD);
 
         return commandPool;
     }

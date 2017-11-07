@@ -1,5 +1,5 @@
 # zhangshuoyang
-###### \java\seedu\address\logic\commands\AddCommandTest.java
+###### /java/seedu/address/logic/commands/AddCommandTest.java
 ``` java
         @Override
         public void addTask(ReadOnlyTask task) throws DuplicateTaskException {
@@ -31,7 +31,7 @@
     }
 
 ```
-###### \java\seedu\address\logic\commands\AddTaskCommandIntegrationTest.java
+###### /java/seedu/address/logic/commands/AddTaskCommandIntegrationTest.java
 ``` java
 /**
  * Contains integraion tests (interactin with the Model) for {@code AddTaskCommand}.
@@ -72,7 +72,7 @@ public class AddTaskCommandIntegrationTest {
     }
 }
 ```
-###### \java\seedu\address\logic\commands\AddTaskCommandTest.java
+###### /java/seedu/address/logic/commands/AddTaskCommandTest.java
 ``` java
 public class AddTaskCommandTest {
 
@@ -266,7 +266,7 @@ public class AddTaskCommandTest {
 }
 
 ```
-###### \java\seedu\address\logic\commands\CommandTestUtil.java
+###### /java/seedu/address/logic/commands/CommandTestUtil.java
 ``` java
     public static final String VALID_DESCRIPTION_ASSIGNMENT = "CS2103T Assignment";
     public static final String VALID_DESCRIPTION_SHOPPING = "Go shopping";
@@ -288,7 +288,56 @@ public class AddTaskCommandTest {
     public static final String INVALID_DUEDATE_DESC_SHOPPING = " " + PREFIX_DUEDATE + INVALID_DUEDATE_SHOPPING;
 
 ```
-###### \java\seedu\address\testutil\AddressBookBuilder.java
+###### /java/seedu/address/logic/commands/SwitchThemeCommandTest.java
+``` java
+public class SwitchThemeCommandTest {
+
+    @Test
+    public void equals() {
+
+        SwitchThemeCommand stc = new SwitchThemeCommand(INDEX_FIRST_THEME);
+        Index indexOne = Index.fromOneBased(1);
+        Index indexTwo = Index.fromOneBased(2);
+
+        // same object -> returns true
+        assertTrue(stc.equals(stc));
+
+        // same value -> returns true
+        assertTrue(stc.equals(new SwitchThemeCommand(indexOne)));
+
+        // different type -> returns false
+        assertFalse(stc.equals(1));
+
+        // different value -> returns false
+        assertFalse(stc.equals(new SwitchThemeCommand(indexTwo)));
+
+        // null -> returns false
+        assertFalse(stc == (null));
+
+    }
+
+
+}
+```
+###### /java/seedu/address/logic/parser/SwitchThemeCommandParserTest.java
+``` java
+public class SwitchThemeCommandParserTest {
+
+    private SwitchThemeCommandParser parser = new SwitchThemeCommandParser();
+
+    @Test
+    public void parseValidArgsReturnsSwitchThemeCommand() {
+        assertParseSuccess(parser, "1", new SwitchThemeCommand(INDEX_FIRST_THEME));
+    }
+
+    @Test
+    public void parseInvalidArgsThrowsParseException() {
+        assertParseFailure(parser, "a", String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                SwitchThemeCommand.MESSAGE_USAGE));
+    }
+}
+```
+###### /java/seedu/address/testutil/AddressBookBuilder.java
 ``` java
     /**
      * Adds a new {@code Task} to the AddressBook that we are building.
@@ -307,7 +356,7 @@ public class AddTaskCommandTest {
     }
 }
 ```
-###### \java\seedu\address\testutil\TaskBuilder.java
+###### /java/seedu/address/testutil/TaskBuilder.java
 ``` java
 /**
  * A utility class to help with buidling Task objects.
@@ -379,7 +428,7 @@ public class TaskBuilder {
     }
 }
 ```
-###### \java\seedu\address\testutil\TaskUtil.java
+###### /java/seedu/address/testutil/TaskUtil.java
 ``` java
 /**
  * A utility class for Task.
@@ -405,7 +454,7 @@ public class TaskUtil {
     }
 }
 ```
-###### \java\seedu\address\testutil\TypicalTasks.java
+###### /java/seedu/address/testutil/TypicalTasks.java
 ``` java
 /**
  * A utility class containing a list of {@code Task} objects to be used in tests.
@@ -437,7 +486,7 @@ public class TypicalTasks {
 }
 
 ```
-###### \java\systemtests\AddTaskCommandSystemTest.java
+###### /java/systemtests/AddTaskCommandSystemTest.java
 ``` java
 public class AddTaskCommandSystemTest extends AddressBookSystemTest {
 

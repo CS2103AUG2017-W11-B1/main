@@ -9,15 +9,14 @@
 <?import javafx.scene.web.WebView?>
 
 <!--@@chairz -->
-
-<StackPane prefHeight="374.0" prefWidth="817.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane prefHeight="374.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@TabView.css" tabClosingPolicy="UNAVAILABLE">
      <tabs>
        <Tab text="Map">
          <content>
            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                   <children>
-                    <WebView fx:id="browser" />
+                    <WebView fx:id="browser" layoutX="7.0" layoutY="9.0" prefHeight="601.0" prefWidth="840.0" AnchorPane.leftAnchor="7.0" AnchorPane.topAnchor="9.0" />
                   </children>
                </AnchorPane>
          </content>

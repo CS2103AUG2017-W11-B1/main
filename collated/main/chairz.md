@@ -1,5 +1,5 @@
 # chairz
-###### \java\seedu\address\logic\commands\Command.java
+###### /java/seedu/address/logic/commands/Command.java
 ``` java
     /**
      *  Initialises the mapofTaskCommandsToFormat when it is being used for the first time
@@ -14,7 +14,7 @@
     }
 
 ```
-###### \java\seedu\address\logic\commands\DeleteCommand.java
+###### /java/seedu/address/logic/commands/DeleteCommand.java
 ``` java
         for (Index i : targetIndex) {
             if (i.getZeroBased() >= lastShownList.size()) {
@@ -57,7 +57,7 @@
     }
 }
 ```
-###### \java\seedu\address\logic\parser\DeleteCommandParser.java
+###### /java/seedu/address/logic/parser/DeleteCommandParser.java
 ``` java
     /**
      * Parses the given {@code String} of arguments in the context of the DeleteCommand
@@ -82,7 +82,7 @@
 
 }
 ```
-###### \java\seedu\address\model\person\Person.java
+###### /java/seedu/address/model/person/Person.java
 ``` java
     public Person(Name name, Phone phone, Phone2 phone2, Email email, Address address, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, address, tags);
@@ -118,7 +118,7 @@
     }
 
 ```
-###### \java\seedu\address\model\person\Person.java
+###### /java/seedu/address/model/person/Person.java
 ``` java
     public void setPhone2(Phone2 phone2) {
         this.phone2.set(requireNonNull(phone2));
@@ -130,7 +130,7 @@
     }
 
 ```
-###### \java\seedu\address\model\person\Person.java
+###### /java/seedu/address/model/person/Person.java
 ``` java
     @Override
     public Phone2 getPhone2() {
@@ -223,7 +223,7 @@
 
 }
 ```
-###### \java\seedu\address\model\person\Phone2.java
+###### /java/seedu/address/model/person/Phone2.java
 ``` java
 /**
  * Represents a Person's second phone number in the address book.
@@ -286,7 +286,7 @@ public class Phone2 {
 
 }
 ```
-###### \java\seedu\address\model\task\Description.java
+###### /java/seedu/address/model/task/Description.java
 ``` java
 /**
  * Represents a Tag in the address book.
@@ -340,7 +340,7 @@ public class Description {
     }
 }
 ```
-###### \java\seedu\address\model\task\Name.java
+###### /java/seedu/address/model/task/Name.java
 ``` java
 /**
  * Represents a task name in the address book.
@@ -401,7 +401,7 @@ public class Name {
 }
 
 ```
-###### \java\seedu\address\model\task\Priority.java
+###### /java/seedu/address/model/task/Priority.java
 ``` java
 /**
  * Represents the priority level of a task in the address book.
@@ -452,7 +452,7 @@ public class Priority {
     }
 }
 ```
-###### \java\seedu\address\model\task\Task.java
+###### /java/seedu/address/model/task/Task.java
 ``` java
 /**
  * Represents a Task in the address book.
@@ -566,7 +566,7 @@ public class Task implements ReadOnlyTask {
 
 }
 ```
-###### \java\seedu\address\ui\BrowserPanel.java
+###### /java/seedu/address/ui/BrowserPanel.java
 ``` java
     private void displayTask() {
         taskDisplayed.setStyle("-fx-font-family: monospace; -fx-background-color: #f8ecc2; -fx-font-size: 22px;");
@@ -607,7 +607,7 @@ public class Task implements ReadOnlyTask {
     }
 
 ```
-###### \java\seedu\address\ui\BrowserPanel.java
+###### /java/seedu/address/ui/BrowserPanel.java
 ``` java
     /**
      *  Read and Display the task on the Text Area
@@ -635,7 +635,7 @@ public class Task implements ReadOnlyTask {
     }
 }
 ```
-###### \java\seedu\address\ui\CommandBox.java
+###### /java/seedu/address/ui/CommandBox.java
 ``` java
     /**
      * Change the tab based on command input, (@code keyEvent)
@@ -661,7 +661,7 @@ public class Task implements ReadOnlyTask {
     @FXML
     private void handleKeyPress(KeyEvent keyEvent) {
 ```
-###### \resources\view\TabView.css
+###### /resources/view/TabView.css
 ``` css
 
 .tab-pane .tab-header-area .tab-header-background {

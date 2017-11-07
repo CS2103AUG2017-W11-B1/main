@@ -1,5 +1,5 @@
 # chairz
-###### \java\seedu\address\logic\commands\DeleteCommandTest.java
+###### /java/seedu/address/logic/commands/DeleteCommandTest.java
 ``` java
     @Test
     public void executeValidMultipleIndexUnfilteredListSuccess() throws Exception {
@@ -112,7 +112,7 @@
     }
 }
 ```
-###### \java\seedu\address\model\person\Phone2Test.java
+###### /java/seedu/address/model/person/Phone2Test.java
 ``` java
     public void isValidPhone() {
         // invalid phone numbers
@@ -131,7 +131,7 @@
     }
 }
 ```
-###### \java\seedu\address\model\task\DescriptionTest.java
+###### /java/seedu/address/model/task/DescriptionTest.java
 ``` java
     @Test
     public void isValidDescription() {
@@ -148,7 +148,7 @@
     }
 }
 ```
-###### \java\seedu\address\model\task\NameTest.java
+###### /java/seedu/address/model/task/NameTest.java
 ``` java
     @Test
     public void isValidName() {
@@ -167,7 +167,7 @@
     }
 }
 ```
-###### \java\seedu\address\model\task\PriorityTest.java
+###### /java/seedu/address/model/task/PriorityTest.java
 ``` java
     @Test
     public void isValidPriority() {

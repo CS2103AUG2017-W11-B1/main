@@ -12,9 +12,11 @@ public class UserPrefs {
     private GuiSettings guiSettings;
     private String addressBookFilePath = "data/addressbook.xml";
     private String addressBookName = "MyAddressBook";
+    private String addressBookTheme = "DarkTheme.css";
 
     public UserPrefs() {
         this.setGuiSettings(500, 500, 0, 0);
+
     }
 
     public GuiSettings getGuiSettings() {
@@ -39,13 +41,21 @@ public class UserPrefs {
     }
 
 
-
     public String getAddressBookName() {
         return addressBookName;
     }
 
     public void setAddressBookName(String addressBookName) {
         this.addressBookName = addressBookName;
+    }
+
+
+    public String getAddressBookTheme() {
+        return addressBookTheme;
+    }
+
+    public void setAddressBookTheme(String addressBookTheme) {
+        this.addressBookTheme = addressBookTheme;
     }
 
     @Override
@@ -61,12 +71,14 @@ public class UserPrefs {
 
         return Objects.equals(guiSettings, o.guiSettings)
                 && Objects.equals(addressBookFilePath, o.addressBookFilePath)
-                && Objects.equals(addressBookName, o.addressBookName);
+                && Objects.equals(addressBookName, o.addressBookName)
+                && Objects.equals(addressBookTheme, o.addressBookTheme);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(guiSettings, addressBookFilePath, addressBookName);
+
+        return Objects.hash(guiSettings, addressBookFilePath, addressBookName, addressBookTheme);
     }
 
     @Override
@@ -76,6 +88,7 @@ public class UserPrefs {
         sb.append("\nLocal data file location : " + addressBookFilePath);
 
         sb.append("\nAddressBook name : " + addressBookName);
+        sb.append("\nAddressBook theme : " + addressBookTheme);
         return sb.toString();
     }
 

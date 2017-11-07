@@ -1,5 +1,5 @@
 # lancehaoh
-###### \java\seedu\address\commons\util\AudioUtilTest.java
+###### /java/seedu/address/commons/util/AudioUtilTest.java
 ``` java
     @Test
     public void checkFileNotFoundThrowsIoException() {
@@ -18,7 +18,7 @@
     }
 
 ```
-###### \java\seedu\address\commons\util\AudioUtilTest.java
+###### /java/seedu/address/commons/util/AudioUtilTest.java
 ``` java
     @Test
     public void checkInvalidFileFormatUnsupportedAudioFileException() {
@@ -38,7 +38,7 @@
     }
 }
 ```
-###### \java\seedu\address\logic\commands\CommandTest.java
+###### /java/seedu/address/logic/commands/CommandTest.java
 ``` java
     @Test
     /**
@@ -51,7 +51,7 @@
     }
 
 ```
-###### \java\seedu\address\logic\commands\CommandTest.java
+###### /java/seedu/address/logic/commands/CommandTest.java
 ``` java
     @Test
     /**
@@ -68,7 +68,7 @@
     }
 }
 ```
-###### \java\seedu\address\logic\commands\DeleteTagCommandTest.java
+###### /java/seedu/address/logic/commands/DeleteTagCommandTest.java
 ``` java
     @Test
     /**
@@ -95,7 +95,7 @@
     }
 
 ```
-###### \java\seedu\address\logic\commands\DeleteTagCommandTest.java
+###### /java/seedu/address/logic/commands/DeleteTagCommandTest.java
 ``` java
     @Test
     /**
@@ -123,7 +123,44 @@
     }
 
 ```
-###### \java\seedu\address\logic\commands\DeleteTagCommandTest.java
+###### /java/seedu/address/logic/commands/DeleteTagCommandTest.java
+``` java
+    @Test
+    /**
+     * Tests if delete tag command can be successfully autocorrected
+     * up to maximum of 2 character substitutions
+     *
+     */
+    public void executeDeleteTagCommandWrongSpellingCommandCorrected() {
+        Command commandWithOneSubstitution = parseWronglySpeltDeleteTagCommand("deletatag friends");
+
+        // Verify if command was parse to search command
+        assertTrue(commandWithOneSubstitution instanceof DeleteTagCommand);
+
+        // Check if able to execute this search command
+        try {
+            commandWithOneSubstitution.setData(model, new CommandHistory(), new UndoRedoStack());
+            commandWithOneSubstitution.execute();
+        } catch (CommandException ce) {
+            ce.printStackTrace();
+        }
+
+        Command commandWithTwoSubstitution = parseWronglySpeltDeleteTagCommand("deletetgf friends");
+
+        // Verify if command was parse to search command
+        assertTrue(commandWithTwoSubstitution instanceof DeleteTagCommand);
+
+        // Check if able to execute this search command
+        try {
+            commandWithTwoSubstitution.setData(model, new CommandHistory(), new UndoRedoStack());
+            commandWithTwoSubstitution.execute();
+        } catch (CommandException ce) {
+            ce.printStackTrace();
+        }
+    }
+
+```
+###### /java/seedu/address/logic/commands/DeleteTagCommandTest.java
 ``` java
     /**
      * Helper method to autocorrect wrongly spelt commands
@@ -141,7 +178,7 @@
     }
 
 ```
-###### \java\seedu\address\logic\commands\DeleteTagCommandTest.java
+###### /java/seedu/address/logic/commands/DeleteTagCommandTest.java
 ``` java
     /**
      * Returns a {@code DeleteTagCommand} with the parameter {@code tag_name}.
@@ -171,7 +208,7 @@
     }
 }
 ```
-###### \java\seedu\address\logic\commands\DeleteTaskCommandTest.java
+###### /java/seedu/address/logic/commands/DeleteTaskCommandTest.java
 ``` java
     @Test
     public void executeValidMultipleIndexUnfilteredListSuccess() throws Exception {
@@ -191,7 +228,7 @@
     }
 
 ```
-###### \java\seedu\address\logic\commands\DeleteTaskCommandTest.java
+###### /java/seedu/address/logic/commands/DeleteTaskCommandTest.java
 ``` java
     @Test
     public void executeValidSingleIndexUnfilteredListSuccess() throws Exception {
@@ -208,7 +245,7 @@
     }
 
 ```
-###### \java\seedu\address\logic\commands\DeleteTaskCommandTest.java
+###### /java/seedu/address/logic/commands/DeleteTaskCommandTest.java
 ``` java
     @Test
     public void executeInvalidIndexUnfilteredListThrowsCommandException() throws Exception {
@@ -220,7 +257,7 @@
     }
 
 ```
-###### \java\seedu\address\logic\commands\DeleteTaskCommandTest.java
+###### /java/seedu/address/logic/commands/DeleteTaskCommandTest.java
 ``` java
     @Test
     public void executeValidIndexFilteredListSuccess() throws Exception {
@@ -239,7 +276,7 @@
     }
 
 ```
-###### \java\seedu\address\logic\commands\DeleteTaskCommandTest.java
+###### /java/seedu/address/logic/commands/DeleteTaskCommandTest.java
 ``` java
     @Test
     public void executeInvalidIndexFilteredListThrowsCommandException() {
@@ -256,7 +293,7 @@
     }
 
 ```
-###### \java\seedu\address\logic\commands\DeleteTaskCommandTest.java
+###### /java/seedu/address/logic/commands/DeleteTaskCommandTest.java
 ``` java
     @Test
     public void equals() {
@@ -278,7 +315,7 @@
     }
 
 ```
-###### \java\seedu\address\logic\commands\DeleteTaskCommandTest.java
+###### /java/seedu/address/logic/commands/DeleteTaskCommandTest.java
 ``` java
     /**
      * Returns a {@code DeleteTaskCommand} with the parameter {@code index}.
@@ -290,7 +327,7 @@
     }
 
 ```
-###### \java\seedu\address\logic\commands\DeleteTaskCommandTest.java
+###### /java/seedu/address/logic/commands/DeleteTaskCommandTest.java
 ``` java
     /**
      * Updates {@code model}'s filtered list to show no one.
@@ -302,7 +339,7 @@
     }
 }
 ```
-###### \java\seedu\address\logic\commands\ListTaskCommandTest.java
+###### /java/seedu/address/logic/commands/ListTaskCommandTest.java
 ``` java
     @Test
     public void execute_listIsNotFiltered_showsSameList() {
@@ -310,7 +347,7 @@
     }
 
 ```
-###### \java\seedu\address\logic\commands\ListTaskCommandTest.java
+###### /java/seedu/address/logic/commands/ListTaskCommandTest.java
 ``` java
     @Test
     public void execute_listIsFiltered_showsEverything() {
@@ -319,7 +356,7 @@
     }
 }
 ```
-###### \java\seedu\address\logic\commands\MultiFilterCommandTest.java
+###### /java/seedu/address/logic/commands/MultiFilterCommandTest.java
 ``` java
     @Test
     /**
@@ -401,7 +438,7 @@
     }
 
 ```
-###### \java\seedu\address\logic\commands\MultiFilterCommandTest.java
+###### /java/seedu/address/logic/commands/MultiFilterCommandTest.java
 ``` java
     @Test
     /**
@@ -421,7 +458,7 @@
     }
 
 ```
-###### \java\seedu\address\logic\commands\MultiFilterCommandTest.java
+###### /java/seedu/address/logic/commands/MultiFilterCommandTest.java
 ``` java
     @Test
     /**
@@ -462,7 +499,7 @@
     }
 
 ```
-###### \java\seedu\address\logic\commands\MultiFilterCommandTest.java
+###### /java/seedu/address/logic/commands/MultiFilterCommandTest.java
 ``` java
     @Test
     /**
@@ -478,7 +515,7 @@
     }
 
 ```
-###### \java\seedu\address\logic\commands\MultiFilterCommandTest.java
+###### /java/seedu/address/logic/commands/MultiFilterCommandTest.java
 ``` java
     @Test
     /**
@@ -497,7 +534,7 @@
     }
 
 ```
-###### \java\seedu\address\logic\commands\MultiFilterCommandTest.java
+###### /java/seedu/address/logic/commands/MultiFilterCommandTest.java
 ``` java
     @Test
     /**
@@ -515,7 +552,7 @@
     }
 
 ```
-###### \java\seedu\address\logic\commands\MultiFilterCommandTest.java
+###### /java/seedu/address/logic/commands/MultiFilterCommandTest.java
 ``` java
     @Test
     /**
@@ -534,7 +571,7 @@
     }
 
 ```
-###### \java\seedu\address\logic\commands\MultiFilterCommandTest.java
+###### /java/seedu/address/logic/commands/MultiFilterCommandTest.java
 ``` java
     /**
      * Parses {@code userInput} into a {@code FindCommand}.
@@ -556,7 +593,7 @@
     }
 
 ```
-###### \java\seedu\address\logic\commands\MultiFilterCommandTest.java
+###### /java/seedu/address/logic/commands/MultiFilterCommandTest.java
 ``` java
     /**
      * Asserts that {@code command} is successfully executed, and<br>
@@ -577,7 +614,43 @@
     }
 }
 ```
-###### \java\seedu\address\logic\commands\SearchCommandTest.java
+###### /java/seedu/address/logic/commands/SearchCommandTest.java
+``` java
+    @Test
+    /**
+     * Tests if search command can be successfully autocorrected
+     * up to maximum of 2 character substitutions
+     */
+    public void executeSearchCommandWrongSpellingCommandCorrected() {
+        Command commandWithOneSubstitution = parseWronglySpeltSearchCommand("searcf friends");
+
+        // Verify if command was parse to search command
+        assertTrue(commandWithOneSubstitution instanceof SearchCommand);
+
+        // Check if able to execute this search command
+        try {
+            commandWithOneSubstitution.setData(model, new CommandHistory(), new UndoRedoStack());
+            commandWithOneSubstitution.execute();
+        } catch (CommandException ce) {
+            ce.printStackTrace();
+        }
+
+        Command commandWithTwoSubstitution = parseWronglySpeltSearchCommand("searf friends");
+
+        // Verify if command was parse to search command
+        assertTrue(commandWithTwoSubstitution instanceof SearchCommand);
+
+        // Check if able to execute this search command
+        try {
+            commandWithTwoSubstitution.setData(model, new CommandHistory(), new UndoRedoStack());
+            commandWithTwoSubstitution.execute();
+        } catch (CommandException ce) {
+            ce.printStackTrace();
+        }
+    }
+
+```
+###### /java/seedu/address/logic/commands/SearchCommandTest.java
 ``` java
     /**
      * Helper method to autocorrect wrongly spelt commands
@@ -622,7 +695,7 @@
 
 }
 ```
-###### \java\seedu\address\logic\parser\MultiFilterCommandParserTest.java
+###### /java/seedu/address/logic/parser/MultiFilterCommandParserTest.java
 ``` java
     @Test
     public void parse_allFieldsPresent_success() {
@@ -721,7 +794,7 @@
     }
 
 ```
-###### \java\seedu\address\logic\parser\MultiFilterCommandParserTest.java
+###### /java/seedu/address/logic/parser/MultiFilterCommandParserTest.java
 ``` java
     @Test
     /**
@@ -824,7 +897,7 @@
     }
 
 ```
-###### \java\seedu\address\logic\parser\MultiFilterCommandParserTest.java
+###### /java/seedu/address/logic/parser/MultiFilterCommandParserTest.java
 ``` java
     @Test
     /**

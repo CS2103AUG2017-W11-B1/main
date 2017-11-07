@@ -296,6 +296,7 @@ public class CommandBox extends UiPart<Region> {
                 lastTaskFieldOutput.append(listOfTask.get(listOfTask.size() - 1).toString());
                 lastTaskFieldOutput.append("\n");
                 PrintWriter out = new PrintWriter(new FileOutputStream(new File("taskData1.txt"), true));
+                out.println(lastTaskFieldOutput.toString());
                 out.close();
 
                 try {

@@ -61,7 +61,7 @@ public class SearchCommandTest {
         assertCommandSuccess(command, expectedMessage, Collections.emptyList());
     }
 
-    //@@author lancehoah
+    //@@author lancehaoh
     @Test
     /**
      * Tests if search command can be successfully autocorrected

@@ -80,7 +80,7 @@ public class DeleteTagCommandTest {
         assertEquals(oldListOfTags, newListOfTags);
     }
 
-    //@@author lancehoah
+    //@@author lancehaoh
     @Test
     /**
      * Tests if delete tag command can be successfully autocorrected
