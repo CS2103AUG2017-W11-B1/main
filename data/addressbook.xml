@@ -64,11 +64,6 @@
     <tags>friends</tags>
     <tasks>
         <description>d/CS2101</description>
-        <priority>2</priority>
-        <duedate>26/10/2017</duedate>
-    </tasks>
-    <tasks>
-        <description>d/CS2101</description>
         <priority>1</priority>
         <duedate>26/10/2017</duedate>
     </tasks>
@@ -89,11 +84,6 @@
     </tasks>
     <tasks>
         <description>d/CS Assignment</description>
-        <priority>2</priority>
-        <duedate>29/10/2017</duedate>
-    </tasks>
-    <tasks>
-        <description>d/Test</description>
         <priority>2</priority>
         <duedate>29/10/2017</duedate>
     </tasks>
