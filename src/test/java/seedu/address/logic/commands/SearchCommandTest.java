@@ -23,10 +23,10 @@ import seedu.address.model.UserPrefs;
 import seedu.address.model.tag.NameWithTagContainsKeywordsPredicate;
 import seedu.address.model.tag.Tag;
 
-
 public class SearchCommandTest {
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
+    //@@author JYL123
     @Test
     public void equals() {
         NameWithTagContainsKeywordsPredicate firstPredicate =
@@ -54,6 +54,7 @@ public class SearchCommandTest {
         assertFalse(searchFriendsCommand.equals(searchOwesMoneyCommand));
     }
 
+    //@@author JYL123
     @Test
     public void execute_zeroKeywords_noPersonFound() {
         String expectedMessage = "Unknown tag";
@@ -111,6 +112,7 @@ public class SearchCommandTest {
         return parsedCommand;
     }
 
+    //@@author JYL123
     /**
      * Parses {@code userInput} into a {@code SearchCommand}.
      */
@@ -122,6 +124,7 @@ public class SearchCommandTest {
     }
 
 
+    //@@author JYL123
     /**
      * Asserts that {@code command} is successfully executed, and<br>
      *     - the command feedback is equal to {@code expectedMessage}<br>
