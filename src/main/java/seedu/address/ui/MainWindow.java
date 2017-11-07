@@ -210,15 +210,6 @@ public class MainWindow extends UiPart<Region> {
         helpWindow.show();
     }
 
-    /**
-     * Opens the weather forecast window.
-     */
-    @FXML
-    public void handleWeather() throws JAXBException, IOException {
-        WeatherWindow weatherWindow = new WeatherWindow();
-        weatherWindow.show();
-    }
-
     //@@author zhangshuoyang
     /**
      * Set theme based on user's input index

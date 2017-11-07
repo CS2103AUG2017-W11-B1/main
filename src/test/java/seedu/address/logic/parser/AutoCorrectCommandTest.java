@@ -16,7 +16,7 @@ import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.SearchCommand;
 import seedu.address.logic.commands.UndoCommand;
 
-
+//@@author JYL123
 public class AutoCorrectCommandTest {
     @Rule
     public ExpectedException thrown = ExpectedException.none();

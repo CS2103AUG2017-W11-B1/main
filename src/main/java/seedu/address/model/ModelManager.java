@@ -141,6 +141,7 @@ public class ModelManager extends ComponentManager implements Model {
         }
     }
 
+    //@@author JYL123
     @Override
     public ObservableList<ReadOnlyPerson> getFilteredPersonByTagList() {
         return FXCollections.unmodifiableObservableList(filteredPersonsByTags);
@@ -163,6 +164,7 @@ public class ModelManager extends ComponentManager implements Model {
         filteredPersons.setPredicate(predicate);
     }
 
+    //@@author JYL123
     @Override
     public void updateFilteredPersonByTagList(Predicate<ReadOnlyPerson> predicate) {
         requireNonNull(predicate);

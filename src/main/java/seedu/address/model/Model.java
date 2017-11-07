@@ -88,12 +88,14 @@ public interface Model {
 
     void clearFiltersOnPersonList();
 
+    //@@author JYL123
     /**
      * Updates the filter of the filtered tag list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPersonByTagList(Predicate<ReadOnlyPerson> predicate);
 
+    //@@author JYL123
     /** Returns an unmodifiable view of the filtered tag list */
     ObservableList<ReadOnlyPerson> getFilteredPersonByTagList();
 
