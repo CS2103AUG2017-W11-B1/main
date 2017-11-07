@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.3">
+<title>Jiayao Li - Project Portfolio</title>
+<link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Jiayao Li - Project Portfolio</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="project-contact-plus"><a class="link" href="#project-contact-plus">Project: Contact Plus</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Contact Plus is a command-line based contact-managing application used for busy students on campus as well as anyone who needs a contact-managing application. In addition to the management of contacts, this application '
+can be served as a task-managing application as well. The user interacts with this application using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 6 kLoC.</p>
+</div>
+<div class="paragraph">
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103AUG2017-W11-B1/main/blob/master/collated/main/JYL123.md">Functional code</a>] [<a href="https://github.com/CS2103AUG2017-W11-B1/main/blob/master/collated/test/JYL123.md">Test code</a>] {give links to collated code files}</p>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added-alias-for-commands-since-v1-0"><a class="link" href="#enhancement-added-alias-for-commands-since-v1-0">Enhancement Added: Alias for commands [Since v1.0]</a></h3>
+<div class="sect3">
+<h4 id="external-behavior"><a class="link" href="#external-behavior">External behavior</a></h4>
+<hr>
+<div class="paragraph">
+<p>A list of available alias is as follows:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Commands</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alias</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>e</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>st</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>search</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sh</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetag</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dt</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>multifilter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mf</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>l</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>h</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>u</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r</code><br></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="how-to-use"><a class="link" href="#how-to-use">How to use</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The image below demonstrates the example of using <code>a</code>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/AddCommandAlias.png" alt="AddCommandAlias" width="500"></span></p>
+</div>
+</li>
+<li>
+<p>The image below demonstrates the result of the above alias.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/AddCommandAliasResult.png" alt="AddCommandAliasResult" width="500"></span></p>
+</div>
+</li>
+</ol>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="justification"><a class="link" href="#justification">Justification</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Inevitably the command could be too long for users to memorise. With alias, the need for memorization of each command word is saved. Alias allows
+users to simply memorize one or two alphabets to perform the feature on the application.</p>
+</li>
+<li>
+<p>Alias is much shorter than its corresponding command words, therefore it is more efficient to use than to use the command. Alias helps users to use the application efficiently.</p>
+</li>
+<li>
+<p>As alias improves efficiency and saves users from heavy memorization. It contributes to user-friendliness aspect of this application.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<hr>
+<div class="paragraph">
+<p>Alias Mechanism</p>
+</div>
+<div class="paragraph">
+<p>Alias in this application is a single alphabet or two alphabets. This purpose of alias is to save the labor of typing the full corresponding command words, therefore it is more efficient and easier to use.
+The alias mechanism is implemented in <code>AddressBookParser</code>, and its logic can be described by the following activity diagram:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/AliasActivityDiagram.png" alt="AliasActivityDiagram" width="500"></span></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>AddressBookParser</code> receives the input argument from users.<br></p>
+</li>
+<li>
+<p>If the input argument is an alias, the corresponding command instance is created and command is processed.<br></p>
+</li>
+<li>
+<p>If the input argument is a command word, the command instance is created, and the command is processed.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The code snippet is shown as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">case</span> AddCommand.COMMAND_WORD: <span class="keyword">case</span> AddCommand.COMMAND_WORD_ALIAS:
+            <span class="keyword">return</span> <span class="keyword">new</span> AddCommandParser().parse(arguments);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">Design Consideration</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Length of an alias
+<strong>Alternative 1 (current choice):</strong> Use one or two alphabets to represent a command, usually it is the first alphabet of its corresponding command word.
+<strong>Pros:</strong> Easy to memories the alias as it is the first letter of the command word.
+<strong>Cons:</strong> May be confusing when some command requires two alphabets for alias. This is because there will be overlapping alias when two command words have the same first letter.</p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Use a fixed length of three alphabets for every alias.
+<strong>Pros:</strong> The length for each alias is unformed.
+<strong>Cons:</strong> Three alphabets would be too long for commands like <code>add</code>.
+---</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added-locating-persons-by-tag-search-tag-name-since-v1-1"><a class="link" href="#enhancement-added-locating-persons-by-tag-search-tag-name-since-v1-1">Enhancement Added:  Locating persons by tag: search + tag name [Since v1.1]</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-2"><a class="link" href="#external-behavior-2">External behavior</a></h4>
+<div class="paragraph">
+<p>Searches persons whose tag names contain any of the given keywords.<br>
+Command Format: <code>search KEYWORD [MORE_KEYWORDS]</code>, or <code>sh KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case sensitive. e.g <code>Friends</code> will not match <code>friends</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>friends colleague</code> is the same as <code>colleague friends</code></p>
+</li>
+<li>
+<p>Only the tag name is searched.</p>
+</li>
+<li>
+<p>Only full tag name will be accepted e.g. <code>friends</code> will not match <code>fri</code></p>
+</li>
+<li>
+<p>Result displays "Unknown tag" if no person has the tag</p>
+</li>
+<li>
+<p>Alias for "search" is "st"</p>
+</li>
+<li>
+<p>Persons&#8217;s tag names matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>friends colleague</code> will return persons with <code>friends</code>, or <code>colleague</code> tag</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="how-to-use-2"><a class="link" href="#how-to-use-2">How to use</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Input the command to search contact of the same tag, e.g. friends.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/SearchTagCommand.png" alt="SearchTagCommand" width="500"></span></p>
+</div>
+</li>
+<li>
+<p>The image below demonstrates the result of the above searching.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/SearchTagResult.png" alt="SearchTagResult" width="500"></span>
+---</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="examples"><a class="link" href="#examples">Examples</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Result</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>search friends</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the contacts with tag "friends", e.g. <code>John Alice</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>search fri</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No match will be returned, <code>Unknown tag</code> is displayed.<br></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="justification-2"><a class="link" href="#justification-2">Justification</a></h4>
+<div class="paragraph">
+<p>One of the property of tagging is that it categorizes contacts in the list, therefore it is intuitive that users would like to search a group of users with the same tag.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
+<hr>
+<div class="paragraph">
+<p>Search By Tag Mechanism</p>
+</div>
+<div class="paragraph">
+<p>The main logic for this mechanism lies in the class <code>NameWithTagContainsKeywordsPredicate.java</code>. This class compares the lists of tags from each person, and compare the list of tag with the set of tags given by users.
+This class makes uses of the powerful function from stream. The logic follow can be demonstrated by using the following activity diagram:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/SearchTagActivityDiagram.png" alt="SearchTagActivityDiagram" width="500"></span></p>
+</div>
+<div class="paragraph">
+<p>The following code snippet shows the main logic in <code>NameWithTagContainsKeywordsPredicate.java</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@Override</span>
+    <span class="directive">public</span> <span class="type">boolean</span> test(ReadOnlyPerson person) {
+        <span class="predefined-type">Set</span>&lt;<span class="predefined-type">String</span>&gt; tagList = <span class="keyword">new</span> <span class="predefined-type">HashSet</span>&lt;&gt;();
+        <span class="keyword">for</span> (Tag tag : person.getTags()) {
+            tagList.add(tag.getTagName());
+        }
+
+        <span class="keyword">return</span> keywords.stream()
+                .anyMatch(tagList::contains);
+    }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">Design Consideration</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Number of tags allowed to be specified by users
+<strong>Alternative 1 (current choice):</strong> Allow multiple tags to be entered by users
+<strong>Pros:</strong> Increases the flexibility of this search by tag feature. There would be no restriction on the number of tags to be entered. Users can specify as many valid tags as they want to.
+<strong>Cons:</strong> May not be obvious to users that they can enter multiple tag names.</p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Only allow users to search one tag name at a time
+<strong>Pros:</strong> The feature may looks simpler.
+<strong>Cons:</strong> Adds limitation to what users can do.
+---</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added-autocorrect-command-since-v1-2"><a class="link" href="#enhancement-added-autocorrect-command-since-v1-2">Enhancement Added:  AutoCorrect command [Since v1.2]</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-3"><a class="link" href="#external-behavior-3">External behavior</a></h4>
+<div class="paragraph">
+<p>Corrects misspelt command whose names start with the command entered from the user.
+Application will notify the user that the command entered is corrected and perform the corrected commmand.<br>
+Format: [misspelt command]</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The autoCorrect function will only work on the misspelt words within edit distance of 2.</p>
+</li>
+<li>
+<p>The match is case-insensitive, e.g. "sEarhC" is equals to "search".</p>
+</li>
+<li>
+<p>If no match is found, the application will display "Unknown command".</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Auto-correct is not designed for alias.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="how-to-use-3"><a class="link" href="#how-to-use-3">How to use</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The image below demonstrates the usage to autoCorrect "deleet".</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutoCorrectCommand.png" alt="AutoCorrectCommand" width="500">
+</div>
+</div>
+</li>
+<li>
+<p>The image below is the result returned by Contact Plus using the command above.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutoCorrectResult.png" alt="AutoCorrectResult" width="500">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="examples-2"><a class="link" href="#examples-2">Examples</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Result</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleet</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">will match to <code>delete</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>del</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">will not match to any command, application will display "Unkown command".</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">will be matched to <code>delete</code> still as it is an alias.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>m</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">will not match to any command, application will display "Unkown command".</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="justification-3"><a class="link" href="#justification-3">Justification</a></h4>
+<div class="paragraph">
+<p>It is often a problem that to ask users to retype their misspelt words. It would be a great feature if the application can autoCorrect these mistakes and allow users to use the application smoothly.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">Implementation</a></h4>
+<div class="paragraph">
+<p>AutoCorrect Mechanism</p>
+</div>
+<div class="paragraph">
+<p>The <code>AutoCorrect</code> feature enables misspelt commands entered by users to be autoCorrected by the application,
+and perform the correct command. The correction of the misspelt command is based on four types of prediction of the misspelt words, namely, addition of alphabets, deletion
+of alphabets, transposing of alphabets and Substitution of alphabets. For the sake of efficiency, the <a href="#edit-distance">edit distance</a> is limited to 2 (refer to <code>editDistance1</code>, and <code>checkMisspeltWords</code>).</p>
+</div>
+<div class="paragraph">
+<p>The logic flow of <code>AutoCorrect</code> can be loosely described by the following image:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/AutoCorrectFlow.png" alt="AutoCorrectFlow" width="500"></span></p>
+</div>
+<div class="paragraph">
+<p>This is an example of how the misspelt words are predicted by adding one more alphabet:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">//Adding any one character (from the alphabet) anywhere in the word.</span>
+        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="integer">0</span>; i &lt;= formattedWord.length(); i++) {
+            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="integer">0</span>; j &lt; alphabet.length(); j++) {
+                <span class="predefined-type">String</span> newWord = formattedWord.substring(<span class="integer">0</span>, i) + alphabet.charAt(j)
+                        + formattedWord.substring(i, formattedWord.length());
+                results.add(newWord);
+            }
+        }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Auto-Correct is only utilized in <code>AddressBoonParser</code> class to check each input command, and correct the misspelt command which has an <a href="#edit-distance">edit distance</a> smaller than or equal to 2.
+The following diagram shows the interaction between <code>AutoCorrect</code> and <code>AddressBookParser</code> class:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddressBookParser.SequenceDiagram.png" alt="AddressBookParser.SequenceDiagram" width="800">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-3"><a class="link" href="#design-consideration-3">Design Consideration</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of <code>AutoCorrect</code><br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> Consider edit distance is 2 and the command is predicted based on the first alphabet.<br>
+<strong>Pros:</strong> The speed of searching is improved by implementing matching command by the first alphabet as the first alphabet entered by users is often correct.
+Edit distance 2 allows a considerable number of commands to be corrected by the application.<br>
+<strong>Cons:</strong> The prediction by first alphabet limits the autoCorrection on those commands that have first alphabet wrong.
+Edit distance 2 does not cover many other misspelt commands.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Read all the available file from an external file when the application begins.<br>
+<strong>Pros:</strong> It would be easier for developers to maintain the autoCorrect feature as it is easier to update new commands into a file rather than in a method.<br>
+<strong>Cons:</strong> It would not be able to utilise <code>COMMAND_WORD</code> defined in each command class
+as it is a good practice to reused what is already defined and extend its usage (Close to modification and Open to extension Principle).<br></p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added-view-yahoo-weather-forecast-since-v1-3"><a class="link" href="#enhancement-added-view-yahoo-weather-forecast-since-v1-3">Enhancement Added:  View Yahoo Weather Forecast [Since v1.3]</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-4"><a class="link" href="#external-behavior-4">External behavior</a></h4>
+<div class="paragraph">
+<p>Viewing weather forecast on Yahoo Weather page.
+Accessible from <kbd>File</kbd> dropdown list, <kbd>Weather Forecast</kbd> menu item.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="how-to-use-4"><a class="link" href="#how-to-use-4">How to use</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The button <kbd>Weather Forecast</kbd> is located as the image shown below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/WeatherForecastButton.png" alt="WeatherForecastButton" width="500">
+</div>
+</div>
+</li>
+<li>
+<p>The expected page would be as follows:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/WeatherForecast.png" alt="WeatherForecast" width="500">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="justification-4"><a class="link" href="#justification-4">Justification</a></h4>
+<div class="paragraph">
+<p>The aim of ou project is to provide a set of comprehensive services for users. Considering their daily needs, it is reasonable to include Yahhoo Weather Forecast and Yahoo News in the application so that users do not have to navigate to the browser again to retireve those information.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-4"><a class="link" href="#implementation-4">Implementation</a></h4>
+<div class="paragraph">
+<p>Yahoo Weather Mechanism</p>
+</div>
+<div class="paragraph">
+<p>The Yahoo weather information display is aided by the external library "yahoo-weather-java-api:2.0.2". This library queries data from Yahoo Weather API, and the application display the information returned by calling the library functions with
+a simple string parser method to format the data return. The formatted data is displayed on the <code>StatusFooterBar</code>.<br></p>
+</div>
+<div class="paragraph">
+<p>The query of weather information is closely related to the location. The location is specified by WOEID, so in this application we take the <a href="#WOEID">WOEID</a> of Singapore by default.<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">private</span> <span class="directive">final</span> <span class="predefined-type">String</span> woeid = <span class="string"><span class="delimiter">&quot;</span><span class="content">1062617</span><span class="delimiter">&quot;</span></span>;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The API method is called, and data returned as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">YahooWeatherService service = <span class="keyword">new</span> YahooWeatherService();
+<span class="predefined-type">Channel</span> channel = service.getForecast(woeid, DegreeUnit.CELSIUS);
+
+<span class="keyword">return</span> conditionStringParser(channel.getItem().getCondition().toString());</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Yahoo Weather information can be retrieved from <code>statusFootBar</code> too, as follows:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/YahooWeatherFootBar.png" alt="YahooWeatherFootBar" width="500">
+</div>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added-keyboard-shortcuts-since-v1-3"><a class="link" href="#enhancement-added-keyboard-shortcuts-since-v1-3">Enhancement Added:  Keyboard shortcuts [Since v1.3]</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-5"><a class="link" href="#external-behavior-5">External behavior</a></h4>
+<div class="paragraph">
+<p>Keyboard shortcuts enables users to quickly get the command words without heavy memorization.
+Format: <kbd>CONTROL</kbd> + <kbd>KEY</kbd></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The keyborad shortcuts are created only for commands with heavy text input or frequently used commands.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="how-to-use-5"><a class="link" href="#how-to-use-5">How to use</a></h4>
+<div class="paragraph">
+<p>Available Keyboard shortcuts</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Command</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Keyboard shortcut</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>control</kbd> + <kbd>a</kbd>/<kbd>A</kbd></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>multifilter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>control</kbd> + <kbd>m</kbd>/<kbd>M</kbd></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>control</kbd> + <kbd>e</kbd>/<kbd>E</kbd></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>search</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>control</kbd> + <kbd>s</kbd>/<kbd>S</kbd></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>control</kbd> + <kbd>d</kbd>/<kbd>D</kbd></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>control</kbd> + <kbd>f</kbd>/<kbd>F</kbd></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>control</kbd> + <kbd>c</kbd>/<kbd>C</kbd></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="justification-5"><a class="link" href="#justification-5">Justification</a></h4>
+<div class="paragraph">
+<p>Keyboard shortcuts are implemented with the purpose to allow users to input their command efficiently. Users do not have to memorize the command words if they fnd it is difficult for them to do so.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-5"><a class="link" href="#implementation-5">Implementation</a></h4>
+<div class="paragraph">
+<p>Keyboard Shortcuts Mechanism</p>
+</div>
+<div class="paragraph">
+<p>The detection of keyboard shortcut is detected in the <code>CommandBox.java</code> class. In the method <code>handleKeyPress</code>, multiple key press situations are listed there and to handle the correct key pressed by users.
+The code snippet is shown as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// Handles cases where multiple keys are pressed simultaneously</span>
+        <span class="predefined-type">String</span> getAlphabetPressed = keyEvent.getCode().toString();
+        logger.info(getAlphabetPressed);
+
+        <span class="keyword">if</span> (keyEvent.getCode().isLetterKey() &amp;&amp; keyEvent.isControlDown()) {
+            <span class="comment">//keyboard shortcut for input text heavy command</span>
+            <span class="keyword">switch</span> (getAlphabetPressed) {
+            <span class="keyword">case</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">A</span><span class="delimiter">&quot;</span></span>:
+                keyEvent.consume();
+                commandTextField.setText(AddCommand.COMMAND_WORD);
+                <span class="keyword">break</span>;
+            <span class="keyword">case</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">D</span><span class="delimiter">&quot;</span></span>:
+                keyEvent.consume();
+                commandTextField.setText(DeleteCommand.COMMAND_WORD);
+                <span class="keyword">break</span>;
+             ....
+             <span class="comment">//and many other cases</span>
+             default:
+                  <span class="comment">//do nothing</span>
+            }
+        }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-4"><a class="link" href="#design-consideration-4">Design Consideration</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of Keyborad shortcuts<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> Only a few commands have its keyboard shortcuts.<br>
+<strong>Pros:</strong> Allow users to complete their input command faster by directly pressing the shortcuts.<br>
+<strong>Cons:</strong> For some commands, users are not allowed to use keyboard shortcuts This is inconvenient.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Give every command its keyboard shortcuts.<br>
+<strong>Pros:</strong>  Users can use shortcut for every command freely.<br>
+<strong>Cons:</strong> It would be confusing to have to memorise many shortcuts.<br>
+---</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added-edit-tasks-since-v1-4"><a class="link" href="#enhancement-added-edit-tasks-since-v1-4">Enhancement Added:  Edit tasks [Since v1.4]</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-6"><a class="link" href="#external-behavior-6">External behavior</a></h4>
+<div class="paragraph">
+<p>To edit your tasks, first you should learn how to list task. Listing tasks is for you to get the index of the task you indent to edit.
+Then use "edittask" command with its index to edit the task. The format is as follows:
+Format: <code>edittask INDEX d/DESCRIPTION priority/PRIORITY(0/1/2) on DUE DATE(dd/MM/yyyy)</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Index mist be a positive number.</p>
+</li>
+<li>
+<p>At least one field (either priority or due date) has to be specified.</p>
+</li>
+<li>
+<p>Description field is not editable. The only way to edit the description is to create a new task.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="how-to-use-6"><a class="link" href="#how-to-use-6">How to use</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter the command, the index of the task, and the details you wish to edit with its prefix. Please refer to the image below for an example:</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/EditTaskStep1.png" alt="EditTaskStep1" width="800"></span></p>
+</div>
+</li>
+<li>
+<p>The application will give you conformation information displayed. Please refer to the image below for an example:</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/EditTaskStep2.png" alt="EditTaskStep2" width="800"></span></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example"><a class="link" href="#example">Example</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Result</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edittask 1 prioroty/1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The application will display "Edited task: " + the details of the task you just edited.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edittask 1 on 12/11/2019</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The application will display "Edited task: " + the details of the task you just edited.<br></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="justification-6"><a class="link" href="#justification-6">Justification</a></h4>
+<div class="paragraph">
+<p>It is considerable to allow users to be able oto edit their tasks, and it is a common feature that every task application should have.
+==== Implementation</p>
+</div>
+<div class="paragraph">
+<p>Edit Task Mechanism</p>
+</div>
+<div class="paragraph">
+<p>The <code>edit task</code> is facilitated by EditTaskCommand class. It allows users to edit tasks into the address book with a description, the level of priority as well as the due date. The tasks added will be shown on the stickies in the address book.</p>
+</div>
+<div class="paragraph">
+<p>The command word for editing a task is <code>edittask</code>. When users key in the command word task, together with valid description, priority and due date, the values will be passed  into parseCommand() function in the AddressBookParser class.</p>
+</div>
+<div class="paragraph">
+<p>The basic main flow for <code>edittask</code> is as follows:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/EditTaskMainFlow.png" alt="EditTaskMainFlow" width="800"></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-5"><a class="link" href="#design-consideration-5">Design Consideration</a></h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added-clear-tasks-since-v1-4"><a class="link" href="#enhancement-added-clear-tasks-since-v1-4">Enhancement Added:  Clear tasks [Since v1.4]</a></h3>
+<div class="paragraph">
+<p>To clear your task list, "cleartask" is the command to use. The format is as follows:
+Format: <code>cleartask</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>you can perform command <code>undo</code>, if you accidentally clear your task list.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="how-to-use-7"><a class="link" href="#how-to-use-7">How to use</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter the command "cleartask". Please refer to the image below for an example:</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/ClearTaskStep1.png" alt="ClearTaskStep1" width="800"></span></p>
+</div>
+</li>
+<li>
+<p>Confirmation message will be displayed. Please refer to the image below for an example:</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/ClearTaskStep2.png" alt="ClearTaskStep2" width="800"></span></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-2"><a class="link" href="#example-2">Example</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Result</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cleartask</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Task list has been cleared." will be displayed on the window<br></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="justification-7"><a class="link" href="#justification-7">Justification</a></h4>
+<div class="paragraph">
+<p>It is considerable to allow users to be able oto edit their tasks, and it is a common feature that every task application should have.
+==== Implementation</p>
+</div>
+<div class="paragraph">
+<p>Edit Task Mechanism</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-6"><a class="link" href="#design-consideration-6">Design Consideration</a></h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="other-contributions"><a class="link" href="#other-contributions">Other contributions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+</li>
+<li>
+<p>Wrote additional tests to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2017-11-07 17:51:10 +00:00
+</div>
+</div>
+</body>
+</html>

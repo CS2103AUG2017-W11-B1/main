@@ -47,7 +47,7 @@
 <li><a href="#add-second-phone-number-for-a-person-since-v1-1">4.16. Add second phone number for a person [Since v1.1]</a></li>
 <li><a href="#multifilter-format">4.17. Locating persons by multiple criteria: <code>multifilter</code> [Since v1.1]</a></li>
 <li><a href="#autocomplete-feature">4.18. Autocomplete command names [Since v1.2]</a></li>
-<li><a href="#autocorrect-command-names-since-v1-2">4.19. AutoCorrect command names [Since v1.2]</a></li>
+<li><a href="#autocorrect-command-since-v1-2">4.19. AutoCorrect command [Since v1.2]</a></li>
 <li><a href="#delete-multiple-persons">4.20. Deleting multiple persons : <code>delete index/another index/&#8230;&#8203;</code> [Since v1.2]</a></li>
 <li><a href="#viewing-weather-forecast-since-v1-3">4.21. Viewing Weather Forecast [Since v1.3]</a></li>
 <li><a href="#extended-autocomplete-feature">4.22. Extended autocomplete for commands [Since v1.3]</a></li>
@@ -643,8 +643,10 @@ For example, we use the name "friends".</p>
 <div class="sect2">
 <h3 id="alias-for-commands-since-v1-0"><a class="link" href="#alias-for-commands-since-v1-0">4.14. Alias for commands [Since v1.0]</a></h3>
 <div class="paragraph">
-<p>Too lazy to type the full command? The alias feature allows you to
-type a shorter version of the command name! A list of available aliases can be found  <a href="#list-of-alias">here</a>.</p>
+<p>Too lazy to type the full command? The alias feature allows you to type a shorter version of the command name.</p>
+</div>
+<div class="paragraph">
+<p>A list of available aliases can be found  <a href="#list-of-alias">here</a>.</p>
 </div>
 <div class="sect3">
 <h4 id="how-to-use"><a class="link" href="#how-to-use">4.14.1. How to use</a></h4>
@@ -729,15 +731,16 @@ Command Format: <code>search KEYWORD [MORE_KEYWORDS]</code></p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The image below demonstrates the exact usage of function: search by tag.</p>
+<p>Input the command to search contact of the same tag, e.g. friends.</p>
 <div class="paragraph">
-<p><span class="image"><img src="images/SearchByTagCommand.png" alt="SearchByTagCommand" width="500"></span></p>
+<p><span class="image"><img src="images/SearchTagCommand.png" alt="SearchTagCommand" width="500"></span></p>
 </div>
 </li>
 <li>
-<p>The image below demonstrates one of the expected result returned kby Contact Plus.</p>
+<p>The image below demonstrates the result of the above searching.</p>
 <div class="paragraph">
-<p><span class="image"><img src="images/SearchByTagResult.png" alt="SearchByTagResult" width="500"></span></p>
+<p><span class="image"><img src="images/SearchTagResult.png" alt="SearchTagResult" width="500"></span>
+---</p>
 </div>
 </li>
 </ol>
@@ -1009,9 +1012,9 @@ For example, type <code>h</code>, then press <kbd>TAB</kbd>.
 </div>
 </div>
 <div class="sect2">
-<h3 id="autocorrect-command-names-since-v1-2"><a class="link" href="#autocorrect-command-names-since-v1-2">4.19. AutoCorrect command names [Since v1.2]</a></h3>
+<h3 id="autocorrect-command-since-v1-2"><a class="link" href="#autocorrect-command-since-v1-2">4.19. AutoCorrect command [Since v1.2]</a></h3>
 <div class="paragraph">
-<p>Finds command whose names start with the command entered from the user.
+<p>Corrects misspelt command whose names start with the command entered from the user.
 Application will notify the user that the command entered is corrected and perform the corrected commmand.<br>
 Format: [misspelt command]</p>
 </div>
@@ -1111,28 +1114,7 @@ single command.<br>
 Format: <code>delete INDEX/INDEX</code></p>
 </div>
 <div class="sect3">
-<h4 id="example"><a class="link" href="#example">4.20.1. Example</a></h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Result</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code><br>
-<code>delete 1/2</code><br>
-</p><p class="tableblock">Note that <code>list</code> and <code>delete 1/2</code> are two different commands.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes the first and second contact displayed by the <code>list</code> command.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="how-to-use-4"><a class="link" href="#how-to-use-4">4.20.2. How to use</a></h4>
+<h4 id="how-to-use-4"><a class="link" href="#how-to-use-4">4.20.1. How to use</a></h4>
 <div class="paragraph">
 <p>1) Enter <code>list</code> into the Command Box. You will see all the added contacts below.<br></p>
 </div>
@@ -1158,6 +1140,27 @@ result is displayed to show the confirmation of deletion.</p>
 <img src="images/deleteMultiplePerson3.png" alt="deleteMultiplePerson3" width="500">
 </div>
 </div>
+</div>
+<div class="sect3">
+<h4 id="example"><a class="link" href="#example">4.20.2. Example</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Result</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code><br>
+<code>delete 1/2</code><br>
+</p><p class="tableblock">Note that <code>list</code> and <code>delete 1/2</code> are two different commands.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes the first and second contact displayed by the <code>list</code> command.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -1620,6 +1623,9 @@ Format: <code>edittask INDEX d/DESCRIPTION priority/PRIORITY(0/1/2) on DUE DATE(
 <li>
 <p>At least one field (either priority or due date) has to be specified.</p>
 </li>
+<li>
+<p>Description field is not editable. The only way to edit the description is to create a new task.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -1632,13 +1638,13 @@ Format: <code>edittask INDEX d/DESCRIPTION priority/PRIORITY(0/1/2) on DUE DATE(
 <li>
 <p>Enter the command, the index of the task, and the details you wish to edit with its prefix. Please refer to the image below for an example:</p>
 <div class="paragraph">
-<p><span class="image"><img src="images/EditTaskStep1.png" alt="EditTaskStep1" width="500"></span></p>
+<p><span class="image"><img src="images/EditTaskStep1.png" alt="EditTaskStep1" width="800"></span></p>
 </div>
 </li>
 <li>
 <p>The application will give you conformation information displayed. Please refer to the image below for an example:</p>
 <div class="paragraph">
-<p><span class="image"><img src="images/EditTaskStep2.png" alt="EditTaskStep2" width="500"></span></p>
+<p><span class="image"><img src="images/EditTaskStep2.png" alt="EditTaskStep2" width="800"></span></p>
 </div>
 </li>
 </ol>
@@ -1658,6 +1664,10 @@ Format: <code>edittask INDEX d/DESCRIPTION priority/PRIORITY(0/1/2) on DUE DATE(
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>edittask 1 prioroty/1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The application will display "Edited task: " + the details of the task you just edited.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edittask 1 on 12/11/2019</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The application will display "Edited task: " + the details of the task you just edited.<br></p></td>
 </tr>
 </tbody>
@@ -1691,13 +1701,13 @@ Format: <code>cleartask</code></p>
 <li>
 <p>Enter the command "cleartask". Please refer to the image below for an example:</p>
 <div class="paragraph">
-<p><span class="image"><img src="images/ClearTaskStep1.png" alt="ClearTaskStep1" width="500"></span></p>
+<p><span class="image"><img src="images/ClearTaskStep1.png" alt="ClearTaskStep1" width="800"></span></p>
 </div>
 </li>
 <li>
 <p>Confirmation message will be displayed. Please refer to the image below for an example:</p>
 <div class="paragraph">
-<p><span class="image"><img src="images/ClearTaskStep2.png" alt="ClearTaskStep2" width="500"></span></p>
+<p><span class="image"><img src="images/ClearTaskStep2.png" alt="ClearTaskStep2" width="800"></span></p>
 </div>
 </li>
 </ol>
@@ -1991,7 +2001,7 @@ Also you can refer to the <a href="#quickstart">Quick Start</a> session.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-07 16:01:41 +00:00
+Last updated 2017-11-07 17:51:10 +00:00
 </div>
 </div>
 </body>
