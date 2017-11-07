@@ -51,7 +51,7 @@
 <li><a href="#autocomplete-mechanism-a-id-autocomplete-feature-a">4.4. Autocomplete Mechanism<a id="autocomplete-feature"></a></a></li>
 <li><a href="#extended-autocomplete-mechanism-a-id-extended-autocomplete-feature-a">4.5. Extended Autocomplete Mechanism<a id="extended-autocomplete-feature"></a></a></li>
 <li><a href="#delete-multiple-contacts-mechanism">4.6. Delete Multiple Contacts Mechanism</a></li>
-<li><a href="#theme-support-mechanism">4.7. Theme Support Mechanism</a></li>
+<li><a href="#theme-selection-mechanism">4.7. Theme Selection Mechanism</a></li>
 <li><a href="#add-task-mechanism">4.8. Add Task Mechanism</a></li>
 <li><a href="#logging">4.9. Logging</a></li>
 <li><a href="#configuration">4.10. Configuration</a></li>
@@ -1141,24 +1141,39 @@ indicate if the contact has been deleted.<br>
 </div>
 </div>
 <div class="sect2">
-<h3 id="theme-support-mechanism"><a class="link" href="#theme-support-mechanism">4.7. Theme Support Mechanism</a></h3>
+<h3 id="theme-selection-mechanism"><a class="link" href="#theme-selection-mechanism">4.7. Theme Selection Mechanism</a></h3>
 <div class="paragraph">
 <p>The 'theme support' feature allows user to choose their favorite theme for the address book, other than the default
-Dark Theme.</p>
+Dark Theme. It is facilitated by <code>SwitchThemeCommand</code> class.</p>
 </div>
 <div class="paragraph">
-<p>Currently, Contact Plus v1.2 is presented with two themes: Dark and Light.</p>
+<p>Currently, Contact Plus is presented with three themes: <strong>Dark</strong>(INDEX <code>1</code>), <strong>Light</strong>(INDEX <code>2</code>) and
+<strong>Colourful</strong>(INDEX <code>3</code>).</p>
 </div>
 <div class="paragraph">
-<p>Users are also allowed to preview themes at runtime before they choose them. The previews are supported with
-screenshots of the selected theme.</p>
+<p>The command word for switching theme is <code>switch</code>. When the user type the command word <code>switch</code> and the <strong>INDEX</strong>
+ of theme, <code>execute()</code> function in the <code>LogicManager</code> class will be called. Next the command line will be passed to
+<code>AddressBookParser</code> class which then returns <code>SwitchThemeCommandParser</code> to separate the <strong>INDEX</strong> from command word.
+The <strong>INDEX</strong> will be used to select the specific theme in the array of String <code>themeArr</code>. The theme selected
+will be used to build the filepath, which allows <code>MainWindow</code> class to retrieve the respective <code>.css</code> file and update
+theme accordingly.</p>
 </div>
 <div class="paragraph">
-<p>The overview of the theme is as follows:</p>
+<p>The overview of the themes is as follows:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ThemeSupport.png" alt="ThemeSupport" width="800">
+<img src="images/DarkTheme.png" alt="DarkTheme" width="500">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/LightTheme.png" alt="LightTheme" width="500">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ColourfulTheme.png" alt="ColourfulTheme" width="500">
 </div>
 </div>
 <div class="sect3">
@@ -1166,17 +1181,14 @@ screenshots of the selected theme.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The line &lt;URL value="@ThemeName.css" /&gt; in <code>fxml</code> files is replaced by a method call via <code>javafx.scene.Scene</code> object
-in respective models.</p>
+<p>The line <code>&lt;URL value="@ThemeName.css" /&gt;</code> in <code>fxml</code> files is replaced by a method call via
+<code>javafx.scene.layout.VBox</code> object in <code>MainWindow</code> class.</p>
 </li>
 <li>
-<p>The call is set to be <code>scene.getStylesheet().add(Theme Name);</code></p>
+<p>In current version of Contact Plus, the <code>INDEX</code> must be 1, 2, or 3.</p>
 </li>
 <li>
-<p>The theme preview images are stored in `/images/theme_image/'</p>
-</li>
-<li>
-<p>The selection window would be implemented as a pop out window.</p>
+<p>The <code>SwitchThemeCommand</code> is currently not undoable.</p>
 </li>
 </ul>
 </div>
@@ -1184,10 +1196,15 @@ in respective models.</p>
 <div class="sect3">
 <h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.7.2. Design Considerations</a></h4>
 <div class="paragraph">
-<p><strong>Aspect:</strong> Implementation of <code>choose theme</code> feature<br></p>
+<p><strong>Aspect:</strong> Implementation of <code>switch theme</code> feature<br></p>
 </div>
 <div class="paragraph">
-<p><strong>Alternative 1 (current choice):</strong> Use a selection window with theme preview image.<br>
+<p><strong>Alternative 1 (current choice):</strong> Use command line to switch theme.<br>
+<strong>Pros:</strong> Only keyboard action is required. Users do not need to use mouse to click.<br>
+<strong>Cons:</strong> Preview of theme is not available. Users will only find out after they execute the command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Use a selection window with theme preview image.<br>
 <strong>Pros:</strong> Users are able to know what the theme looks like before they choose the respective theme.<br>
 <strong>Cons:</strong> Additional space for <code>Theme Selection</code> window.<br></p>
 </div>
@@ -1196,13 +1213,13 @@ in respective models.</p>
 <div class="sect2">
 <h3 id="add-task-mechanism"><a class="link" href="#add-task-mechanism">4.8. Add Task Mechanism</a></h3>
 <div class="paragraph">
-<p>The 'add task' feature is facilitated by AddTaskCommand class. It allows users to add tasks into the address book
+<p>The 'add task' feature is facilitated by <code>AddTaskCommand</code> class. It allows users to add tasks into the address book
 with a description, the level of priority as well as the due date. The tasks added will be shown on the stickies
 in the address book.</p>
 </div>
 <div class="paragraph">
 <p>The command word for adding a task is <code>task</code>. When users key in the command word <code>task</code>, together with valid
-description, priority and due date, the execute() function in the LogicManager class will be called, which will
+description, priority and due date, the <code>execute()</code> function in the <code>LogicManager</code> class will be called, which will
 pass the value of the command string into <code>parseCommand()</code> function in the <code>AddressBookParser</code> class.
 As a result, <code>AddTaskCommandParser</code> will be returned to separate the command string into three different parts
 - <code>Description</code>, <code>Priority</code> and <code>dueDate</code>. These three fields will be passed to <code>Task</code> class to check if they
@@ -2960,7 +2977,7 @@ originally defined by GeoPlanet and now assigned by Yahoo!, that identifies any 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-07 17:51:10 +00:00
+Last updated 2017-11-07 17:51:48 +00:00
 </div>
 </div>
 </body>

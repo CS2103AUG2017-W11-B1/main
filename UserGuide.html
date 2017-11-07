@@ -58,10 +58,11 @@
 <li><a href="#sound-effect-for-system-events-since-v1-3">4.27. Sound effect for system events [Since v1.3]</a></li>
 <li><a href="#edittask-command">4.28. Edit task [Since v1.4]</a></li>
 <li><a href="#cleartask-command">4.29. Clear task [Since v1.4]</a></li>
-<li><a href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">4.30. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></li>
-<li><a href="#add-non-english-words-as-input-coming-in-v2-0">4.31. Add non-English words as input [Coming in V2.0]</a></li>
-<li><a href="#add-push-notification-coming-in-v2-0">4.32. Add push notification [Coming in V2.0]</a></li>
-<li><a href="#saving-the-data">4.33. Saving the data</a></li>
+<li><a href="#switch-theme-since-v1-5">4.30. Switch theme [Since v1.5]</a></li>
+<li><a href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">4.31. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></li>
+<li><a href="#add-non-english-words-as-input-coming-in-v2-0">4.32. Add non-English words as input [Coming in V2.0]</a></li>
+<li><a href="#add-push-notification-coming-in-v2-0">4.33. Add push notification [Coming in V2.0]</a></li>
+<li><a href="#saving-the-data">4.34. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#command-summary">5. Command Summary</a></li>
@@ -1618,7 +1619,7 @@ Format: <code>edittask INDEX d/DESCRIPTION priority/PRIORITY(0/1/2) on DUE DATE(
 <div class="ulist">
 <ul>
 <li>
-<p>Index mist be a positive number.</p>
+<p>Index must be a positive number.</p>
 </li>
 <li>
 <p>At least one field (either priority or due date) has to be specified.</p>
@@ -1734,27 +1735,97 @@ Format: <code>cleartask</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="tag-use-emoji-code-tag-emoji-code-coming-in-v2-0"><a class="link" href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">4.30. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></h3>
+<h3 id="switch-theme-since-v1-5"><a class="link" href="#switch-theme-since-v1-5">4.30. Switch theme [Since v1.5]</a></h3>
+<div class="paragraph">
+<p>If you are not happy with the current theme and want to select a new theme, use <code>switch</code> command with the index to
+switch to the theme you like.<br>
+Format: <code>switch INDEX</code></p>
+</div>
+<div class="sect3">
+<h4 id="description-10"><a class="link" href="#description-10">4.30.1. Description</a></h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Index must be 1, 2 or 3 only. Other values are deemed as invalid.</p>
+</li>
+<li>
+<p>The command is not undoable. But you can switch back to the original theme by performing the command again.</p>
+</li>
+<li>
+<p>Once you update the theme, your preference will be saved. The next time you open Contact Plus, it will not
+set back to default theme.</p>
+</li>
+<li>
+<p>Default themes in Contact Plus are Dark, Light and Colourful. Below are the preview of 3 themes:<br>
+<span class="image"><img src="images/DarkTheme.png" alt="DarkTheme" width="500"></span><br>
+<span class="image"><img src="images/LightTheme.png" alt="LightTheme" width="500"></span><br>
+<span class="image"><img src="images/ColourfulTheme.png" alt="ColourfulTheme" width="500"></span></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="how-to-use-9"><a class="link" href="#how-to-use-9">4.30.2. How to use</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter the command <code>switch</code>, together with index of the theme. (<code>1</code> stands for DarkTheme, <code>2</code> stands for
+LightTheme and <code>3</code> stands for ColourfulTheme)<br></p>
+</li>
+<li>
+<p>Once the command is successfully executed, the theme of Contact Plus will be updated immediately.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-5"><a class="link" href="#example-5">4.30.3. Example</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Result</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>switch 2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Theme updated: Light</code> will be displayed. The theme will be set to the Light Theme. (refer to
+the diagram below)<br>
+<span class="image"><img src="images/LightTheme.png" alt="LightTheme" width="500"></span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tag-use-emoji-code-tag-emoji-code-coming-in-v2-0"><a class="link" href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">4.31. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></h3>
 <div class="paragraph">
 <p>Input characters to represent an emoji as a tag.<br>
 Format: <code>tag :wink:</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-non-english-words-as-input-coming-in-v2-0"><a class="link" href="#add-non-english-words-as-input-coming-in-v2-0">4.31. Add non-English words as input [Coming in V2.0]</a></h3>
+<h3 id="add-non-english-words-as-input-coming-in-v2-0"><a class="link" href="#add-non-english-words-as-input-coming-in-v2-0">4.32. Add non-English words as input [Coming in V2.0]</a></h3>
 <div class="paragraph">
 <p>Input non-English words to be saved in the application.
 Format: CommandWrd + inputText</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-push-notification-coming-in-v2-0"><a class="link" href="#add-push-notification-coming-in-v2-0">4.32. Add push notification [Coming in V2.0]</a></h3>
+<h3 id="add-push-notification-coming-in-v2-0"><a class="link" href="#add-push-notification-coming-in-v2-0">4.33. Add push notification [Coming in V2.0]</a></h3>
 <div class="paragraph">
 <p>The application will prompt notifications for users on the computer for the up coming tasks.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.33. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.34. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -1856,6 +1927,11 @@ There is no need to save manually.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Select</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>select INDEX</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>select 2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Switch</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>switch INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>switch 3</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Undo</code></p></td>
@@ -2001,7 +2077,7 @@ Also you can refer to the <a href="#quickstart">Quick Start</a> session.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-07 17:51:10 +00:00
+Last updated 2017-11-07 17:51:48 +00:00
 </div>
 </div>
 </body>
