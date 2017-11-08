@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.3">
+<title>Gabriel Li - Project Portfolio</title>
+<link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Gabriel Li - Project Portfolio</h1>
+<div id="toc" class="toc">
+<div id="toctitle"></div>
+<ul class="sectlevel1">
+<li><a href="#project-contact-plus">Project: Contact Plus</a>
+<ul class="sectlevel2">
+<li><a href="#enhancement-added-delete-tag">Enhancement Added: Delete Tag</a></li>
+<li><a href="#enhancement-added-autocomplete">Enhancement Added: Autocomplete</a></li>
+<li><a href="#enhancement-added-extended-autocomplete">Enhancement Added: Extended Autocomplete</a></li>
+<li><a href="#enhancement-added-multiple-filter">Enhancement Added: Multiple Filter</a></li>
+<li><a href="#enhancement-added-list-tasks">Enhancement Added: List Tasks</a></li>
+<li><a href="#enhancement-added-delete-tasks">Enhancement Added: Delete Tasks</a></li>
+<li><a href="#other-contributions">Other contributions</a></li>
+</ul>
+</li>
+<li><a href="#project-powerpointlabs">Project: PowerPointLabs</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="project-contact-plus"><a class="link" href="#project-contact-plus">Project: Contact Plus</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>Contact Plus</code> is a command-line based contact-managing application. This application allows you to manage your contact list on your computer. Also, <code>Contact Plus</code> can serve as a task managing application,
+ which allows you to record your upcoming appointments, events and tasks. We strive to provide comprehensive services for busy students as well as anyone who needs a contact-managing application.<br></p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/CS2103AUG2017-W11-B1/main/blob/master/collated/main/lancehaoh.md">[Functional code</a>]
+<a href="https://github.com/CS2103AUG2017-W11-B1/main/blob/master/collated/main/JYL123.md">[Test code</a>] {give links to collated code files}</p>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added-delete-tag"><a class="link" href="#enhancement-added-delete-tag">Enhancement Added: Delete Tag</a></h3>
+<div class="sect3">
+<h4 id="external-behavior"><a class="link" href="#external-behavior">External behavior</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: User Guide]</mark></p>
+</div>
+<div class="paragraph">
+<p>Need to reorganize your social groups? <code>deletetag</code> enables you to delete
+tags from all your contacts in <code>Contact Plus</code> !<br>
+Command Format: <code>deletetag tag_name</code><br>
+Quick demo: <a href="#how-to-use-deletetag-command">here</a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="description"><a class="link" href="#description">Description</a></h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The alias for this command is <code>dt</code>. That means that you can type<br>
+<code>dt</code> instead of <code>deletetag</code>.</p>
+</li>
+<li>
+<p>Deletes the tag with the specified <code>tag_name</code> from all records in <code>Contact Plus</code>.</p>
+</li>
+<li>
+<p><code>tag_name</code> is case-sensitive (i.e. <code>Friends</code> is not the
+same as <code>friends</code>).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="examples"><a class="link" href="#examples">Examples</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Result</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetag friends</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes the tag <code>friends</code> from all records in <code>Contact Plus</code>.<br>
+</p><p class="tableblock">No action is performed if there is no tag named <code>friends</code> in <code>Contact Plus</code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="how-to-use-deletetag-command"><a class="link" href="#how-to-use-deletetag-command">How to use</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>deletetag</code> followed by the name of the tag that you wish to delete.
+For example, we use the name "friends".</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/DeleteTagCommand-step-1.png" alt="DeleteTagCommand step 1" width="250"></span></p>
+</div>
+</li>
+<li>
+<p>After hitting <kbd>ENTER</kbd>, the tag with the specified name is deleted from all contacts in <code>Contact Plus</code>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/DeleteTagCommand-step-2.png" alt="DeleteTagCommand step 2" width="250"></span></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="justification"><a class="link" href="#justification">Justification</a></h4>
+<div class="paragraph">
+<p>Enables users to reorganize their social circles. E.g. when a student has completed the module CS2101,
+he/she could remove the tag <code>CS2101 groupmate</code> from all contacts in
+<code>Contact Plus</code> as it is no longer applicable.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: Developer Guide]</mark></p>
+</div>
+<div class="paragraph">
+<p>This mechanism is modelled by the <code>DeleteTaskCommand</code> class. An instance of
+<code>DeleteTaskCommand</code> is instantiated by the <code>AddressBookParser</code> class when the
+user attempts to delete tasks. The following sequence diagram shows the process from the
+moment the user enters the <code>deletetask</code> command until the remaining tasks
+are displayed in the interface of <code>Contact Plus</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteTaskCommand-sequence-diagram.png" alt="DeleteTaskCommand sequence diagram" width="800">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="prerequisites-dependencies"><a class="link" href="#prerequisites-dependencies">Prerequisites/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>taskDisplayed</code> variable in <code>CommandBox</code> must be set to the instance of the <code>BrowserPanel</code>
+that contains the sticky where the tasks are to be displayed.</p>
+</li>
+<li>
+<p>The <code>getFilteredTaskList()</code> method in <code>Logic</code> class must return a list of <code>ReadOnlyTasks</code> containing
+the tasks in the address book.</p>
+</li>
+<li>
+<p>The <code>deleteTask()</code> method in model must be able to accept a <code>ReadOnlyTask</code> as input and
+delete it from the address book.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of DeleteTaskCommand<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> Delete tasks from the address book every time the user executes the command to
+delete task.<br>
+<strong>Pros:</strong> Don&#8217;t have to keep track of which tasks are no longer valid.<br>
+<strong>Cons:</strong> Causes overhead if the user repeatedly executes a command to delete tasks.</p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Use lazy deletion (i.e. use a boolean array to mark which tasks are no longer valid) without
+ automatically displaying the remaining tasks. Only delete tasks when
+  the user chooses to list tasks.<br>
+<strong>Pros:</strong> Less overhead as deletion only has to be done when user chooses to list tasks.<br>
+<strong>Cons:</strong> Difficult to implement and causes a lot of technical issues such as updating the
+list of tasks when the user closes the address book after deletion.</p>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added-autocomplete"><a class="link" href="#enhancement-added-autocomplete">Enhancement Added: Autocomplete</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-2"><a class="link" href="#external-behavior-2">External behavior</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: User Guide]</mark></p>
+</div>
+<div class="paragraph">
+<p>Lazy to memorize command names? Press a shorcut key to automatically complete the text that you enter into the command box.<br>
+Format: [Some text]<br>
+Quick demo:  <a href="#how-to-use-autocomplete">here</a></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+This feature automatically completes/suggests names of commands.
+To automatically fill in the format of commands, see <a href="#extended-autocomplete-feature"><code>extended autocomplete</code></a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="autocomplete-description"><a class="link" href="#autocomplete-description">Description</a></h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The hotkey for <code>autocomplete</code> is <kbd>TAB</kbd>.</p>
+</li>
+<li>
+<p>The match is case-insensitive, e.g. <code>del</code> and <code>Del</code> will both match the <code>delete</code>
+command.</p>
+</li>
+<li>
+<p>The system looks for commands whose names start with the text that you entered. This means that <code>del</code> will match <code>delete</code> but <code>ele</code>
+will not.</p>
+</li>
+<li>
+<p>If no text is entered before pressing the hotkey, the system displays all available commands.</p>
+</li>
+<li>
+<p>The system does not support autocompletion for command aliases.</p>
+</li>
+<li>
+<p>If there is more than one matching command, the names of all matching
+commands will be displayed as a suggestion in the result pane.</p>
+</li>
+<li>
+<p>If there is only one matching command, then the full
+name for the command will be automatically filled into the command box instead of being displayed in the result pane.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="examples-2"><a class="link" href="#examples-2">Examples</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Result</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>del</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Expands to <code>delete</code> in the command box.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>df</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nothing is returned by <code>Contact Plus</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns various command suggestions in the result pane. e.g.<code>delete</code> and <code>deletetag</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="how-to-use-autocomplete"><a class="link" href="#how-to-use-autocomplete">How to use</a></h4>
+<div class="paragraph">
+<p>Enter some text into the command box (as shown below) and press <kbd>TAB</kbd>.
+Commands, whose names start with the text you typed, will be suggested in the result pane.
+See <a href="#autocomplete-description">description</a> for more details on how
+ autocomplete works.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutoCompleteCommand-step-1.png" alt="AutoCompleteCommand step 1" width="800">
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If there is only one command whose name starts with the text that you
+entered, then the full name of the command will be automatically filled in for you.
+For example, if you type <code>h</code> and press <kbd>TAB</kbd>, <code>help</code> will be filled into the command box.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="justification-2"><a class="link" href="#justification-2">Justification</a></h4>
+<div class="paragraph">
+<p>Users may find it difficult ot remember the exact spelling of commands.
+Some may feel that it is tiring to type the some of the long command names.
+<code>Autocomplete</code> enables the automatic insertion of command names so that
+the user is relieved of all these problems.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: Developer Guide]</mark></p>
+</div>
+<div class="paragraph">
+<p>The <code>autocomplete</code> feature is implemented in <code>AutoCompleteUtil</code> class. It enables commands to be automatically suggested and
+completed for users. For example, when the user type, "sea", and press <kbd>TAB</kbd> key, the complete command <code>search</code> appears on the command line. This feature saves time for users and improves the efficiency of the application in general.
+It is invoked in subclasses of <code>Logic</code> (e.g. <code>LogicManager</code>).</p>
+</div>
+<div class="paragraph">
+<p>The interaction between <code>AutoCompleteUtil</code> and <code>Logic</code> classes can be seen from the following sequence diagram:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutoCompleteCommand.sequenceDiagram.png" alt="AutoCompleteCommand.sequenceDiagram" width="800">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="autocomplete-dependencies"><a class="link" href="#autocomplete-dependencies">Prerequisites/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The hotkey for launching <code>autocomplete</code> is indicated in the <code>CommandBox</code> class.
+Currently, the hotkey is <kbd>TAB</kbd>.</p>
+</li>
+<li>
+<p>The <code>COMMAND_WORD</code> field must exist in the class file representing each command.</p>
+</li>
+<li>
+<p>The <code>COMMAND_WORD</code> field in each command class is defined as the string that is used to invoke
+that command.
+For example, "add" is the <code>COMMAND_WORD</code> in the <code>AddCommand</code> class and is used to invoke the <code>add</code> operation.</p>
+</li>
+<li>
+<p>The <code>COMMAND_WORD</code> for every command must be added to
+the <code>mapOfAvailableCommands</code> map in the  <code>Command</code> class.
+If the developer forgets to perform this step, <code>AddressBook</code> will work
+normally but there will be no hints for those commands.</p>
+</li>
+<li>
+<p>Although <code>autocomplete</code> currently does not support autocompletion
+for aliases. The <code>COMMAND_WORD_ALIAS</code> alias for every command, that has an alias,
+should be added to the <code>listOfCommandAliases</code> list in the <code>Command</code> class
+for completeness and testing purposes.</p>
+</li>
+<li>
+<p>The logic for filtering matching commands is implemented in the <code>AutoCompleteUtil</code>
+class. This is shown in the following code snippet:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutoCompleteCommand.png" alt="AutoCompleteCommand" width="800">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the need arises to autocomplete other fields such as <code>name</code>, <code>address</code> and <code>email</code>,
+another method should be implemented in the <code>AutoCompleteUtil</code> class.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of <code>autocomplete</code><br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> Add a list of names of available commands to <code>Command</code> class.<br>
+<strong>Pros:</strong> We do not need to care about how <code>autocomplete</code> works when adding new commands. We simply need to add the
+ <code>COMMAND_WORD</code> of new commands to the Command class and <code>autocomplete</code> will automatically use them for hints.
+ Furthermore, command names can be dynamically obtained via the <code>COMMAND_WORD</code> field for every command.<br>
+<strong>Cons:</strong> Additional level of dependency as the developer has to consistently update the <code>Command</code> class whenever
+ a new type of command is created.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Place the <code>COMMAND_WORD</code> of all commands into a text file and read it when <code>AddressBook</code> starts.<br>
+<strong>Pros:</strong> No additional dependency among classes as <code>AddressBook</code> gets all command names from a text file rather
+ than obtaining them from the <code>COMMAND_WORD</code> field of each type of command.<br>
+<strong>Cons:</strong> The developer has to add the <code>COMMAND_WORD</code> of every new command to the text file.
+ Furthermore, there is repeated work (and higher risk of error) as the developer must take care to ensure that the text file&#8217;s entry corresponds with the
+<code>COMMAND_WORD</code> field.</p>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added-extended-autocomplete"><a class="link" href="#enhancement-added-extended-autocomplete">Enhancement Added: Extended Autocomplete</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-3"><a class="link" href="#external-behavior-3">External behavior</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: User Guide]</mark></p>
+</div>
+<div class="paragraph">
+<p>Some commands such as <code><a href="#add-command">add</a></code> are very long and difficult to type.
+This feature enables you to automatically fill in the format of the command whose name matches
+the text that you entered.<br>
+Format: [COMMAND_WORD]<br>
+Quick demo: <a href="#how-to-use-extended-autocomplete">here</a></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+This feature automatically fills in the format of a correctly
+spelt command. To automatically complete a command name, see <a href="#autocomplete-feature"><code>autocomplete</code></a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="description-2"><a class="link" href="#description-2">Description</a></h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The hotkey for <code>extended autocomplete</code> is <kbd>Ctrl</kbd>.</p>
+</li>
+<li>
+<p>This feature uses exact matching (i.e. case and spelling of <code>COMMAND_WORD</code> must match the actual command).</p>
+</li>
+<li>
+<p>The system does not support autocompletion for command aliases.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="examples-3"><a class="link" href="#examples-3">Examples</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Result</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">expands to <code>delete index_number</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetag</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">exapnds to <code>deletetag tag_name</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Contact Plus</code> does not respond.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lisf</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Contact Plus</code> does not respond.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LIST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Contact Plus</code> does not respond.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="how-to-use-extended-autocomplete"><a class="link" href="#how-to-use-extended-autocomplete">How to use</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter the <strong>full name</strong> of the command that you wish to use. For example, <code>add</code>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/extended-autocomplete-step-1.png" alt="extended autocomplete step 1" width="300"></span></p>
+</div>
+</li>
+<li>
+<p>Press the <kbd>Ctrl</kbd> key. The command&#8217;s format is automatically filled in the command box for you.
+The help text, which explains how to use the command, is also displayed in the result pane.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/extended-autocomplete-step-2.png" alt="extended autocomplete step 2" width="1000"></span></p>
+</div>
+</li>
+<li>
+<p>Add any additional information (based on the help text) should be typed into the command
+bar.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/extended-autocomplete-step-3.png" alt="extended autocomplete step 3" width="1000"></span></p>
+</div>
+</li>
+<li>
+<p>Press <kbd>ENTER</kbd>. The result of the command is displayed in the result pane.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/extended-autocomplete-step-4.png" alt="extended autocomplete step 4" width="1000"></span></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+If you type the name of the command wrongly, <code>extended autocomplete</code> will not work.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="justification-3"><a class="link" href="#justification-3">Justification</a></h4>
+<div class="paragraph">
+<p>While <code>Autocomplete</code> allows the automatic completion of command names,
+users may also find it difficult to remember the format of every command.
+<code>extended autocomplete</code> enables the user to automatically insert the format of
+commands so that the user just needs to fill in his own information into the address book
+without needing to remember anything related to the commands.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">Implementation</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: Developer Guide]</mark></p>
+</div>
+<div class="paragraph">
+<p>The <code>extended autocomplete</code> feature is an add-on to the <code>autocomplete</code> feature
+and enables the full format of commands to be automatically filled into the command bar.
+It is invoked in the <code>LogicManager</code> class.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="prerequisites-dependencies-2"><a class="link" href="#prerequisites-dependencies-2">Prerequisites/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The hotkey for launching <code>extended autocomplete</code> is indicated in the <code>CommandBox</code> class.
+Currently, the hotkey is <kbd>Ctrl</kbd>. The following excerpt briefly shows how the <code>autocomplete</code> string
+is determined based on the <code>Command</code> entered by the user.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/extended-autocomplete-snippet.png" alt="extended autocomplete snippet" width="800">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>COMMAND_WORD</code> and <code>AUTOCOMPLETE_FORMAT</code> fields must exist in all class files that represent commands.</p>
+</li>
+<li>
+<p>For definition of <code>COMMAND_WORD</code>, see <a href="#autocomplete-dependencies">section 4.4.1</a></p>
+</li>
+<li>
+<p>The <code>AUTOCOMPLETE_FORMAT</code> field is defined as a string that contains the format of the command that is represented by the enclosing class.
+For example, if <code>test</code> command has the format of <code>test positive_integer</code> then <code>AUTOCOMPLETE_FORMAT</code> must be defined as
+<code>test positive_integer</code> in the <code>TestCommand</code> class.</p>
+</li>
+<li>
+<p>The <code>mapOfAvailableCommands</code> map in the <code>Command</code> class must contain <code>&lt;command_class.COMMAND_WORD, command_class.AUTCOMPLETE_FORMAT&gt;</code>
+as <code>&lt;key, value&gt;</code> pairs. An example of such a pair is <code>&lt;AddCommand.COMMAND_WORD, AddCommand.AUTOCOMPLETE_FORMAT&gt;</code>.</p>
+</li>
+<li>
+<p>If the developer forgets to perform the above step, <code>AddressBook</code> will work
+normally but there will be no completion for those commands.</p>
+</li>
+<li>
+<p><code>extended autocomplete</code> currently does not support autocompletion
+for aliases.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of <code>extended autocomplete</code><br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> Use a shortcut key to launch <code>extended autocomplete</code> when a valid <code>COMMAND NAME</code>
+has been typed into the command bar.<br>
+<strong>Pros:</strong> It is easy to implement as we simply need to return a string based on the immediate user input. Furthermore, the <code>autocomplete</code> feature
+complements this by enabling users to easily input a correct <code>COMMAND_NAME</code>.<br>
+<strong>Cons:</strong> The user cannot choose from the list of suggestions by <code>Autocomplete</code>. He still has to type/autofill a
+single command name first before being able to use the shortcut for <code>extended autocomplete</code>.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Allocate shortcut keys to select non-negative integers 0, 1, 2, 3 &#8230;&#8203; Each integer will be used as an
+index to select a specific command from the <code>autocomplete</code> list of suggestions.<br>
+Pros: Convenient for user to input any command as he only has to type its prefix partially before using <code>autocomplete</code> and
+select the desired command using the shortcut for <code>extended autocomplete</code>.<br>
+Cons: Finite number of keys on the keyboard make it impossible to do a one-to-one mapping of shortcut keys to commands.
+ Furthermore, it is quite tricky to implement as using keys with printable characters will result in extra characters
+ being printed together with the string returned by <code>extended autocomplete</code>.</p>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added-multiple-filter"><a class="link" href="#enhancement-added-multiple-filter">Enhancement Added: Multiple Filter</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-4"><a class="link" href="#external-behavior-4">External behavior</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: User Guide]</mark></p>
+</div>
+<div class="paragraph">
+<p>Finds persons whose names, phone no., emails and addresses,
+match a set of specified criteria.<br>
+Format: <code>multifilter [n/NAME] [p/PHONE NO.] [e/EMAIL] [a/ADDRESS]</code><br>
+Quick demo: <a href="#how-to-use-multifilter">here</a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="multifilter-description"><a class="link" href="#multifilter-description">Description</a></h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The alias for this command is <code>mf</code>. That means that you can type<br>
+<code>mf</code> instead of <code>multifilter</code>.</p>
+</li>
+<li>
+<p>The search is case-insensitive for all fields. e.g <code>mf n/hans</code> will<br>
+match <code>Hans</code>.</p>
+</li>
+<li>
+<p>The search performs a partial match. This means that <code>mf n/a</code><br>
+will match both <code>alice</code> and <code>Hans</code> since both contain the letter <code>a</code>,</p>
+</li>
+<li>
+<p>The order of the fields does not matter.<br>
+e.g.<code>mf n/hans e/a@ex.com</code> and <code>mf e/a@ex.com n/hans</code><br>
+both mean the same thing.</p>
+</li>
+<li>
+<p>Matching is performed based on ALL the criteria.<br>
+i.e. <code>mf n/a p/9</code> will find the contact <code>matt</code> with a phone no. of <code>999</code>
+but it will not find the contact <code>alice</code> with a phone no. of <code>888</code>.</p>
+</li>
+<li>
+<p>None of the fields are compulsory. i.e. you can use <code>mf p/999</code> to find<br>
+contacts whose phone no. contain <code>999</code> and <code>mf e/yahoo</code> to find<br>
+contacts whose emails contain <code>yahoo</code> without entering the rest of the fields.</p>
+</li>
+<li>
+<p>If only <code>mf</code> is entered, all contacts will be displayed.</p>
+</li>
+<li>
+<p><code>mf p/987 e/gmail</code><br>
+Contact <code>alice</code> with phone no. <code>9876</code> and email <code>a@gmail.com</code><br>
+will be matched. Contact <code>Bob</code> with phone no. <code>987</code> and email <code>a@yahoo.com</code>
+will not be matched</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="examples-4"><a class="link" href="#examples-4">Examples</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Result</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mf a/gey</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns contacts whose address contain <code>gey</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mf</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns all contacts</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mf n/iv p/9 e/g a/ge</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns contacts who match ALL of the following criteria:<br>
+</p><p class="tableblock">1. Name contains <code>iv</code><br>
+2. Phone no. contains <code>9</code><br>
+3. Email contains <code>g</code><br>
+4. Address contains <code>ge</code><br>
+</p><p class="tableblock">An example of a matching contact for this command would be<br>
+<code>Ivan</code> that has phone no. <code>999</code>, email <code>g@y.com</code> and address <code>123 geylang road</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="how-to-use-multifilter"><a class="link" href="#how-to-use-multifilter">How to use</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter <code>multifilter</code> into the command box followed by one or more format fields.
+See command format <a href="#multifilter-format">here</a>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/MultiFilterCommand-step-1.png" alt="MultiFilterCommand step 1" width="250"></span></p>
+</div>
+</li>
+<li>
+<p>Press the <kbd>ENTER</kbd> key. The results are displayed based on the criteria that
+you have entered.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/MultiFilterCommand-step-2.png" alt="MultiFilterCommand step 2" width="250"></span></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If no filters are used, all contacts will be displayed.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="justification-4"><a class="link" href="#justification-4">Justification</a></h4>
+<div class="paragraph">
+<p>The <code>find</code> command only allows the user to find contacts by name keyword(s). Multiple contacts could
+have the same keyword(s). Furthermore, the user may not remember the contact&#8217;s name.
+<code>multifilter</code> gives the user multiple choices to filter his contacts in such cases.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-4"><a class="link" href="#implementation-4">Implementation</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: Developer Guide]</mark></p>
+</div>
+<div class="paragraph">
+<p>This mechanism is modelled by the <code>MultiFilterCommand</code> class. An instance of
+<code>MultiFilterCommand</code> is instantiated by the <code>AddressBookParser</code> class when the
+user attempts to delete tasks. The following sequence diagram shows the process from the
+moment the user enters the <code>multifilter</code> command until the results
+are displayed in the interface of <code>Contact Plus</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/MultiFilterCommand-sequence-diagram.png" alt="MultiFilterCommand sequence diagram" width="800">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="prerequisites-dependencies-3"><a class="link" href="#prerequisites-dependencies-3">Prerequisites/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>clearFiltersOnPersonList()</code> method in the <code>Model</code> class must clear all filters
+in the filtered list of persons (i.e. show all elements in the list).</p>
+</li>
+<li>
+<p>The <code>updateFilteredPersonList()</code> method in the <code>Model</code> class must accept a <code>Predicate</code> as
+input and apply it on the filtered list of persons (i.e. the list will only show
+elements that match the condition specified by the given <code>Predicate</code>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of MultiFilterCommand<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> Allow the user to enter any number of filter fields (e.g. name, email, address, etc.) in any order.<br>
+<strong>Pros:</strong> The user does not have to type unnecessary information (e.g. he/she does not have to specify a blank email if he/she just wants
+to find a contact with a particular name).<br>
+<strong>Cons:</strong> Technically difficult to implement as missing filter fields have to be detected and handled appropriately.</p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Only allow the user to filter by one criteria in a single command. E.g.
+If the user wishes to filter by name and address, he/she has to filter by name then
+by address (using 2 commands).<br>
+<strong>Pros:</strong> Very easy to implement as there is only one filter field to handle.<br>
+<strong>Cons:</strong> Requires multiple steps, which could be irritating and non-intuitive to the user.</p>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added-list-tasks"><a class="link" href="#enhancement-added-list-tasks">Enhancement Added: List Tasks</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-5"><a class="link" href="#external-behavior-5">External behavior</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: User Guide]</mark></p>
+</div>
+<div class="paragraph">
+<p>This command enables you to retrieve personal tasks that you have stored in
+<code>Contact Plus</code>.<br>
+Format: <code>listtask</code><br>
+Quick demo: <a href="#how-to-use-listtask">here</a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="description-3"><a class="link" href="#description-3">Description</a></h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>listtask</code> command shows all tasks that you have created in <code>Contact Plus</code>
+previously using the <code><a href="#addtask">task</a></code> command.</p>
+</li>
+<li>
+<p>Tasks are listed in the order that you have created them.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="how-to-use-listtask"><a class="link" href="#how-to-use-listtask">How to use</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click on the <code>Tasks</code> tab.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/tasks-tab-pre.png" alt="tasks tab pre" width="800"></span></p>
+</div>
+</li>
+<li>
+<p>The user interface now shows a yellow text-area.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/tasks-tab-post.png" alt="tasks tab post" width="800"></span></p>
+</div>
+</li>
+<li>
+<p>Type <code>listtask</code> into the command box.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/listtask-command-pre.png" alt="listtask command pre" width="400"></span></p>
+</div>
+</li>
+<li>
+<p>Hit the <kbd>ENTER</kbd> key. All your tasks will be displayed in the
+yellow text-area as shown below.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/listtask-command-post.png" alt="listtask command post" width="800"></span></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="justification-5"><a class="link" href="#justification-5">Justification</a></h4>
+<div class="paragraph">
+<p>After adding tasks, <code>Listtask</code> allows the user to retrieve them.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-5"><a class="link" href="#implementation-5">Implementation</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: Developer Guide]</mark></p>
+</div>
+<div class="paragraph">
+<p>This mechanism is modelled by the <code>ListTaskCommand</code> class. An instance of
+<code>ListTaskCommand</code> is instantiated by the <code>AddressBookParser</code> class when the
+user attempts to list tasks. The following sequence diagram shows the process from the
+moment the user enters the <code>listtask</code> command until the tasks
+are displayed in the interface of <code>Contact Plus</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ListTaskCommand-sequence-diagram.png" alt="ListTaskCommand sequence diagram" width="800">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="prerequisites-dependencies-4"><a class="link" href="#prerequisites-dependencies-4">Prerequisites/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>taskDisplayed</code> variable in <code>CommandBox</code> must be set to the instance of the <code>BrowserPanel</code>
+that contains the sticky where the tasks are to be displayed.</p>
+</li>
+<li>
+<p>The <code>getFilteredTaskList()</code> method in <code>Logic</code> class must return a list of <code>ReadOnlyTasks</code> containing
+the tasks in the address book.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of ListTaskCommand<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> List all the tasks in one sticky note.<br>
+<strong>Cons:</strong> When too many tasks are added, the tasks will look very clutterd when displayed.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Use one sticky note to display each task.<br>
+<strong>Pros:</strong> Interface will look much neater.<br>
+<strong>Cons:</strong> Not scalable as it is not practical to generate a large number of sticky notes.<br></p>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added-delete-tasks"><a class="link" href="#enhancement-added-delete-tasks">Enhancement Added: Delete Tasks</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-6"><a class="link" href="#external-behavior-6">External behavior</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: User Guide]</mark></p>
+</div>
+<div class="paragraph">
+<p>This command enables you to remove unnecessary/unwanted tasks
+from <code>Contact Plus</code>.<br>
+Command Format: <code>deletetask INDEX_1/INDEX_2/INDEX_3 &#8230;&#8203;</code><br></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="description-4"><a class="link" href="#description-4">Description</a></h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>INDEX_1</code>, <code>INDEX_2</code>, etc. refer to the task numbers that
+are shown when you use the <a href="#listtask"><code>listtask</code></a> command to show your tasks
+(See <a href="#how-to-use-deletetasks">how to use</a> for an example).</p>
+</li>
+<li>
+<p><code>INDEX_1</code>, <code>INDEX_2</code>, etc. must be positive integers
+(i.e. they must be whole numbers greater than 0 such as 1, 2, 3, etc.).</p>
+</li>
+<li>
+<p>This command deletes multple tasks simultaneously (i.e. it deletes tasks with the task numbers
+that you have specified when typing the <code>deletetask</code> command).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="examples-5"><a class="link" href="#examples-5">Examples</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Your input</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Result</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetask</code> 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes task no. 1 from <code>Contact Plus</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetask</code> 1/2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes tasks no. 1 and 2 from <code>Contact Plus</code>
+(if there are at least 2 tasks in <code>Contact Plus</code>).
+Otherwise, an error message is shown.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetask</code> -1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An error message is shown as task numbers cannot be negative.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="how-to-use"><a class="link" href="#how-to-use">How to use</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Use the <code><a href="#listtask">listtask</a></code> command to display all your tasks.
+Note the number of the tasks that you wish to delete.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/deletetask-listtask.png" alt="deletetask listtask" width="800"></span></p>
+</div>
+</li>
+<li>
+<p>Type <code>deletetask INDEX_1/INDEX_2 &#8230;&#8203;</code> into the command box.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/deletetask-command-pre.png" alt="deletetask command pre" width="400"></span></p>
+</div>
+</li>
+<li>
+<p>Hit the <kbd>ENTER</kbd> key. You will see the following success
+message if the command was successful.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/deletetask-command-post.png" alt="deletetask command post" width="400"></span></p>
+</div>
+</li>
+<li>
+<p>Observe that
+the tasks that you have specified in the previous step have been deleted from
+<code>Contact Plus</code>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../images/deletetask-proof.png" alt="deletetask proof" width="800"></span></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="justification-6"><a class="link" href="#justification-6">Justification</a></h4>
+<div class="paragraph">
+<p><code>deletetask</code> enables the user to organize his/her tasks in <code>Contact Plus</code> (i.e. he/she can delete
+those that are no longer needed).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-6"><a class="link" href="#implementation-6">Implementation</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: Developer Guide]</mark></p>
+</div>
+<div class="paragraph">
+<p>This mechanism is modelled by the <code>DeleteTaskCommand</code> class. An instance of
+<code>DeleteTaskCommand</code> is instantiated by the <code>AddressBookParser</code> class when the
+user attempts to delete tasks. The following sequence diagram shows the process from the
+moment the user enters the <code>deletetask</code> command until the remaining tasks
+are displayed in the interface of <code>Contact Plus</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteTaskCommand-sequence-diagram.png" alt="DeleteTaskCommand sequence diagram" width="800">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="prerequisites-dependencies-5"><a class="link" href="#prerequisites-dependencies-5">Prerequisites/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>taskDisplayed</code> variable in <code>CommandBox</code> must be set to the instance of the <code>BrowserPanel</code>
+that contains the sticky where the tasks are to be displayed.</p>
+</li>
+<li>
+<p>The <code>getFilteredTaskList()</code> method in <code>Logic</code> class must return a list of <code>ReadOnlyTasks</code> containing
+the tasks in the address book.</p>
+</li>
+<li>
+<p>The <code>deleteTask()</code> method in model must be able to accept a <code>ReadOnlyTask</code> as input and
+delete it from the address book.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of DeleteTaskCommand<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> Delete tasks from the address book every time the user executes the command to
+delete task.<br>
+<strong>Pros:</strong> Don&#8217;t have to keep track of which tasks are no longer valid.<br>
+<strong>Cons:</strong> Causes overhead if the user repeatedly executes a command to delete tasks.</p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Use lazy deletion (i.e. use a boolean array to mark which tasks are no longer valid) without
+ automatically displaying the remaining tasks. Only delete tasks when
+  the user chooses to list tasks.<br>
+<strong>Pros:</strong> Less overhead as deletion only has to be done when user chooses to list tasks.<br>
+<strong>Cons:</strong> Difficult to implement and causes a lot of technical issues such as updating the
+list of tasks when the user closes the address book after deletion.</p>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="other-contributions"><a class="link" href="#other-contributions">Other contributions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Added sound effects for command success and failure.</p>
+</li>
+<li>
+<p>Helped to spot bugs in the code of other team members (Issues: <a href="https://github.com/CS2103AUG2017-W11-B1/main/issues/124">#124</a>, <a href="https://github.com/CS2103AUG2017-W11-B1/main/issues/165">#165</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">Project: PowerPointLabs</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>{Optionally (not graded), you may include other projects in your portfolio.}</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2017-11-08 02:29:23 +00:00
+</div>
+</div>
+</body>
+</html>

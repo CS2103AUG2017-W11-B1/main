@@ -50,11 +50,15 @@
 <li><a href="#yahoo-weather-display-mechanism">4.3. Yahoo Weather Display Mechanism</a></li>
 <li><a href="#autocomplete-mechanism-a-id-autocomplete-feature-a">4.4. Autocomplete Mechanism<a id="autocomplete-feature"></a></a></li>
 <li><a href="#extended-autocomplete-mechanism-a-id-extended-autocomplete-feature-a">4.5. Extended Autocomplete Mechanism<a id="extended-autocomplete-feature"></a></a></li>
-<li><a href="#delete-multiple-contacts-mechanism">4.6. Delete Multiple Contacts Mechanism</a></li>
-<li><a href="#theme-selection-mechanism">4.7. Theme Selection Mechanism</a></li>
-<li><a href="#add-task-mechanism">4.8. Add Task Mechanism</a></li>
-<li><a href="#logging">4.9. Logging</a></li>
-<li><a href="#configuration">4.10. Configuration</a></li>
+<li><a href="#delete-tag-mechanism">4.6. Delete Tag Mechanism</a></li>
+<li><a href="#multiple-filter-mechanism">4.7. Multiple Filter Mechanism</a></li>
+<li><a href="#delete-multiple-contacts-mechanism">4.8. Delete Multiple Contacts Mechanism</a></li>
+<li><a href="#theme-selection-mechanism">4.9. Theme Selection Mechanism</a></li>
+<li><a href="#add-task-mechanism">4.10. Add Task Mechanism</a></li>
+<li><a href="#list-task-mechanism">4.11. List Task Mechanism</a></li>
+<li><a href="#delete-task-mechanism">4.12. Delete Task Mechanism</a></li>
+<li><a href="#logging">4.13. Logging</a></li>
+<li><a href="#configuration">4.14. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1063,7 +1067,101 @@ Cons: Finite number of keys on the keyboard make it impossible to do a one-to-on
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-multiple-contacts-mechanism"><a class="link" href="#delete-multiple-contacts-mechanism">4.6. Delete Multiple Contacts Mechanism</a></h3>
+<h3 id="delete-tag-mechanism"><a class="link" href="#delete-tag-mechanism">4.6. Delete Tag Mechanism</a></h3>
+<div class="paragraph">
+<p>This mechanism is modelled by the <code>DeleteTagCommand</code> class. An instance of
+<code>DeleteTagCommand</code> is instantiated by the <code>AddressBookParser</code> class when the
+user attempts to delete tasks. The following sequence diagram shows the process from the
+moment the user enters the <code>deletetag</code> command until the remaining tags
+are displayed in the interface of <code>Contact Plus</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeleteTagCommand-sequence-diagram.png" alt="DeleteTagCommand sequence diagram" width="800">
+</div>
+</div>
+<div class="sect3">
+<h4 id="prerequisites-dependencies-4"><a class="link" href="#prerequisites-dependencies-4">4.6.1. Prerequisites/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>deleteTag()</code> method in model must be able to accept a <code>Tag</code> as input and
+delete it from the address book.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.6.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of DeleteTagCommand<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> Delete the specified tag from all contacts in the address book.<br>
+<strong>Pros:</strong> Easy to implement.<br>
+<strong>Cons:</strong> If the user wishes to only remove that tag from one particular person. He has to re-add the tag
+to every person who had that tag previously (except the one from which he wanted to remove the tag).</p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Enable the user to choose several contacts from which he/she wishes to delete the tag.<br>
+<strong>Pros:</strong> User has more control over which users to remove the tag from. Hence, this implementation removes
+ the problem from alternative 1.<br>
+<strong>Cons:</strong> Implementation is more complex as contacts have to validated before handling the tag names.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="multiple-filter-mechanism"><a class="link" href="#multiple-filter-mechanism">4.7. Multiple Filter Mechanism</a></h3>
+<div class="paragraph">
+<p>This mechanism is modelled by the <code>MultiFilterCommand</code> class. An instance of
+<code>MultiFilterCommand</code> is instantiated by the <code>AddressBookParser</code> class when the
+user attempts to delete tasks. The following sequence diagram shows the process from the
+moment the user enters the <code>multifilter</code> command until the results
+are displayed in the interface of <code>Contact Plus</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/MultiFilterCommand-sequence-diagram.png" alt="MultiFilterCommand sequence diagram" width="800">
+</div>
+</div>
+<div class="sect3">
+<h4 id="prerequisites-dependencies-5"><a class="link" href="#prerequisites-dependencies-5">4.7.1. Prerequisites/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>clearFiltersOnPersonList()</code> method in the <code>Model</code> class must clear all filters
+in the filtered list of persons (i.e. show all elements in the list).</p>
+</li>
+<li>
+<p>The <code>updateFilteredPersonList()</code> method in the <code>Model</code> class must accept a <code>Predicate</code> as
+input and apply it on the filtered list of persons (i.e. the list will only show
+elements that match the condition specified by the given <code>Predicate</code>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.7.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of MultiFilterCommand<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> Allow the user to enter any number of filter fields (e.g. name, email, address, etc.) in any order.<br>
+<strong>Pros:</strong> The user does not have to type unnecessary information (e.g. he/she does not have to specify a blank email if he/she just wants
+to find a contact with a particular name).<br>
+<strong>Cons:</strong> Technically difficult to implement as missing filter fields have to be detected and handled appropriately.</p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Only allow the user to filter by one criteria in a single command. E.g.
+If the user wishes to filter by name and address, he/she has to filter by name then
+by address (using 2 commands).<br>
+<strong>Pros:</strong> Very easy to implement as there is only one filter field to handle.<br>
+<strong>Cons:</strong> Requires multiple steps, which could be irritating and non-intuitive to the user.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="delete-multiple-contacts-mechanism"><a class="link" href="#delete-multiple-contacts-mechanism">4.8. Delete Multiple Contacts Mechanism</a></h3>
 <div class="paragraph">
 <p>The <code>Delete</code> multiple contacts feature enables user to delete more than one contact in a single command by specifying more than one indices. It is
 invoked in the <code>DeleteCommand</code> class.<br>
@@ -1105,7 +1203,7 @@ The interaction between <code>Model</code> and <code>Logic</code> classes can be
 </div>
 </div>
 <div class="sect3">
-<h4 id="prerequisites-dependencies-4"><a class="link" href="#prerequisites-dependencies-4">4.6.1. Prerequisites/Dependencies</a></h4>
+<h4 id="prerequisites-dependencies-6"><a class="link" href="#prerequisites-dependencies-6">4.8.1. Prerequisites/Dependencies</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1122,7 +1220,7 @@ exception.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.8.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>delete</code> Multiple Contact<br></p>
 </div>
@@ -1141,7 +1239,7 @@ indicate if the contact has been deleted.<br>
 </div>
 </div>
 <div class="sect2">
-<h3 id="theme-selection-mechanism"><a class="link" href="#theme-selection-mechanism">4.7. Theme Selection Mechanism</a></h3>
+<h3 id="theme-selection-mechanism"><a class="link" href="#theme-selection-mechanism">4.9. Theme Selection Mechanism</a></h3>
 <div class="paragraph">
 <p>The 'theme support' feature allows user to choose their favorite theme for the address book, other than the default
 Dark Theme. It is facilitated by <code>SwitchThemeCommand</code> class.</p>
@@ -1177,7 +1275,7 @@ theme accordingly.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="prerequisites-dependencies-5"><a class="link" href="#prerequisites-dependencies-5">4.7.1. Prerequisites/Dependencies</a></h4>
+<h4 id="prerequisites-dependencies-7"><a class="link" href="#prerequisites-dependencies-7">4.9.1. Prerequisites/Dependencies</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1194,7 +1292,7 @@ theme accordingly.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.9.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>switch theme</code> feature<br></p>
 </div>
@@ -1211,7 +1309,7 @@ theme accordingly.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-task-mechanism"><a class="link" href="#add-task-mechanism">4.8. Add Task Mechanism</a></h3>
+<h3 id="add-task-mechanism"><a class="link" href="#add-task-mechanism">4.10. Add Task Mechanism</a></h3>
 <div class="paragraph">
 <p>The 'add task' feature is facilitated by <code>AddTaskCommand</code> class. It allows users to add tasks into the address book
 with a description, the level of priority as well as the due date. The tasks added will be shown on the stickies
@@ -1227,7 +1325,7 @@ are valid. If yes, a new <code>Task</code> object will be returned and used to c
 the <code>executeUndoableCommand()</code> function in <code>AddTaskCommand</code> class will be called and returns a <code>CommandResult</code> object to display once a task is successfully added.</p>
 </div>
 <div class="sect3">
-<h4 id="prerequisites-dependencies-6"><a class="link" href="#prerequisites-dependencies-6">4.8.1. Prerequisites/Dependencies</a></h4>
+<h4 id="prerequisites-dependencies-8"><a class="link" href="#prerequisites-dependencies-8">4.10.1. Prerequisites/Dependencies</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1243,7 +1341,7 @@ the <code>executeUndoableCommand()</code> function in <code>AddTaskCommand</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.8.2. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.10.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of AddTaskCommand<br></p>
 </div>
@@ -1260,7 +1358,106 @@ the <code>executeUndoableCommand()</code> function in <code>AddTaskCommand</code
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.9. Logging</a></h3>
+<h3 id="list-task-mechanism"><a class="link" href="#list-task-mechanism">4.11. List Task Mechanism</a></h3>
+<div class="paragraph">
+<p>This mechanism is modelled by the <code>ListTaskCommand</code> class. An instance of
+<code>ListTaskCommand</code> is instantiated by the <code>AddressBookParser</code> class when the
+user attempts to list tasks. The following sequence diagram shows the process from the
+moment the user enters the <code>listtask</code> command until the tasks
+are displayed in the interface of <code>Contact Plus</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ListTaskCommand-sequence-diagram.png" alt="ListTaskCommand sequence diagram" width="800">
+</div>
+</div>
+<div class="sect3">
+<h4 id="prerequisites-dependencies-9"><a class="link" href="#prerequisites-dependencies-9">4.11.1. Prerequisites/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>taskDisplayed</code> variable in <code>CommandBox</code> must be set to the instance of the <code>BrowserPanel</code>
+that contains the sticky where the tasks are to be displayed.</p>
+</li>
+<li>
+<p>The <code>getFilteredTaskList()</code> method in <code>Logic</code> class must return a list of <code>ReadOnlyTasks</code> containing
+the tasks in the address book.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.11.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of ListTaskCommand<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> List all the tasks in one sticky note.<br>
+<strong>Cons:</strong> When too many tasks are added, the tasks will look very clutterd when displayed.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Use one sticky note to display each task.<br>
+<strong>Pros:</strong> Interface will look much neater.<br>
+<strong>Cons:</strong> Not scalable as it is not practical to generate a large number of sticky notes.<br></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="delete-task-mechanism"><a class="link" href="#delete-task-mechanism">4.12. Delete Task Mechanism</a></h3>
+<div class="paragraph">
+<p>This mechanism is modelled by the <code>DeleteTaskCommand</code> class. An instance of
+<code>DeleteTaskCommand</code> is instantiated by the <code>AddressBookParser</code> class when the
+user attempts to delete tasks. The following sequence diagram shows the process from the
+moment the user enters the <code>deletetask</code> command until the remaining tasks
+are displayed in the interface of <code>Contact Plus</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeleteTaskCommand-sequence-diagram.png" alt="DeleteTaskCommand sequence diagram" width="800">
+</div>
+</div>
+<div class="sect3">
+<h4 id="prerequisites-dependencies-10"><a class="link" href="#prerequisites-dependencies-10">4.12.1. Prerequisites/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>taskDisplayed</code> variable in <code>CommandBox</code> must be set to the instance of the <code>BrowserPanel</code>
+that contains the sticky where the tasks are to be displayed.</p>
+</li>
+<li>
+<p>The <code>getFilteredTaskList()</code> method in <code>Logic</code> class must return a list of <code>ReadOnlyTasks</code> containing
+the tasks in the address book.</p>
+</li>
+<li>
+<p>The <code>deleteTask()</code> method in model must be able to accept a <code>ReadOnlyTask</code> as input and
+delete it from the address book.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-10"><a class="link" href="#design-considerations-10">4.12.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of DeleteTaskCommand<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> Delete tasks from the address book every time the user executes the command to
+delete task.<br>
+<strong>Pros:</strong> Don&#8217;t have to keep track of which tasks are no longer valid.<br>
+<strong>Cons:</strong> Causes overhead if the user repeatedly executes a command to delete tasks.</p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Use lazy deletion (i.e. use a boolean array to mark which tasks are no longer valid) without
+ automatically displaying the remaining tasks. Only delete tasks when
+  the user chooses to list tasks.<br>
+<strong>Pros:</strong> Less overhead as deletion only has to be done when user chooses to list tasks.<br>
+<strong>Cons:</strong> Difficult to implement and causes a lot of technical issues such as updating the
+list of tasks when the user closes the address book after deletion.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">4.13. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
@@ -1298,7 +1495,7 @@ the <code>executeUndoableCommand()</code> function in <code>AddTaskCommand</code
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration"><a class="link" href="#configuration">4.10. Configuration</a></h3>
+<h3 id="configuration"><a class="link" href="#configuration">4.14. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2977,7 +3174,7 @@ originally defined by GeoPlanet and now assigned by Yahoo!, that identifies any 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-08 01:17:37 +00:00
+Last updated 2017-11-08 02:29:23 +00:00
 </div>
 </div>
 </body>
