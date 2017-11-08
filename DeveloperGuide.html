@@ -53,51 +53,10 @@
 <li><a href="#delete-tag-mechanism">4.6. Delete Tag Mechanism</a></li>
 <li><a href="#multiple-filter-mechanism">4.7. Multiple Filter Mechanism</a></li>
 <li><a href="#delete-multiple-contacts-mechanism">4.8. Delete Multiple Contacts Mechanism</a></li>
-<li><a href="#theme-selection-mechanism">4.9. Theme Selection Mechanism</a></li>
-<li><a href="#add-task-mechanism">4.10. Add Task Mechanism</a></li>
-<li><a href="#list-task-mechanism">4.11. List Task Mechanism</a></li>
-<li><a href="#delete-task-mechanism">4.12. Delete Task Mechanism</a></li>
-<li><a href="#logging">4.13. Logging</a></li>
-<li><a href="#configuration">4.14. Configuration</a></li>
+<li><a href="#tab-switching-mechanism">4.9. Tab Switching Mechanism</a></li>
+<li><a href="#theme-support-mechanism">4.10. Theme Support Mechanism</a></li>
 </ul>
 </li>
-<li><a href="#documentation">5. Documentation</a>
-<ul class="sectlevel2">
-<li><a href="#editing-documentation">5.1. Editing Documentation</a></li>
-<li><a href="#publishing-documentation">5.2. Publishing Documentation</a></li>
-<li><a href="#converting-documentation-to-pdf-format">5.3. Converting Documentation to PDF format</a></li>
-</ul>
-</li>
-<li><a href="#testing">6. Testing</a>
-<ul class="sectlevel2">
-<li><a href="#running-tests">6.1. Running Tests</a></li>
-<li><a href="#types-of-tests">6.2. Types of tests</a></li>
-<li><a href="#troubleshooting-testing">6.3. Troubleshooting Testing</a></li>
-</ul>
-</li>
-<li><a href="#dev-ops">7. Dev Ops</a>
-<ul class="sectlevel2">
-<li><a href="#build-automation">7.1. Build Automation</a></li>
-<li><a href="#continuous-integration">7.2. Continuous Integration</a></li>
-<li><a href="#making-a-release">7.3. Making a Release</a></li>
-<li><a href="#managing-dependencies">7.4. Managing Dependencies</a></li>
-</ul>
-</li>
-<li><a href="#suggested-programming-tasks-to-get-started">Appendix A: Suggested Programming Tasks to Get Started</a>
-<ul class="sectlevel2">
-<li><a href="#improving-each-component">A.1. Improving each component</a></li>
-<li><a href="#creating-a-new-command-code-remark-code">A.2. Creating a new command: <code>remark</code></a></li>
-</ul>
-</li>
-<li><a href="#user-stories">Appendix B: User Stories</a></li>
-<li><a href="#use-cases">Appendix C: Use Cases</a>
-<ul class="sectlevel2">
-<li><a href="#use-case-delete-many-persons-simultaneously">C.1. Use case: Delete many persons simultaneously</a></li>
-</ul>
-</li>
-<li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
-<li><a href="#glossary">Appendix E: Glossary</a></li>
-<li><a href="#product-survey">Appendix F: Product Survey</a></li>
 </ul>
 </div>
 </div>
@@ -1228,7 +1187,7 @@ exception.</p>
 <p><strong>Alternative 1 (current choice):</strong> Add the <code>Index</code> to be deleted to an ArrayList.<br>
 <strong>Pros:</strong> We do not need to care how many <code>Index</code> or the order of the <code>Index</code> being input by the user as long as it
 is separated by <code>/</code>.<br>
-<strong>Cons:</strong> Additional space if required for the ArrayList of <code>Index</code>.<br></p>
+<strong>Cons:</strong> Additional space is required for the ArrayList of <code>Index</code>.<br></p>
 </div>
 <div class="paragraph">
 <p><strong>Alternative 2:</strong> Use 'Lazy' delete by adding a boolean field to each element<br>
@@ -1239,7 +1198,70 @@ indicate if the contact has been deleted.<br>
 </div>
 </div>
 <div class="sect2">
-<h3 id="theme-selection-mechanism"><a class="link" href="#theme-selection-mechanism">4.9. Theme Selection Mechanism</a></h3>
+<h3 id="tab-switching-mechanism"><a class="link" href="#tab-switching-mechanism">4.9. Tab Switching Mechanism</a></h3>
+<div class="paragraph">
+<p>The tab pane will switch between <code>Task</code> and <code>Map</code> based on the command entered by the user. If the
+ Command input is related to the <code>person</code> model, it will be switched to the <code>Map</code> tab. Likewise, if the
+ Command input is related to the <code>task</code> model, it will be switched to the <code>task</code> tab.<br>
+The interaction between <code>Ui</code> and <code>Logic</code> classes can be seen from the following sequence diagram:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SwitchTab.PNG" alt="SwitchTab" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>The source code shows how the Command input is checked and how the tab is switched:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">private</span> <span class="type">void</span> displayTab(<span class="predefined-type">String</span> commandTyped) {
+        <span class="predefined-type">Map</span>&lt;<span class="predefined-type">String</span>, <span class="predefined-type">String</span>&gt; commandFormatMap = Command.getMapOfCommandFormats();
+        <span class="predefined-type">List</span> listOfAliases = Command.getListOfAvailableCommandAliases();
+        <span class="type">int</span> index = tabPane.getSelectionModel().getSelectedIndex();
+        <span class="keyword">if</span> (commandFormatMap.containsKey(commandTyped) || listOfAliases.contains(commandTyped)) {
+            <span class="keyword">if</span> (index != <span class="integer">0</span>) {
+                tabPane.getSelectionModel().selectFirst();
+            }
+        } <span class="keyword">else</span> {
+            tabPane.getSelectionModel().selectLast();
+        }
+
+    }</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="prerequisites-dependencies-7"><a class="link" href="#prerequisites-dependencies-7">4.9.1. Prerequisites/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>task</code> Commands and <code>Person</code> Commands needs to be stored in different hashmap in
+the <code>Command</code> class.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.9.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of Switch Tab mechanism<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> Checks the command typed by user to the hashmap of available commands
+ in <code>Command</code> class which are classified into <code>task</code> commands and <code>Person</code> commands.<br>
+<strong>Pros:</strong> Simple if-else case as the commands are stored in two different hashmaps.<br>
+<strong>Cons:</strong> Additional space is required for two different hashmaps.<br></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="theme-support-mechanism"><a class="link" href="#theme-support-mechanism">4.10. Theme Support Mechanism</a></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>=== Theme Selection Mechanism
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 9110f366cc21e1a0b85dd915d7ebed2ff30457c4</p>
+</div>
 <div class="paragraph">
 <p>The 'theme support' feature allows user to choose their favorite theme for the address book, other than the default
 Dark Theme. It is facilitated by <code>SwitchThemeCommand</code> class.</p>
@@ -1274,8 +1296,9 @@ theme accordingly.</p>
 <img src="images/ColourfulTheme.png" alt="ColourfulTheme" width="500">
 </div>
 </div>
-<div class="sect3">
-<h4 id="prerequisites-dependencies-7"><a class="link" href="#prerequisites-dependencies-7">4.9.1. Prerequisites/Dependencies</a></h4>
+<div class="paragraph">
+<p>==== Prerequisites/Dependencies</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1290,9 +1313,9 @@ theme accordingly.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>==== Design Considerations</p>
 </div>
-<div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.9.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>switch theme</code> feature<br></p>
 </div>
@@ -1306,10 +1329,9 @@ theme accordingly.</p>
 <strong>Pros:</strong> Users are able to know what the theme looks like before they choose the respective theme.<br>
 <strong>Cons:</strong> Additional space for <code>Theme Selection</code> window.<br></p>
 </div>
+<div class="paragraph">
+<p>=== Add Task Mechanism</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="add-task-mechanism"><a class="link" href="#add-task-mechanism">4.10. Add Task Mechanism</a></h3>
 <div class="paragraph">
 <p>The 'add task' feature is facilitated by <code>AddTaskCommand</code> class. It allows users to add tasks into the address book
 with a description, the level of priority as well as the due date. The tasks added will be shown on the stickies
@@ -1324,8 +1346,9 @@ As a result, <code>AddTaskCommandParser</code> will be returned to separate the 
 are valid. If yes, a new <code>Task</code> object will be returned and used to call <code>AddTaskCommand</code> class. Eventually,
 the <code>executeUndoableCommand()</code> function in <code>AddTaskCommand</code> class will be called and returns a <code>CommandResult</code> object to display once a task is successfully added.</p>
 </div>
-<div class="sect3">
-<h4 id="prerequisites-dependencies-8"><a class="link" href="#prerequisites-dependencies-8">4.10.1. Prerequisites/Dependencies</a></h4>
+<div class="paragraph">
+<p>==== Prerequisites/Dependencies</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1339,9 +1362,9 @@ the <code>executeUndoableCommand()</code> function in <code>AddTaskCommand</code
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>==== Design Considerations</p>
 </div>
-<div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.10.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of AddTaskCommand<br></p>
 </div>
@@ -1355,10 +1378,9 @@ the <code>executeUndoableCommand()</code> function in <code>AddTaskCommand</code
 <strong>Pros:</strong> Easy to display and look through all the tasks.<br>
 <strong>Cons:</strong> Less attractive.<br></p>
 </div>
+<div class="paragraph">
+<p>=== List Task Mechanism</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="list-task-mechanism"><a class="link" href="#list-task-mechanism">4.11. List Task Mechanism</a></h3>
 <div class="paragraph">
 <p>This mechanism is modelled by the <code>ListTaskCommand</code> class. An instance of
 <code>ListTaskCommand</code> is instantiated by the <code>AddressBookParser</code> class when the
@@ -1371,8 +1393,9 @@ are displayed in the interface of <code>Contact Plus</code>.</p>
 <img src="images/ListTaskCommand-sequence-diagram.png" alt="ListTaskCommand sequence diagram" width="800">
 </div>
 </div>
-<div class="sect3">
-<h4 id="prerequisites-dependencies-9"><a class="link" href="#prerequisites-dependencies-9">4.11.1. Prerequisites/Dependencies</a></h4>
+<div class="paragraph">
+<p>==== Prerequisites/Dependencies</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1385,9 +1408,9 @@ the tasks in the address book.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>==== Design Considerations</p>
 </div>
-<div class="sect3">
-<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.11.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of ListTaskCommand<br></p>
 </div>
@@ -1400,10 +1423,9 @@ the tasks in the address book.</p>
 <strong>Pros:</strong> Interface will look much neater.<br>
 <strong>Cons:</strong> Not scalable as it is not practical to generate a large number of sticky notes.<br></p>
 </div>
+<div class="paragraph">
+<p>=== Delete Task Mechanism</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="delete-task-mechanism"><a class="link" href="#delete-task-mechanism">4.12. Delete Task Mechanism</a></h3>
 <div class="paragraph">
 <p>This mechanism is modelled by the <code>DeleteTaskCommand</code> class. An instance of
 <code>DeleteTaskCommand</code> is instantiated by the <code>AddressBookParser</code> class when the
@@ -1416,8 +1438,9 @@ are displayed in the interface of <code>Contact Plus</code>.</p>
 <img src="images/DeleteTaskCommand-sequence-diagram.png" alt="DeleteTaskCommand sequence diagram" width="800">
 </div>
 </div>
-<div class="sect3">
-<h4 id="prerequisites-dependencies-10"><a class="link" href="#prerequisites-dependencies-10">4.12.1. Prerequisites/Dependencies</a></h4>
+<div class="paragraph">
+<p>==== Prerequisites/Dependencies</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1434,9 +1457,9 @@ delete it from the address book.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>==== Design Considerations</p>
 </div>
-<div class="sect3">
-<h4 id="design-considerations-10"><a class="link" href="#design-considerations-10">4.12.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of DeleteTaskCommand<br></p>
 </div>
@@ -1454,10 +1477,9 @@ delete task.<br>
 <strong>Cons:</strong> Difficult to implement and causes a lot of technical issues such as updating the
 list of tasks when the user closes the address book after deletion.</p>
 </div>
+<div class="paragraph">
+<p>=== Logging</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.13. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
@@ -1493,18 +1515,15 @@ list of tasks when the user closes the address book after deletion.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Configuration</p>
 </div>
-<div class="sect2">
-<h3 id="configuration"><a class="link" href="#configuration">4.14. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
+<div class="paragraph">
+<p>== Documentation</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="documentation"><a class="link" href="#documentation">5. Documentation</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>We use asciidoc for writing documentation.</p>
 </div>
@@ -1520,21 +1539,22 @@ We chose asciidoc over Markdown because asciidoc, although a bit more complex th
 </tr>
 </table>
 </div>
-<div class="sect2">
-<h3 id="editing-documentation"><a class="link" href="#editing-documentation">5.1. Editing Documentation</a></h3>
+<div class="paragraph">
+<p>=== Editing Documentation</p>
+</div>
 <div class="paragraph">
 <p>See <a href="UsingGradle.html#rendering-asciidoc-files">UsingGradle.adoc</a> to learn how to render <code>.adoc</code> files locally to preview the end result of your edits.
 Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows you to preview the changes you have made to your <code>.adoc</code> files in real-time.</p>
 </div>
+<div class="paragraph">
+<p>=== Publishing Documentation</p>
 </div>
-<div class="sect2">
-<h3 id="publishing-documentation"><a class="link" href="#publishing-documentation">5.2. Publishing Documentation</a></h3>
 <div class="paragraph">
 <p>See <a href="UsingTravis.html#deploying-github-pages">UsingTravis.adoc</a> to learn how to deploy GitHub Pages using Travis.</p>
 </div>
+<div class="paragraph">
+<p>=== Converting Documentation to PDF format</p>
 </div>
-<div class="sect2">
-<h3 id="converting-documentation-to-pdf-format"><a class="link" href="#converting-documentation-to-pdf-format">5.3. Converting Documentation to PDF format</a></h3>
 <div class="paragraph">
 <p>We use <a href="https://www.google.com/chrome/browser/desktop/">Google Chrome</a> for converting documentation to PDF format, as Chrome&#8217;s PDF engine preserves hyperlinks used in webpages.</p>
 </div>
@@ -1565,14 +1585,12 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="paragraph">
 <p><em>Figure 5.6.1 : Saving documentation as PDF files in Chrome</em></p>
 </div>
+<div class="paragraph">
+<p>== Testing</p>
 </div>
+<div class="paragraph">
+<p>=== Running Tests</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="testing"><a class="link" href="#testing">6. Testing</a></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="running-tests"><a class="link" href="#running-tests">6.1. Running Tests</a></h3>
 <div class="paragraph">
 <p>There are three ways to run tests.</p>
 </div>
@@ -1632,9 +1650,9 @@ See <a href="UsingGradle.html">UsingGradle.adoc</a> for more info on how to run 
 <div class="paragraph">
 <p>To run tests in headless mode, open a console and run the command <code>gradlew clean headless allTests</code> (Mac/Linux: <code>./gradlew clean headless allTests</code>)</p>
 </div>
+<div class="paragraph">
+<p>=== Types of tests</p>
 </div>
-<div class="sect2">
-<h3 id="types-of-tests"><a class="link" href="#types-of-tests">6.2. Types of tests</a></h3>
 <div class="paragraph">
 <p>We have two types of tests:</p>
 </div>
@@ -1674,11 +1692,9 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="troubleshooting-testing"><a class="link" href="#troubleshooting-testing">6.3. Troubleshooting Testing</a></h3>
 <div class="paragraph">
-<p><strong>Problem: <code>HelpWindowTest</code> fails with a <code>NullPointerException</code>.</strong></p>
+<p>=== Troubleshooting Testing
+<strong>Problem: <code>HelpWindowTest</code> fails with a <code>NullPointerException</code>.</strong></p>
 </div>
 <div class="ulist">
 <ul>
@@ -1690,26 +1706,24 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>== Dev Ops</p>
 </div>
+<div class="paragraph">
+<p>=== Build Automation</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="dev-ops"><a class="link" href="#dev-ops">7. Dev Ops</a></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="build-automation"><a class="link" href="#build-automation">7.1. Build Automation</a></h3>
 <div class="paragraph">
 <p>See <a href="UsingGradle.html">UsingGradle.adoc</a> to learn how to use Gradle for build automation.</p>
 </div>
+<div class="paragraph">
+<p>=== Continuous Integration</p>
 </div>
-<div class="sect2">
-<h3 id="continuous-integration"><a class="link" href="#continuous-integration">7.2. Continuous Integration</a></h3>
 <div class="paragraph">
 <p>We use <a href="https://travis-ci.org/">Travis CI</a> and <a href="https://www.appveyor.com/">AppVeyor</a> to perform <em>Continuous Integration</em> on our projects. See <a href="UsingTravis.html">UsingTravis.adoc</a> and <a href="UsingAppVeyor.html">UsingAppVeyor.adoc</a> for more details.</p>
 </div>
+<div class="paragraph">
+<p>=== Making a Release</p>
 </div>
-<div class="sect2">
-<h3 id="making-a-release"><a class="link" href="#making-a-release">7.3. Making a Release</a></h3>
 <div class="paragraph">
 <p>Here are the steps to create a new release.</p>
 </div>
@@ -1729,20 +1743,17 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>=== Managing Dependencies</p>
 </div>
-<div class="sect2">
-<h3 id="managing-dependencies"><a class="link" href="#managing-dependencies">7.4. Managing Dependencies</a></h3>
 <div class="paragraph">
 <p>A project often depends on third-party libraries. For example, Address Book depends on the <a href="http://wiki.fasterxml.com/JacksonHome">Jackson library</a> for XML parsing. Managing these <em>dependencies</em> can be automated using Gradle. For example, Gradle can download the dependencies automatically, which is better than these alternatives.<br>
 a. Include those libraries in the repo (this bloats the repo size)<br>
 b. Require developers to download those libraries manually (this creates extra work for developers)</p>
 </div>
+<div class="paragraph">
+<p>== Suggested Programming Tasks to Get Started</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="suggested-programming-tasks-to-get-started"><a class="link" href="#suggested-programming-tasks-to-get-started">Appendix A: Suggested Programming Tasks to Get Started</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>Suggested path for new programmers:</p>
 </div>
@@ -1756,8 +1767,9 @@ b. Require developers to download those libraries manually (this creates extra w
 </li>
 </ol>
 </div>
-<div class="sect2">
-<h3 id="improving-each-component"><a class="link" href="#improving-each-component">A.1. Improving each component</a></h3>
+<div class="paragraph">
+<p>=== Improving each component</p>
+</div>
 <div class="paragraph">
 <p>Each individual exercise in this section is component-based (i.e. you would not need to modify the other components to get it to work).</p>
 </div>
@@ -2099,16 +2111,15 @@ Do take a look at the <a href="#storage-component">Design: Storage Component</a>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>=== Creating a new command: <code>remark</code></p>
 </div>
-<div class="sect2">
-<h3 id="creating-a-new-command-code-remark-code"><a class="link" href="#creating-a-new-command-code-remark-code">A.2. Creating a new command: <code>remark</code></a></h3>
 <div class="paragraph">
 <p>By creating this command, you will get a chance to learn how to implement a feature end-to-end, touching all major components of the app.</p>
 </div>
-<div class="sect3">
-<h4 id="description"><a class="link" href="#description">A.2.1. Description</a></h4>
 <div class="paragraph">
-<p>Edits the remark for a person specified in the <code>INDEX</code>.<br>
+<p>==== Description
+Edits the remark for a person specified in the <code>INDEX</code>.<br>
 Format: <code>remark INDEX r/[REMARK]</code></p>
 </div>
 <div class="paragraph">
@@ -2126,13 +2137,12 @@ Removes the remark for the first person.</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect3">
-<h4 id="step-by-step-instructions"><a class="link" href="#step-by-step-instructions">A.2.2. Step-by-step Instructions</a></h4>
-<div class="sect4">
-<h5 id="step-1-logic-teach-the-app-to-accept-remark-which-does-nothing"><a class="link" href="#step-1-logic-teach-the-app-to-accept-remark-which-does-nothing">[Step 1] Logic: Teach the app to accept 'remark' which does nothing</a></h5>
 <div class="paragraph">
-<p>Let&#8217;s start by teaching the application how to parse a <code>remark</code> command. We will add the logic of <code>remark</code> later.</p>
+<p>==== Step-by-step Instructions</p>
+</div>
+<div class="paragraph">
+<p>===== [Step 1] Logic: Teach the app to accept 'remark' which does nothing
+Let&#8217;s start by teaching the application how to parse a <code>remark</code> command. We will add the logic of <code>remark</code> later.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2160,11 +2170,9 @@ Removes the remark for the first person.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect4">
-<h5 id="step-2-logic-teach-the-app-to-accept-remark-arguments"><a class="link" href="#step-2-logic-teach-the-app-to-accept-remark-arguments">[Step 2] Logic: Teach the app to accept 'remark' arguments</a></h5>
 <div class="paragraph">
-<p>Let&#8217;s teach the application to parse arguments that our <code>remark</code> command will accept. E.g. <code>1 r/Likes to drink coffee.</code></p>
+<p>===== [Step 2] Logic: Teach the app to accept 'remark' arguments
+Let&#8217;s teach the application to parse arguments that our <code>remark</code> command will accept. E.g. <code>1 r/Likes to drink coffee.</code></p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2199,11 +2207,9 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect4">
-<h5 id="step-3-ui-add-a-placeholder-for-remark-in-code-personcard-code"><a class="link" href="#step-3-ui-add-a-placeholder-for-remark-in-code-personcard-code">[Step 3] Ui: Add a placeholder for remark in <code>PersonCard</code></a></h5>
 <div class="paragraph">
-<p>Let&#8217;s add a placeholder on all our <a href="https://github.com/CS2103AUG2017-W11-B1/main/tree/master/src/main/java/seedu/address/ui/PersonCard.java"><code>PersonCard</code></a> s to display a remark for each person later.</p>
+<p>===== [Step 3] Ui: Add a placeholder for remark in <code>PersonCard</code>
+Let&#8217;s add a placeholder on all our <a href="https://github.com/CS2103AUG2017-W11-B1/main/tree/master/src/main/java/seedu/address/ui/PersonCard.java"><code>PersonCard</code></a> s to display a remark for each person later.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2228,11 +2234,9 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect4">
-<h5 id="step-4-model-add-code-remark-code-class"><a class="link" href="#step-4-model-add-code-remark-code-class">[Step 4] Model: Add <code>Remark</code> class</a></h5>
 <div class="paragraph">
-<p>We have to properly encapsulate the remark in our <a href="https://github.com/CS2103AUG2017-W11-B1/main/tree/master/src/main/java/seedu/address/model/person/ReadOnlyPerson.java"><code>ReadOnlyPerson</code></a> class. Instead of just using a <code>String</code>, let&#8217;s follow the conventional class structure that the codebase already uses by adding a <code>Remark</code> class.</p>
+<p>===== [Step 4] Model: Add <code>Remark</code> class
+We have to properly encapsulate the remark in our <a href="https://github.com/CS2103AUG2017-W11-B1/main/tree/master/src/main/java/seedu/address/model/person/ReadOnlyPerson.java"><code>ReadOnlyPerson</code></a> class. Instead of just using a <code>String</code>, let&#8217;s follow the conventional class structure that the codebase already uses by adding a <code>Remark</code> class.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2257,11 +2261,9 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect4">
-<h5 id="step-5-model-modify-code-readonlyperson-code-to-support-a-code-remark-code-field"><a class="link" href="#step-5-model-modify-code-readonlyperson-code-to-support-a-code-remark-code-field">[Step 5] Model: Modify <code>ReadOnlyPerson</code> to support a <code>Remark</code> field</a></h5>
 <div class="paragraph">
-<p>Now we have the <code>Remark</code> class, we need to actually use it inside <a href="https://github.com/CS2103AUG2017-W11-B1/main/tree/master/src/main/java/seedu/address/model/person/ReadOnlyPerson.java"><code>ReadOnlyPerson</code></a>.</p>
+<p>===== [Step 5] Model: Modify <code>ReadOnlyPerson</code> to support a <code>Remark</code> field
+Now we have the <code>Remark</code> class, we need to actually use it inside <a href="https://github.com/CS2103AUG2017-W11-B1/main/tree/master/src/main/java/seedu/address/model/person/ReadOnlyPerson.java"><code>ReadOnlyPerson</code></a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2279,11 +2281,9 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect4">
-<h5 id="step-6-storage-add-code-remark-code-field-to-code-xmladaptedperson-code-class"><a class="link" href="#step-6-storage-add-code-remark-code-field-to-code-xmladaptedperson-code-class">[Step 6] Storage: Add <code>Remark</code> field to <code>XmlAdaptedPerson</code> class</a></h5>
 <div class="paragraph">
-<p>We now have <code>Remark</code> s for <code>Person</code> s, but they will be gone when we exit the application. Let&#8217;s modify <a href="https://github.com/CS2103AUG2017-W11-B1/main/tree/master/src/main/java/seedu/address/storage/XmlAdaptedPerson.java"><code>XmlAdaptedPerson</code></a> to include a <code>Remark</code> field so that it will be saved.</p>
+<p>===== [Step 6] Storage: Add <code>Remark</code> field to <code>XmlAdaptedPerson</code> class
+We now have <code>Remark</code> s for <code>Person</code> s, but they will be gone when we exit the application. Let&#8217;s modify <a href="https://github.com/CS2103AUG2017-W11-B1/main/tree/master/src/main/java/seedu/address/storage/XmlAdaptedPerson.java"><code>XmlAdaptedPerson</code></a> to include a <code>Remark</code> field so that it will be saved.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2308,11 +2308,9 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect4">
-<h5 id="step-7-ui-connect-code-remark-code-field-to-code-personcard-code"><a class="link" href="#step-7-ui-connect-code-remark-code-field-to-code-personcard-code">[Step 7] Ui: Connect <code>Remark</code> field to <code>PersonCard</code></a></h5>
 <div class="paragraph">
-<p>Our remark label in <a href="https://github.com/CS2103AUG2017-W11-B1/main/tree/master/src/main/java/seedu/address/ui/PersonCard.java"><code>PersonCard</code></a> is still a placeholder. Let&#8217;s bring it to life by binding it with the actual <code>remark</code> field.</p>
+<p>===== [Step 7] Ui: Connect <code>Remark</code> field to <code>PersonCard</code>
+Our remark label in <a href="https://github.com/CS2103AUG2017-W11-B1/main/tree/master/src/main/java/seedu/address/ui/PersonCard.java"><code>PersonCard</code></a> is still a placeholder. Let&#8217;s bring it to life by binding it with the actual <code>remark</code> field.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2337,11 +2335,9 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect4">
-<h5 id="step-8-logic-implement-code-remarkcommand-execute-code-logic"><a class="link" href="#step-8-logic-implement-code-remarkcommand-execute-code-logic">[Step 8] Logic: Implement <code>RemarkCommand#execute()</code> logic</a></h5>
 <div class="paragraph">
-<p>We now have everything set up&#8230;&#8203; but we still can&#8217;t modify the remarks. Let&#8217;s finish it up by adding in actual logic for our <code>remark</code> command.</p>
+<p>===== [Step 8] Logic: Implement <code>RemarkCommand#execute()</code> logic
+We now have everything set up&#8230;&#8203; but we still can&#8217;t modify the remarks. Let&#8217;s finish it up by adding in actual logic for our <code>remark</code> command.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2363,20 +2359,15 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>==== Full Solution</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="full-solution"><a class="link" href="#full-solution">A.2.3. Full Solution</a></h4>
 <div class="paragraph">
 <p>See this <a href="https://github.com/se-edu/addressbook-level4/pull/599">PR</a> for the step-by-step solution.</p>
 </div>
+<div class="paragraph">
+<p>== User Stories</p>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="user-stories"><a class="link" href="#user-stories">Appendix B: User Stories</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
 </div>
@@ -2458,11 +2449,9 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="paragraph">
 <p>{More to be added}</p>
 </div>
+<div class="paragraph">
+<p>== Use Cases</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
@@ -2716,8 +2705,9 @@ Use case ends</p>
 </li>
 </ul>
 </div>
-<div class="sect2">
-<h3 id="use-case-delete-many-persons-simultaneously"><a class="link" href="#use-case-delete-many-persons-simultaneously">C.1. Use case: Delete many persons simultaneously</a></h3>
+<div class="paragraph">
+<p>=== Use case: Delete many persons simultaneously</p>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2997,12 +2987,9 @@ the <a href="#extended-autocomplete-feature">extended autocomplete</a> hotkey.</
 <div class="paragraph">
 <p>{More to be added}</p>
 </div>
+<div class="paragraph">
+<p>== Non Functional Requirements</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></h2>
-<div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3064,11 +3051,9 @@ the <a href="#extended-autocomplete-feature">extended autocomplete</a> hotkey.</
 <div class="paragraph">
 <p>{More to be added}</p>
 </div>
+<div class="paragraph">
+<p>== Glossary</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="glossary"><a class="link" href="#glossary">Appendix E: Glossary</a></h2>
-<div class="sectionbody">
 <div id="mainstream-os" class="paragraph">
 <p>Mainstream OS</p>
 </div>
@@ -3132,11 +3117,9 @@ transform one string into the other.</pre>
 originally defined by GeoPlanet and now assigned by Yahoo!, that identifies any feature on Earth.</pre>
 </div>
 </div>
+<div class="paragraph">
+<p>== Product Survey</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix F: Product Survey</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Product Name</strong></p>
 </div>
@@ -3172,9 +3155,12 @@ originally defined by GeoPlanet and now assigned by Yahoo!, that identifies any 
 </div>
 </div>
 </div>
+</div>
+</div>
+</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-08 03:21:44 +00:00
+Last updated 2017-11-08 03:50:07 +00:00
 </div>
 </div>
 </body>
