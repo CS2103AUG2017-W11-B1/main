@@ -59,10 +59,11 @@
 <li><a href="#edittask-command">4.28. Edit task [Since v1.4]</a></li>
 <li><a href="#cleartask-command">4.29. Clear task [Since v1.4]</a></li>
 <li><a href="#switch-theme-since-v1-5">4.30. Switch theme [Since v1.5]</a></li>
-<li><a href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">4.31. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></li>
-<li><a href="#add-non-english-words-as-input-coming-in-v2-0">4.32. Add non-English words as input [Coming in V2.0]</a></li>
-<li><a href="#add-push-notification-coming-in-v2-0">4.33. Add push notification [Coming in V2.0]</a></li>
-<li><a href="#saving-the-data">4.34. Saving the data</a></li>
+<li><a href="#tab-switching-since-v1-5-a-id-switchtab-a">4.31. Tab Switching [Since v1.5]<a id="switchtab"></a></a></li>
+<li><a href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">4.32. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></li>
+<li><a href="#add-non-english-words-as-input-coming-in-v2-0">4.33. Add non-English words as input [Coming in V2.0]</a></li>
+<li><a href="#add-push-notification-coming-in-v2-0">4.34. Add push notification [Coming in V2.0]</a></li>
+<li><a href="#saving-the-data">4.35. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#command-summary">5. Command Summary</a></li>
@@ -1800,27 +1801,72 @@ the diagram below)<br>
 </div>
 </div>
 <div class="sect2">
-<h3 id="tag-use-emoji-code-tag-emoji-code-coming-in-v2-0"><a class="link" href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">4.31. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></h3>
+<h3 id="tab-switching-since-v1-5-a-id-switchtab-a"><a class="link" href="#tab-switching-since-v1-5-a-id-switchtab-a">4.31. Tab Switching [Since v1.5]<a id="switchtab"></a></a></h3>
+<div class="paragraph">
+<p>You can choose to switch between the <code>Task</code> tab or <code>Map</code> tab either by clicking on the user interface or
+the application will automatically switch it for you based on the command you entered.</p>
+</div>
+<div class="sect3">
+<h4 id="description-11"><a class="link" href="#description-11">4.31.1. Description</a></h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If the command <code>delete 1/2</code> (Click on <a href="#delete-multiple-persons">link</a> to see how the command works) or any other command that is related to
+manipulating or displaying the contacts is entered, the tab will be automatically switched to the <code>Map</code> tab.</p>
+</li>
+<li>
+<p>If the command <code>listtask</code> (Click on <a href="#listtask-command">link</a> to see how the command works) or any other command that is related to
+manipulating or displaying the tasks is entered, the tab will be automatically switched to the <code>Task</code> tab.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-6"><a class="link" href="#example-6">4.31.2. Example</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Before entering any command, you are at the <code>Task</code> tab.
+<span class="image"><img src="images/switchtab1.png" alt="switchtab1" width="800"></span></p>
+</li>
+<li>
+<p>Enter command <code>delete 1/2</code> and press <kbd>ENTER</kbd>.
+<span class="image"><img src="images/switchtab2.png" alt="switchtab2" width="800"></span></p>
+</li>
+<li>
+<p>The tab will be automatically switched to the <code>Map</code> tab.
+<span class="image"><img src="images/switchtab3.png" alt="switchtab3" width="800"></span></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tag-use-emoji-code-tag-emoji-code-coming-in-v2-0"><a class="link" href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">4.32. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></h3>
 <div class="paragraph">
 <p>Input characters to represent an emoji as a tag.<br>
 Format: <code>tag :wink:</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-non-english-words-as-input-coming-in-v2-0"><a class="link" href="#add-non-english-words-as-input-coming-in-v2-0">4.32. Add non-English words as input [Coming in V2.0]</a></h3>
+<h3 id="add-non-english-words-as-input-coming-in-v2-0"><a class="link" href="#add-non-english-words-as-input-coming-in-v2-0">4.33. Add non-English words as input [Coming in V2.0]</a></h3>
 <div class="paragraph">
 <p>Input non-English words to be saved in the application.
 Format: CommandWrd + inputText</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-push-notification-coming-in-v2-0"><a class="link" href="#add-push-notification-coming-in-v2-0">4.33. Add push notification [Coming in V2.0]</a></h3>
+<h3 id="add-push-notification-coming-in-v2-0"><a class="link" href="#add-push-notification-coming-in-v2-0">4.34. Add push notification [Coming in V2.0]</a></h3>
 <div class="paragraph">
 <p>The application will prompt notifications for users on the computer for the up coming tasks.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.34. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.35. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -2072,7 +2118,7 @@ Also you can refer to the <a href="#quickstart">Quick Start</a> session.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-08 05:10:13 +00:00
+Last updated 2017-11-09 10:19:15 +00:00
 </div>
 </div>
 </body>
