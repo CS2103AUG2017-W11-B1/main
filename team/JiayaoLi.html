@@ -303,7 +303,7 @@ This class makes uses of the powerful function from stream. The logic follow can
 <div class="sect3">
 <h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">Design Consideration</a></h4>
 <div class="paragraph">
-<p><strong>Aspect:</strong> Number of tags allowed to be specified by users
+<p><strong>Aspect:</strong> Number of tags allowed to be specified by users.<br>
 <strong>Alternative 1 (current choice):</strong> Allow multiple tags to be entered by users
 <strong>Pros:</strong> Increases the flexibility of this search by tag feature. There would be no restriction on the number of tags to be entered. Users can specify as many valid tags as they want to.
 <strong>Cons:</strong> May not be obvious to users that they can enter multiple tag names.</p>
@@ -764,16 +764,30 @@ Format: <code>edittask INDEX d/DESCRIPTION priority/PRIORITY(0/1/2) on DUE DATE(
 <p>Edit Task Mechanism</p>
 </div>
 <div class="paragraph">
-<p>The <code>edit task</code> is facilitated by EditTaskCommand class. It allows users to edit tasks into the address book with a description, the level of priority as well as the due date. The tasks added will be shown on the stickies in the address book.</p>
+<p>The <code>edit task</code> is facilitated by EditTaskCommand class. It allows users to edit tasks in the address book with a description, the level of priority as well as the due date. The tasks added will be shown on the stickies in the address book.</p>
 </div>
 <div class="paragraph">
-<p>The command word for editing a task is <code>edittask</code>. When users key in the command word task, together with valid description, priority and due date, the values will be passed  into parseCommand() function in the AddressBookParser class.</p>
+<p>The command word for editing a task is <code>edittask</code>. When users key in the command word, together with valid description, priority and due date, the values will be passed into parseCommand() function in the AddressBookParser class.</p>
 </div>
 <div class="paragraph">
 <p>The basic main flow for <code>edittask</code> is as follows:</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="../images/EditTaskMainFlow.png" alt="EditTaskMainFlow" width="800"></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-5"><a class="link" href="#design-consideration-5">Design Consideration</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> fields to be editable.<br>
+<strong>Alternative 1 (current choice):</strong> Allow priority and due date to be editable but not description.
+<strong>Pros:</strong> It is logically clear that only the priority and due date of a task can be edited. Changing the description of the task essentially means to create a new task.
+<strong>Cons:</strong> May be not convenient for users who want to edit description of the task as well.</p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Only allow users to edit all three fields, description, priority and due date.
+<strong>Pros:</strong> This provides larger flexibility for users to edit any part of the given task.
+<strong>Cons:</strong> Logically it may not make sense to be able to edit description of the task.</p>
 </div>
 </div>
 </div>
@@ -835,7 +849,25 @@ Format: <code>cleartask</code></p>
 <div class="sect3">
 <h4 id="justification-7"><a class="link" href="#justification-7">Justification</a></h4>
 <div class="paragraph">
-<p>It is considerable to allow users to be able oto edit their tasks, and it is a common feature that every task application should have.</p>
+<p>It is considerable to allow users to be able to clear their tasks when the stake of the task is too high. <code>clear task</code> helps users to clear their task panel.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-7"><a class="link" href="#implementation-7">Implementation</a></h4>
+<div class="paragraph">
+<p>Clear Task Mechanism</p>
+</div>
+<div class="paragraph">
+<p>The <code>clear task</code> is facilitated by ClearTaskCommand class. It allows users to clear tasks in the address book.</p>
+</div>
+<div class="paragraph">
+<p>The command word for listing a task is <code>cleartask</code>. When users key in the command word, the command word <code>cleartask</code> is passed into AddressBookParser class, and the corresponding <code>ClearTaskCommand</code> is created and subsequently its function executeUndoableCommand() will clear the tasks from addressbook.xml.</p>
+</div>
+<div class="paragraph">
+<p>The basic main flow for <code>cleartask</code> is as follows:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/listTaskActivityDiagram.png" alt="listTaskActivityDiagram" width="800"></span></p>
 </div>
 </div>
 </div>
@@ -854,7 +886,7 @@ Format: <code>cleartask</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-10 11:22:30 +00:00
+Last updated 2017-11-10 16:12:22 +00:00
 </div>
 </div>
 </body>
