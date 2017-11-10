@@ -58,8 +58,9 @@
 <li><a href="#add-task-mechanism">4.11. Add Task Mechanism</a></li>
 <li><a href="#list-task-mechanism">4.12. List Task Mechanism</a></li>
 <li><a href="#delete-task-mechanism">4.13. Delete Task Mechanism</a></li>
-<li><a href="#logging">4.14. Logging</a></li>
-<li><a href="#configuration">4.15. Configuration</a></li>
+<li><a href="#sound-effect-for-commands">4.14. Sound Effect for Commands</a></li>
+<li><a href="#logging">4.15. Logging</a></li>
+<li><a href="#configuration">4.16. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1515,7 +1516,64 @@ list of tasks when the user closes the address book after deletion.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.14. Logging</a></h3>
+<h3 id="sound-effect-for-commands"><a class="link" href="#sound-effect-for-commands">4.14. Sound Effect for Commands</a></h3>
+<div class="paragraph">
+<p>This mechanism is supported by the <code>AudioUtil</code> class. The static method
+<code>playClip()</code>, which plays a specified .wav format sound clip, is invoked on <code>AudioUtil</code> class when a command is issued by
+the user. Distinct sound clips will be played based on whether the command
+was successfully executed or it failed to execute (due to various reasons such
+as parse error). A visualization of this is shown in the following sequence diagram:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SoundEffect-sequence-diagram.png" alt="SoundEffect sequence diagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>The implementation of the <code>playClip()</code> method in the <code>AudioUtil</code> class is shown below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/playClipMethod.png" alt="playClipMethod" width="800">
+</div>
+</div>
+<div class="sect3">
+<h4 id="prerequisites-dependencies-12"><a class="link" href="#prerequisites-dependencies-12">4.14.1. Prerequisites/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The audio file whose name is specified to the <code>playClip()</code> method must exist
+in the src/resources/audio/ folder.</p>
+</li>
+<li>
+<p>The name of a .wav format audio clip should be provided to the <code>playClip()</code> method as
+only this format has been tried and tested. Other audio file formats may/may not work.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-12"><a class="link" href="#design-considerations-12">4.14.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of sound effects.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> Play preset clips on command success or failure.<br>
+<strong>Pros:</strong> Easy to implement as the clips to be played are always the same and are only played
+during two events.<br>
+<strong>Cons:</strong> The sound clips are limited to two types - success or failure.</p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Allow the user to select the command success and failure audio clips from
+a predefined list.<br>
+<strong>Pros:</strong> User is able to have more personalized settings.<br>
+<strong>Cons:</strong> Technically challenging as additional commands have to be implemented to list
+the available audio clips and select the desired ones.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">4.15. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
@@ -1553,7 +1611,7 @@ list of tasks when the user closes the address book after deletion.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration"><a class="link" href="#configuration">4.15. Configuration</a></h3>
+<h3 id="configuration"><a class="link" href="#configuration">4.16. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3232,7 +3290,7 @@ originally defined by GeoPlanet and now assigned by Yahoo!, that identifies any 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-10 16:12:22 +00:00
+Last updated 2017-11-10 16:31:43 +00:00
 </div>
 </div>
 </body>
