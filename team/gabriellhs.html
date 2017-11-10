@@ -21,7 +21,7 @@
 <li><a href="#enhancement-added-delete-tag">Enhancement Added: Delete Tag</a></li>
 <li><a href="#enhancement-added-autocomplete">Enhancement Added: Autocomplete</a></li>
 <li><a href="#enhancement-added-extended-autocomplete">Enhancement Added: Extended Autocomplete</a></li>
-<li><a href="#enhancement-added-multiple-filter">Enhancement Added: Multiple Filter</a></li>
+<li><a href="#enhancement-added-multiple-filter-for-contacts">Enhancement Added: Multiple Filter for Contacts</a></li>
 <li><a href="#enhancement-added-list-tasks">Enhancement Added: List Tasks</a></li>
 <li><a href="#enhancement-added-delete-tasks">Enhancement Added: Delete Tasks</a></li>
 <li><a href="#other-contributions">Other contributions</a></li>
@@ -52,7 +52,7 @@
 <p><mark>Start of Extract [from: User Guide]</mark></p>
 </div>
 <div class="paragraph">
-<p>Need to reorganize your social groups? <code>deletetag</code> enables you to delete
+<p><a id="deletetag-command"></a> Need to reorganize your social groups? <code>deletetag</code> enables you to delete
 tags from all your contacts in <code>Contact Plus</code> !<br>
 Command Format: <code>deletetag tag_name</code><br>
 Quick demo: <a href="#how-to-use-deletetag-command">here</a></p>
@@ -139,15 +139,15 @@ he/she could remove the tag <code>CS2101 groupmate</code> from all contacts in
 <p><mark>Start of Extract [from: Developer Guide]</mark></p>
 </div>
 <div class="paragraph">
-<p>This mechanism is modelled by the <code>DeleteTaskCommand</code> class. An instance of
-<code>DeleteTaskCommand</code> is instantiated by the <code>AddressBookParser</code> class when the
+<p>This mechanism is modelled by the <code>DeleteTagCommand</code> class. An instance of
+<code>DeleteTagCommand</code> is instantiated by the <code>AddressBookParser</code> class when the
 user attempts to delete tasks. The following sequence diagram shows the process from the
-moment the user enters the <code>deletetask</code> command until the remaining tasks
+moment the user enters the <code>deletetag</code> command until the remaining tags
 are displayed in the interface of <code>Contact Plus</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/DeleteTaskCommand-sequence-diagram.png" alt="DeleteTaskCommand sequence diagram" width="800">
+<img src="../images/DeleteTagCommand-sequence-diagram.png" alt="DeleteTagCommand sequence diagram" width="800">
 </div>
 </div>
 </div>
@@ -156,15 +156,7 @@ are displayed in the interface of <code>Contact Plus</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The <code>taskDisplayed</code> variable in <code>CommandBox</code> must be set to the instance of the <code>BrowserPanel</code>
-that contains the sticky where the tasks are to be displayed.</p>
-</li>
-<li>
-<p>The <code>getFilteredTaskList()</code> method in <code>Logic</code> class must return a list of <code>ReadOnlyTasks</code> containing
-the tasks in the address book.</p>
-</li>
-<li>
-<p>The <code>deleteTask()</code> method in model must be able to accept a <code>ReadOnlyTask</code> as input and
+<p>The <code>deleteTag()</code> method in model must be able to accept a <code>Tag</code> as input and
 delete it from the address book.</p>
 </li>
 </ul>
@@ -173,21 +165,19 @@ delete it from the address book.</p>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="paragraph">
-<p><strong>Aspect:</strong> Implementation of DeleteTaskCommand<br></p>
+<p><strong>Aspect:</strong> Implementation of <code>deletetag</code> command.<br></p>
 </div>
 <div class="paragraph">
-<p><strong>Alternative 1 (current choice):</strong> Delete tasks from the address book every time the user executes the command to
-delete task.<br>
-<strong>Pros:</strong> Don&#8217;t have to keep track of which tasks are no longer valid.<br>
-<strong>Cons:</strong> Causes overhead if the user repeatedly executes a command to delete tasks.</p>
+<p><strong>Alternative 1 (current choice):</strong> Delete the specified tag from all contacts in the address book.<br>
+<strong>Pros:</strong> Easy to implement.<br>
+<strong>Cons:</strong> If the user wishes to only remove that tag from one particular person. He has to re-add the tag
+to every person who had that tag previously (except the one from which he wanted to remove the tag).</p>
 </div>
 <div class="paragraph">
-<p><strong>Alternative 2:</strong> Use lazy deletion (i.e. use a boolean array to mark which tasks are no longer valid) without
- automatically displaying the remaining tasks. Only delete tasks when
-  the user chooses to list tasks.<br>
-<strong>Pros:</strong> Less overhead as deletion only has to be done when user chooses to list tasks.<br>
-<strong>Cons:</strong> Difficult to implement and causes a lot of technical issues such as updating the
-list of tasks when the user closes the address book after deletion.</p>
+<p><strong>Alternative 2:</strong> Enable the user to choose several contacts from which he/she wishes to delete the tag.<br>
+<strong>Pros:</strong> User has more control over which users to remove the tag from. Hence, this implementation removes
+ the problem from alternative 1.<br>
+<strong>Cons:</strong> Implementation is more complex as contacts have to validated before handling the tag names.</p>
 </div>
 <div class="paragraph">
 <p><mark>End of Extract</mark></p>
@@ -204,7 +194,7 @@ list of tasks when the user closes the address book after deletion.</p>
 <p><mark>Start of Extract [from: User Guide]</mark></p>
 </div>
 <div class="paragraph">
-<p>Lazy to memorize command names? Press a shorcut key to automatically complete the text that you enter into the command box.<br>
+<p><a id="autocomplete-feature"></a> Lazy to memorize command names? Press a shortcut key to automatically complete the text that you enter into the command box.<br>
 Format: [Some text]<br>
 Quick demo:  <a href="#how-to-use-autocomplete">here</a></p>
 </div>
@@ -397,7 +387,7 @@ another method should be implemented in the <code>AutoCompleteUtil</code> class.
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
 <div class="paragraph">
-<p><strong>Aspect:</strong> Implementation of <code>autocomplete</code><br></p>
+<p><strong>Aspect:</strong> Implementation of <code>autocomplete</code>.<br></p>
 </div>
 <div class="paragraph">
 <p><strong>Alternative 1 (current choice):</strong> Add a list of names of available commands to <code>Command</code> class.<br>
@@ -430,7 +420,7 @@ another method should be implemented in the <code>AutoCompleteUtil</code> class.
 <p><mark>Start of Extract [from: User Guide]</mark></p>
 </div>
 <div class="paragraph">
-<p>Some commands such as <code><a href="#add-command">add</a></code> are very long and difficult to type.
+<p><a id="extended-autocomplete-feature"></a> Some commands such as <code>add</code> are very long and difficult to type.
 This feature enables you to automatically fill in the format of the command whose name matches
 the text that you entered.<br>
 Format: [COMMAND_WORD]<br>
@@ -623,7 +613,7 @@ for aliases.</p>
 <div class="sect3">
 <h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h4>
 <div class="paragraph">
-<p><strong>Aspect:</strong> Implementation of <code>extended autocomplete</code><br></p>
+<p><strong>Aspect:</strong> Implementation of <code>extended autocomplete</code>.<br></p>
 </div>
 <div class="paragraph">
 <p><strong>Alternative 1 (current choice):</strong> Use a shortcut key to launch <code>extended autocomplete</code> when a valid <code>COMMAND NAME</code>
@@ -649,7 +639,7 @@ Cons: Finite number of keys on the keyboard make it impossible to do a one-to-on
 </div>
 </div>
 <div class="sect2">
-<h3 id="enhancement-added-multiple-filter"><a class="link" href="#enhancement-added-multiple-filter">Enhancement Added: Multiple Filter</a></h3>
+<h3 id="enhancement-added-multiple-filter-for-contacts"><a class="link" href="#enhancement-added-multiple-filter-for-contacts">Enhancement Added: Multiple Filter for Contacts</a></h3>
 <div class="sect3">
 <h4 id="external-behavior-4"><a class="link" href="#external-behavior-4">External behavior</a></h4>
 <hr>
@@ -657,7 +647,7 @@ Cons: Finite number of keys on the keyboard make it impossible to do a one-to-on
 <p><mark>Start of Extract [from: User Guide]</mark></p>
 </div>
 <div class="paragraph">
-<p>Finds persons whose names, phone no., emails and addresses,
+<p><a id="multifilter-format"></a> Finds persons whose names, phone no., emails and addresses,
 match a set of specified criteria.<br>
 Format: <code>multifilter [n/NAME] [p/PHONE NO.] [e/EMAIL] [a/ADDRESS]</code><br>
 Quick demo: <a href="#how-to-use-multifilter">here</a></p>
@@ -830,7 +820,7 @@ elements that match the condition specified by the given <code>Predicate</code>)
 <div class="sect3">
 <h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">Design Considerations</a></h4>
 <div class="paragraph">
-<p><strong>Aspect:</strong> Implementation of MultiFilterCommand<br></p>
+<p><strong>Aspect:</strong> Implementation of <code>multifilter</code> command.<br></p>
 </div>
 <div class="paragraph">
 <p><strong>Alternative 1 (current choice):</strong> Allow the user to enter any number of filter fields (e.g. name, email, address, etc.) in any order.<br>
@@ -860,7 +850,7 @@ by address (using 2 commands).<br>
 <p><mark>Start of Extract [from: User Guide]</mark></p>
 </div>
 <div class="paragraph">
-<p>This command enables you to retrieve personal tasks that you have stored in
+<p><a id="listtask-command"></a> This command enables you to retrieve personal tasks that you have stored in
 <code>Contact Plus</code>.<br>
 Format: <code>listtask</code><br>
 Quick demo: <a href="#how-to-use-listtask">here</a></p>
@@ -874,7 +864,7 @@ Quick demo: <a href="#how-to-use-listtask">here</a></p>
 <ul>
 <li>
 <p>The <code>listtask</code> command shows all tasks that you have created in <code>Contact Plus</code>
-previously using the <code><a href="#addtask">task</a></code> command.</p>
+previously using the <code>task</code> command.</p>
 </li>
 <li>
 <p>Tasks are listed in the order that you have created them.</p>
@@ -963,7 +953,7 @@ the tasks in the address book.</p>
 <div class="sect3">
 <h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">Design Considerations</a></h4>
 <div class="paragraph">
-<p><strong>Aspect:</strong> Implementation of ListTaskCommand<br></p>
+<p><strong>Aspect:</strong> Implementation of <code>listtask</code> command.<br></p>
 </div>
 <div class="paragraph">
 <p><strong>Alternative 1 (current choice):</strong> List all the tasks in one sticky note.<br>
@@ -989,7 +979,7 @@ the tasks in the address book.</p>
 <p><mark>Start of Extract [from: User Guide]</mark></p>
 </div>
 <div class="paragraph">
-<p>This command enables you to remove unnecessary/unwanted tasks
+<p><a id="deletetask-command"></a> This command enables you to remove unnecessary/unwanted tasks
 from <code>Contact Plus</code>.<br>
 Command Format: <code>deletetask INDEX_1/INDEX_2/INDEX_3 &#8230;&#8203;</code><br></p>
 </div>
@@ -1002,8 +992,8 @@ Command Format: <code>deletetask INDEX_1/INDEX_2/INDEX_3 &#8230;&#8203;</code><b
 <ul>
 <li>
 <p><code>INDEX_1</code>, <code>INDEX_2</code>, etc. refer to the task numbers that
-are shown when you use the <a href="#listtask"><code>listtask</code></a> command to show your tasks
-(See <a href="#how-to-use-deletetasks">how to use</a> for an example).</p>
+are shown when you use the <a href="#listtask-command"><code>listtask</code></a> command to show your tasks
+(See <a href="#how-to-use-deletetask">how to use</a> for an example).</p>
 </li>
 <li>
 <p><code>INDEX_1</code>, <code>INDEX_2</code>, etc. must be positive integers
@@ -1048,11 +1038,11 @@ Otherwise, an error message is shown.</p></td>
 </table>
 </div>
 <div class="sect3">
-<h4 id="how-to-use"><a class="link" href="#how-to-use">How to use</a></h4>
+<h4 id="how-to-use-deletetask"><a class="link" href="#how-to-use-deletetask">How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Use the <code><a href="#listtask">listtask</a></code> command to display all your tasks.
+<p>Use the <code><a href="#listtask-command">listtask</a></code> command to display all your tasks.
 Note the number of the tasks that you wish to delete.</p>
 <div class="paragraph">
 <p><span class="image"><img src="../images/deletetask-listtask.png" alt="deletetask listtask" width="800"></span></p>
@@ -1134,7 +1124,7 @@ delete it from the address book.</p>
 <div class="sect3">
 <h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">Design Considerations</a></h4>
 <div class="paragraph">
-<p><strong>Aspect:</strong> Implementation of DeleteTaskCommand<br></p>
+<p><strong>Aspect:</strong> Implementation of DeleteTaskCommand.<br></p>
 </div>
 <div class="paragraph">
 <p><strong>Alternative 1 (current choice):</strong> Delete tasks from the address book every time the user executes the command to
@@ -1182,7 +1172,7 @@ list of tasks when the user closes the address book after deletion.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-09 12:54:43 +00:00
+Last updated 2017-11-10 11:22:30 +00:00
 </div>
 </div>
 </body>
