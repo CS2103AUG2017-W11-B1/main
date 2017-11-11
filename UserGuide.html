@@ -45,8 +45,31 @@
 <li><a href="#alias-for-commands-since-v1-0">4.14. Alias for commands [Since v1.0]</a></li>
 <li><a href="#searchtag-command">4.15. Locating persons by tag: <code>search + tag name</code> [Since v1.1]</a></li>
 <li><a href="#add-second-phone-number-for-a-person-since-v1-1">4.16. Add second phone number for a person [Since v1.1]</a></li>
+<li><a href="#multifilter-format">4.17. Locating persons by multiple criteria: <code>multifilter</code> [Since v1.1]</a></li>
+<li><a href="#autocomplete-command-names-since-v1-2">4.18. Autocomplete command names [Since v1.2]</a></li>
+<li><a href="#autocorrect-command-since-v1-2">4.19. AutoCorrect command [Since v1.2]</a></li>
+<li><a href="#delete-multiple-persons">4.20. Deleting multiple persons : <code>delete index/another index/&#8230;&#8203;</code> [Since v1.2]</a></li>
+<li><a href="#viewing-weather-forecast-since-v1-3">4.21. Viewing Weather Forecast [Since v1.3]</a></li>
+<li><a href="#extended-autocomplete-for-commands-since-v1-3">4.22. Extended autocomplete for commands [Since v1.3]</a></li>
+<li><a href="#keyboard-shortcuts-since-v1-3">4.23. Keyboard shortcuts [Since v1.3]</a></li>
+<li><a href="#addtask-command">4.24. Add tasks [Since v1.3] <a id="addtask"></a></a></li>
+<li><a href="#list-tasks-since-v1-4">4.25. List tasks [Since v1.4]</a></li>
+<li><a href="#delete-tasks-code-deletetask-code">4.26. Delete tasks : <code>deletetask</code></a></li>
+<li><a href="#sound-effect-for-system-events-since-v1-3">4.27. Sound effect for system events [Since v1.3]</a></li>
+<li><a href="#edittask-command">4.28. Edit task [Since v1.4]</a></li>
+<li><a href="#cleartask-command">4.29. Clear task [Since v1.4]</a></li>
+<li><a href="#switch-theme-since-v1-5">4.30. Switch theme [Since v1.5]</a></li>
+<li><a href="#tab-switching-since-v1-5-a-id-switchtab-a">4.31. Tab Switching [Since v1.5]<a id="switchtab"></a></a></li>
+<li><a href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">4.32. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></li>
+<li><a href="#add-non-english-words-as-input-coming-in-v2-0">4.33. Add non-English words as input [Coming in V2.0]</a></li>
+<li><a href="#add-push-notification-coming-in-v2-0">4.34. Add push notification [Coming in V2.0]</a></li>
+<li><a href="#saving-the-data">4.35. Saving the data</a></li>
 </ul>
 </li>
+<li><a href="#command-summary">5. Command Summary</a></li>
+<li><a href="#keyboard-shortcuts-summary">6. Keyboard Shortcuts Summary</a></li>
+<li><a href="#list-of-alias">7. Command Alias Summary</a></li>
+<li><a href="#faq">8. FAQ</a></li>
 </ul>
 </div>
 </div>
@@ -58,7 +81,7 @@
  which allows you to record your upcoming appointments, events and tasks. We strive to provide comprehensive services for busy students as well as anyone who needs a contact-managing application.<br></p>
 </div>
 <div class="paragraph">
-<p>This guide will help you get familiar with the features of <code>Contact Plus</code>. If you encounter any problems or doubts, please press <kbd>F1</kbd> or type <code>Help</code> in commmand box (refer to <a href="#userInterface">User Interface</a>) for more information.</p>
+<p>This guide will help you get familiar with the features of <code>Contact Plus</code>. If you encounter any problems or doubts, please press <kbd>F1</kbd> or type <code>Help</code> in commmand box (refer to <a href="#user-interface">User Interface</a> to find command box).</p>
 </div>
 </div>
 </div>
@@ -111,7 +134,7 @@ This app will not work with earlier versions of Java 8.
 e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
 </li>
 <li>
-<p>Refer to the <a href="#command-summary">command-summary</a> section below for the complete list of commands.</p>
+<p>Refer to the <a href="#command-summary">command summary</a> section below for the complete list of commands.</p>
 </li>
 </ol>
 </div>
@@ -148,7 +171,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="paragraph">
 <p>Command Format: <code>help</code><br>
 Keyboard shortcut: <code>F1</code><br>
-UI: Menu bar - <kbd>Help</kbd></p>
+UI: Menu bar (refer to <a href="#user-interface">User Interface</a>) - <kbd>Help</kbd></p>
 </div>
 </div>
 <div class="sect2">
@@ -178,16 +201,22 @@ Tags names should be alphanumeric<br>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add n/John Doe p/98765432 p2/61234567 or '-' e/johnd@example.com a/John street, block 123, #01-01</code></p>
-</li>
-<li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Your input</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Output</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/John Doe p/98765432 p2/61234567 or '-' e/johnd@example.com a/John street, block 123, #01-01</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add the contact John doe with first phone number 98765432, second phone number null, email address <a href="mailto:johndoe@example.com">johndoe@example.com</a>, and address John street, block 123, #01-01 respectively.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="list-command"><a class="link" href="#list-command">4.3. Listing all persons : <code>list</code>, <code>l</code></a></h3>
@@ -229,27 +258,38 @@ Keyboard shortcut: <kbd>control</kbd> + <kbd>e</kbd>/<kbd>E</kbd></p>
 </div>
 </div>
 </div>
-<div class="olist TIP">
-<ol class="TIP">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
 <li>
-<p>A person can have any number of tags (including 0).<br></p>
+<p>A person can have any number of tags (including 0).</p>
 </li>
 <li>
-<p>A person can add the symbol '-' if a second phone number is not required for the contact.<br></p>
+<p>A person can add the symbol '-' if a second phone number is not required for the contact.</p>
 </li>
 <li>
-<p>Person names should only contain alphanumeric characters and spaces, and it should not be blank.<br></p>
+<p>Person names should only contain alphanumeric characters and spaces, and it should not be blank.</p>
 </li>
 <li>
-<p>Person emails should be 2 alphanumeric/period strings separated by '@'.<br></p>
+<p>Person emails should be 2 alphanumeric/period strings separated by '@'.</p>
 </li>
 <li>
-<p>Phone numbers can only contain numbers, and should be at least 3 digits long.<br></p>
+<p>Phone numbers can only contain numbers, and should be at least 3 digits long.</p>
 </li>
 <li>
 <p>Tags names should be alphanumeric<br></p>
 </li>
-</ol>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -309,18 +349,26 @@ Keyboard shortcut: <kbd>control</kbd> + <kbd>f</kbd>/<kbd>F</kbd></p>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>find John</code><br>
-Returns <code>john</code> and <code>John Doe</code></p>
-</li>
-<li>
-<p><code>find Betsy Tim John</code><br>
-Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Your input</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Output</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find John</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns <code>john</code> and <code>John Doe</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find Betsy Tim John</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="delete-single-person"><a class="link" href="#delete-single-person">4.6. Deleting a single person : <code>delete</code></a></h3>
@@ -416,20 +464,26 @@ Command Format: <code>select INDEX</code> or <code>s INDEX</code></p>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>select 2</code><br>
-Selects the 2nd person in <code>Contact Plus</code>.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>select 1</code><br>
-Selects the 1st person in the results of the <code>find</code> command.</p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Your input</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Output<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code> + <code>select 2</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Selects the 2nd person in <code>Contact Plus</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find Betsy</code> + <code>select 1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Selects the 1st person in the results of the <code>find</code> command</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="history-command"><a class="link" href="#history-command">4.8. Listing entered commands : <code>history</code>, <code>h</code></a></h3>
@@ -475,27 +529,34 @@ Command Format: <code>undo</code>, <code>u</code></p>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-<code>list</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>select 1</code><br>
-<code>list</code><br>
-<code>undo</code><br>
-The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Your input</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Output<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete 1</code> + <code>list</code> + <code>undo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reverses the <code>delete 1</code> command</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select 1</code>+ <code>list</code> + <code>undo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>undo</code> command fails as there are no undoable commands executed previously.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete 1</code> +<code>clear</code> +<code>undo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reverses the <code>clear</code> command</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete 1</code> +<code>clear</code> +<code>undo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reverses the <code>delete 1</code> command</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="redo-command"><a class="link" href="#redo-command">4.10. Redoing the previously undone command : <code>redo</code>, <code>r</code></a></h3>
@@ -506,28 +567,30 @@ Command Format: <code>redo</code>, <code>r</code></p>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>redo</code><br>
-The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Your input</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Output<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete 1</code>+ <code>undo</code> + <code>redo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reapplies the <code>delete 1</code> command</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete 1</code> +<code>redo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete 1</code> +<code>clear</code> +<code>undo</code> + <code>undo + `redo</code> + <code>redo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reapplies the <code>clear</code> command</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="clear-command"><a class="link" href="#clear-command">4.11. Clearing all entries : <code>clear</code>, <code>c</code></a></h3>
@@ -746,25 +809,17 @@ Format: <code>COMMAND_WORD PARAMETERS p2/PHONE_NUMBER OTHER_PARAMETERS</code></p
 * <code>add n/John Doe p/98765432 p2/73624789 e/johnd@example.com a/John street, block 123, #01-01</code><br>
 * <code>edit 1 p/91234567 p2/73624789 e/johndoe@example.com</code><br></p>
 </div>
-<div class="paragraph">
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-=== Locating persons by multiple criteria: <code>multifilter</code> [Since v1.1]</p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>=== Locating persons by multiple criteria: <code>multifilter</code> [Since v1.1] <a id="multifilter-format"></a>
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; 6a615541cbe9d0981a7f5bb1e9292cfe1887103d</p>
-</div>
+<div class="sect2">
+<h3 id="multifilter-format"><a class="link" href="#multifilter-format">4.17. Locating persons by multiple criteria: <code>multifilter</code> [Since v1.1]</a></h3>
 <div class="paragraph">
 <p><a id="multifilter-format"></a> Finds persons whose names, phone no., emails and addresses,
 match a set of specified criteria.<br>
 Format: <code>multifilter [n/NAME] [p/PHONE NO.] [e/EMAIL] [a/ADDRESS]</code><br>
 Quick demo: <a href="#how-to-use-multifilter">here</a></p>
 </div>
-<div class="paragraph">
-<p>==== Description <a id="multifilter-description"></a></p>
-</div>
+<div class="sect3">
+<h4 id="multifilter-description"><a class="link" href="#multifilter-description">4.17.1. Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -809,9 +864,9 @@ will not be matched</p>
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>==== Examples</p>
 </div>
+<div class="sect3">
+<h4 id="examples-5"><a class="link" href="#examples-5">4.17.2. Examples</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -842,9 +897,9 @@ will not be matched</p>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>==== How to use <a id="how-to-use-multifilter"></a></p>
 </div>
+<div class="sect3">
+<h4 id="how-to-use-multifilter"><a class="link" href="#how-to-use-multifilter">4.17.3. How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -879,9 +934,10 @@ If no filters are used, all contacts will be displayed.
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>=== Autocomplete command names [Since v1.2]</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="autocomplete-command-names-since-v1-2"><a class="link" href="#autocomplete-command-names-since-v1-2">4.18. Autocomplete command names [Since v1.2]</a></h3>
 <div class="paragraph">
 <p><a id="autocomplete-feature"></a> Lazy to memorize command names? Press a shortcut key to automatically complete the text that you enter into the command box.<br>
 Format: [Some text]<br>
@@ -900,9 +956,8 @@ To automatically fill in the format of commands, see <a href="#extended-autocomp
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>==== Description <a id="autocomplete-description"></a></p>
-</div>
+<div class="sect3">
+<h4 id="autocomplete-description"><a class="link" href="#autocomplete-description">4.18.1. Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -936,9 +991,9 @@ name for the command will be automatically filled into the command box instead o
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>==== Examples</p>
 </div>
+<div class="sect3">
+<h4 id="examples-6"><a class="link" href="#examples-6">4.18.2. Examples</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -963,9 +1018,9 @@ name for the command will be automatically filled into the command box instead o
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>==== How to use <a id="how-to-use-autocomplete"></a></p>
 </div>
+<div class="sect3">
+<h4 id="how-to-use-autocomplete"><a class="link" href="#how-to-use-autocomplete">4.18.3. How to use</a></h4>
 <div class="paragraph">
 <p>Enter some text into the command box (as shown below) and press <kbd>TAB</kbd>.
 Commands, whose names start with the text you typed, will be suggested in the result pane.
@@ -991,9 +1046,10 @@ For example, if you type <code>h</code> and press <kbd>TAB</kbd>, <code>help</co
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>=== AutoCorrect command [Since v1.2]</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="autocorrect-command-since-v1-2"><a class="link" href="#autocorrect-command-since-v1-2">4.19. AutoCorrect command [Since v1.2]</a></h3>
 <div class="paragraph">
 <p>Corrects misspelt command whose names start with the command entered from the user.
 Application will notify the user that the command entered is corrected and perform the corrected commmand.<br>
@@ -1032,9 +1088,8 @@ Auto-correct is not designed for alias.
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>==== Examples</p>
-</div>
+<div class="sect3">
+<h4 id="examples-7"><a class="link" href="#examples-7">4.19.1. Examples</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1063,16 +1118,19 @@ Auto-correct is not designed for alias.
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>==== How to use
-. The image below demonstrates the usage to autoCorrect "deleet".</p>
 </div>
-<div class="paragraph">
-<p>+
-image::AutoCorrectCommand.png[width="500"]</p>
-</div>
+<div class="sect3">
+<h4 id="how-to-use-3"><a class="link" href="#how-to-use-3">4.19.2. How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
+<li>
+<p>The image below demonstrates the usage to autoCorrect "deleet".</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutoCorrectCommand.png" alt="AutoCorrectCommand" width="500">
+</div>
+</div>
+</li>
 <li>
 <p>The image below is the result returned by Contact Plus using the command above.</p>
 <div class="imageblock">
@@ -1083,17 +1141,17 @@ image::AutoCorrectCommand.png[width="500"]</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>=== Deleting multiple persons : <code>delete index/another index/&#8230;&#8203;</code> [Since v1.2] <a id="delete-multiple-persons"></a></p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="delete-multiple-persons"><a class="link" href="#delete-multiple-persons">4.20. Deleting multiple persons : <code>delete index/another index/&#8230;&#8203;</code> [Since v1.2]</a></h3>
 <div class="paragraph">
 <p>This command allows you to delete <strong>multiple</strong> contacts from <code>Contact Plus</code> in a
 single command.<br>
 Format: <code>delete INDEX/INDEX</code></p>
 </div>
-<div class="paragraph">
-<p>==== How to use</p>
-</div>
+<div class="sect3">
+<h4 id="how-to-use-4"><a class="link" href="#how-to-use-4">4.20.1. How to use</a></h4>
 <div class="paragraph">
 <p>1) Enter <code>list</code> into the Command Box. You will see all the added contacts below.<br></p>
 </div>
@@ -1119,9 +1177,9 @@ result is displayed to show the confirmation of deletion.</p>
 <img src="images/deleteMultiplePerson3.png" alt="deleteMultiplePerson3" width="500">
 </div>
 </div>
-<div class="paragraph">
-<p>==== Example</p>
 </div>
+<div class="sect3">
+<h4 id="example"><a class="link" href="#example">4.20.2. Example</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1140,23 +1198,26 @@ result is displayed to show the confirmation of deletion.</p>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>=== Viewing Weather Forecast [Since v1.3]</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="viewing-weather-forecast-since-v1-3"><a class="link" href="#viewing-weather-forecast-since-v1-3">4.21. Viewing Weather Forecast [Since v1.3]</a></h3>
 <div class="paragraph">
 <p>Viewing weather forecast on Yahoo Weather page.
 Accessible from <kbd>File</kbd> dropdown list, <kbd>Weather Forecast</kbd> menu item.</p>
 </div>
-<div class="paragraph">
-<p>==== How to use
-. The button <kbd>Weather Forecast</kbd> is located as the image shown below.</p>
-</div>
-<div class="paragraph">
-<p>+
-image::WeatherForecastButton.png[width="500"]</p>
-</div>
+<div class="sect3">
+<h4 id="how-to-use-5"><a class="link" href="#how-to-use-5">4.21.1. How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
+<li>
+<p>The button <kbd>Weather Forecast</kbd> is located as the image shown below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/WeatherForecastButton.png" alt="WeatherForecastButton" width="500">
+</div>
+</div>
+</li>
 <li>
 <p>The expected page would be as follows:</p>
 <div class="imageblock">
@@ -1167,9 +1228,10 @@ image::WeatherForecastButton.png[width="500"]</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>=== Extended autocomplete for commands [Since v1.3]</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="extended-autocomplete-for-commands-since-v1-3"><a class="link" href="#extended-autocomplete-for-commands-since-v1-3">4.22. Extended autocomplete for commands [Since v1.3]</a></h3>
 <div class="paragraph">
 <p><a id="extended-autocomplete-feature"></a> Some commands such as <code>add</code> are very long and difficult to type.
 This feature enables you to automatically fill in the format of the command whose name matches
@@ -1190,9 +1252,8 @@ spelt command. To automatically complete a command name, see <a href="#autocompl
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>==== Description</p>
-</div>
+<div class="sect3">
+<h4 id="description-4"><a class="link" href="#description-4">4.22.1. Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -1210,9 +1271,9 @@ spelt command. To automatically complete a command name, see <a href="#autocompl
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>==== Examples</p>
 </div>
+<div class="sect3">
+<h4 id="examples-8"><a class="link" href="#examples-8">4.22.2. Examples</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1245,9 +1306,9 @@ spelt command. To automatically complete a command name, see <a href="#autocompl
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>==== How to use <a id="how-to-use-extended-autocomplete"></a></p>
 </div>
+<div class="sect3">
+<h4 id="how-to-use-extended-autocomplete"><a class="link" href="#how-to-use-extended-autocomplete">4.22.3. How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1290,9 +1351,10 @@ If you type the name of the command wrongly, <code>extended autocomplete</code> 
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>=== Keyboard shortcuts [Since v1.3]</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="keyboard-shortcuts-since-v1-3"><a class="link" href="#keyboard-shortcuts-since-v1-3">4.23. Keyboard shortcuts [Since v1.3]</a></h3>
 <div class="paragraph">
 <p>Keyboard shortcuts enables users to quickly get the command words without heavy memorization.
 Format: <kbd>CONTROL</kbd> + <kbd>KEY</kbd></p>
@@ -1313,9 +1375,8 @@ The keyborad shortcuts are created only for commands with heavy text input or fr
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>==== Available Keyboard shortcuts</p>
-</div>
+<div class="sect3">
+<h4 id="available-keyboard-shortcuts"><a class="link" href="#available-keyboard-shortcuts">4.23.1. Available Keyboard shortcuts</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1356,9 +1417,10 @@ The keyborad shortcuts are created only for commands with heavy text input or fr
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>=== Add tasks [Since v1.3] <a id="addtask"></a> <a id="addtask-command"></a></p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="addtask-command"><a class="link" href="#addtask-command">4.24. Add tasks [Since v1.3] <a id="addtask"></a></a></h3>
 <div class="paragraph">
 <p>Add personal tasks into <code>Contact Plus</code>.
 Format: <code>task d/DESCRIPTION pr/PRIORITY(0/1/2) on DUE DATE(dd/MM/yyyy)</code></p>
@@ -1376,18 +1438,17 @@ Format: <code>task d/DESCRIPTION pr/PRIORITY(0/1/2) on DUE DATE(dd/MM/yyyy)</cod
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== List tasks [Since v1.4]</p>
 </div>
+<div class="sect2">
+<h3 id="list-tasks-since-v1-4"><a class="link" href="#list-tasks-since-v1-4">4.25. List tasks [Since v1.4]</a></h3>
 <div class="paragraph">
 <p><a id="listtask-command"></a> This command enables you to retrieve personal tasks that you have stored in
 <code>Contact Plus</code>.<br>
 Format: <code>listtask</code><br>
 Quick demo: <a href="#how-to-use-listtask">here</a></p>
 </div>
-<div class="paragraph">
-<p>==== Description</p>
-</div>
+<div class="sect3">
+<h4 id="description-5"><a class="link" href="#description-5">4.25.1. Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -1403,9 +1464,9 @@ previously using the <code>task</code> command.</p>
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>==== How to use <a id="how-to-use-listtask"></a></p>
 </div>
+<div class="sect3">
+<h4 id="how-to-use-listtask"><a class="link" href="#how-to-use-listtask">4.25.2. How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1435,17 +1496,17 @@ yellow text-area as shown below.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>=== Delete tasks : <code>deletetask</code></p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="delete-tasks-code-deletetask-code"><a class="link" href="#delete-tasks-code-deletetask-code">4.26. Delete tasks : <code>deletetask</code></a></h3>
 <div class="paragraph">
 <p><a id="deletetask-command"></a> This command enables you to remove unnecessary/unwanted tasks
 from <code>Contact Plus</code>.<br>
 Command Format: <code>deletetask INDEX_1/INDEX_2/INDEX_3 &#8230;&#8203;</code><br></p>
 </div>
-<div class="paragraph">
-<p>==== Description</p>
-</div>
+<div class="sect3">
+<h4 id="description-6"><a class="link" href="#description-6">4.26.1. Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -1467,9 +1528,9 @@ that you have specified when typing the <code>deletetask</code> command).</p>
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>==== Examples</p>
 </div>
+<div class="sect3">
+<h4 id="examples-9"><a class="link" href="#examples-9">4.26.2. Examples</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1496,9 +1557,9 @@ Otherwise, an error message is shown.</p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>==== How to use <a id="how-to-use-deletetask"></a></p>
 </div>
+<div class="sect3">
+<h4 id="how-to-use-deletetask"><a class="link" href="#how-to-use-deletetask">4.26.3. How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1531,16 +1592,16 @@ the tasks that you have specified in the previous step have been deleted from
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>=== Sound effect for system events [Since v1.3]</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="sound-effect-for-system-events-since-v1-3"><a class="link" href="#sound-effect-for-system-events-since-v1-3">4.27. Sound effect for system events [Since v1.3]</a></h3>
 <div class="paragraph">
 <p>Various sound clips are played for each system events (see 3.27.1) to
 keep you informed of the status of your actions.</p>
 </div>
-<div class="paragraph">
-<p>==== Description</p>
-</div>
+<div class="sect3">
+<h4 id="description-7"><a class="link" href="#description-7">4.27.1. Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -1558,9 +1619,9 @@ keep you informed of the status of your actions.</p>
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>==== Example</p>
 </div>
+<div class="sect3">
+<h4 id="example-2"><a class="link" href="#example-2">4.27.2. Example</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1578,17 +1639,17 @@ keep you informed of the status of your actions.</p>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>=== Edit task [Since v1.4] <a id="edittask-command"></a></p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="edittask-command"><a class="link" href="#edittask-command">4.28. Edit task [Since v1.4]</a></h3>
 <div class="paragraph">
 <p>To edit your tasks, first you should learn how to list task. Listing tasks is for you to get the index of the task you indent to edit.
 Then use "edittask" command with its index to edit the task. The format is as follows:
 Format: <code>edittask INDEX d/DESCRIPTION priority/PRIORITY(0/1/2) on DUE DATE(dd/MM/yyyy)</code></p>
 </div>
-<div class="paragraph">
-<p>==== Description</p>
-</div>
+<div class="sect3">
+<h4 id="description-8"><a class="link" href="#description-8">4.28.1. Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -1606,16 +1667,17 @@ Format: <code>edittask INDEX d/DESCRIPTION priority/PRIORITY(0/1/2) on DUE DATE(
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>==== How to use
-. Enter the command, the index of the task, and the details you wish to edit with its prefix. Please refer to the image below for an example:</p>
 </div>
-<div class="paragraph">
-<p>+
-<span class="image"><img src="images/EditTaskStep1.png" alt="EditTaskStep1" width="800"></span></p>
-</div>
+<div class="sect3">
+<h4 id="how-to-use-6"><a class="link" href="#how-to-use-6">4.28.2. How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
+<li>
+<p>Enter the command, the index of the task, and the details you wish to edit with its prefix. Please refer to the image below for an example:</p>
+<div class="paragraph">
+<p><span class="image"><img src="images/EditTaskStep1.png" alt="EditTaskStep1" width="800"></span></p>
+</div>
+</li>
 <li>
 <p>The application will give you conformation information displayed. Please refer to the image below for an example:</p>
 <div class="paragraph">
@@ -1624,9 +1686,9 @@ Format: <code>edittask INDEX d/DESCRIPTION priority/PRIORITY(0/1/2) on DUE DATE(
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>==== Example</p>
 </div>
+<div class="sect3">
+<h4 id="example-3"><a class="link" href="#example-3">4.28.3. Example</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1647,16 +1709,16 @@ Format: <code>edittask INDEX d/DESCRIPTION priority/PRIORITY(0/1/2) on DUE DATE(
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>=== Clear task [Since v1.4] <a id="cleartask-command"></a></p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="cleartask-command"><a class="link" href="#cleartask-command">4.29. Clear task [Since v1.4]</a></h3>
 <div class="paragraph">
 <p>To clear your task list, "cleartask" is the command to use. The format is as follows:
 Format: <code>cleartask</code></p>
 </div>
-<div class="paragraph">
-<p>==== Description</p>
-</div>
+<div class="sect3">
+<h4 id="description-9"><a class="link" href="#description-9">4.29.1. Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -1668,16 +1730,17 @@ Format: <code>cleartask</code></p>
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>==== How to use
-. Enter the command "cleartask". Please refer to the image below for an example:</p>
 </div>
-<div class="paragraph">
-<p>+
-<span class="image"><img src="images/ClearTaskStep1.png" alt="ClearTaskStep1" width="800"></span></p>
-</div>
+<div class="sect3">
+<h4 id="how-to-use-7"><a class="link" href="#how-to-use-7">4.29.2. How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
+<li>
+<p>Enter the command "cleartask". Please refer to the image below for an example:</p>
+<div class="paragraph">
+<p><span class="image"><img src="images/ClearTaskStep1.png" alt="ClearTaskStep1" width="800"></span></p>
+</div>
+</li>
 <li>
 <p>Confirmation message will be displayed. Please refer to the image below for an example:</p>
 <div class="paragraph">
@@ -1686,9 +1749,9 @@ Format: <code>cleartask</code></p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>==== Example</p>
 </div>
+<div class="sect3">
+<h4 id="example-4"><a class="link" href="#example-4">4.29.3. Example</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1705,15 +1768,17 @@ Format: <code>cleartask</code></p>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="switch-theme-since-v1-5"><a class="link" href="#switch-theme-since-v1-5">4.30. Switch theme [Since v1.5]</a></h3>
 <div class="paragraph">
-<p>=== Switch theme [Since v1.5]
-If you are not happy with the current theme and want to select a new theme, use <code>switch</code> command with the index to
+<p>If you are not happy with the current theme and want to select a new theme, use <code>switch</code> command with the index to
 switch to the theme you like.<br>
 Format: <code>switch INDEX</code></p>
 </div>
-<div class="paragraph">
-<p>==== Description</p>
-</div>
+<div class="sect3">
+<h4 id="description-10"><a class="link" href="#description-10">4.30.1. Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -1738,15 +1803,23 @@ set back to default theme.</p>
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>==== How to use
-. Enter the command <code>switch</code>, together with index of the theme. (<code>1</code> stands for DarkTheme, <code>2</code> stands for
-LightTheme and <code>3</code> stands for ColourfulTheme)<br>
-. Once the command is successfully executed, the theme of Contact Plus will be updated immediately.</p>
 </div>
-<div class="paragraph">
-<p>==== Example</p>
+<div class="sect3">
+<h4 id="how-to-use-8"><a class="link" href="#how-to-use-8">4.30.2. How to use</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter the command <code>switch</code>, together with index of the theme. (<code>1</code> stands for DarkTheme, <code>2</code> stands for
+LightTheme and <code>3</code> stands for ColourfulTheme)<br></p>
+</li>
+<li>
+<p>Once the command is successfully executed, the theme of Contact Plus will be updated immediately.</p>
+</li>
+</ol>
 </div>
+</div>
+<div class="sect3">
+<h4 id="example-5"><a class="link" href="#example-5">4.30.3. Example</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1765,16 +1838,16 @@ the diagram below)<br>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>=== Tab Switching [Since v1.5]<a id="switchtab"></a></p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="tab-switching-since-v1-5-a-id-switchtab-a"><a class="link" href="#tab-switching-since-v1-5-a-id-switchtab-a">4.31. Tab Switching [Since v1.5]<a id="switchtab"></a></a></h3>
 <div class="paragraph">
 <p>You can choose to switch between the <code>Task</code> tab or <code>Map</code> tab either by clicking on the user interface or
 the application will automatically switch it for you based on the command you entered.</p>
 </div>
-<div class="paragraph">
-<p>==== Description</p>
-</div>
+<div class="sect3">
+<h4 id="description-11"><a class="link" href="#description-11">4.31.1. Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -1791,9 +1864,9 @@ manipulating or displaying the tasks is entered, the tab will be automatically s
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>==== Example</p>
 </div>
+<div class="sect3">
+<h4 id="example-6"><a class="link" href="#example-6">4.31.2. Example</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1810,36 +1883,40 @@ manipulating or displaying the tasks is entered, the tab will be automatically s
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>=== Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="tag-use-emoji-code-tag-emoji-code-coming-in-v2-0"><a class="link" href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">4.32. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></h3>
 <div class="paragraph">
 <p>Input characters to represent an emoji as a tag.<br>
 Format: <code>tag :wink:</code></p>
 </div>
-<div class="paragraph">
-<p>=== Add non-English words as input [Coming in V2.0]</p>
 </div>
+<div class="sect2">
+<h3 id="add-non-english-words-as-input-coming-in-v2-0"><a class="link" href="#add-non-english-words-as-input-coming-in-v2-0">4.33. Add non-English words as input [Coming in V2.0]</a></h3>
 <div class="paragraph">
 <p>Input non-English words to be saved in the application.
 Format: CommandWrd + inputText</p>
 </div>
-<div class="paragraph">
-<p>=== Add push notification [Coming in V2.0]</p>
 </div>
+<div class="sect2">
+<h3 id="add-push-notification-coming-in-v2-0"><a class="link" href="#add-push-notification-coming-in-v2-0">4.34. Add push notification [Coming in V2.0]</a></h3>
 <div class="paragraph">
 <p>The application will prompt notifications for users on the computer for the up coming tasks.</p>
 </div>
-<div class="paragraph">
-<p>=== Saving the data</p>
 </div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.35. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
-<div class="paragraph">
-<p>== Command Summary</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
+<div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -1944,9 +2021,11 @@ There is no need to save manually.</p>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>== Keyboard Shortcuts Summary</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="keyboard-shortcuts-summary"><a class="link" href="#keyboard-shortcuts-summary">6. Keyboard Shortcuts Summary</a></h2>
+<div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1987,9 +2066,11 @@ There is no need to save manually.</p>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>== Command Alias Summary <a id="list-of-alias"></a></p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="list-of-alias"><a class="link" href="#list-of-alias">7. Command Alias Summary</a></h2>
+<div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -2050,9 +2131,11 @@ There is no need to save manually.</p>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>== FAQ</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">8. FAQ</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
@@ -2073,12 +2156,9 @@ Also you can refer to the <a href="#quickstart">Quick Start</a> session.</p>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-11 04:26:18 +00:00
+Last updated 2017-11-11 07:09:53 +00:00
 </div>
 </div>
 </body>
