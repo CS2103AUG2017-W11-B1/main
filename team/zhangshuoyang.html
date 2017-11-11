@@ -37,12 +37,50 @@
 <div class="sect2">
 <h3 id="addtask-command"><a class="link" href="#addtask-command">Add tasks [Since v1.3] <a id="addtask"></a></a></h3>
 <div class="paragraph">
-<p>Add personal tasks into <code>Contact Plus</code>.
+<p>Add personal tasks into <strong>Contact Plus</strong>.<br>
+Format: <code>task d/DESCRIPTION pr/PRIORITY(0/1/2) on DUE DATE(dd/MM/yyyy)</code><br>
+Add personal tasks into <code>Contact Plus</code>.
 Command Format: <code>task d/DESCRIPTION pr/PRIORITY(0/1/2) on DUE DATE(dd/MM/yyyy)</code></p>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
+<div class="sect3">
+<h4 id="description"><a class="link" href="#description">Description</a></h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Task descriptions should only contain alphanumeric characters and spaces, and it should be not blank.</p>
+</li>
+<li>
+<p>Prefix for task descriptions is <code>d/</code>.</p>
+</li>
+<li>
+<p>Task priority should only be number 0 (lowest priority), 1 or 2 (highest priority).</p>
+</li>
+<li>
+<p>Prefix for task priority is <code>pr/</code>.</p>
+</li>
+<li>
+<p>Task due date should be a valid date following the format dd/MM/yyyy.</p>
+</li>
+<li>
+<p>Prefix for due date is <code>on</code> (Do not forget the <kbd>SPACE</kbd> before the date).</p>
+</li>
+<li>
+<p>If you input any invalid format, there will be a <strong>Use Message</strong> together with an example to guide you.<br>
+<span class="image"><img src="../images/add_task_invalid_format.png" alt="add task invalid format" width="500"></span></p>
+</li>
+<li>
+<p>Once the task is successfully added, it will be displayed on the sticky note under <code>Task</code> tab (as shown in the image below).<br>
+<span class="image"><img src="../images/add_task_successful.png" alt="add task successful" width="500"></span></p>
+</li>
+</ul>
 </div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="examples"><a class="link" href="#examples">Examples:</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -57,6 +95,7 @@ Command Format: <code>task d/DESCRIPTION pr/PRIORITY(0/1/2) on DUE DATE(dd/MM/yy
 <p><mark>End of Extract</mark></p>
 </div>
 <hr>
+</div>
 <div class="sect3">
 <h4 id="justification"><a class="link" href="#justification">Justification</a></h4>
 <div class="paragraph">
@@ -65,10 +104,10 @@ between different apps. It offers a place for the to-do list to be stored, manag
 not do your tasks for you, but it is powerful enough to get you started.</p>
 </div>
 <div class="paragraph">
-<p>Once the task is successfully added, it will be displayed on the sticky note in the task panel, as shown below:</p>
+<p>Once the task is successfully added, it will be displayed on the sticky note in the <code>Task</code> tab, as shown below:</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="../images/add_task.png" alt="width:500"></span></p>
+<p><span class="image"><img src="../images/add_task_successful.png" alt="width:500"></span></p>
 </div>
 </div>
 <div class="sect3">
@@ -95,6 +134,11 @@ As a result, <code>AddTaskCommandParser</code> will be returned to separate the 
 are valid. If yes, a new <code>Task</code> object will be returned and used to call <code>AddTaskCommand</code> class. Eventually,
 the <code>executeUndoableCommand()</code> function in <code>AddTaskCommand</code> class will be called and returns a <code>CommandResult</code> object to display once a task is successfully added.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddTaskCommand_sequence_diagram.png" alt="AddTaskCommand sequence diagram" width="800">
+</div>
+</div>
 <div class="sect3">
 <h4 id="prerequisites-dependencies"><a class="link" href="#prerequisites-dependencies">Prerequisites/Dependencies</a></h4>
 <div class="ulist">
@@ -103,7 +147,10 @@ the <code>executeUndoableCommand()</code> function in <code>AddTaskCommand</code
 <p>The format of date must follow <code>dd/MM/yyyy</code>.</p>
 </li>
 <li>
-<p>The range of priority can only be from 0 to 2. Any other values will be deemed as invalid.</p>
+<p>The date must also be a valid date.</p>
+</li>
+<li>
+<p>The range of priority can only be from <strong>0</strong> to <strong>2</strong>. Any other values will be deemed as invalid, and an error message will be thrown.</p>
 </li>
 <li>
 <p>Currently, all fields must be included in the command and cannot be omitted.</p>
@@ -114,7 +161,7 @@ the <code>executeUndoableCommand()</code> function in <code>AddTaskCommand</code
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="paragraph">
-<p><strong>Aspect:</strong> Implementation of AddTaskCommand<br></p>
+<p><strong>Aspect:</strong> Implementation of <code>AddTaskCommand</code><br></p>
 </div>
 <div class="paragraph">
 <p><strong>Alternative 1 (current choice):</strong> Use stickies so that newly added tasks will show up in the stickies.<br>
@@ -151,13 +198,13 @@ Command Format: <code>switch INDEX</code><br>
 Quick demo: <a href="#how-to-use-switch-theme">here</a></p>
 </div>
 <div class="sect3">
-<h4 id="description"><a class="link" href="#description">Description</a></h4>
+<h4 id="description-2"><a class="link" href="#description-2">Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Index must be 1, 2 or 3 only. Other values are deemed as invalid.</p>
+<p><strong>INDEX</strong> must be 1, 2 or 3 only. Other values are deemed as invalid.</p>
 </li>
 <li>
 <p>The command is not undoable. But you can switch back to the original theme by performing the command again.</p>
@@ -167,7 +214,7 @@ Quick demo: <a href="#how-to-use-switch-theme">here</a></p>
 set back to default theme.</p>
 </li>
 <li>
-<p>Default themes in Contact Plus are Dark, Light and Colourful. Below are the preview of 3 themes:<br>
+<p>Default themes in Contact Plus are <strong>Dark</strong>, <strong>Light</strong> and <strong>Colourful</strong>. Below are the preview of 3 themes:<br>
 <span class="image"><img src="../images/DarkTheme.png" alt="DarkTheme" width="500"></span><br>
 <span class="image"><img src="../images/LightTheme.png" alt="LightTheme" width="500"></span><br>
 <span class="image"><img src="../images/ColourfulTheme.png" alt="ColourfulTheme" width="500"></span></p>
@@ -182,8 +229,8 @@ set back to default theme.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Enter the command <code>switch</code>, together with index of the theme. (<code>1</code> stands for DarkTheme, <code>2</code> stands for
-LightTheme and <code>3</code> stands for ColourfulTheme)<br></p>
+<p>Enter the command <code>switch</code>, together with <strong>INDEX</strong> of the theme. (<code>1</code> stands for <strong>Dark Theme</strong>, <code>2</code> stands for
+<strong>Light Theme</strong> and <code>3</code> stands for <strong>Colourful Theme</strong>)<br></p>
 </li>
 <li>
 <p>Once the command is successfully executed, the theme of Contact Plus will be updated immediately.</p>
@@ -201,11 +248,11 @@ LightTheme and <code>3</code> stands for ColourfulTheme)<br></p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Result</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Result</strong></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>switch 2</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Theme updated: Light</code> will be displayed. The theme will be set to the Light Theme. (refer to
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Theme updated: Light</code> will be displayed. The theme will be set to the Light Theme. (as shown in
 the diagram below)<br>
 <span class="image"><img src="../images/LightTheme.png" alt="LightTheme" width="500"></span></p></td>
 </tr>
@@ -313,9 +360,56 @@ theme accordingly.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="enhancement-proposed-add-command-code-remark-code"><a class="link" href="#enhancement-proposed-add-command-code-remark-code">Enhancement Proposed: Add command <code>remark</code></a></h3>
+<h3 id="enhancement-proposed-command-code-sync-code"><a class="link" href="#enhancement-proposed-command-code-sync-code">Enhancement Proposed: command <code>sync</code></a></h3>
 <div class="paragraph">
-<p>{Explain similar to the Undo/Redo feature above.}</p>
+<p><code>Sync</code> command allows users to sync their local contact lists with <strong>Google Contacts</strong> and save their changes online.<br>
+<strong>Format</strong>: <code>sync all</code> or <code>sync 1/2/3</code> or <code>sync 1</code><br>
+<strong>Note</strong>: Implement in the future</p>
+</div>
+<div class="sect3">
+<h4 id="description-3"><a class="link" href="#description-3">Description</a></h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Users must log in to Google before they can use <code>sync</code> command.</p>
+</li>
+<li>
+<p>After logging in to Google, users can choose the list of contacts they want to synchronise.</p>
+</li>
+<li>
+<p>For instance, <code>sync 1</code> refers to sync the contact of Index 1 in the person list, while <code>sync all</code> refers to all the contacts in the list.</p>
+</li>
+<li>
+<p>Multiple contacts can be selected by inputting multiple Indexes, separating by <code>/</code>. For instance, <code>sync 1/2/3</code> refers to synchronising contacts of Index 1, 2 and 3.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">Implementation</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>After the command word <code>sync</code> is typed, <code>execute()</code> function in <code>LogicManager</code> will be called.</p>
+</li>
+<li>
+<p>The command line will be passed to <code>AddressBookParser</code> which returns <code>SyncCommandParser</code>, and subsequently a <code>SyncCommand</code> object.</p>
+</li>
+<li>
+<p>The command will post an event to the <code>EventCenter</code>, which is handled by an <code>OAuth</code> class.</p>
+</li>
+<li>
+<p>The <code>OAuth</code> class is used to request for authorisations and interact with <strong>Google Contacts</strong>.</p>
+</li>
+<li>
+<p>An instance will be created to perform relevant actions on <strong>Google Contacts</strong> and sync the contact list.</p>
+</li>
+</ol>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -326,31 +420,26 @@ theme accordingly.</p>
 <p>Modify browser panel to display Google Map of the address of selected contact. (Pull requests <a href="https://github.com/CS2103AUG2017-W11-B1/main/pull/56/commits/8b4dc931ca959d47706add168ec74194fb801883">#56</a>)</p>
 </li>
 <li>
-<p>Create two new themes - Light and Colourful (Pull requests <a href="https://github.com/CS2103AUG2017-W11-B1/main/pull/56">#56</a>, <a href="https://github.com/CS2103AUG2017-W11-B1/main/pull/174">#174</a>)</p>
+<p>Create two new themes - Light and Colourful. (Pull requests <a href="https://github.com/CS2103AUG2017-W11-B1/main/pull/56">#56</a>, <a href="https://github.com/CS2103AUG2017-W11-B1/main/pull/174">#174</a>)</p>
 </li>
 <li>
-<p>Update status bar to display the total number of people (Pull requests <a href="https://github.com/CS2103AUG2017-W11-B1/main/pull/30">#30</a>)</p>
+<p>Update status bar to display the total number of people. (Pull requests <a href="https://github.com/CS2103AUG2017-W11-B1/main/pull/30">#30</a>)</p>
 </li>
 <li>
-<p>Wrote additional tests to increase coverage from 82% to 84% (Pull requests <a href="https://github.com/CS2103AUG2017-W11-B1/main/pull/142">#142</a>)</p>
+<p>Wrote additional tests to increase coverage from 82% to 84%. (Pull requests <a href="https://github.com/CS2103AUG2017-W11-B1/main/pull/142">#142</a>)</p>
+</li>
+<li>
+<p>Report bugs in other team&#8217;s product. (Issue <a href="https://github.com/CS2103AUG2017-T17-B4/main/issues/90">90</a>)</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">Project: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>{Optionally (not graded), you may include other projects in your portfolio.}</p>
-</div>
-</div>
-</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-11 08:00:33 +00:00
+Last updated 2017-11-11 10:23:11 +00:00
 </div>
 </div>
 </body>
