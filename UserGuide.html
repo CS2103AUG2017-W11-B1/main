@@ -43,26 +43,26 @@
 <li><a href="#exit-command">4.12. Exiting the program : <code>exit</code></a></li>
 </ul>
 </li>
-<li><a href="#enhancement">5. Enhancement</a>
+<li><a href="#interesting-enhancement">5. Interesting Enhancement</a>
 <ul class="sectlevel2">
-<li><a href="#deleting-a-tag-code-deletetag-code-since-v1-0">5.1. Deleting a tag : <code>deletetag</code> [Since v1.0]</a></li>
+<li><a href="#deletetag-command">5.1. Deleting a tag : <code>deletetag</code> [Since v1.0]</a></li>
 <li><a href="#alias-for-commands-since-v1-0">5.2. Alias for commands [Since v1.0]</a></li>
-<li><a href="#searchtag-command">5.3. Locating persons by tag: <code>search + tag name</code> [Since v1.1]</a></li>
+<li><a href="#searchtag-command">5.3. Locating groups by tag: <code>search + tag name</code> [Since v1.1]</a></li>
 <li><a href="#add-second-phone-number-for-a-person-since-v1-1">5.4. Add second phone number for a person [Since v1.1]</a></li>
 <li><a href="#multifilter-format">5.5. Locating persons by multiple criteria: <code>multifilter</code> [Since v1.1]</a></li>
-<li><a href="#autocomplete-command-names-since-v1-2">5.6. Autocomplete command names [Since v1.2]</a></li>
+<li><a href="#autocomplete-feature">5.6. Autocomplete command names [Since v1.2]</a></li>
 <li><a href="#autocorrect-command-since-v1-2">5.7. AutoCorrect command [Since v1.2]</a></li>
 <li><a href="#delete-multiple-persons">5.8. Deleting multiple persons : <code>delete index/another index/&#8230;&#8203;</code> [Since v1.2]</a></li>
 <li><a href="#viewing-weather-forecast-since-v1-3">5.9. Viewing Weather Forecast [Since v1.3]</a></li>
-<li><a href="#extended-autocomplete-for-commands-since-v1-3">5.10. Extended autocomplete for commands [Since v1.3]</a></li>
+<li><a href="#extended-autocomplete-feature">5.10. Extended autocomplete for commands [Since v1.3]</a></li>
 <li><a href="#keyboard-shortcuts-since-v1-3">5.11. Keyboard shortcuts [Since v1.3]</a></li>
 <li><a href="#sound-effect-for-system-events-since-v1-3">5.12. Sound effect for system events [Since v1.3]</a></li>
-<li><a href="#addtask-command">5.13. Add tasks [Since v1.3] <a id="addtask"></a></a></li>
+<li><a href="#addtask-command">5.13. Add tasks: <code>task</code> [Since v1.3] <a id="addtask"></a></a></li>
 <li><a href="#listtask">5.14. List tasks [Since v1.4]</a></li>
-<li><a href="#delete-tasks-since-v1-4">5.15. Delete tasks [Since v1.4]</a></li>
+<li><a href="#deletetask-command">5.15. Delete tasks: <code>deletetask</code>[Since v1.4]</a></li>
 <li><a href="#sound-effect-for-system-events-since-v1-3-2">5.16. Sound effect for system events [Since v1.3]</a></li>
-<li><a href="#edittask-command">5.17. Edit task [Since v1.4]</a></li>
-<li><a href="#cleartask-command">5.18. Clear task [Since v1.4]</a></li>
+<li><a href="#edittask-command">5.17. Edit task: <code>edittask</code> [Since v1.4]</a></li>
+<li><a href="#cleartask-command">5.18. Clear task: <code>cleartask</code> [Since v1.4]</a></li>
 <li><a href="#switch-theme-since-v1-5">5.19. Switch theme [Since v1.5]</a></li>
 <li><a href="#tab-switching-since-v1-5-a-id-switchtab-a">5.20. Tab Switching [Since v1.5]<a id="switchtab"></a></a></li>
 </ul>
@@ -179,16 +179,21 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect2">
 <h3 id="help-command"><a class="link" href="#help-command">4.1. Viewing help : <code>help</code></a></h3>
 <div class="paragraph">
+<p>If you want to refer to this user guide, you can do so with <code>help</code> command. You can refer to this guide for every feature that you can play with on Contact Plus application.<br></p>
+</div>
+<div class="paragraph">
 <p>Command Format: <code>help</code><br>
 Keyboard shortcut: <code>F1</code><br>
-UI: Menu bar (refer to <a href="#user-interface">User Interface</a>) - <kbd>Help</kbd></p>
+UI: Menu bar (refer to <a href="#user-interface">User Interface</a> for Menu bar) - <kbd>Help</kbd></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="add-command"><a class="link" href="#add-command">4.2. Adding a person: <code>add</code></a></h3>
 <div class="paragraph">
-<p>Adds a person to <code>Contact Plus</code><br>
-Command Format: <code>add n/NAME p/PHONE_NUMBER p2/PHONE_NUMBER or '-' e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
+<p>If you want to add a person into your contact pane (refer to <a href="#user-interface">User Interface</a> for contact pane), you should use <code>add</code> command. The following explains the detailed steps to help you achieve adding a person into your contact list.</p>
+</div>
+<div class="paragraph">
+<p>Command Format: <code>add n/NAME p/PHONE_NUMBER p2/PHONE_NUMBER or '-' e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
 Keyboard shortcut: <kbd>control</kbd> + <kbd>a</kbd>/<kbd>A</kbd></p>
 </div>
 <div class="admonitionblock note">
@@ -247,16 +252,19 @@ Keyboard shortcut: <kbd>control</kbd> + <kbd>a</kbd>/<kbd>A</kbd></p>
 <div class="sect2">
 <h3 id="list-command"><a class="link" href="#list-command">4.3. Listing all persons : <code>list</code>, <code>l</code></a></h3>
 <div class="paragraph">
-<p>Shows all the contacts that you have added to <code>Contact Plus</code>.<br>
-Command Format: <code>list</code> or <code>l</code></p>
+<p>If you want to see all the persons that you have added to <code>Contact Plus</code>, you can do so with <code>list</code> command.<br></p>
+</div>
+<div class="paragraph">
+<p>Command Format: <code>list</code> or <code>l</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="edit-command"><a class="link" href="#edit-command">4.4. Editing a person : <code>edit</code>, <code>e</code></a></h3>
 <div class="paragraph">
-<p>If you need to update your contacts' information, you can do so with this command.<br>
-Command Format: <code>edit INDEX [n/NAME] [p/PHONE] [p2/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code>,<br>
-or <code>e INDEX [n/NAME] [p/PHONE] [p2/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
+<p>If you need to update your contacts' information, you can do so with this <code>edit</code> command.<br></p>
+</div>
+<div class="paragraph">
+<p>Command Format: <code>edit INDEX [n/NAME] [p/PHONE] [p2/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code>, or <code>e INDEX [n/NAME] [p/PHONE] [p2/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
 Keyboard shortcut: <kbd>control</kbd> + <kbd>e</kbd>/<kbd>E</kbd></p>
 </div>
 <div class="sect3">
@@ -345,8 +353,10 @@ Keyboard shortcut: <kbd>control</kbd> + <kbd>e</kbd>/<kbd>E</kbd></p>
 <div class="sect2">
 <h3 id="find-command"><a class="link" href="#find-command">4.5. Locating persons by name: <code>find</code>, <code>f</code></a></h3>
 <div class="paragraph">
-<p>Finds persons whose names contain any of the given keywords.<br>
-Command Format: <code>find KEYWORD [MORE_KEYWORDS]</code>, or <code>f KEYWORD [MORE_KEYWORDS]</code><br>
+<p>If you want to find persons whose names with certain alphabets in your mind, you can search those persons with <code>find</code> command.<br></p>
+</div>
+<div class="paragraph">
+<p>Command Format: <code>find KEYWORD [MORE_KEYWORDS]</code>, or <code>f KEYWORD [MORE_KEYWORDS]</code><br>
 Keyboard shortcut: <kbd>control</kbd> + <kbd>f</kbd>/<kbd>F</kbd></p>
 </div>
 <div class="sect3">
@@ -402,8 +412,10 @@ Keyboard shortcut: <kbd>control</kbd> + <kbd>f</kbd>/<kbd>F</kbd></p>
 <div class="sect2">
 <h3 id="delete-single-person"><a class="link" href="#delete-single-person">4.6. Deleting a single person : <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Deletes the person, that you have specified, from <code>Contact Plus</code>.<br>
-Command Format: <code>delete INDEX</code>, or <code>d INDEX</code><br>
+<p>If you want to delete a person from your Contact Plus, you can do so with <code>delete</code> command.<br></p>
+</div>
+<div class="paragraph">
+<p>Command Format: <code>delete INDEX</code>, or <code>d INDEX</code><br>
 Keyboard shortcut: <kbd>control</kbd> + <kbd>d</kbd>/<kbd>D</kbd></p>
 </div>
 <div class="admonitionblock tip">
@@ -470,8 +482,10 @@ see section <a href="#delete-multiple-persons">3.20</a>.
 <div class="sect2">
 <h3 id="select-command"><a class="link" href="#select-command">4.7. Selecting a person : <code>select</code>, <code>s</code></a></h3>
 <div class="paragraph">
-<p>Selects the person identified by the index number used in the last person listing.<br>
-Command Format: <code>select INDEX</code> or <code>s INDEX</code></p>
+<p>If you want to select a person in your Contact Plus, you can do so by <code>select</code> command. The index used in the following steps is identified by the index number used in <code>list task</code> (refer to <a href="#list-command">list task</a>).<br></p>
+</div>
+<div class="paragraph">
+<p>Command Format: <code>select INDEX</code> or <code>s INDEX</code></p>
 </div>
 <div class="sect3">
 <h4 id="description-4"><a class="link" href="#description-4">4.7.1. Description</a></h4>
@@ -520,8 +534,10 @@ Command Format: <code>select INDEX</code> or <code>s INDEX</code></p>
 <div class="sect2">
 <h3 id="history-command"><a class="link" href="#history-command">4.8. Listing entered commands : <code>history</code>, <code>h</code></a></h3>
 <div class="paragraph">
-<p>Lists all the commands that you have entered in reverse chronological order.<br>
-Command Format: <code>history</code></p>
+<p>If you want to list all the commands that you have entered in reverse chronological order in case you have done something wrong and you want to check out your command history , you can do so with <code>history</code> command .<br></p>
+</div>
+<div class="paragraph">
+<p>Command Format: <code>history</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -541,8 +557,10 @@ Command Format: <code>history</code></p>
 <div class="sect2">
 <h3 id="undo-command"><a class="link" href="#undo-command">4.9. Undoing previous command : <code>undo</code>, <code>u</code></a></h3>
 <div class="paragraph">
-<p>Restores <code>Contact Plus</code> to the state before the previous <em>undoable</em> command was executed.<br>
-Command Format: <code>undo</code>, <code>u</code></p>
+<p>If you have done something wrong, you can revert your action, you can do so with <code>undo</code> command.<br></p>
+</div>
+<div class="paragraph">
+<p>Command Format: <code>undo</code>, <code>u</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -559,7 +577,7 @@ Command Format: <code>undo</code>, <code>u</code></p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="examples-6"><a class="link" href="#examples-6">4.9.1. Examples:</a></h4>
+<h4 id="examples-6"><a class="link" href="#examples-6">4.9.1. Examples</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -593,8 +611,10 @@ Command Format: <code>undo</code>, <code>u</code></p>
 <div class="sect2">
 <h3 id="redo-command"><a class="link" href="#redo-command">4.10. Redoing the previously undone command : <code>redo</code>, <code>r</code></a></h3>
 <div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Command Format: <code>redo</code>, <code>r</code></p>
+<p>If you unintentionally undo your last command, you can get it back by using <code>redo</code> command.<br></p>
+</div>
+<div class="paragraph">
+<p>Command Format: <code>redo</code>, <code>r</code></p>
 </div>
 <div class="sect3">
 <h4 id="examples-7"><a class="link" href="#examples-7">4.10.1. Examples</a></h4>
@@ -627,28 +647,47 @@ Command Format: <code>redo</code>, <code>r</code></p>
 <div class="sect2">
 <h3 id="clear-command"><a class="link" href="#clear-command">4.11. Clearing all entries : <code>clear</code>, <code>c</code></a></h3>
 <div class="paragraph">
-<p>Clears all entries from <code>Contact Plus</code>.<br>
-Command Format: <code>clear</code> or <code>c</code></p>
+<p>If you want to clear your Contact Plus application, you can do so by useing <code>clear</code> command.<br></p>
+</div>
+<div class="paragraph">
+<p>Command Format: <code>clear</code> or <code>c</code></p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This command will clear all persons in the contact pane.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
 <h3 id="exit-command"><a class="link" href="#exit-command">4.12. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
-<p>Exits the program.<br>
-Command Format: <code>exit</code></p>
+<p>If you want to exit Contact Plus application, you can do so by using <code>exit</code> command.<br></p>
+</div>
+<div class="paragraph">
+<p>Command Format: <code>exit</code></p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="enhancement"><a class="link" href="#enhancement">5. Enhancement</a></h2>
+<h2 id="interesting-enhancement"><a class="link" href="#interesting-enhancement">5. Interesting Enhancement</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="deleting-a-tag-code-deletetag-code-since-v1-0"><a class="link" href="#deleting-a-tag-code-deletetag-code-since-v1-0">5.1. Deleting a tag : <code>deletetag</code> [Since v1.0]</a></h3>
+<h3 id="deletetag-command"><a class="link" href="#deletetag-command">5.1. Deleting a tag : <code>deletetag</code> [Since v1.0]</a></h3>
 <div class="paragraph">
-<p><a id="deletetag-command"></a> Need to reorganize your social groups? <code>deletetag</code> enables you to delete
-tags from all your contacts in <code>Contact Plus</code> !<br>
-Command Format: <code>deletetag tag_name</code><br>
+<p>Need to reorganize your social groups? <code>deletetag</code> enables you to delete tags from all your contacts in <code>Contact Plus</code> !<br></p>
+</div>
+<div class="paragraph">
+<p>Command Format: <code>deletetag tag_name</code><br>
 Quick demo: <a href="#how-to-use-deletetag-command">here</a></p>
 </div>
 <div class="sect3">
@@ -747,10 +786,12 @@ Quick demo: <a href="#how-to-use-alias-command">here</a></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="searchtag-command"><a class="link" href="#searchtag-command">5.3. Locating persons by tag: <code>search + tag name</code> [Since v1.1]</a></h3>
+<h3 id="searchtag-command"><a class="link" href="#searchtag-command">5.3. Locating groups by tag: <code>search + tag name</code> [Since v1.1]</a></h3>
 <div class="paragraph">
-<p>Searches persons whose tag names contain any of the given keywords.<br>
-Command Format: <code>search KEYWORD [MORE_KEYWORDS]</code>+
+<p>Searching a certain social group? or just search a certain group of persons? search + tag name` can help you achieve this.<br></p>
+</div>
+<div class="paragraph">
+<p>Command Format: <code>search KEYWORD [MORE_KEYWORDS]</code>+
 Quick demo: <a href="#how-to-use-locate-person_by_tag">here</a></p>
 </div>
 <div class="sect3">
@@ -832,7 +873,7 @@ Quick demo: <a href="#how-to-use-locate-person_by_tag">here</a></p>
 <div class="sect2">
 <h3 id="add-second-phone-number-for-a-person-since-v1-1"><a class="link" href="#add-second-phone-number-for-a-person-since-v1-1">5.4. Add second phone number for a person [Since v1.1]</a></h3>
 <div class="paragraph">
-<p>Add the second phone number for a person by using prefix "p2/"<br>
+<p>Need to add one more phone number to your friends on Contact Plus? Add the second phone number for a person by using prefix "p2/"<br>
 Command Format: <code>COMMAND_WORD PARAMETERS p2/PHONE_NUMBER OTHER_PARAMETERS</code><br></p>
 </div>
 <div class="sect3">
@@ -993,10 +1034,12 @@ If no filters are used, all contacts will be displayed.
 </div>
 </div>
 <div class="sect2">
-<h3 id="autocomplete-command-names-since-v1-2"><a class="link" href="#autocomplete-command-names-since-v1-2">5.6. Autocomplete command names [Since v1.2]</a></h3>
+<h3 id="autocomplete-feature"><a class="link" href="#autocomplete-feature">5.6. Autocomplete command names [Since v1.2]</a></h3>
 <div class="paragraph">
-<p><a id="autocomplete-feature"></a> Lazy to memorize command names? Press a shortcut key to automatically complete the text that you enter into the command box.<br>
-Format: [Some text]<br>
+<p>Lazy to memorize command names? Press a shortcut key to automatically complete the text that you enter into the command box.<br></p>
+</div>
+<div class="paragraph">
+<p>Command Format: [Some text]<br>
 Quick demo:  <a href="#how-to-use-autocomplete">here</a></p>
 </div>
 <div class="admonitionblock tip">
@@ -1107,9 +1150,11 @@ For example, if you type <code>h</code> and press <kbd>TAB</kbd>, <code>help</co
 <div class="sect2">
 <h3 id="autocorrect-command-since-v1-2"><a class="link" href="#autocorrect-command-since-v1-2">5.7. AutoCorrect command [Since v1.2]</a></h3>
 <div class="paragraph">
-<p>Corrects misspelt command whose names start with the command entered from the user.
-Application will notify the user that the command entered is corrected and perform the corrected commmand.<br>
-Command Format: [misspelt command]<br>
+<p>If you misspelt a command, no worries, Contact Plus will autoCorrect misspelt command whose names start with the command entered from the user.
+Application will notify you that the command entered is corrected and perform the corrected commmand.<br></p>
+</div>
+<div class="paragraph">
+<p>Command Format: [misspelt command]<br>
 Quick demo: <a href="#how-to-use-autoCorrect">here</a></p>
 </div>
 <div class="sect3">
@@ -1206,9 +1251,11 @@ Auto-correct is not designed for alias.
 <div class="sect2">
 <h3 id="delete-multiple-persons"><a class="link" href="#delete-multiple-persons">5.8. Deleting multiple persons : <code>delete index/another index/&#8230;&#8203;</code> [Since v1.2]</a></h3>
 <div class="paragraph">
-<p>This command allows you to delete <strong>multiple</strong> contacts from <code>Contact Plus</code> in a
-single command.<br>
-Command Format: <code>delete INDEX/INDEX</code>
+<p>Do yu need to delete multiple persons away from your contact pane simutaneously? If so,follow the following explanation to learn how to delete multiple persons at the same time.
+This command allows you to delete <strong>multiple</strong> contacts from <code>Contact Plus</code> in a single command.<br></p>
+</div>
+<div class="paragraph">
+<p>Command Format: <code>delete INDEX/INDEX</code>
 Quick demo: <a href="#how-to-use-multiple-persons">here</a></p>
 </div>
 <div class="sect3">
@@ -1264,8 +1311,10 @@ result is displayed to show the confirmation of deletion.</p>
 <div class="sect2">
 <h3 id="viewing-weather-forecast-since-v1-3"><a class="link" href="#viewing-weather-forecast-since-v1-3">5.9. Viewing Weather Forecast [Since v1.3]</a></h3>
 <div class="paragraph">
-<p>Viewing weather forecast on Yahoo Weather page.
-Accessible from <kbd>File</kbd> dropdown list, <kbd>Weather Forecast</kbd> menu item (refer to <a href="#user-interface">User Interface</a>).</p>
+<p>If you are too reluctant to open your Yahoo page, there is a shortcut in Contact Plus help to you to gain access to Yahoo weather forecast and news.</p>
+</div>
+<div class="paragraph">
+<p>Please go to <kbd>File</kbd> dropdown list, <kbd>Weather Forecast</kbd> menu item (refer to <a href="#user-interface">User Interface</a>).</p>
 </div>
 <div class="sect3">
 <h4 id="how-to-use"><a class="link" href="#how-to-use">5.9.1. How to use</a></h4>
@@ -1292,12 +1341,14 @@ Accessible from <kbd>File</kbd> dropdown list, <kbd>Weather Forecast</kbd> menu 
 </div>
 </div>
 <div class="sect2">
-<h3 id="extended-autocomplete-for-commands-since-v1-3"><a class="link" href="#extended-autocomplete-for-commands-since-v1-3">5.10. Extended autocomplete for commands [Since v1.3]</a></h3>
+<h3 id="extended-autocomplete-feature"><a class="link" href="#extended-autocomplete-feature">5.10. Extended autocomplete for commands [Since v1.3]</a></h3>
 <div class="paragraph">
-<p><a id="extended-autocomplete-feature"></a> Some commands such as <code>add</code> are very long and difficult to type.
+<p>Try to save some time? Autocomplete is designed for you to operate efficiently on Contact Plus.Some commands such as <code>add</code> are very long and difficult to type.
 This feature enables you to automatically fill in the format of the command whose name matches
-the text that you entered.<br>
-Format: [COMMAND_WORD]<br>
+the text that you entered.<br></p>
+</div>
+<div class="paragraph">
+<p>Command Format: [COMMAND_WORD]<br>
 Quick demo: <a href="#how-to-use-extended-autocomplete">here</a></p>
 </div>
 <div class="admonitionblock tip">
@@ -1417,8 +1468,10 @@ If you type the name of the command wrongly, <code>extended autocomplete</code> 
 <div class="sect2">
 <h3 id="keyboard-shortcuts-since-v1-3"><a class="link" href="#keyboard-shortcuts-since-v1-3">5.11. Keyboard shortcuts [Since v1.3]</a></h3>
 <div class="paragraph">
-<p>Keyboard shortcuts enables users to quickly get the command words without heavy memorization.
-Format: <kbd>CONTROL</kbd> + <kbd>KEY</kbd></p>
+<p>Apart from autocomplete, this is another feature to help you save your time. Keyboard shortcuts enables you to quickly get the command words without heavy memorization.</p>
+</div>
+<div class="paragraph">
+<p>Command Format: <kbd>CONTROL</kbd> + <kbd>KEY</kbd></p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -1483,8 +1536,20 @@ The keyborad shortcuts are created only for commands with heavy text input or fr
 <div class="sect2">
 <h3 id="sound-effect-for-system-events-since-v1-3"><a class="link" href="#sound-effect-for-system-events-since-v1-3">5.12. Sound effect for system events [Since v1.3]</a></h3>
 <div class="paragraph">
-<p>Various sound clips are played for each system events (see 3.27.1) to
-keep you informed of the status of your actions.</p>
+<p>Sound effect is designed to help you to discern audibly whether your command is performed successfully or otherwise.
+Various sound clips are played for each system events to keep you informed of the status of your actions.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This sound effect is set by Contact Plus by default.
+</td>
+</tr>
+</table>
 </div>
 <div class="sect3">
 <h4 id="description-10"><a class="link" href="#description-10">5.12.1. Description</a></h4>
@@ -1528,12 +1593,12 @@ keep you informed of the status of your actions.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="addtask-command"><a class="link" href="#addtask-command">5.13. Add tasks [Since v1.3] <a id="addtask"></a></a></h3>
+<h3 id="addtask-command"><a class="link" href="#addtask-command">5.13. Add tasks: <code>task</code> [Since v1.3] <a id="addtask"></a></a></h3>
 <div class="paragraph">
-<p>Add personal tasks into <strong>Contact Plus</strong>.<br>
-Format: <code>task d/DESCRIPTION pr/PRIORITY(0/1/2) on DUE DATE(dd/MM/yyyy)</code><br>
-Add personal tasks into <code>Contact Plus</code>.
-Command Format: <code>task d/DESCRIPTION pr/PRIORITY(0/1/2) on DUE DATE(dd/MM/yyyy)</code></p>
+<p>This command enables you to record down your events, tasks or appointments on Contact Plus as your personal reminder.<br></p>
+</div>
+<div class="paragraph">
+<p>Command Format: <code>task d/DESCRIPTION pr/PRIORITY(0/1/2) on DUE DATE(dd/MM/yyyy)</code></p>
 </div>
 <div class="sect3">
 <h4 id="description-11"><a class="link" href="#description-11">5.13.1. Description</a></h4>
@@ -1589,9 +1654,11 @@ Command Format: <code>task d/DESCRIPTION pr/PRIORITY(0/1/2) on DUE DATE(dd/MM/yy
 <div class="sect2">
 <h3 id="listtask"><a class="link" href="#listtask">5.14. List tasks [Since v1.4]</a></h3>
 <div class="paragraph">
-<p><a id="listtask-command"></a> This command enables you to retrieve personal tasks that you have stored in
-<code>Contact Plus</code>.<br>
-Command Format: <code>listtask</code><br>
+<p>This command enables you to retrieve personal tasks that you have stored in
+<code>Contact Plus</code>.<br></p>
+</div>
+<div class="paragraph">
+<p>Command Format: <code>listtask</code><br>
 Quick demo: <a href="#how-to-use-listtask">here</a></p>
 </div>
 <div class="sect3">
@@ -1646,10 +1713,9 @@ yellow text-area as shown below.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-tasks-since-v1-4"><a class="link" href="#delete-tasks-since-v1-4">5.15. Delete tasks [Since v1.4]</a></h3>
+<h3 id="deletetask-command"><a class="link" href="#deletetask-command">5.15. Delete tasks: <code>deletetask</code>[Since v1.4]</a></h3>
 <div class="paragraph">
-<p><a id="deletetask-command"></a> This command enables you to remove unnecessary/unwanted tasks
-from <code>Contact Plus</code>.<br>
+<p>This command enables you to remove unnecessary/unwanted tasks from <code>Contact Plus</code>.<br>
 Command Format: <code>deletetask INDEX_1/INDEX_2/INDEX_3 &#8230;&#8203;</code><br>
 Quick demo: <a href="#how-to-use-deletetask">here</a></p>
 </div>
@@ -1790,11 +1856,13 @@ keep you informed of the status of your actions.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="edittask-command"><a class="link" href="#edittask-command">5.17. Edit task [Since v1.4]</a></h3>
+<h3 id="edittask-command"><a class="link" href="#edittask-command">5.17. Edit task: <code>edittask</code> [Since v1.4]</a></h3>
 <div class="paragraph">
 <p>To edit your tasks, first you should learn how to <a href="#listtask">list task</a> . Listing tasks is for you to get the index of the task you indent to edit.
-Then use "edittask" command with its index to edit the task. The format is as follows:
-Command Format: <code>edittask INDEX d/DESCRIPTION priority/PRIORITY(0/1/2) on DUE DATE(dd/MM/yyyy)</code><br>
+Then use "edittask" command with its index to edit the task.</p>
+</div>
+<div class="paragraph">
+<p>Command Format: <code>edittask INDEX d/DESCRIPTION priority/PRIORITY(0/1/2) on DUE DATE(dd/MM/yyyy)</code><br>
 Quick demo: <a href="#how-to-use-edittask">here</a></p>
 </div>
 <div class="sect3">
@@ -1861,7 +1929,7 @@ Quick demo: <a href="#how-to-use-edittask">here</a></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="cleartask-command"><a class="link" href="#cleartask-command">5.18. Clear task [Since v1.4]</a></h3>
+<h3 id="cleartask-command"><a class="link" href="#cleartask-command">5.18. Clear task: <code>cleartask</code> [Since v1.4]</a></h3>
 <div class="paragraph">
 <p>To clear your task list, "cleartask" is the command to use. The format is as follows:
 Command Format: <code>cleartask</code>+
@@ -1930,8 +1998,10 @@ Quick demo: <a href="#how-to-use-cleartask">here</a></p>
 <h3 id="switch-theme-since-v1-5"><a class="link" href="#switch-theme-since-v1-5">5.19. Switch theme [Since v1.5]</a></h3>
 <div class="paragraph">
 <p>If you are not happy with the current theme and want to select a new theme, use <code>switch</code> command with the index to
-switch to the theme you like.<br>
-Command Format: <code>switch INDEX</code><br>
+switch to the theme you like.<br></p>
+</div>
+<div class="paragraph">
+<p>Command Format: <code>switch INDEX</code><br>
 Quick demo: <a href="#how-to-use-switch-theme">here</a></p>
 </div>
 <div class="sect3">
@@ -2331,7 +2401,7 @@ Also you can refer to the <a href="#quickstart">Quick Start</a> session.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-11 10:23:11 +00:00
+Last updated 2017-11-11 11:28:17 +00:00
 </div>
 </div>
 </body>
