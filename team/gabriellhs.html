@@ -705,39 +705,6 @@ will not be matched</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="examples-4"><a class="link" href="#examples-4">Examples</a></h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Result</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mf a/gey</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns contacts whose address contain <code>gey</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mf</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns all contacts</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mf n/iv p/9 e/g a/ge</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns contacts who match ALL of the following criteria:<br>
-</p><p class="tableblock">1. Name contains <code>iv</code><br>
-2. Phone no. contains <code>9</code><br>
-3. Email contains <code>g</code><br>
-4. Address contains <code>ge</code><br>
-</p><p class="tableblock">An example of a matching contact for this command would be<br>
-<code>Ivan</code> that has phone no. <code>999</code>, email <code>g@y.com</code> and address <code>123 geylang road</code></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
 <h4 id="how-to-use-multifilter"><a class="link" href="#how-to-use-multifilter">How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
@@ -773,6 +740,39 @@ If no filters are used, all contacts will be displayed.
 </div>
 </div>
 </div>
+</div>
+<div class="sect3">
+<h4 id="examples-4"><a class="link" href="#examples-4">Examples</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Result</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mf a/gey</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns contacts whose address contain <code>gey</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mf</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns all contacts</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mf n/iv p/9 e/g a/ge</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns contacts who match ALL of the following criteria:<br>
+</p><p class="tableblock">1. Name contains <code>iv</code><br>
+2. Phone no. contains <code>9</code><br>
+3. Email contains <code>g</code><br>
+4. Address contains <code>ge</code><br>
+</p><p class="tableblock">An example of a matching contact for this command would be<br>
+<code>Ivan</code> that has phone no. <code>999</code>, email <code>g@y.com</code> and address <code>123 geylang road</code></p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p><mark>End of Extract</mark></p>
 </div>
@@ -856,7 +856,7 @@ by address (using 2 commands).<br>
 <div class="paragraph">
 <p><a id="listtask-command"></a> This command enables you to retrieve personal tasks that you have stored in
 <code>Contact Plus</code>.<br>
-Format: <code>listtask</code><br>
+Command Format: <code>listtask</code><br>
 Quick demo: <a href="#how-to-use-listtask">here</a></p>
 </div>
 </div>
@@ -985,7 +985,8 @@ the tasks in the address book.</p>
 <div class="paragraph">
 <p><a id="deletetask-command"></a> This command enables you to remove unnecessary/unwanted tasks
 from <code>Contact Plus</code>.<br>
-Command Format: <code>deletetask INDEX_1/INDEX_2/INDEX_3 &#8230;&#8203;</code><br></p>
+Command Format: <code>deletetask INDEX_1/INDEX_2/INDEX_3 &#8230;&#8203;</code><br>
+Quick demo: <a href="#how-to-use-deletetask">here</a></p>
 </div>
 </div>
 <div class="sect3">
@@ -1176,7 +1177,7 @@ list of tasks when the user closes the address book after deletion.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-11 07:09:53 +00:00
+Last updated 2017-11-11 08:00:33 +00:00
 </div>
 </div>
 </body>
