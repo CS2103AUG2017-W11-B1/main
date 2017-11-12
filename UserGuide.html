@@ -60,11 +60,10 @@
 <li><a href="#addtask-command">5.13. Add tasks: <code>task</code> [Since v1.3] <a id="addtask"></a></a></li>
 <li><a href="#listtask">5.14. List tasks [Since v1.4]</a></li>
 <li><a href="#deletetask-command">5.15. Delete tasks: <code>deletetask</code>[Since v1.4]</a></li>
-<li><a href="#sound-effect-for-system-events-since-v1-3-2">5.16. Sound effect for system events [Since v1.3]</a></li>
-<li><a href="#edittask-command">5.17. Edit task: <code>edittask</code> [Since v1.4]</a></li>
-<li><a href="#cleartask-command">5.18. Clear task: <code>cleartask</code> [Since v1.4]</a></li>
-<li><a href="#switch-theme-since-v1-5">5.19. Switch theme [Since v1.5]</a></li>
-<li><a href="#tab-switching-since-v1-5-a-id-switchtab-a">5.20. Tab Switching [Since v1.5]<a id="switchtab"></a></a></li>
+<li><a href="#edittask-command">5.16. Edit task: <code>edittask</code> [Since v1.4]</a></li>
+<li><a href="#cleartask-command">5.17. Clear task: <code>cleartask</code> [Since v1.4]</a></li>
+<li><a href="#switch-theme-since-v1-5">5.18. Switch theme [Since v1.5]</a></li>
+<li><a href="#tab-switching-since-v1-5-a-id-switchtab-a">5.19. Tab Switching [Since v1.5]<a id="switchtab"></a></a></li>
 </ul>
 </li>
 <li><a href="#coming-up">6. Coming up</a>
@@ -770,7 +769,7 @@ Quick demo: <a href="#how-to-use-alias-command">here</a></p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The image below demonstrates the example of using <code>a</code>.</p>
+<p>The image below demonstrates the example of using <code>a</code> as the alias for <code>add</code> to add a person in your contact pane.</p>
 <div class="paragraph">
 <p><span class="image"><img src="images/AddCommandAlias.png" alt="AddCommandAlias" width="500"></span></p>
 </div>
@@ -807,7 +806,7 @@ Quick demo: <a href="#how-to-use-locate-person_by_tag">here</a></p>
 <p>The order of the keywords does not matter. e.g. <code>friends colleague</code> is the same as <code>colleague friends</code></p>
 </li>
 <li>
-<p>Only the tag name is searched.</p>
+<p>You can search more than one tags, e.g. if <code>friends</code>, <code>family</code> are two tags, you can do: <code>search friends family</code></p>
 </li>
 <li>
 <p>Only full tag name will be accepted e.g. <code>friends</code> will not match <code>fri</code></p>
@@ -841,6 +840,10 @@ Quick demo: <a href="#how-to-use-locate-person_by_tag">here</a></p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>search friends</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Returns the contacts with tag "friends", e.g. <code>John Alice</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">`search friend family `</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the contacts with tag "friends" and "family", e.g. <code>John Alice David</code><br></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>search fri</code></p></td>
@@ -1809,54 +1812,7 @@ the tasks that you have specified in the previous step have been deleted from
 </div>
 </div>
 <div class="sect2">
-<h3 id="sound-effect-for-system-events-since-v1-3-2"><a class="link" href="#sound-effect-for-system-events-since-v1-3-2">5.16. Sound effect for system events [Since v1.3]</a></h3>
-<div class="paragraph">
-<p>Various sound clips are played for each system events (see 3.27.1) to
-keep you informed of the status of your actions.</p>
-</div>
-<div class="sect3">
-<h4 id="description-14"><a class="link" href="#description-14">5.16.1. Description</a></h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>System events are classified into 2 types: command success and command failure.</p>
-</li>
-<li>
-<p>One sound clip will be played for each of these event types.</p>
-</li>
-<li>
-<p>Currently, there is no way to disable the sound effect.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="example-2"><a class="link" href="#example-2">5.16.2. Example</a></h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Result</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete 1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Success sound clip is played if command is successful.<br>
-</p><p class="tableblock">Failure sound clip is played if command is unsuccessful.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="edittask-command"><a class="link" href="#edittask-command">5.17. Edit task: <code>edittask</code> [Since v1.4]</a></h3>
+<h3 id="edittask-command"><a class="link" href="#edittask-command">5.16. Edit task: <code>edittask</code> [Since v1.4]</a></h3>
 <div class="paragraph">
 <p>To edit your tasks, first you should learn how to <a href="#listtask">list task</a> . Listing tasks is for you to get the index of the task you indent to edit.
 Then use "edittask" command with its index to edit the task.</p>
@@ -1866,7 +1822,7 @@ Then use "edittask" command with its index to edit the task.</p>
 Quick demo: <a href="#how-to-use-edittask">here</a></p>
 </div>
 <div class="sect3">
-<h4 id="description-15"><a class="link" href="#description-15">5.17.1. Description</a></h4>
+<h4 id="description-14"><a class="link" href="#description-14">5.16.1. Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -1886,11 +1842,11 @@ Quick demo: <a href="#how-to-use-edittask">here</a></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="how-to-use-edittask"><a class="link" href="#how-to-use-edittask">5.17.2. How to use</a></h4>
+<h4 id="how-to-use-edittask"><a class="link" href="#how-to-use-edittask">5.16.2. How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Enter the command, the index of the task, and the details you wish to edit with its prefix. Please refer to the image below for an example:</p>
+<p>Enter the command, the index of the task, and the details you wish to edit with its prefix. In this example, we wish to edit the priority of the tsk indexed as no.1 in the liast of tasks. The following image shows you the correct command format:</p>
 <div class="paragraph">
 <p><span class="image"><img src="images/EditTaskStep1.png" alt="EditTaskStep1" width="800"></span></p>
 </div>
@@ -1905,7 +1861,7 @@ Quick demo: <a href="#how-to-use-edittask">here</a></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="examples-18"><a class="link" href="#examples-18">5.17.3. Examples</a></h4>
+<h4 id="examples-18"><a class="link" href="#examples-18">5.16.3. Examples</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1918,25 +1874,29 @@ Quick demo: <a href="#how-to-use-edittask">here</a></p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>edittask 1 prioroty/1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The application will display "Edited task: " + the details of the task you just edited.<br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This command edits the priority of the task indexed no.1. The application will display the confirmation message: "Edited task: " + the details of the task you just edited.<br></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>edittask 1 on 12/11/2019</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The application will display "Edited task: " + the details of the task you just edited.<br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This command edits the due date for the task indexed no.1. The application will display the confirmation message: "Edited task: " + the details of the task you just edited.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edittask 1 pr/1 on 12/11/2019</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This command edits the priority and due date for the task indexed no.1. The application will display the confirmation message: "Edited task: " + the details of the task you just edited.<br></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="cleartask-command"><a class="link" href="#cleartask-command">5.18. Clear task: <code>cleartask</code> [Since v1.4]</a></h3>
+<h3 id="cleartask-command"><a class="link" href="#cleartask-command">5.17. Clear task: <code>cleartask</code> [Since v1.4]</a></h3>
 <div class="paragraph">
 <p>To clear your task list, "cleartask" is the command to use. The format is as follows:
 Command Format: <code>cleartask</code>+
 Quick demo: <a href="#how-to-use-cleartask">here</a></p>
 </div>
 <div class="sect3">
-<h4 id="description-16"><a class="link" href="#description-16">5.18.1. Description</a></h4>
+<h4 id="description-15"><a class="link" href="#description-15">5.17.1. Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -1950,7 +1910,7 @@ Quick demo: <a href="#how-to-use-cleartask">here</a></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="how-to-use-cleartask"><a class="link" href="#how-to-use-cleartask">5.18.2. How to use</a></h4>
+<h4 id="how-to-use-cleartask"><a class="link" href="#how-to-use-cleartask">5.17.2. How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1975,7 +1935,7 @@ Quick demo: <a href="#how-to-use-cleartask">here</a></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="examples-19"><a class="link" href="#examples-19">5.18.3. Examples</a></h4>
+<h4 id="examples-19"><a class="link" href="#examples-19">5.17.3. Examples</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1995,7 +1955,7 @@ Quick demo: <a href="#how-to-use-cleartask">here</a></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="switch-theme-since-v1-5"><a class="link" href="#switch-theme-since-v1-5">5.19. Switch theme [Since v1.5]</a></h3>
+<h3 id="switch-theme-since-v1-5"><a class="link" href="#switch-theme-since-v1-5">5.18. Switch theme [Since v1.5]</a></h3>
 <div class="paragraph">
 <p>If you are not happy with the current theme and want to select a new theme, use <code>switch</code> command with the index to
 switch to the theme you like.<br></p>
@@ -2005,7 +1965,7 @@ switch to the theme you like.<br></p>
 Quick demo: <a href="#how-to-use-switch-theme">here</a></p>
 </div>
 <div class="sect3">
-<h4 id="description-17"><a class="link" href="#description-17">5.19.1. Description</a></h4>
+<h4 id="description-16"><a class="link" href="#description-16">5.18.1. Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -2032,7 +1992,7 @@ set back to default theme.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="how-to-use-switch-theme"><a class="link" href="#how-to-use-switch-theme">5.19.2. How to use</a></h4>
+<h4 id="how-to-use-switch-theme"><a class="link" href="#how-to-use-switch-theme">5.18.2. How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2046,7 +2006,7 @@ set back to default theme.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-3"><a class="link" href="#example-3">5.19.3. Example</a></h4>
+<h4 id="example-2"><a class="link" href="#example-2">5.18.3. Example</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -2068,13 +2028,13 @@ the diagram below)<br>
 </div>
 </div>
 <div class="sect2">
-<h3 id="tab-switching-since-v1-5-a-id-switchtab-a"><a class="link" href="#tab-switching-since-v1-5-a-id-switchtab-a">5.20. Tab Switching [Since v1.5]<a id="switchtab"></a></a></h3>
+<h3 id="tab-switching-since-v1-5-a-id-switchtab-a"><a class="link" href="#tab-switching-since-v1-5-a-id-switchtab-a">5.19. Tab Switching [Since v1.5]<a id="switchtab"></a></a></h3>
 <div class="paragraph">
 <p>You can choose to switch between the <code>Task</code> tab or <code>Map</code> tab either by clicking on the user interface or
 the application will automatically switch it for you based on the command you entered.</p>
 </div>
 <div class="sect3">
-<h4 id="description-18"><a class="link" href="#description-18">5.20.1. Description</a></h4>
+<h4 id="description-17"><a class="link" href="#description-17">5.19.1. Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -2093,7 +2053,7 @@ manipulating or displaying the tasks is entered, the tab will be automatically s
 </div>
 </div>
 <div class="sect3">
-<h4 id="examples-20"><a class="link" href="#examples-20">5.20.2. Examples</a></h4>
+<h4 id="examples-20"><a class="link" href="#examples-20">5.19.2. Examples</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2401,7 +2361,7 @@ Also you can refer to the <a href="#quickstart">Quick Start</a> session.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-11 11:28:17 +00:00
+Last updated 2017-11-12 01:49:19 +00:00
 </div>
 </div>
 </body>

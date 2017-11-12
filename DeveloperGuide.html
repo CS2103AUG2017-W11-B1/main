@@ -48,19 +48,24 @@
 <li><a href="#undo-redo-mechanism">4.1. Undo/Redo Mechanism</a></li>
 <li><a href="#autocorrect-mechanism">4.2. AutoCorrect Mechanism</a></li>
 <li><a href="#yahoo-weather-display-mechanism">4.3. Yahoo Weather Display Mechanism</a></li>
-<li><a href="#autocomplete-mechanism-a-id-autocomplete-feature-a">4.4. Autocomplete Mechanism<a id="autocomplete-feature"></a></a></li>
-<li><a href="#extended-autocomplete-mechanism-a-id-extended-autocomplete-feature-a">4.5. Extended Autocomplete Mechanism<a id="extended-autocomplete-feature"></a></a></li>
-<li><a href="#delete-tag-mechanism">4.6. Delete Tag Mechanism</a></li>
-<li><a href="#multiple-filter-mechanism">4.7. Multiple Filter Mechanism</a></li>
-<li><a href="#delete-multiple-contacts-mechanism">4.8. Delete Multiple Contacts Mechanism</a></li>
-<li><a href="#tab-switching-mechanism">4.9. Tab Switching Mechanism</a></li>
-<li><a href="#theme-selection-mechanism">4.10. Theme Selection Mechanism</a></li>
-<li><a href="#add-task-mechanism">4.11. Add Task Mechanism</a></li>
-<li><a href="#list-task-mechanism">4.12. List Task Mechanism</a></li>
-<li><a href="#delete-task-mechanism">4.13. Delete Task Mechanism</a></li>
-<li><a href="#sound-effect-for-commands">4.14. Sound Effect for Commands</a></li>
-<li><a href="#logging">4.15. Logging</a></li>
-<li><a href="#configuration">4.16. Configuration</a></li>
+<li><a href="#alias-for-command-mechanism-a-id-alias-for-command-a">4.4. Alias for command Mechanism<a id="alias-for-command"></a></a></li>
+<li><a href="#autocomplete-mechanism-a-id-autocomplete-feature-a">4.5. Autocomplete Mechanism<a id="autocomplete-feature"></a></a></li>
+<li><a href="#extended-autocomplete-mechanism-a-id-extended-autocomplete-feature-a">4.6. Extended Autocomplete Mechanism<a id="extended-autocomplete-feature"></a></a></li>
+<li><a href="#delete-tag-mechanism">4.7. Delete Tag Mechanism</a></li>
+<li><a href="#locating-groups-by-tag-mechanism">4.8. Locating groups by tag Mechanism</a></li>
+<li><a href="#multiple-filter-mechanism">4.9. Multiple Filter Mechanism</a></li>
+<li><a href="#delete-multiple-contacts-mechanism">4.10. Delete Multiple Contacts Mechanism</a></li>
+<li><a href="#tab-switching-mechanism">4.11. Tab Switching Mechanism</a></li>
+<li><a href="#keyboard-shortcut-mechanism">4.12. Keyboard Shortcut Mechanism</a></li>
+<li><a href="#theme-selection-mechanism">4.13. Theme Selection Mechanism</a></li>
+<li><a href="#add-task-mechanism">4.14. Add Task Mechanism</a></li>
+<li><a href="#list-task-mechanism">4.15. List Task Mechanism</a></li>
+<li><a href="#delete-task-mechanism">4.16. Delete Task Mechanism</a></li>
+<li><a href="#edit-task-mechanism">4.17. Edit Task Mechanism</a></li>
+<li><a href="#clear-task-mechanism">4.18. Clear Task Mechanism</a></li>
+<li><a href="#sound-effect-for-commands">4.19. Sound Effect for Commands</a></li>
+<li><a href="#logging">4.20. Logging</a></li>
+<li><a href="#configuration">4.21. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -908,7 +913,53 @@ due to the failure of Yahoo Weather Server.<br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="autocomplete-mechanism-a-id-autocomplete-feature-a"><a class="link" href="#autocomplete-mechanism-a-id-autocomplete-feature-a">4.4. Autocomplete Mechanism<a id="autocomplete-feature"></a></a></h3>
+<h3 id="alias-for-command-mechanism-a-id-alias-for-command-a"><a class="link" href="#alias-for-command-mechanism-a-id-alias-for-command-a">4.4. Alias for command Mechanism<a id="alias-for-command"></a></a></h3>
+<div class="paragraph">
+<p>Alias in this application is a single alphabet or two alphabets. This purpose of alias is to save the labor of typing the full corresponding command words, therefore it is more efficient and easier to use.
+The alias mechanism is implemented in <code>AddressBookParser</code>, and its logic can be described by the following activity diagram:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/AliasActivityDiagram.png" alt="AliasActivityDiagram" width="800"></span></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>AddressBookParser</code> receives the input argument from users.<br></p>
+</li>
+<li>
+<p>If the input argument is an alias, the corresponding command instance is created and command is processed.<br></p>
+</li>
+<li>
+<p>If the input argument is a command word, the command instance is created, and the command is processed.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The code snippet is shown as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">case</span> AddCommand.COMMAND_WORD: <span class="keyword">case</span> AddCommand.COMMAND_WORD_ALIAS:
+            <span class="keyword">return</span> <span class="keyword">new</span> AddCommandParser().parse(arguments);</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">4.4.1. Design Consideration</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Length of an alias
+<strong>Alternative 1 (current choice):</strong> Use one or two alphabets to represent a command, usually it is the first alphabet of its corresponding command word.
+<strong>Pros:</strong> Easy to memories the alias as it is the first letter of the command word.
+<strong>Cons:</strong> May be confusing when some command requires two alphabets for alias. This is because there will be overlapping alias when two command words have the same first letter.</p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Use a fixed length of three alphabets for every alias.
+<strong>Pros:</strong> The length for each alias is unformed.
+<strong>Cons:</strong> Three alphabets would be too long for commands like <code>add</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autocomplete-mechanism-a-id-autocomplete-feature-a"><a class="link" href="#autocomplete-mechanism-a-id-autocomplete-feature-a">4.5. Autocomplete Mechanism<a id="autocomplete-feature"></a></a></h3>
 <div class="paragraph">
 <p>The <code>autocomplete</code> feature is implemented in <code>AutoCompleteUtil</code> class. It enables commands to be automatically suggested and
 completed for users. For example, when the user type, "sea", and press <kbd>TAB</kbd> key, the complete command <code>search</code> appears on the command line. This feature saves time for users and improves the efficiency of the application in general.
@@ -923,7 +974,7 @@ It is invoked in subclasses of <code>Logic</code> (e.g. <code>LogicManager</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="autocomplete-dependencies"><a class="link" href="#autocomplete-dependencies">4.4.1. Prerequisites/Dependencies</a></h4>
+<h4 id="autocomplete-dependencies"><a class="link" href="#autocomplete-dependencies">4.5.1. Prerequisites/Dependencies</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -971,7 +1022,7 @@ another method should be implemented in the <code>AutoCompleteUtil</code> class.
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.5.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>autocomplete</code>.<br></p>
 </div>
@@ -994,14 +1045,14 @@ another method should be implemented in the <code>AutoCompleteUtil</code> class.
 </div>
 </div>
 <div class="sect2">
-<h3 id="extended-autocomplete-mechanism-a-id-extended-autocomplete-feature-a"><a class="link" href="#extended-autocomplete-mechanism-a-id-extended-autocomplete-feature-a">4.5. Extended Autocomplete Mechanism<a id="extended-autocomplete-feature"></a></a></h3>
+<h3 id="extended-autocomplete-mechanism-a-id-extended-autocomplete-feature-a"><a class="link" href="#extended-autocomplete-mechanism-a-id-extended-autocomplete-feature-a">4.6. Extended Autocomplete Mechanism<a id="extended-autocomplete-feature"></a></a></h3>
 <div class="paragraph">
 <p>The <code>extended autocomplete</code> feature is an add-on to the <code>autocomplete</code> feature
 and enables the full format of commands to be automatically filled into the command bar.
 It is invoked in the <code>LogicManager</code> class.</p>
 </div>
 <div class="sect3">
-<h4 id="prerequisites-dependencies-3"><a class="link" href="#prerequisites-dependencies-3">4.5.1. Prerequisites/Dependencies</a></h4>
+<h4 id="prerequisites-dependencies-3"><a class="link" href="#prerequisites-dependencies-3">4.6.1. Prerequisites/Dependencies</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1045,7 +1096,7 @@ for aliases.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.6.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>extended autocomplete</code>.<br></p>
 </div>
@@ -1069,7 +1120,7 @@ Cons: Finite number of keys on the keyboard make it impossible to do a one-to-on
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-tag-mechanism"><a class="link" href="#delete-tag-mechanism">4.6. Delete Tag Mechanism</a></h3>
+<h3 id="delete-tag-mechanism"><a class="link" href="#delete-tag-mechanism">4.7. Delete Tag Mechanism</a></h3>
 <div class="paragraph">
 <p>This mechanism is modelled by the <code>DeleteTagCommand</code> class. An instance of
 <code>DeleteTagCommand</code> is instantiated by the <code>AddressBookParser</code> class when the
@@ -1083,7 +1134,7 @@ are displayed in the interface of <code>Contact Plus</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="prerequisites-dependencies-4"><a class="link" href="#prerequisites-dependencies-4">4.6.1. Prerequisites/Dependencies</a></h4>
+<h4 id="prerequisites-dependencies-4"><a class="link" href="#prerequisites-dependencies-4">4.7.1. Prerequisites/Dependencies</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1094,7 +1145,7 @@ delete it from the address book.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.7.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>deletetag</code> command.<br></p>
 </div>
@@ -1113,7 +1164,58 @@ to every person who had that tag previously (except the one from which he wanted
 </div>
 </div>
 <div class="sect2">
-<h3 id="multiple-filter-mechanism"><a class="link" href="#multiple-filter-mechanism">4.7. Multiple Filter Mechanism</a></h3>
+<h3 id="locating-groups-by-tag-mechanism"><a class="link" href="#locating-groups-by-tag-mechanism">4.8. Locating groups by tag Mechanism</a></h3>
+<div class="paragraph">
+<p>The main logic for this mechanism lies in the class <code>NameWithTagContainsKeywordsPredicate.java</code>. This class compares the lists of tags from each person, and compare the list of tag with the set of tags given by users.
+This class makes uses of the powerful function from stream. The logic follow can be demonstrated by using the following activity diagram:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/SearchTagActivityDiagram.png" alt="SearchTagActivityDiagram" width="800"></span></p>
+</div>
+<div class="paragraph">
+<p>The following code snippet shows the main logic in <code>NameWithTagContainsKeywordsPredicate.java</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@Override</span>
+    <span class="directive">public</span> <span class="type">boolean</span> test(ReadOnlyPerson person) {
+        <span class="predefined-type">Set</span>&lt;<span class="predefined-type">String</span>&gt; tagList = <span class="keyword">new</span> <span class="predefined-type">HashSet</span>&lt;&gt;();
+        <span class="keyword">for</span> (Tag tag : person.getTags()) {
+            tagList.add(tag.getTagName());
+        }
+
+        <span class="keyword">return</span> keywords.stream()
+                .anyMatch(tagList::contains);
+    }</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="prerequisites-dependencies-5"><a class="link" href="#prerequisites-dependencies-5">4.8.1. Prerequisites/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The tag name entered by users must be valid, i.e. exist in Contact Plus for the command to work successfully, else error message will be popped out.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-3"><a class="link" href="#design-consideration-3">4.8.2. Design Consideration</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Number of tags allowed to be specified by users.<br>
+<strong>Alternative 1 (current choice):</strong> Allow multiple tags to be entered by users
+<strong>Pros:</strong> Increases the flexibility of this search by tag feature. There would be no restriction on the number of tags to be entered. Users can specify as many valid tags as they want to.
+<strong>Cons:</strong> May not be obvious to users that they can enter multiple tag names.</p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Only allow users to search one tag name at a time
+<strong>Pros:</strong> The feature may looks simpler.
+<strong>Cons:</strong> Adds limitation to what users can do.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="multiple-filter-mechanism"><a class="link" href="#multiple-filter-mechanism">4.9. Multiple Filter Mechanism</a></h3>
 <div class="paragraph">
 <p>This mechanism is modelled by the <code>MultiFilterCommand</code> class. An instance of
 <code>MultiFilterCommand</code> is instantiated by the <code>AddressBookParser</code> class when the
@@ -1127,7 +1229,7 @@ are displayed in the interface of <code>Contact Plus</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="prerequisites-dependencies-5"><a class="link" href="#prerequisites-dependencies-5">4.7.1. Prerequisites/Dependencies</a></h4>
+<h4 id="prerequisites-dependencies-6"><a class="link" href="#prerequisites-dependencies-6">4.9.1. Prerequisites/Dependencies</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1143,7 +1245,7 @@ elements that match the condition specified by the given <code>Predicate</code>)
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.9.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>multifilter</code> command.<br></p>
 </div>
@@ -1163,7 +1265,7 @@ by address (using 2 commands).<br>
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-multiple-contacts-mechanism"><a class="link" href="#delete-multiple-contacts-mechanism">4.8. Delete Multiple Contacts Mechanism</a></h3>
+<h3 id="delete-multiple-contacts-mechanism"><a class="link" href="#delete-multiple-contacts-mechanism">4.10. Delete Multiple Contacts Mechanism</a></h3>
 <div class="paragraph">
 <p>The <code>Delete</code> multiple contacts feature enables user to delete more than one contact in a single command by specifying more than one indices. It is
 invoked in the <code>DeleteCommand</code> class.<br>
@@ -1205,7 +1307,7 @@ The interaction between <code>Model</code> and <code>Logic</code> classes can be
 </div>
 </div>
 <div class="sect3">
-<h4 id="prerequisites-dependencies-6"><a class="link" href="#prerequisites-dependencies-6">4.8.1. Prerequisites/Dependencies</a></h4>
+<h4 id="prerequisites-dependencies-7"><a class="link" href="#prerequisites-dependencies-7">4.10.1. Prerequisites/Dependencies</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1222,7 +1324,7 @@ exception.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.8.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.10.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>delete</code> Multiple Contact<br></p>
 </div>
@@ -1241,7 +1343,7 @@ indicate if the contact has been deleted.<br>
 </div>
 </div>
 <div class="sect2">
-<h3 id="tab-switching-mechanism"><a class="link" href="#tab-switching-mechanism">4.9. Tab Switching Mechanism</a></h3>
+<h3 id="tab-switching-mechanism"><a class="link" href="#tab-switching-mechanism">4.11. Tab Switching Mechanism</a></h3>
 <div class="paragraph">
 <p>The tab pane will switch between <code>Task</code> and <code>Map</code> based on the command entered by the user. If the
  Command input is related to the <code>person</code> model, it will be switched to the <code>Map</code> tab. Likewise, if the
@@ -1274,7 +1376,7 @@ The interaction between <code>Ui</code> and <code>Logic</code> classes can be se
 </div>
 </div>
 <div class="sect3">
-<h4 id="prerequisites-dependencies-7"><a class="link" href="#prerequisites-dependencies-7">4.9.1. Prerequisites/Dependencies</a></h4>
+<h4 id="prerequisites-dependencies-8"><a class="link" href="#prerequisites-dependencies-8">4.11.1. Prerequisites/Dependencies</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1285,7 +1387,7 @@ the <code>Command</code> class.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.9.2. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.11.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of Switch Tab mechanism<br></p>
 </div>
@@ -1298,7 +1400,55 @@ the <code>Command</code> class.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="theme-selection-mechanism"><a class="link" href="#theme-selection-mechanism">4.10. Theme Selection Mechanism</a></h3>
+<h3 id="keyboard-shortcut-mechanism"><a class="link" href="#keyboard-shortcut-mechanism">4.12. Keyboard Shortcut Mechanism</a></h3>
+<div class="paragraph">
+<p>The detection of keyboard shortcut is detected in the <code>CommandBox.java</code> class. In the method <code>handleKeyPress</code>, multiple key press situations are listed there and to handle the correct key pressed by users.
+The code snippet is shown as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// Handles cases where multiple keys are pressed simultaneously</span>
+        <span class="predefined-type">String</span> getAlphabetPressed = keyEvent.getCode().toString();
+        logger.info(getAlphabetPressed);
+
+        <span class="keyword">if</span> (keyEvent.getCode().isLetterKey() &amp;&amp; keyEvent.isControlDown()) {
+            <span class="comment">//keyboard shortcut for input text heavy command</span>
+            <span class="keyword">switch</span> (getAlphabetPressed) {
+            <span class="keyword">case</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">A</span><span class="delimiter">&quot;</span></span>:
+                keyEvent.consume();
+                commandTextField.setText(AddCommand.COMMAND_WORD);
+                <span class="keyword">break</span>;
+            <span class="keyword">case</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">D</span><span class="delimiter">&quot;</span></span>:
+                keyEvent.consume();
+                commandTextField.setText(DeleteCommand.COMMAND_WORD);
+                <span class="keyword">break</span>;
+             ....
+             <span class="comment">//and many other cases</span>
+             default:
+                  <span class="comment">//do nothing</span>
+            }
+        }</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-4"><a class="link" href="#design-consideration-4">4.12.1. Design Consideration</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of Keyborad shortcuts<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> Only a few commands have its keyboard shortcuts.<br>
+<strong>Pros:</strong> Allow users to complete their input command faster by directly pressing the shortcuts.<br>
+<strong>Cons:</strong> For some commands, users are not allowed to use keyboard shortcuts This is inconvenient.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Give every command its keyboard shortcuts.<br>
+<strong>Pros:</strong>  Users can use shortcut for every command freely.<br>
+<strong>Cons:</strong> It would be confusing to have to memorise many shortcuts.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="theme-selection-mechanism"><a class="link" href="#theme-selection-mechanism">4.13. Theme Selection Mechanism</a></h3>
 <div class="paragraph">
 <p>The 'theme support' feature allows user to choose their favorite theme for the address book, other than the default
 Dark Theme. It is facilitated by <code>SwitchThemeCommand</code> class.</p>
@@ -1334,7 +1484,7 @@ theme accordingly.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="prerequisites-dependencies-8"><a class="link" href="#prerequisites-dependencies-8">4.10.1. Prerequisites/Dependencies</a></h4>
+<h4 id="prerequisites-dependencies-9"><a class="link" href="#prerequisites-dependencies-9">4.13.1. Prerequisites/Dependencies</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1351,7 +1501,7 @@ theme accordingly.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.10.2. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.13.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>switch theme</code> feature<br></p>
 </div>
@@ -1368,7 +1518,7 @@ theme accordingly.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-task-mechanism"><a class="link" href="#add-task-mechanism">4.11. Add Task Mechanism</a></h3>
+<h3 id="add-task-mechanism"><a class="link" href="#add-task-mechanism">4.14. Add Task Mechanism</a></h3>
 <div class="paragraph">
 <p>The 'add task' feature is facilitated by <code>AddTaskCommand</code> class. It allows users to add tasks into the address book
 with a description, the level of priority as well as the due date. The tasks added will be shown on the stickies
@@ -1389,7 +1539,7 @@ the <code>executeUndoableCommand()</code> function in <code>AddTaskCommand</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="prerequisites-dependencies-9"><a class="link" href="#prerequisites-dependencies-9">4.11.1. Prerequisites/Dependencies</a></h4>
+<h4 id="prerequisites-dependencies-10"><a class="link" href="#prerequisites-dependencies-10">4.14.1. Prerequisites/Dependencies</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1408,7 +1558,7 @@ the <code>executeUndoableCommand()</code> function in <code>AddTaskCommand</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.11.2. Design Considerations</a></h4>
+<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.14.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>AddTaskCommand</code><br></p>
 </div>
@@ -1425,7 +1575,7 @@ the <code>executeUndoableCommand()</code> function in <code>AddTaskCommand</code
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-task-mechanism"><a class="link" href="#list-task-mechanism">4.12. List Task Mechanism</a></h3>
+<h3 id="list-task-mechanism"><a class="link" href="#list-task-mechanism">4.15. List Task Mechanism</a></h3>
 <div class="paragraph">
 <p>This mechanism is modelled by the <code>ListTaskCommand</code> class. An instance of
 <code>ListTaskCommand</code> is instantiated by the <code>AddressBookParser</code> class when the
@@ -1439,7 +1589,7 @@ are displayed in the interface of <code>Contact Plus</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="prerequisites-dependencies-10"><a class="link" href="#prerequisites-dependencies-10">4.12.1. Prerequisites/Dependencies</a></h4>
+<h4 id="prerequisites-dependencies-11"><a class="link" href="#prerequisites-dependencies-11">4.15.1. Prerequisites/Dependencies</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1454,7 +1604,7 @@ the tasks in the address book.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-10"><a class="link" href="#design-considerations-10">4.12.2. Design Considerations</a></h4>
+<h4 id="design-considerations-10"><a class="link" href="#design-considerations-10">4.15.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>listtask</code> command.<br></p>
 </div>
@@ -1470,7 +1620,7 @@ the tasks in the address book.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-task-mechanism"><a class="link" href="#delete-task-mechanism">4.13. Delete Task Mechanism</a></h3>
+<h3 id="delete-task-mechanism"><a class="link" href="#delete-task-mechanism">4.16. Delete Task Mechanism</a></h3>
 <div class="paragraph">
 <p>This mechanism is modelled by the <code>DeleteTaskCommand</code> class. An instance of
 <code>DeleteTaskCommand</code> is instantiated by the <code>AddressBookParser</code> class when the
@@ -1484,7 +1634,7 @@ are displayed in the interface of <code>Contact Plus</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="prerequisites-dependencies-11"><a class="link" href="#prerequisites-dependencies-11">4.13.1. Prerequisites/Dependencies</a></h4>
+<h4 id="prerequisites-dependencies-12"><a class="link" href="#prerequisites-dependencies-12">4.16.1. Prerequisites/Dependencies</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1503,7 +1653,7 @@ delete it from the address book.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-11"><a class="link" href="#design-considerations-11">4.13.2. Design Considerations</a></h4>
+<h4 id="design-considerations-11"><a class="link" href="#design-considerations-11">4.16.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of DeleteTaskCommand.<br></p>
 </div>
@@ -1524,7 +1674,81 @@ list of tasks when the user closes the address book after deletion.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sound-effect-for-commands"><a class="link" href="#sound-effect-for-commands">4.14. Sound Effect for Commands</a></h3>
+<h3 id="edit-task-mechanism"><a class="link" href="#edit-task-mechanism">4.17. Edit Task Mechanism</a></h3>
+<div class="paragraph">
+<p>The <code>edit task</code> is facilitated by EditTaskCommand class. It allows users to edit tasks in the address book with a description, the level of priority as well as the due date. The tasks added will be shown on the stickies in the address book.</p>
+</div>
+<div class="paragraph">
+<p>The command word for editing a task is <code>edittask</code>. When users key in the command word, together with valid description, priority and due date, the values will be passed into parseCommand() function in the AddressBookParser class.</p>
+</div>
+<div class="paragraph">
+<p>The basic main flow for <code>edittask</code> is as follows:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/EditTaskMainFlow.png" alt="EditTaskMainFlow" width="800"></span></p>
+</div>
+<div class="sect3">
+<h4 id="prerequisites-dependencies-13"><a class="link" href="#prerequisites-dependencies-13">4.17.1. Prerequisites/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>getFilteredTaskList()</code> method in <code>Logic</code> class must return a list of <code>ReadOnlyTasks</code> containing
+the tasks in the address book.</p>
+</li>
+<li>
+<p>The <code>updateTask()</code> method in model must be able to accept a <code>ReadOnlyTask</code> as input and
+delete it from the address book.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-5"><a class="link" href="#design-consideration-5">4.17.2. Design Consideration</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> fields to be editable.<br>
+<strong>Alternative 1 (current choice):</strong> Allow priority and due date to be editable but not description.
+<strong>Pros:</strong> It is logically clear that only the priority and due date of a task can be edited. Changing the description of the task essentially means to create a new task.
+<strong>Cons:</strong> May be not convenient for users who want to edit description of the task as well.</p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Only allow users to edit all three fields, description, priority and due date.
+<strong>Pros:</strong> This provides larger flexibility for users to edit any part of the given task.
+<strong>Cons:</strong> Logically it may not make sense to be able to edit description of the task.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clear-task-mechanism"><a class="link" href="#clear-task-mechanism">4.18. Clear Task Mechanism</a></h3>
+<div class="paragraph">
+<p>The <code>clear task</code> is facilitated by ClearTaskCommand class. It allows users to clear tasks in the address book.</p>
+</div>
+<div class="paragraph">
+<p>The command word for listing a task is <code>cleartask</code>. When users key in the command word, the command word <code>cleartask</code> is passed into AddressBookParser class, and the corresponding <code>ClearTaskCommand</code> is created and subsequently its function executeUndoableCommand() will clear the tasks from addressbook.xml.</p>
+</div>
+<div class="paragraph">
+<p>The basic main flow for <code>cleartask</code> is as follows:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/listTaskActivityDiagram.png" alt="listTaskActivityDiagram" width="800"></span></p>
+</div>
+<div class="sect3">
+<h4 id="prerequisites-dependencies-14"><a class="link" href="#prerequisites-dependencies-14">4.18.1. Prerequisites/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>getFilteredTaskList()</code> method in <code>Logic</code> class must return a list of <code>ReadOnlyTasks</code> containing
+the tasks in the address book.</p>
+</li>
+<li>
+<p>The <code>deleteTask()</code> method in model must be able to accept a <code>ReadOnlyTask</code> as input and
+delete it from the address book.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sound-effect-for-commands"><a class="link" href="#sound-effect-for-commands">4.19. Sound Effect for Commands</a></h3>
 <div class="paragraph">
 <p>This mechanism is supported by the <code>AudioUtil</code> class. The static method
 <code>playClip()</code>, which plays a specified .wav format sound clip, is invoked on <code>AudioUtil</code> class when a command is issued by
@@ -1546,7 +1770,7 @@ as parse error). A visualization of this is shown in the following sequence diag
 </div>
 </div>
 <div class="sect3">
-<h4 id="prerequisites-dependencies-12"><a class="link" href="#prerequisites-dependencies-12">4.14.1. Prerequisites/Dependencies</a></h4>
+<h4 id="prerequisites-dependencies-15"><a class="link" href="#prerequisites-dependencies-15">4.19.1. Prerequisites/Dependencies</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1561,7 +1785,7 @@ only this format has been tried and tested. Other audio file formats may/may not
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-12"><a class="link" href="#design-considerations-12">4.14.2. Design Considerations</a></h4>
+<h4 id="design-considerations-12"><a class="link" href="#design-considerations-12">4.19.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of sound effects.<br></p>
 </div>
@@ -1581,7 +1805,7 @@ the available audio clips and select the desired ones.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.15. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.20. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
@@ -1619,7 +1843,7 @@ the available audio clips and select the desired ones.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration"><a class="link" href="#configuration">4.16. Configuration</a></h3>
+<h3 id="configuration"><a class="link" href="#configuration">4.21. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3298,7 +3522,7 @@ originally defined by GeoPlanet and now assigned by Yahoo!, that identifies any 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-11 11:28:17 +00:00
+Last updated 2017-11-12 01:49:19 +00:00
 </div>
 </div>
 </body>

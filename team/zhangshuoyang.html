@@ -288,6 +288,54 @@ the following result will be displayed.</p>
 </div>
 </div>
 <div class="sect2">
+<h3 id="keyboard-shortcut-mechanism"><a class="link" href="#keyboard-shortcut-mechanism">Keyboard Shortcut Mechanism</a></h3>
+<div class="paragraph">
+<p>The detection of keyboard shortcut is detected in the <code>CommandBox.java</code> class. In the method <code>handleKeyPress</code>, multiple key press situations are listed there and to handle the correct key pressed by users.
+The code snippet is shown as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// Handles cases where multiple keys are pressed simultaneously</span>
+        <span class="predefined-type">String</span> getAlphabetPressed = keyEvent.getCode().toString();
+        logger.info(getAlphabetPressed);
+
+        <span class="keyword">if</span> (keyEvent.getCode().isLetterKey() &amp;&amp; keyEvent.isControlDown()) {
+            <span class="comment">//keyboard shortcut for input text heavy command</span>
+            <span class="keyword">switch</span> (getAlphabetPressed) {
+            <span class="keyword">case</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">A</span><span class="delimiter">&quot;</span></span>:
+                keyEvent.consume();
+                commandTextField.setText(AddCommand.COMMAND_WORD);
+                <span class="keyword">break</span>;
+            <span class="keyword">case</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">D</span><span class="delimiter">&quot;</span></span>:
+                keyEvent.consume();
+                commandTextField.setText(DeleteCommand.COMMAND_WORD);
+                <span class="keyword">break</span>;
+             ....
+             <span class="comment">//and many other cases</span>
+             default:
+                  <span class="comment">//do nothing</span>
+            }
+        }</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">Design Consideration</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of Keyborad shortcuts<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> Only a few commands have its keyboard shortcuts.<br>
+<strong>Pros:</strong> Allow users to complete their input command faster by directly pressing the shortcuts.<br>
+<strong>Cons:</strong> For some commands, users are not allowed to use keyboard shortcuts This is inconvenient.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Give every command its keyboard shortcuts.<br>
+<strong>Pros:</strong>  Users can use shortcut for every command freely.<br>
+<strong>Cons:</strong> It would be confusing to have to memorise many shortcuts.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="theme-selection-mechanism"><a class="link" href="#theme-selection-mechanism">Theme Selection Mechanism</a></h3>
 <div class="paragraph">
 <p>The 'theme support' feature allows user to choose their favorite theme for the address book, other than the default
@@ -441,7 +489,7 @@ theme accordingly.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-11 11:28:17 +00:00
+Last updated 2017-11-12 01:49:19 +00:00
 </div>
 </div>
 </body>

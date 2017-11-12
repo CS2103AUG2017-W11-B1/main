@@ -27,6 +27,9 @@ can be served as a task-managing application as well. The user interacts with th
 </div>
 <div class="sect2">
 <h3 id="enhancement-added-alias-for-commands-since-v1-0"><a class="link" href="#enhancement-added-alias-for-commands-since-v1-0">Enhancement Added: Alias for commands [Since v1.0]</a></h3>
+<div class="paragraph">
+<p>Too lazy to type the full command? The alias feature allows you to type a shorter version of the command name.</p>
+</div>
 <div class="sect3">
 <h4 id="external-behavior"><a class="link" href="#external-behavior">External behavior</a></h4>
 <hr>
@@ -183,28 +186,33 @@ The alias mechanism is implemented in <code>AddressBookParser</code>, and its lo
 </div>
 </div>
 <div class="sect2">
-<h3 id="enhancement-added-locating-persons-by-tag-search-tag-name-since-v1-1"><a class="link" href="#enhancement-added-locating-persons-by-tag-search-tag-name-since-v1-1">Enhancement Added:  Locating persons by tag: search + tag name [Since v1.1]</a></h3>
+<h3 id="enhancement-added-locating-groups-by-tag-search-tag-name-since-v1-1"><a class="link" href="#enhancement-added-locating-groups-by-tag-search-tag-name-since-v1-1">Enhancement Added:  Locating groups by tag: search + tag name [Since v1.1]</a></h3>
+<div class="paragraph">
+<p>Searching a certain social group? or just search a certain group of persons? search + tag name` can help you achieve this.<br></p>
+</div>
 <div class="sect3">
 <h4 id="external-behavior-2"><a class="link" href="#external-behavior-2">External behavior</a></h4>
 <div class="paragraph">
-<p>Searches persons whose tag names contain any of the given keywords.<br>
-Command Format: <code>search KEYWORD [MORE_KEYWORDS]</code>, or <code>sh KEYWORD [MORE_KEYWORDS]</code></p>
+<p>All persons with the same tag given by the user will be displayed on the application.<br></p>
+</div>
+<div class="paragraph">
+<p>Command Format: <code>search KEYWORD [MORE_KEYWORDS]</code>, or <code>sh KEYWORD [MORE_KEYWORDS]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case sensitive. e.g <code>Friends</code> will not match <code>friends</code></p>
+<p>The search is case sensitive, e.g <code>Friends</code> will not match <code>friends</code></p>
 </li>
 <li>
-<p>The order of the keywords does not matter. e.g. <code>friends colleague</code> is the same as <code>colleague friends</code></p>
+<p>The order of the keywords does not matter, e.g. <code>friends colleague</code> is the same as <code>colleague friends</code></p>
 </li>
 <li>
-<p>Only the tag name is searched.</p>
+<p>You can search more than one tags, e.g. if <code>friends</code>, <code>family</code> are two tags, you can do: <code>search friends family</code></p>
 </li>
 <li>
-<p>Only full tag name will be accepted e.g. <code>friends</code> will not match <code>fri</code></p>
+<p>Only full tag name will be accepted, e.g. <code>friends</code> will not match <code>fri</code></p>
 </li>
 <li>
 <p>Result displays "Unknown tag" if no person has the tag</p>
@@ -225,13 +233,13 @@ Command Format: <code>search KEYWORD [MORE_KEYWORDS]</code>, or <code>sh KEYWORD
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Input the command to search contact of the same tag, e.g. friends.</p>
+<p>Input the command to search contact of the same tag, e.g. friends.The image below gives you the correct command format:</p>
 <div class="paragraph">
 <p><span class="image"><img src="../images/SearchTagCommand.png" alt="SearchTagCommand" width="800"></span></p>
 </div>
 </li>
 <li>
-<p>The image below demonstrates the result of the above searching.</p>
+<p>The image below demonstrates the result of the above searching:</p>
 <div class="paragraph">
 <p><span class="image"><img src="../images/SearchTagResult.png" alt="SearchTagResult" width="800"></span>
 ---</p>
@@ -257,6 +265,10 @@ Command Format: <code>search KEYWORD [MORE_KEYWORDS]</code>, or <code>sh KEYWORD
 <td class="tableblock halign-left valign-top"><p class="tableblock">Returns the contacts with tag "friends", e.g. <code>John Alice</code><br></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">`search friend family `</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the contacts with tag "friends" and "family", e.g. <code>John Alice David</code><br></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>search fri</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No match will be returned, <code>Unknown tag</code> is displayed.<br></p></td>
 </tr>
@@ -273,7 +285,7 @@ Command Format: <code>search KEYWORD [MORE_KEYWORDS]</code>, or <code>sh KEYWORD
 <h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
 <hr>
 <div class="paragraph">
-<p>Search By Tag Mechanism</p>
+<p>Search Groups By Tag Mechanism</p>
 </div>
 <div class="paragraph">
 <p>The main logic for this mechanism lies in the class <code>NameWithTagContainsKeywordsPredicate.java</code>. This class compares the lists of tags from each person, and compare the list of tag with the set of tags given by users.
@@ -301,6 +313,16 @@ This class makes uses of the powerful function from stream. The logic follow can
 </div>
 </div>
 <div class="sect3">
+<h4 id="prerequisites-dependencies"><a class="link" href="#prerequisites-dependencies">Prerequisites/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The tag name entered by users must be valid, i.e. exist in Contact Plus for the command to work successfully, else error message will be popped out.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
 <h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">Design Consideration</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Number of tags allowed to be specified by users.<br>
@@ -317,19 +339,25 @@ This class makes uses of the powerful function from stream. The logic follow can
 </div>
 <div class="sect2">
 <h3 id="enhancement-added-autocorrect-command-since-v1-2"><a class="link" href="#enhancement-added-autocorrect-command-since-v1-2">Enhancement Added:  AutoCorrect command [Since v1.2]</a></h3>
+<div class="paragraph">
+<p>If you misspelt a command, no worries, Contact Plus will autoCorrect misspelt command whose names start with the command entered from the user.
+Application will notify you that the command entered is corrected and perform the corrected commmand.<br></p>
+</div>
 <div class="sect3">
 <h4 id="external-behavior-3"><a class="link" href="#external-behavior-3">External behavior</a></h4>
 <div class="paragraph">
 <p>Corrects misspelt command whose names start with the command entered from the user.
-Application will notify the user that the command entered is corrected and perform the corrected commmand.<br>
-Format: [misspelt command]</p>
+Application will notify the user that the command entered is corrected and perform the corrected commmand.<br></p>
+</div>
+<div class="paragraph">
+<p>Command Format: [misspelt command]</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The autoCorrect function will only work on the misspelt words within edit distance of 2.</p>
+<p>The autoCorrect function will only work on the misspelt words with 2 alphebets different from the correct spelling.</p>
 </li>
 <li>
 <p>The match is case-insensitive, e.g. "sEarhC" is equals to "search".</p>
@@ -460,6 +488,28 @@ The following diagram shows the interaction between <code>AutoCorrect</code> and
 </div>
 </div>
 <div class="sect3">
+<h4 id="prerequisites-dependencies-2"><a class="link" href="#prerequisites-dependencies-2">Prerequisites/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>COMMAND_WORD</code> for every available command must be added to the <code>getCommandPool</code> method for the command to be auto-corrected.</p>
+</li>
+<li>
+<p>AutoCorrect will only work for misspelt words within <a href="#edit-distance">edit distance</a> of 2.</p>
+</li>
+<li>
+<p>AutoCorrect is based on four types of prediction of misspelt words, namely, addition, deletion, switch, and substitution.</p>
+</li>
+<li>
+<p>Alias will not be autoCorrected as it consists only one or two alphabets.</p>
+</li>
+<li>
+<p>The logic for autoCorrecting commands is implemented in AutoCorrectCommand class.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
 <h4 id="design-consideration-3"><a class="link" href="#design-consideration-3">Design Consideration</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>AutoCorrect</code><br></p>
@@ -555,6 +605,17 @@ a simple string parser method to format the data return. The formatted data is d
 </div>
 </div>
 <hr>
+</div>
+<div class="sect3">
+<h4 id="prerequisites-dependencies-3"><a class="link" href="#prerequisites-dependencies-3">Prerequisites/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>This feature has a strong dependency on Yahoo Weather Server. Some exceptions or assertions should be implemented to prevent the failure of the application
+due to the failure of Yahoo Weather Server.<br></p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -715,7 +776,7 @@ Format: <code>edittask INDEX d/DESCRIPTION priority/PRIORITY(0/1/2) on DUE DATE(
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Enter the command, the index of the task, and the details you wish to edit with its prefix. Please refer to the image below for an example:</p>
+<p>Enter the command, the index of the task, and the details you wish to edit with its prefix. In this example, we wish to edit the priority of the tsk indexed as no.1 in the liast of tasks. The following image shows you the correct command format:</p>
 <div class="paragraph">
 <p><span class="image"><img src="../images/EditTaskStep1.png" alt="EditTaskStep1" width="800"></span></p>
 </div>
@@ -749,6 +810,10 @@ Format: <code>edittask INDEX d/DESCRIPTION priority/PRIORITY(0/1/2) on DUE DATE(
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>edittask 1 on 12/11/2019</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The application will display "Edited task: " + the details of the task you just edited.<br></p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edittask 1 pr/1 on 12/11/2019</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This command edits the priority and due date for the task indexed no.1. The application will display the confirmation message: "Edited task: " + the details of the task you just edited.<br></p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -774,6 +839,21 @@ Format: <code>edittask INDEX d/DESCRIPTION priority/PRIORITY(0/1/2) on DUE DATE(
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="../images/EditTaskMainFlow.png" alt="EditTaskMainFlow" width="800"></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="prerequisites-dependencies-4"><a class="link" href="#prerequisites-dependencies-4">Prerequisites/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>getFilteredTaskList()</code> method in <code>Logic</code> class must return a list of <code>ReadOnlyTasks</code> containing
+the tasks in the address book.</p>
+</li>
+<li>
+<p>The <code>updateTask()</code> method in model must be able to accept a <code>ReadOnlyTask</code> as input and
+delete it from the address book.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -870,6 +950,21 @@ Format: <code>cleartask</code></p>
 <p><span class="image"><img src="../images/listTaskActivityDiagram.png" alt="listTaskActivityDiagram" width="800"></span></p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="prerequisites-dependencies-5"><a class="link" href="#prerequisites-dependencies-5">Prerequisites/Dependencies</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>getFilteredTaskList()</code> method in <code>Logic</code> class must return a list of <code>ReadOnlyTasks</code> containing
+the tasks in the address book.</p>
+</li>
+<li>
+<p>The <code>deleteTask()</code> method in model must be able to accept a <code>ReadOnlyTask</code> as input and
+delete it from the address book.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="other-contributions"><a class="link" href="#other-contributions">Other contributions</a></h3>
@@ -886,7 +981,7 @@ Format: <code>cleartask</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-11 11:28:17 +00:00
+Last updated 2017-11-12 01:49:19 +00:00
 </div>
 </div>
 </body>
