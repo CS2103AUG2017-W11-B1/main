@@ -68,13 +68,13 @@
 </li>
 <li><a href="#coming-up">6. Coming up</a>
 <ul class="sectlevel2">
-<li><a href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">6.1. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></li>
-<li><a href="#add-non-english-words-as-input-coming-in-v2-0">6.2. Add non-English words as input [Coming in V2.0]</a></li>
-<li><a href="#add-push-notification-coming-in-v2-0">6.3. Add push notification [Coming in V2.0]</a></li>
-<li><a href="#sync-to-google-contacts">6.4. Sync to Google Contacts</a></li>
+<li><a href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">6.1. Tag use emoji : <code>tag emoji</code> [Coming in v2.0]</a></li>
+<li><a href="#add-non-english-words-as-input-coming-in-v2-0">6.2. Add non-English words as input [Coming in v2.0]</a></li>
+<li><a href="#add-push-notification-coming-in-v2-0">6.3. Add push notification [Coming in v2.0]</a></li>
+<li><a href="#sync-to-google-contacts-coming-in-v2-0">6.4. Sync to Google Contacts [Coming in v2.0]</a></li>
 </ul>
 </li>
-<li><a href="#save-data">7. Save data</a></li>
+<li><a href="#saving-data">7. Saving data</a></li>
 <li><a href="#command-summary">8. Command Summary</a></li>
 <li><a href="#keyboard-shortcuts-summary">9. Keyboard Shortcuts Summary</a></li>
 <li><a href="#list-of-alias">10. Command Alias Summary</a></li>
@@ -1982,9 +1982,14 @@ set back to default theme.</p>
 </li>
 <li>
 <p>Default themes in Contact Plus are <strong>Dark</strong>, <strong>Light</strong> and <strong>Colourful</strong>. Below are the preview of 3 themes:<br>
-<span class="image"><img src="images/DarkTheme.png" alt="DarkTheme" width="500"></span><br>
-<span class="image"><img src="images/LightTheme.png" alt="LightTheme" width="500"></span><br>
-<span class="image"><img src="images/ColourfulTheme.png" alt="ColourfulTheme" width="500"></span></p>
+<span class="image"><img src="images/DarkTheme.png" alt="DarkTheme" width="450"></span><br>
+<em>Dark Theme</em><br>
+<br>
+<span class="image"><img src="images/LightTheme.png" alt="LightTheme" width="450"></span><br>
+<em>Light Theme</em><br>
+<br>
+<span class="image"><img src="images/ColourfulTheme.png" alt="ColourfulTheme" width="450"></span><br>
+<em>Colourful Theme</em><br></p>
 </li>
 </ul>
 </div>
@@ -2078,35 +2083,87 @@ manipulating or displaying the tasks is entered, the tab will be automatically s
 <h2 id="coming-up"><a class="link" href="#coming-up">6. Coming up</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="tag-use-emoji-code-tag-emoji-code-coming-in-v2-0"><a class="link" href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">6.1. Tag use emoji : <code>tag emoji</code> [Coming in V2.0]</a></h3>
+<h3 id="tag-use-emoji-code-tag-emoji-code-coming-in-v2-0"><a class="link" href="#tag-use-emoji-code-tag-emoji-code-coming-in-v2-0">6.1. Tag use emoji : <code>tag emoji</code> [Coming in v2.0]</a></h3>
 <div class="paragraph">
 <p>Input characters to represent an emoji as a tag.<br>
 Command Format: <code>tag :wink:</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-non-english-words-as-input-coming-in-v2-0"><a class="link" href="#add-non-english-words-as-input-coming-in-v2-0">6.2. Add non-English words as input [Coming in V2.0]</a></h3>
+<h3 id="add-non-english-words-as-input-coming-in-v2-0"><a class="link" href="#add-non-english-words-as-input-coming-in-v2-0">6.2. Add non-English words as input [Coming in v2.0]</a></h3>
 <div class="paragraph">
 <p>Input non-English words to be saved in the application.
 Command Format: CommandWrd + inputText</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-push-notification-coming-in-v2-0"><a class="link" href="#add-push-notification-coming-in-v2-0">6.3. Add push notification [Coming in V2.0]</a></h3>
+<h3 id="add-push-notification-coming-in-v2-0"><a class="link" href="#add-push-notification-coming-in-v2-0">6.3. Add push notification [Coming in v2.0]</a></h3>
 <div class="paragraph">
 <p>The application will prompt notifications for users on the computer for the up coming tasks.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sync-to-google-contacts"><a class="link" href="#sync-to-google-contacts">6.4. Sync to Google Contacts</a></h3>
+<h3 id="sync-to-google-contacts-coming-in-v2-0"><a class="link" href="#sync-to-google-contacts-coming-in-v2-0">6.4. Sync to Google Contacts [Coming in v2.0]</a></h3>
 <div class="paragraph">
-<p>You can sync your local contact list with Google Contacts and save any changes online.</p>
+<p><code>Sync</code> command allows you to sync your local contact lists with <strong>Google Contacts</strong> and save your changes online.<br>
+<strong>Format</strong>: <code>sync all</code> or <code>sync 1/2/3</code> or <code>sync 1</code><br></p>
+</div>
+<div class="sect3">
+<h4 id="description-18"><a class="link" href="#description-18">6.4.1. Description</a></h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>You must log in to Google before starting to use <code>sync</code> command.</p>
+</li>
+<li>
+<p>After logging in to Google, you can choose the list of contacts you want to synchronise.</p>
+</li>
+<li>
+<p>For instance, <code>sync 1</code> refers to sync the contact of Index 1 in your contact list, while <code>sync all</code> refers to all the contacts in the list.</p>
+</li>
+<li>
+<p>Multiple contacts can be selected by inputting multiple Indexes, separating by <code>/</code>. For instance, <code>sync 1/2/3</code> refers to synchronising contacts of Index 1, 2 and 3.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">6.4.2. Implementation</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>After the command word <code>sync</code> is typed, <code>execute()</code> function in <code>LogicManager</code> will be called.</p>
+</li>
+<li>
+<p>The command line will be passed to <code>AddressBookParser</code> which returns <code>SyncCommandParser</code>, and subsequently a <code>SyncCommand</code> object.</p>
+</li>
+<li>
+<p>The command will post an event to the <code>EventCenter</code>, which is handled by an <code>OAuth</code> class.</p>
+</li>
+<li>
+<p>The <code>OAuth</code> class is used to request for authorisations and interact with <strong>Google Contacts</strong>.</p>
+</li>
+<li>
+<p>An instance will be created to perform relevant actions on <strong>Google Contacts</strong> and sync the contact list.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="outcome"><a class="link" href="#outcome">6.4.3. Outcome</a></h4>
+<div class="paragraph">
+<p>You are able to see your contact list being uploaded to <strong>Google Contacts</strong> successfully.</p>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="save-data"><a class="link" href="#save-data">7. Save data</a></h2>
+<h2 id="saving-data"><a class="link" href="#saving-data">7. Saving data</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Contact Plus</strong> data are saved in the hard disk automatically after any command that changes the data.<br>
@@ -2363,7 +2420,7 @@ Also you can refer to the <a href="#quickstart">Quick Start</a> session.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-13 05:04:02 +00:00
+Last updated 2017-11-13 05:14:30 +00:00
 </div>
 </div>
 </body>
