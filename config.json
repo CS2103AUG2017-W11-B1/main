@@ -2,4 +2,8 @@
   "appTitle" : "Contact Plus",
   "logLevel" : "INFO",
   "userPrefsFilePath" : "preferences.json"
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 17df88e5c966ae96a19f469e53531ba63aedfe78
