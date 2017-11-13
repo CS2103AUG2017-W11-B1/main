@@ -220,10 +220,43 @@ include::../DeveloperGuide.adoc[tag=deletetask-mechanism]
 
 ---
 
+
+
+=== Enhancement Added: Sound effects for Commands
+
+==== External behavior
+
+---
+
+#Start of Extract [from: User Guide]#
+
+include::../UserGuide.adoc[tag=music-feature]
+
+#End of Extract#
+
+---
+
+==== Justification
+
+Sound effects provide additional and clear feedback to the user about the
+outcome of his/her command.
+
+==== Implementation
+
+---
+
+#Start of Extract [from: Developer Guide]#
+
+include::../DeveloperGuide.adoc[tag=music-feature]
+
+#End of Extract#
+
+---
+
 === Other contributions
 
-* Added sound effects for command success and failure.
-* Helped to spot bugs in the code of other team members (Issues: https://github.com/CS2103AUG2017-W11-B1/main/issues/124[#124], https://github.com/CS2103AUG2017-W11-B1/main/issues/165[#165]).
+* Helped to spot bugs in the code of other team members (Issues: https://github.com/CS2103AUG2017-W11-B1/main/issues/124[#124], https://github.com/CS2103AUG2017-W11-B1/main/issues/165[#165],
+https://github.com/CS2103AUG2017-W11-B1/main/issues/215[#215]).
 
 == Project: PowerPointLabs
 

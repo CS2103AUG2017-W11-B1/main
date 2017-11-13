@@ -9,12 +9,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Test;
 
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.UndoRedoStack;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.AddressBookParser;
+import seedu.address.logic.parser.AutoCorrectCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
@@ -138,6 +140,16 @@ public class SearchCommandTest {
         assertEquals(expectedMessage, commandResult.feedbackToUser);
         assertEquals(expectedList, model.getFilteredPersonByTagList());
         assertEquals(expectedAddressBook, model.getAddressBook());
+    }
+
+    //@@author lancehaoh
+    @After
+    /**
+     * Clears the autocorrect status messages to prevent them from persisting among
+     * tests
+     */
+    public void clearAutocorrectStatusMessage() {
+        AutoCorrectCommand.clearMessageToUser();
     }
 
 }

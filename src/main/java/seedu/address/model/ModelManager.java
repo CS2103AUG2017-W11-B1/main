@@ -118,17 +118,26 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
 
-    //@@author
+    //@@author lancehaoh
+    /**
+     * Deletes a tag from the address book
+     *
+     * @param t tag object
+     * @return a variable indicator if at least one tag was deleted
+     */
     @Override
-    public void deleteTag(Tag t) {
+    public boolean deleteTag(Tag t) {
         // Get all contacts in AddressBook
         ObservableList<ReadOnlyPerson> persons = addressBook.getPersonList();
+        boolean tagWasDeleted = false;
+
         try {
             for (ReadOnlyPerson unmodifiablePerson : persons) {
                 Person updatedPerson = new Person(unmodifiablePerson);
                 // Remove the desired tag from every person where applicable
                 Set<Tag> tags = new HashSet<>(updatedPerson.getTags());
                 if (tags.contains(t)) {
+                    tagWasDeleted = true;
                     tags.remove(t);
                     updatedPerson.setTags(tags);
                     addressBook.updatePerson(unmodifiablePerson, updatedPerson);
@@ -139,6 +148,7 @@ public class ModelManager extends ComponentManager implements Model {
         } catch (DuplicatePersonException dpe) {
             assert false : "Update will cause two contacts to be the same";
         }
+        return tagWasDeleted;
     }
 
     //@@author JYL123
