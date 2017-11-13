@@ -380,8 +380,12 @@ Command Format: `COMMAND_WORD PARAMETERS p2/PHONE_NUMBER OTHER_PARAMETERS` +
 ****
 
 ==== Examples
-* `add n/John Doe p/98765432 p2/73624789 e/johnd@example.com a/John street, block 123, #01-01` +
-* `edit 1 p/91234567 p2/73624789 e/johndoe@example.com` +
+* `add n/John Doe p/98765432 p2/73624789 e/johnd@example.com a/John street, block 123, #01-01`
++
+image:addsecondphone.png[width="700"]
+* `edit 1 p/91234567 p2/73624789 e/johndoe@example.com`
++
+image:addsecondphone2.png[width="700"]
 
 
 //end::secondphone[]
@@ -990,16 +994,11 @@ the application will automatically switch it for you based on the command you en
 
 ==== Examples
 
-1. Before entering any command, you are at the `Task` tab. +
-
-image:switchTab1.png[width="800"]
-
-2. Enter command `delete 1/2` and press kbd:[ENTER]. +
-
-image:switchTab2.png[width="800"]
-
-3. The tab will be automatically switched to the `Map` tab. +
-
+. Before entering any command, you are at the `Task` tab. +
+image:switchtab1.png[width="800"]
+. Enter command `delete 1/2` and press kbd:[ENTER]. +
+image:switchtab2.png[width="800"]
+. The tab will be automatically switched to the `Map` tab. +
 image:switchTab3.png[width="800"]
 
 //end::switchtab[]

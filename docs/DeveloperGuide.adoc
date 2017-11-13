@@ -445,14 +445,14 @@ case AddCommand.COMMAND_WORD: case AddCommand.COMMAND_WORD_ALIAS:
 
 ==== Design Consideration
 
-**Aspect:** Length of an alias
-**Alternative 1 (current choice):** Use one or two alphabets to represent a command, usually it is the first alphabet of its corresponding command word.
-**Pros:** Easy to memories the alias as it is the first letter of the command word.
-**Cons:** May be confusing when some command requires two alphabets for alias. This is because there will be overlapping alias when two command words have the same first letter.
+**Aspect:** Length of an alias +
+**Alternative 1 (current choice):** Use one or two alphabets to represent a command, usually it is the first alphabet of its corresponding command word. +
+**Pros:** Easy to memories the alias as it is the first letter of the command word. +
+**Cons:** May be confusing when some command requires two alphabets for alias. This is because there will be overlapping alias when two command words have the same first letter. +
 
-**Alternative 2:** Use a fixed length of three alphabets for every alias.
-**Pros:** The length for each alias is unformed.
-**Cons:** Three alphabets would be too long for commands like `add`.
+**Alternative 2:** Use a fixed length of three alphabets for every alias. +
+**Pros:** The length for each alias is unformed. +
+**Cons:** Three alphabets would be too long for commands like `add`. +
 
 === Autocomplete Mechanism[[autocomplete-feature]]
 
@@ -742,7 +742,7 @@ The tab pane will switch between `Task` and `Map` based on the command entered b
  Command input is related to the `task` model, it will be switched to the `task` tab. +
 The interaction between `Ui` and `Logic` classes can be seen from the following sequence diagram:
 
-image::SwitchTab.PNG[width="800"]
+image::SwitchTab.png[width="800"]
 
 The source code shows how the Command input is checked and how the tab is switched:
 [source,java]
