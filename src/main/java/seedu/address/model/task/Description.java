@@ -11,7 +11,7 @@ import seedu.address.commons.exceptions.IllegalValueException;
  */
 public class Description {
 
-    public static final String MESSAGE_DESCRIPTION_CONSTRAINTS = "Description should be alphanumeric";
+    public static final String MESSAGE_DESCRIPTION_CONSTRAINTS = "Description should not be empty";
     public static final String DESCRIPTION_VALIDATION_REGEX = ".+";
 
     public final String descriptionName;
