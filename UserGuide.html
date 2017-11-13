@@ -481,7 +481,7 @@ see section <a href="#delete-multiple-persons">3.20</a>.
 <div class="sect2">
 <h3 id="select-command"><a class="link" href="#select-command">4.7. Selecting a person : <code>select</code>, <code>s</code></a></h3>
 <div class="paragraph">
-<p>If you want to select a person in your Contact Plus, you can do so by <code>select</code> command. The index used in the following steps is identified by the index number used in <code>list task</code> (refer to <a href="#list-command">list task</a>).<br></p>
+<p>If you want to select a person in your Contact Plus, you can do so by <code>select</code> command. The index used in the following steps is identified by the index number used in <code>list all persons</code> (refer to <a href="#list-command">list all persons</a>).<br></p>
 </div>
 <div class="paragraph">
 <p>Command Format: <code>select INDEX</code> or <code>s INDEX</code></p>
@@ -651,11 +651,11 @@ see section <a href="#delete-multiple-persons">3.20</a>.
 <div class="paragraph">
 <p>Command Format: <code>clear</code> or <code>c</code></p>
 </div>
-<div class="admonitionblock warning">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -769,15 +769,15 @@ Quick demo: <a href="#how-to-use-alias-command">here</a></p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The image below demonstrates the example of using <code>a</code> as the alias for <code>add</code> to add a person in your contact pane.</p>
+<p>The image below demonstrates the example of using <code>a</code> as the alias for <code>add</code> <a href="#add-command">check out add command here</a> to add a person in your contact pane.</p>
 <div class="paragraph">
-<p><span class="image"><img src="images/AddCommandAlias.png" alt="AddCommandAlias" width="500"></span></p>
+<p><span class="image"><img src="images/AddCommandAlias.png" alt="AddCommandAlias" width="700"></span></p>
 </div>
 </li>
 <li>
 <p>The image below demonstrates the result of the above alias.</p>
 <div class="paragraph">
-<p><span class="image"><img src="images/AddCommandAliasResult.png" alt="AddCommandAliasResult" width="500"></span></p>
+<p><span class="image"><img src="images/AddCommandAliasResult.png" alt="AddCommandAliasResult" width="700"></span></p>
 </div>
 </li>
 </ol>
@@ -859,13 +859,13 @@ Quick demo: <a href="#how-to-use-locate-person_by_tag">here</a></p>
 <li>
 <p>Input the command to search contact of the same tag, e.g. friends.</p>
 <div class="paragraph">
-<p><span class="image"><img src="images/SearchTagCommand.png" alt="SearchTagCommand" width="500"></span></p>
+<p><span class="image"><img src="images/SearchTagCommand.png" alt="SearchTagCommand" width="700"></span></p>
 </div>
 </li>
 <li>
 <p>The image below demonstrates the result of the above searching.</p>
 <div class="paragraph">
-<p><span class="image"><img src="images/SearchTagResult.png" alt="SearchTagResult" width="500"></span>
+<p><span class="image"><img src="images/SearchTagResult.png" alt="SearchTagResult" width="700"></span>
 ---</p>
 </div>
 </li>
@@ -913,8 +913,8 @@ Command Format: <code>COMMAND_WORD PARAMETERS p2/PHONE_NUMBER OTHER_PARAMETERS</
 <div class="sect2">
 <h3 id="multifilter-format"><a class="link" href="#multifilter-format">5.5. Locating persons by multiple criteria: <code>multifilter</code> [Since v1.1]</a></h3>
 <div class="paragraph">
-<p><a id="multifilter-format"></a> Finds persons whose names, phone no., emails and addresses,
-match a set of specified criteria.<br>
+<p>If you need to find persons whose names, phone no., emails and addresses,
+match a set of specified criteria, <code>multifilter</code> will help you to do so.<br>
 Format: <code>multifilter [n/NAME] [p/PHONE NO.] [e/EMAIL] [a/ADDRESS]</code><br>
 Quick demo: <a href="#how-to-use-multifilter">here</a></p>
 </div>
@@ -1204,7 +1204,7 @@ Auto-correct is not designed for alias.
 <p>The image below demonstrates the usage to autoCorrect "deleet".</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/AutoCorrectCommand.png" alt="AutoCorrectCommand" width="500">
+<img src="images/AutoCorrectCommand.png" alt="AutoCorrectCommand" width="700">
 </div>
 </div>
 </li>
@@ -1212,7 +1212,7 @@ Auto-correct is not designed for alias.
 <p>The image below is the result returned by Contact Plus using the command above.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/AutoCorrectResult.png" alt="AutoCorrectResult" width="500">
+<img src="images/AutoCorrectResult.png" alt="AutoCorrectResult" width="700">
 </div>
 </div>
 </li>
@@ -1268,7 +1268,7 @@ Quick demo: <a href="#how-to-use-multiple-persons">here</a></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/deleteMultiplePerson1.png" alt="deleteMultiplePerson1" width="500">
+<img src="images/deleteMultiplePerson1.png" alt="deleteMultiplePerson1" width="700">
 </div>
 </div>
 <div class="paragraph">
@@ -1276,7 +1276,7 @@ Quick demo: <a href="#how-to-use-multiple-persons">here</a></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/deleteMultiplePerson2.png" alt="deleteMultiplePerson2" width="500">
+<img src="images/deleteMultiplePerson2.png" alt="deleteMultiplePerson2" width="700">
 </div>
 </div>
 <div class="paragraph">
@@ -1285,7 +1285,7 @@ result is displayed to show the confirmation of deletion.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/deleteMultiplePerson3.png" alt="deleteMultiplePerson3" width="500">
+<img src="images/deleteMultiplePerson3.png" alt="deleteMultiplePerson3" width="700">
 </div>
 </div>
 </div>
@@ -1629,11 +1629,11 @@ This sound effect is set by Contact Plus by default.
 </li>
 <li>
 <p>If you input any invalid format, there will be a <strong>Use Message</strong> together with an example to guide you.<br>
-<span class="image"><img src="images/add_task_invalid_format.png" alt="add task invalid format" width="500"></span></p>
+<span class="image"><img src="images/add_task_invalid_format.png" alt="add task invalid format" width="700"></span></p>
 </li>
 <li>
 <p>Once the task is successfully added, it will be displayed on the sticky note under <code>Task</code> tab (as shown in the image below).<br>
-<span class="image"><img src="images/add_task_successful.png" alt="add task successful" width="500"></span></p>
+<span class="image"><img src="images/add_task_successful.png" alt="add task successful" width="700"></span></p>
 </li>
 </ul>
 </div>
@@ -2057,15 +2057,15 @@ manipulating or displaying the tasks is entered, the tab will be automatically s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Before entering any command, you are at the <code>Task</code> tab.
-<span class="image"><img src="images/switchtab1.png" alt="switchtab1" width="800"></span></p>
+<p>Before entering any command, you are at the <code>Task</code> tab.<br>
+<span class="image"><img src="images/switchtab1.png" alt="switchtab1" width="500"></span></p>
 </li>
 <li>
-<p>Enter command <code>delete 1/2</code> and press <kbd>ENTER</kbd>.
+<p>Enter command <code>delete 1/2</code> and press <kbd>ENTER</kbd>.<br>
 <span class="image"><img src="images/switchtab2.png" alt="switchtab2" width="800"></span></p>
 </li>
 <li>
-<p>The tab will be automatically switched to the <code>Map</code> tab.
+<p>The tab will be automatically switched to the <code>Map</code> tab.<br>
 <span class="image"><img src="images/switchtab3.png" alt="switchtab3" width="800"></span></p>
 </li>
 </ol>
@@ -2363,7 +2363,7 @@ Also you can refer to the <a href="#quickstart">Quick Start</a> session.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-12 11:40:41 +00:00
+Last updated 2017-11-13 05:04:02 +00:00
 </div>
 </div>
 </body>
