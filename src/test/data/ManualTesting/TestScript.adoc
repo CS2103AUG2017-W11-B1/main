@@ -1,0 +1,372 @@
+:toc:
+:toc-title:
+ifdef::env-github,env-browser[:outfilesuffix: .adoc]
+:imagesDir: ../images
+:stylesDir: ../stylesheets
+:experimental:
+
+== Introduction
+This document will help you get started on manually testing *Contact Plus*.
+
+== Setting Up
+. Ensure that you have downloaded the following files from IVLE:
+* Jar Executable: `[W11-B1][ContactPlus].jar`
+* Sample Data: `[W11-B1][ContactPlus]SampleData.xml`
+* User Guide: `[W11-B1][ContactPlus]UserGuide.pdf
+* Developer Guide: `[W11-B1][ContactPlus]DeveloperGuide.pdf
+. Create a new folder called _ContactPlus_ and place the `.jar` file inside.
+. Create a folder _data_ inside _ContactPlus_ folder and place `SampleData.xml` inside.
+. Rename `SampleData.xml` to `addressbook.xml`.
+. Execute the `.jar` file to launch *Contact Plus*.
+
+== Commands
+
+=== Multifilter
+
+**Command word**: `multifilter` +
+**Command alias**: `mf` +
+**Command syntax**: `mf [n/name] [p/phone] [e/email] [a/address]`
+
+*Remarks*: multifilter is case-insensitive
+
+==== Filtering by patterns in name: +
+** *Input*: `mf n/r` +
+Searches for contacts whose names contain the letter “r”. +
+**Expected Behaviour**: 17 contacts listed. +
+
+** *Input*: `mf n/RAJ` +
+Searches for contacts whose names contain the string “RAJ”. +
+**Expected Behaviour**: 1 contact listed. +
+
+==== Filtering by patterns in phone number:
+** *Input*: `mf p/432` +
+Searches for contacts whose phone numbers contain the string “432”. +
+**Expected Behaviour**: 0 contacts listed. +
+
+==== Filtering by patterns in email address:
+** *Input*: `mf e/eu` +
+Searches for contacts whose email address contain the string “eu”. +
+**Expected Behaviour**: 1 contact listed. +
+
+==== Filtering by multiple patterns:
+** *Input*: `mf n/r e/ut` +
+Searches for contacts whose names contain the string”r” and email contain the string “ut”. +
+**Expected Behaviour**: 5 contacts listed. +
+** *Input*: `mf a/e p/75` +
+Searches for contacts whose addresses contain the string “e” and first phone number contain the string “75’. +
+**Expected Behaviour**: 4 contacts listed.+
+** *Input*: `mf n/r p/8` +
+Searches for contacts whose names contain the character “r” and phone contain the number “8”. +
+**Expected Behaviour**: 8 contacts listed. +
+
+==== No filters applied:
+** *Input*: `mf` +
+Lists all contacts in the Contact Plus since no filters have been applied. +
+**Expected Behaviour**: 21 contacts listed. +
+
+=== DeleteTag
+
+**Command word**: `deletetag` +
+**Command alias**: `dt` +
+**Command syntax**: `dt tag_name` +
+
+*Remarks*: +
+
+* `tag_name` can only contain alphanumeric characters. The name is case-sensitive. +
+
+==== Delete a tag called “friends”:
+** *Input*: `deletetag friends` +
+**Expected Behaviour**: The tag `friends` is deleted from all contacts in the Contact Plus. +
+
+==== Delete a tag that is invalid:
+** *Input*: `deletetag *` +
+**Expected Behaviour**: This command is invalid. +
+
+==== Delete a tag that is not existed:
+** *Input*: `deletetag Friends` +
+Delete the tag “Friends” from all contacts in the Contact Plus. +
+**Expected Behaviour**: There is no such tag (in the sample data).
+
+
+
+=== Autocomplete
+
+*Usage*: Type a command name partially and press kbd:[TAB] to complete the command. +
+
+*Remarks*: +
+
+* Autocomplete does not support aliases.
+* The partially typed text has to be correctly spelt for Autocomplete to work correctly.
+
+
+==== Autocomplete a command name: +
+** *Input*: `li` + kbd:[TAB] +
+Suggests commands whose names start with the string “li”. +
+**Expected Behaviour**: `list` and `listtask` is displayed in the result pane. +
+
+** *Input*: `t` + kbd:[TAB] +
+Suggests commands whose names start with the string “t”. +
+**Expected Behaviour**: `t` is autocompleted to `task` in the command bar as it is the only command whose name starts with the character “t”. +
+** *Input*: `w` + kbd:[TAB] +
+Suggests commands whose names start with the string “w”. +
+**Expected Behaviour**: There is no response from Contact Plus as there is no command whose name starts with the character “w”.
+
+=== Extended Autocomplete
+
+*Usage*: Type a full command name and press CTRL to autofill the command fields. +
+*Remarks*: +
+
+* The command name must be spelt correctly for extended autocomplete to work.
+* Extended autocomplete does not support Command aliases.
+Optional fields are not automatically shown by extended autocomplete. For example, the “add” command has an optional tag (prefix t/). But extended autocomplete does not display it because it is an optional field.
+
+==== Autocomplete a command’s fields:
+* *Input*: `task` + kbd:[CTRL] +
+Autofills the fields of the `task` command into the command box and displays its usage in the result pane. +
+*Expected Behaviour*: `task d/ pr/ on` is displayed in the command box. The help text for this command is also displayed in the result pane. +
+* *Input*: `Task` + kbd:[CTRL] +
+Autofills the fields of the “Task” command into the command box and displays its usage in the result pane. +
+*Expected Behaviour*: Contact Plus does not respond as there is no command whose name matches the string “Task” exactly. +
+
+
+=== ListTask
+
+**Command word**: `listtask` +
+**Command alias**: - +
+**Command syntax**: `listtask` +
+
+*Remarks*: +
+
+* The ListTask command will list all tasks in the order that they were created.
+
+==== List all tasks in ContactPlus:
+*Input*: `listtask` +
+*Expected Behaviour*: all tasks are displayed in the tasks sticky in the order that they were created. +
+
+=== DeleteTask
+
+**Command word**: `deletetask` +
+**Command alias**: - +
+**Command syntax**: `deletetask 1[/2/...]` +
+
+==== Delete a single task from Contact Plus:
+*Input*: `deletetask 1` +
+Deletes the first task in Contact Plus (if available) +
+*Expected Behaviour* (when task no. is valid): The first task is deleted from Contact Plus. +
+*Expected Behaviour* (when task no. is invalid) “The task index provided is invalid.” +
+
+==== Delete multiple tasks from Contact Plus:
+*Input*: `deletetask 2/3` +
+Deletes the second and third tasks from Contact Plus (if there are at least 3 tasks) +
+*Expected Behaviour*: The second and third tasks in Contact Plus are deleted (if there are at least 3 tasks). +
+
+=== Switch
+**Command word**: `switch` +
+**Command syntax**: `switch [index]` +
+
+*Remarks*:
+
+* index can only be 1, 2 or 3
+
+==== Switching to `Dark Theme`:
+*Input*: `switch 1` +
+*Expected Behaviour*: The theme of Contact Plus will be updated to `Dark Theme`, and a message `Theme updated: Dark` will be displayed. +
+
+==== Switching to `Light Theme`:
+*Input*: `switch 2` +
+*Expected Behaviour*: The theme of Contact Plus will be updated to `Light Theme`, and a message `Theme updated: Light` will be displayed. +
+
+==== Switching to `Colourful Theme`:
+*Input*: `switch 3` +
+*Expected Behaviour*: The theme of Contact Plus will be updated to `Colourful Theme`, and a message `Theme updated: Colourful` will be displayed. +
+
+==== Switching to a non-existed theme (i.e. invalid index):
+*Input*: `switch 4` +
+*Expected Behaviour*: An error message - `The theme index provided is invalid.` - will be displayed. +
+
+=== Add Tasks
+**Command word**: `task` +
+**Command syntax**: `task [d/description] [pr/priority] [on due date]` +
+
+*Remarks*: +
+
+* Priority can only be 0, 1 or 2, indicating from lowest priority to highest.
+* Due date is in the format `dd/MM/yyyy`. The date must be valid.
+* All three fields must be present.
+
+==== Add a task:
+*Input*: `task d/assignment pr/2 on 17/11/2017` +
+*Expected Behaviour*: A successful message - `New task added: Description: assignment Priority: 2 DueDate: 17/11/2017` - will be displayed. The task will also be displayed on the sticky note, with specific description, priority and due date. +
+
+==== Add an invalid task:
+
+* Adding a duplicate task +
+*Input*: `task d/assignment pr/2 on 17/11/2017` +
+*Expected Behaviour*: An error message - `This task already exists in the Contact Plus.` - will be displayed. +
+
+* Adding a task with empty description +
+*Input*: `task d/ pr/2 on 17/11/2017` +
+*Expected Behaviour*: An error message - `Description should not be empty` - will be displayed. +
+
+* Adding a task with empty priority +
+*Input*: `task d/assignment pr/ on 17/11/2017` +
+*Expected Behaviour*: An error message - `Priority can only contain number 0, 1 or 2` - will be displayed. +
+
+* Adding task with empty due date +
+*Input*: `task d/assignment pr/2 on` +
+*Expected Behaviour*: An error message - `Invalid command format! task: Adds a task to the Contact Plus.Parameters: d/DESCRIPTION pr/PRIORITY(0/1/2) on DUE DATE(dd/MM/yyyy)
+EXAMPLE: task d/CS ASSIGNMENT pr/2 on 25/10/2017` will be displayed.
+
+* Adding a task with invalid priority +
+*Input*: `task d/assignment pr/100 on 17/11/2017` +
+*Expected Behaviour*: An error message - `Priority can only contain number 0, 1 or 2` will be displayed. +
+
+* Adding a task with invalid due date +
+*Input*: `task d/assignment pr/2 on 29/02/2017` +
+*Expected Behaviour*: An error message - `The input date is not valid!` will be displayed. +
+
+
+=== Alias for command
+
+Use the alias of a certain command instead of the full command name to perform the command. +
+
+*Remarks*: +
+
+* Only certain frequently used commands have alias, so not every command has alias. +
+
+==== Use `a` for command `add` +
+The original command is `add n/John Doe p/98765432 p2/61234567 OR '-'
+e/johnd@example.com a/311, Clementi Ave 2, #02-25 t/friends t/owesMoney`, with alias,
+It can be written as `a n/John Doe p/98765432 p2/61234567 OR '-'
+e/johnd@example.com a/311, Clementi Ave 2, #02-25 t/friends t/owesMoney`
+
+
+=== Locate groups by tags
+*Command word*: `search + tag_name` +
+*Command alias*: `sh + tag_name` +
+*Command syntax*: `sh + tag_name` +
+
+*Remarks*: +
+
+* `tag_name` should be a valid tag name in the Contact Plus. The name is case-sensitive.
+Multiple tags can be searched.
+
+==== Search a tag called “friends”  (assume “friends” is a valid tag in Contact Plus):
+*Input*: `search friends` +
+Search the contacts with “friends” tag. +
+*Expected Behaviour*: the contacts with tag “friends” will be displayed in the result pane +
+*Input*: `search Friends` +
+*Expected Behaviour*: `Unknown tag.` +
+*Input*: `search *` +
+*Expected Behaviour*: `Unknown tag.` +
+
+==== Search tags called “friends” and “family” (assume “friends”, “family” are two valid tags in Contact Plus):
+*Input*: `search friends family` +
+*Expected Behaviour*: show a list of contact with tag `friends`  and `family` +
+*Input*: `search *` +
+*Expected Behaviour*: `Unknown tag.` +
+*Input*: `search Friends Family` +
+*Expected Behaviour*: `Unknown tag.` +
+
+=== AutoCorrect
+
+Auto correct misspelled user input command.
+
+*Remark*: +
+
+* Contact Plus will only correct misspelled command with two alphabets different from the correct spelling.
+* AutoCorrect will auto correct words according to its first alphabet, so even though the misspelled command is one alphabet from the correct spelling, the misspelled command cannot be auto corrected.
+
+==== AutoCorrect command “delete” (assume there is at least one contact in Contact Plus)
+* *Input*: `deleet 1` +
+*Expected Behaviour*: `Your command: deleet, is corrected to: delete` +
+* *Input*: `relete 1` +
+*Expected Behaviour*: `Unknown command` +
+* *Input*: `dedddd 1` +
+*Expected Behaviour*: `Unknown command` +
+* *Input*: `DeleeT 1` +
+*Expected Behaviour*: `Your command: deelet, is corrected to: delete` +
+*Remark*: The command will be converted to small letters.
+
+=== Keyboard shortcut
+Use keyboard shortcut to perform command.
+
+*Remark*: +
+
+* Not every command has its keyboard shortcut. Keyboard shortcut is only for certain commonly used commands.
+
+==== Use “control” + “a”/ “A” for add contact into Contact Plus
+*Expected Behaviour*: `add n/ p/ p2/ e/ a`
+*Remark*: the optional /t will not be automatically displayed.
+
+=== Edit Task
+Edit task with “priority” and “due date” fields.
+
+*Remark*: +
+
+* Even though the edited field has the same value as before, the application will not display error message.
+
+==== Edit task 1 with field “priority” (assume that the first task in Contact Plus has priority 1):
+* *Input*: `edittask 1 pr/2` +
+*Expected Behaviour*: `Edited task: Description: CS ASSIGNMENT Priority: 1 DueDate: 25/10/2017` +
+* *Input*: `edittask 1 pr/1` +
+*Expected Behaviour*: `Edited task: Description: CS ASSIGNMENT Priority: 1 DueDate: 25/10/2017` +
+
+=== Clear Task
+Clear task on the application. +
+
+*Remark*: +
+
+* user can choose to undo clear.
+
+*Input*: `cleartask` +
+*Expected Behaviour*: `Task list has been cleared!` +
+
+
+=== Delete Multiple Contacts
+**Command word**: `delete`
+**Command syntax**: `delete [index]`
+
+*Remarks*: +
+
+* index can be from 1 to n where n is the last person in your contact list. Use `list` command to show all indexes.
+
+==== Deleting index 1 & 2:
+*Input*: `delete 1/2` +
+*Expected Behaviour*: The contacts with index 1 & 2 will be deleted from the list. +
+*Remarks*: The order of index does not matter. `delete 2/1` works fine as well. +
+
+
+=== Add a Second Phone Number
+**Command word**: `add p2/` +
+**Command syntax**: `add [n/name][p/phone number][p2/second phone number][e/email][a/address]` +
+
+*Remarks*: +
+
+* Compulsory prefix when adding a contact
+
+==== Add a contact with second phone number:
+*Input*: `add n/John Doe p/98765432 p2/61234567 e/johnd@example.com a/311, Clementi Ave 2,#02-25` +
+*Expected Behaviour*: A success message - `New person added: John Doe Phone: 98765432 Phone 2: 61234567 Email: johnd@example.com Address: 311, Clementi Ave 2,#02-25 Tags: ` - will be displayed. The contact added will be displayed on the side panel. +
+
+==== Add a contact without second phone number:
+*Input*: `add n/John Doe p/98765432 p2/- e/johnd@example.com a/311, Clementi Ave 2,#02-25` +
+*Expected Behaviour*: A success message - `New person added: John Doe Phone: 98765432 Phone 2: - Email: johnd@example.com Address: 311, Clementi Ave 2,#02-25 Tags: ` - will be displayed. The contact added will be displayed on the side panel. +
+
+==== Add a without adding the prefix for second phone number:
+
+*Input*: `add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2,#02-25` +
+*Expected Behaviour*: An error message - `Invalid command format! ` - will be displayed and the correct syntax will also be displayed. +
+
+
+=== Switch Tabs
+* Can be done by either clicking on the UI or the tab will be switched automatically based on the commands input.
+
+* If any Commands related to manipulating or displaying the contacts is entered, the tab will be automatically switched to the Map tab.
+
+* If any Commands related to manipulating or displaying the tasks is entered, the tab will be automatically switched to the Map tab.
+
+
+
+
+
