@@ -15,6 +15,13 @@
         <address>maple street</address>
         <tagged>friends</tagged>
     </persons>
+    <persons>
+        <name>John Doe</name>
+        <phone>98765432</phone>
+        <phone2>-</phone2>
+        <email>johnd@example.com</email>
+        <address>311, Clementi Ave 2,#02-25</address>
+    </persons>
     <tags>owesMoney</tags>
     <tags>Friend</tags>
     <tags>boyfriend</tags>
