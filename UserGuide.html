@@ -60,10 +60,11 @@
 <li><a href="#addtask-command">5.13. Add tasks: <code>task</code> [Since v1.3] <a id="addtask"></a></a></li>
 <li><a href="#listtask">5.14. List tasks [Since v1.4]</a></li>
 <li><a href="#deletetask-command">5.15. Delete tasks: <code>deletetask</code>[Since v1.4]</a></li>
-<li><a href="#edittask-command">5.16. Edit task: <code>edittask</code> [Since v1.4]</a></li>
-<li><a href="#cleartask-command">5.17. Clear task: <code>cleartask</code> [Since v1.4]</a></li>
-<li><a href="#switch-theme-since-v1-5">5.18. Switch theme [Since v1.5]</a></li>
-<li><a href="#tab-switching-since-v1-5-a-id-switch-tab-a">5.19. Tab Switching [Since v1.5]<a id="switch-tab"></a></a></li>
+<li><a href="#sound-effect-for-system-events-since-v1-3-2">5.16. Sound effect for system events [Since v1.3]</a></li>
+<li><a href="#edittask-command">5.17. Edit task: <code>edittask</code> [Since v1.4]</a></li>
+<li><a href="#cleartask-command">5.18. Clear task: <code>cleartask</code> [Since v1.4]</a></li>
+<li><a href="#switch-theme-since-v1-5">5.19. Switch theme [Since v1.5]</a></li>
+<li><a href="#tab-switching-since-v1-5-a-id-switchtab-a">5.20. Tab Switching [Since v1.5]<a id="switchtab"></a></a></li>
 </ul>
 </li>
 <li><a href="#coming-up">6. Coming up</a>
@@ -901,16 +902,10 @@ Command Format: <code>COMMAND_WORD PARAMETERS p2/PHONE_NUMBER OTHER_PARAMETERS</
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 p2/73624789 e/johnd@example.com a/John street, block 123, #01-01</code></p>
-<div class="paragraph">
-<p><span class="image"><img src="images/addsecondphone.png" alt="addsecondphone" width="700"></span></p>
-</div>
+<p><code>add n/John Doe p/98765432 p2/73624789 e/johnd@example.com a/John street, block 123, #01-01</code><br></p>
 </li>
 <li>
-<p><code>edit 1 p/91234567 p2/73624789 e/johndoe@example.com</code></p>
-<div class="paragraph">
-<p><span class="image"><img src="images/addsecondphone2.png" alt="addsecondphone2" width="700"></span></p>
-</div>
+<p><code>edit 1 p/91234567 p2/73624789 e/johndoe@example.com</code><br></p>
 </li>
 </ul>
 </div>
@@ -1022,21 +1017,27 @@ If no filters are used, all contacts will be displayed.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>mf a/gey</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns contacts whose address contain <code>gey</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays contacts whose address contain <code>gey</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>mf</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns all contacts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays all contacts because no filters were applied.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>mf n/iv p/9 e/g a/ge</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns contacts who match ALL of the following criteria:<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays contacts who match ALL of the following criteria:<br>
 </p><p class="tableblock">1. Name contains <code>iv</code><br>
 2. Phone no. contains <code>9</code><br>
 3. Email contains <code>g</code><br>
 4. Address contains <code>ge</code><br>
 </p><p class="tableblock">An example of a matching contact for this command would be<br>
-<code>Ivan</code> that has phone no. <code>999</code>, email <code>g@y.com</code> and address <code>123 geylang road</code></p></td>
+<code>Ivan</code> that has phone no. <code>999</code>, email <code>g@y.com</code> and address <code>123 geylang road</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mf ivan</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays all contacts because <code>ivan</code> is not preceeded  by any valid
+filter field such as n/. See <a href="#multifilter-format">this</a> for the
+list of filter fields that you can use.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1546,7 +1547,7 @@ The keyborad shortcuts are created only for commands with heavy text input or fr
 <h3 id="sound-effect-for-system-events-since-v1-3"><a class="link" href="#sound-effect-for-system-events-since-v1-3">5.12. Sound effect for system events [Since v1.3]</a></h3>
 <div class="paragraph">
 <p>Sound effect is designed to help you to discern audibly whether your command is performed successfully or otherwise.
-Various sound clips are played for each system events to keep you informed of the status of your actions.</p>
+Various sound clips are played for different system events to keep you informed of the status of your actions.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1555,7 +1556,7 @@ Various sound clips are played for each system events to keep you informed of th
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This sound effect is set by Contact Plus by default.
+This sound effect is enabled by Contact Plus by default.
 </td>
 </tr>
 </table>
@@ -1736,7 +1737,7 @@ Quick demo: <a href="#how-to-use-deletetask">here</a></p>
 <ul>
 <li>
 <p><code>INDEX_1</code>, <code>INDEX_2</code>, etc. refer to the task numbers that
-are shown when you use the <a href="#listtask-command"><code>listtask</code></a> command to show your tasks
+are shown when you use the <a href="#listtask"><code>listtask</code></a> command to show your tasks
 (See <a href="#how-to-use-deletetask">how to use</a> for an example).</p>
 </li>
 <li>
@@ -1818,7 +1819,54 @@ the tasks that you have specified in the previous step have been deleted from
 </div>
 </div>
 <div class="sect2">
-<h3 id="edittask-command"><a class="link" href="#edittask-command">5.16. Edit task: <code>edittask</code> [Since v1.4]</a></h3>
+<h3 id="sound-effect-for-system-events-since-v1-3-2"><a class="link" href="#sound-effect-for-system-events-since-v1-3-2">5.16. Sound effect for system events [Since v1.3]</a></h3>
+<div class="paragraph">
+<p>Various sound clips are played for each system event to
+keep you informed of the status of your actions.</p>
+</div>
+<div class="sect3">
+<h4 id="description-14"><a class="link" href="#description-14">5.16.1. Description</a></h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>System events are classified into 2 types: command success and command failure.</p>
+</li>
+<li>
+<p>One sound clip will be played for each of these event types.</p>
+</li>
+<li>
+<p>Currently, there is no way to disable the sound effect.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-2"><a class="link" href="#example-2">5.16.2. Example</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Your input</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Result</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete 1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Success sound clip is played if command is successful.<br>
+</p><p class="tableblock">Failure sound clip is played if command is unsuccessful.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="edittask-command"><a class="link" href="#edittask-command">5.17. Edit task: <code>edittask</code> [Since v1.4]</a></h3>
 <div class="paragraph">
 <p>To edit your tasks, first you should learn how to <a href="#listtask">list task</a> . Listing tasks is for you to get the index of the task you indent to edit.
 Then use "edittask" command with its index to edit the task.</p>
@@ -1828,7 +1876,7 @@ Then use "edittask" command with its index to edit the task.</p>
 Quick demo: <a href="#how-to-use-edittask">here</a></p>
 </div>
 <div class="sect3">
-<h4 id="description-14"><a class="link" href="#description-14">5.16.1. Description</a></h4>
+<h4 id="description-15"><a class="link" href="#description-15">5.17.1. Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -1848,7 +1896,7 @@ Quick demo: <a href="#how-to-use-edittask">here</a></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="how-to-use-edittask"><a class="link" href="#how-to-use-edittask">5.16.2. How to use</a></h4>
+<h4 id="how-to-use-edittask"><a class="link" href="#how-to-use-edittask">5.17.2. How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1867,7 +1915,7 @@ Quick demo: <a href="#how-to-use-edittask">here</a></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="examples-18"><a class="link" href="#examples-18">5.16.3. Examples</a></h4>
+<h4 id="examples-18"><a class="link" href="#examples-18">5.17.3. Examples</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1895,14 +1943,14 @@ Quick demo: <a href="#how-to-use-edittask">here</a></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="cleartask-command"><a class="link" href="#cleartask-command">5.17. Clear task: <code>cleartask</code> [Since v1.4]</a></h3>
+<h3 id="cleartask-command"><a class="link" href="#cleartask-command">5.18. Clear task: <code>cleartask</code> [Since v1.4]</a></h3>
 <div class="paragraph">
 <p>To clear your task list, "cleartask" is the command to use. The format is as follows:
 Command Format: <code>cleartask</code>+
 Quick demo: <a href="#how-to-use-cleartask">here</a></p>
 </div>
 <div class="sect3">
-<h4 id="description-15"><a class="link" href="#description-15">5.17.1. Description</a></h4>
+<h4 id="description-16"><a class="link" href="#description-16">5.18.1. Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -1916,7 +1964,7 @@ Quick demo: <a href="#how-to-use-cleartask">here</a></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="how-to-use-cleartask"><a class="link" href="#how-to-use-cleartask">5.17.2. How to use</a></h4>
+<h4 id="how-to-use-cleartask"><a class="link" href="#how-to-use-cleartask">5.18.2. How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1941,7 +1989,7 @@ Quick demo: <a href="#how-to-use-cleartask">here</a></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="examples-19"><a class="link" href="#examples-19">5.17.3. Examples</a></h4>
+<h4 id="examples-19"><a class="link" href="#examples-19">5.18.3. Examples</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1961,7 +2009,7 @@ Quick demo: <a href="#how-to-use-cleartask">here</a></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="switch-theme-since-v1-5"><a class="link" href="#switch-theme-since-v1-5">5.18. Switch theme [Since v1.5]</a></h3>
+<h3 id="switch-theme-since-v1-5"><a class="link" href="#switch-theme-since-v1-5">5.19. Switch theme [Since v1.5]</a></h3>
 <div class="paragraph">
 <p>If you are not happy with the current theme and want to select a new theme, use <code>switch</code> command with the index to
 switch to the theme you like.<br></p>
@@ -1971,7 +2019,7 @@ switch to the theme you like.<br></p>
 Quick demo: <a href="#how-to-use-switch-theme">here</a></p>
 </div>
 <div class="sect3">
-<h4 id="description-16"><a class="link" href="#description-16">5.18.1. Description</a></h4>
+<h4 id="description-17"><a class="link" href="#description-17">5.19.1. Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -2003,7 +2051,7 @@ set back to default theme.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="how-to-use-switch-theme"><a class="link" href="#how-to-use-switch-theme">5.18.2. How to use</a></h4>
+<h4 id="how-to-use-switch-theme"><a class="link" href="#how-to-use-switch-theme">5.19.2. How to use</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2017,7 +2065,7 @@ set back to default theme.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-2"><a class="link" href="#example-2">5.18.3. Example</a></h4>
+<h4 id="example-3"><a class="link" href="#example-3">5.19.3. Example</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -2039,13 +2087,13 @@ the diagram below)<br>
 </div>
 </div>
 <div class="sect2">
-<h3 id="tab-switching-since-v1-5-a-id-switch-tab-a"><a class="link" href="#tab-switching-since-v1-5-a-id-switch-tab-a">5.19. Tab Switching [Since v1.5]<a id="switch-tab"></a></a></h3>
+<h3 id="tab-switching-since-v1-5-a-id-switchtab-a"><a class="link" href="#tab-switching-since-v1-5-a-id-switchtab-a">5.20. Tab Switching [Since v1.5]<a id="switchtab"></a></a></h3>
 <div class="paragraph">
 <p>You can choose to switch between the <code>Task</code> tab or <code>Map</code> tab either by clicking on the user interface or
 the application will automatically switch it for you based on the command you entered.</p>
 </div>
 <div class="sect3">
-<h4 id="description-17"><a class="link" href="#description-17">5.19.1. Description</a></h4>
+<h4 id="description-18"><a class="link" href="#description-18">5.20.1. Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -2064,28 +2112,36 @@ manipulating or displaying the tasks is entered, the tab will be automatically s
 </div>
 </div>
 <div class="sect3">
-<h4 id="examples-20"><a class="link" href="#examples-20">5.19.2. Examples</a></h4>
+<h4 id="examples-20"><a class="link" href="#examples-20">5.20.2. Examples</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Before entering any command, you are at the <code>Task</code> tab.</p>
+<p>Before entering any command, you are at the <code>Task</code> tab.<br></p>
+</li>
+</ol>
+</div>
 <div class="paragraph">
 <p><span class="image"><img src="images/switchTab1.png" alt="switchTab1" width="800"></span></p>
 </div>
-</li>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>Enter command <code>delete 1/2</code> and press <kbd>ENTER</kbd>.</p>
+<p>Enter command <code>delete 1/2</code> and press <kbd>ENTER</kbd>.<br></p>
+</li>
+</ol>
+</div>
 <div class="paragraph">
 <p><span class="image"><img src="images/switchTab2.png" alt="switchTab2" width="800"></span></p>
 </div>
-</li>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>The tab will be automatically switched to the <code>Map</code> tab.</p>
-<div class="paragraph">
-<p><span class="image"><img src="images/switchTab3.png" alt="switchTab3" width="800"></span></p>
-</div>
+<p>The tab will be automatically switched to the <code>Map</code> tab.<br></p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/switchTab3.png" alt="switchTab3" width="800"></span></p>
 </div>
 </div>
 </div>
@@ -2121,7 +2177,7 @@ Command Format: CommandWrd + inputText</p>
 <strong>Format</strong>: <code>sync all</code> or <code>sync 1/2/3</code> or <code>sync 1</code><br></p>
 </div>
 <div class="sect3">
-<h4 id="description-18"><a class="link" href="#description-18">6.4.1. Description</a></h4>
+<h4 id="description-19"><a class="link" href="#description-19">6.4.1. Description</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -2432,7 +2488,7 @@ Also you can refer to the <a href="#quickstart">Quick Start</a> session.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-13 09:44:09 +00:00
+Last updated 2017-11-13 12:33:20 +00:00
 </div>
 </div>
 </body>

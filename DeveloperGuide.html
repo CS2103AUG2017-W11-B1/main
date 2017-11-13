@@ -962,7 +962,7 @@ The alias mechanism is implemented in <code>AddressBookParser</code>, and its lo
 <h3 id="autocomplete-mechanism-a-id-autocomplete-feature-a"><a class="link" href="#autocomplete-mechanism-a-id-autocomplete-feature-a">4.5. Autocomplete Mechanism<a id="autocomplete-feature"></a></a></h3>
 <div class="paragraph">
 <p>The <code>autocomplete</code> feature is implemented in <code>AutoCompleteUtil</code> class. It enables commands to be automatically suggested and
-completed for users. For example, when the user type, "sea", and press <kbd>TAB</kbd> key, the complete command <code>search</code> appears on the command line. This feature saves time for users and improves the efficiency of the application in general.
+completed for users. For example, when the user types, "sea", and press <kbd>TAB</kbd> key, the complete command <code>search</code> appears on the command line. This feature saves time for users and improves the efficiency of the application in general.
 It is invoked in subclasses of <code>Logic</code> (e.g. <code>LogicManager</code>).</p>
 </div>
 <div class="paragraph">
@@ -972,6 +972,11 @@ It is invoked in subclasses of <code>Logic</code> (e.g. <code>LogicManager</code
 <div class="content">
 <img src="images/AutoCompleteCommand.sequenceDiagram.png" alt="AutoCompleteCommand.sequenceDiagram" width="800">
 </div>
+</div>
+<div class="paragraph">
+<p>As seen in the sequence diagram, <code>Logic</code> will get a list of all available commands from the <code>AutoCompleteUtil</code> class. Thereafter, it will pass
+this list, together with the user&#8217;s input string, to the <code>autoCompleteCommand()</code> method in the <code>AutoCompleteUtil</code> class, which will
+generate and return a list of suggested commands.</p>
 </div>
 <div class="sect3">
 <h4 id="autocomplete-dependencies"><a class="link" href="#autocomplete-dependencies">4.5.1. Prerequisites/Dependencies</a></h4>
@@ -1073,7 +1078,7 @@ is determined based on the <code>Command</code> entered by the user.</p>
 <p>The <code>COMMAND_WORD</code> and <code>AUTOCOMPLETE_FORMAT</code> fields must exist in all class files that represent commands.</p>
 </li>
 <li>
-<p>For definition of <code>COMMAND_WORD</code>, see <a href="#autocomplete-dependencies">section 4.4.1</a></p>
+<p>For definition of <code>COMMAND_WORD</code>, see <a href="#autocomplete-dependencies">this</a></p>
 </li>
 <li>
 <p>The <code>AUTOCOMPLETE_FORMAT</code> field is defined as a string that contains the format of the command that is represented by the enclosing class.
@@ -1123,14 +1128,24 @@ Cons: Finite number of keys on the keyboard make it impossible to do a one-to-on
 <h3 id="delete-tag-mechanism"><a class="link" href="#delete-tag-mechanism">4.7. Delete Tag Mechanism</a></h3>
 <div class="paragraph">
 <p>This mechanism is modelled by the <code>DeleteTagCommand</code> class. An instance of
-<code>DeleteTagCommand</code> is instantiated by the <code>AddressBookParser</code> class when the
-user attempts to delete tasks. The following sequence diagram shows the process from the
+<code>DeleteTagCommand</code> is created by the <code>AddressBookParser</code> class when the
+user attempts to delete tags. The following sequence diagram shows the process from the
 moment the user enters the <code>deletetag</code> command until the remaining tags
 are displayed in the interface of <code>Contact Plus</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DeleteTagCommand-sequence-diagram.png" alt="DeleteTagCommand sequence diagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>The following code snippet shows how the <code>DeleteTagCommand</code> class
+handles the user input - if there is no tag with the specified name, then
+an error message is shown instead of a success message.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/deletetag-snippet.png" alt="deletetag snippet">
 </div>
 </div>
 <div class="sect3">
@@ -1147,7 +1162,7 @@ delete it from the address book.</p>
 <div class="sect3">
 <h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.7.2. Design Considerations</a></h4>
 <div class="paragraph">
-<p><strong>Aspect:</strong> Implementation of <code>deletetag</code> command.<br></p>
+<p><strong>Aspect:</strong> Implementation of <code>deletetag()</code> command.<br></p>
 </div>
 <div class="paragraph">
 <p><strong>Alternative 1 (current choice):</strong> Delete the specified tag from all contacts in the address book.<br>
@@ -1159,7 +1174,7 @@ to every person who had that tag previously (except the one from which he wanted
 <p><strong>Alternative 2:</strong> Enable the user to choose several contacts from which he/she wishes to delete the tag.<br>
 <strong>Pros:</strong> User has more control over which users to remove the tag from. Hence, this implementation removes
  the problem from alternative 1.<br>
-<strong>Cons:</strong> Implementation is more complex as contacts have to validated before handling the tag names.</p>
+<strong>Cons:</strong> Implementation is more complex as contacts have to be validated before handling the tag names.</p>
 </div>
 </div>
 </div>
@@ -1218,8 +1233,8 @@ This class makes uses of the powerful function from stream. The logic follow can
 <h3 id="multiple-filter-mechanism"><a class="link" href="#multiple-filter-mechanism">4.9. Multiple Filter Mechanism</a></h3>
 <div class="paragraph">
 <p>This mechanism is modelled by the <code>MultiFilterCommand</code> class. An instance of
-<code>MultiFilterCommand</code> is instantiated by the <code>AddressBookParser</code> class when the
-user attempts to delete tasks. The following sequence diagram shows the process from the
+<code>MultiFilterCommand</code> is created by the <code>AddressBookParser</code> class.
+The following sequence diagram shows the process from the
 moment the user enters the <code>multifilter</code> command until the results
 are displayed in the interface of <code>Contact Plus</code>.</p>
 </div>
@@ -1583,7 +1598,7 @@ the <code>executeUndoableCommand()</code> function in <code>AddTaskCommand</code
 <h3 id="list-task-mechanism"><a class="link" href="#list-task-mechanism">4.15. List Task Mechanism</a></h3>
 <div class="paragraph">
 <p>This mechanism is modelled by the <code>ListTaskCommand</code> class. An instance of
-<code>ListTaskCommand</code> is instantiated by the <code>AddressBookParser</code> class when the
+<code>ListTaskCommand</code> is created by the <code>AddressBookParser</code> class when the
 user attempts to list tasks. The following sequence diagram shows the process from the
 moment the user enters the <code>listtask</code> command until the tasks
 are displayed in the interface of <code>Contact Plus</code>.</p>
@@ -1628,7 +1643,7 @@ the tasks in the address book.</p>
 <h3 id="delete-task-mechanism"><a class="link" href="#delete-task-mechanism">4.16. Delete Task Mechanism</a></h3>
 <div class="paragraph">
 <p>This mechanism is modelled by the <code>DeleteTaskCommand</code> class. An instance of
-<code>DeleteTaskCommand</code> is instantiated by the <code>AddressBookParser</code> class when the
+<code>DeleteTaskCommand</code> is created by the <code>AddressBookParser</code> class when the
 user attempts to delete tasks. The following sequence diagram shows the process from the
 moment the user enters the <code>deletetask</code> command until the remaining tasks
 are displayed in the interface of <code>Contact Plus</code>.</p>
@@ -1755,8 +1770,8 @@ delete it from the address book.</p>
 <div class="sect2">
 <h3 id="sound-effect-for-commands"><a class="link" href="#sound-effect-for-commands">4.19. Sound Effect for Commands</a></h3>
 <div class="paragraph">
-<p>This mechanism is supported by the <code>AudioUtil</code> class. The static method
-<code>playClip()</code>, which plays a specified .wav format sound clip, is invoked on <code>AudioUtil</code> class when a command is issued by
+<p>This mechanism is implemented in the <code>AudioUtil</code> class. The static method
+<code>playClip()</code>, which plays a specified .wav format sound clip, is invoked on the <code>AudioUtil</code> class when a command is issued by
 the user. Distinct sound clips will be played based on whether the command
 was successfully executed or it failed to execute (due to various reasons such
 as parse error). A visualization of this is shown in the following sequence diagram:</p>
@@ -1796,7 +1811,7 @@ only this format has been tried and tested. Other audio file formats may/may not
 </div>
 <div class="paragraph">
 <p><strong>Alternative 1 (current choice):</strong> Play preset clips on command success or failure.<br>
-<strong>Pros:</strong> Easy to implement as the clips to be played are always the same and are only played
+<strong>Pros:</strong> Easy to implement as the clips to be played are always the same and will only be played
 during two events.<br>
 <strong>Cons:</strong> The sound clips are limited to two types - success or failure.</p>
 </div>
@@ -3527,7 +3542,7 @@ originally defined by GeoPlanet and now assigned by Yahoo!, that identifies any 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-13 09:44:09 +00:00
+Last updated 2017-11-13 12:33:20 +00:00
 </div>
 </div>
 </body>
