@@ -214,17 +214,14 @@
 ###### /java/seedu/address/logic/commands/DeleteTagCommand.java
 ``` java
     @Override
-    public CommandResult executeUndoableCommand() throws CommandException {
-        try {
-            model.deleteTag(tagToDelete);
-        } catch (PersonNotFoundException pnfe) {
-            assert false : "The target person cannot be missing";
-        } catch (DuplicatePersonException dpe) {
-            assert false : "Update will cause two contacts to be the same";
-        }
+    public CommandResult executeUndoableCommand() {
+        boolean tagWasDeleted = model.deleteTag(tagToDelete);
+
+        // If the specified tag does not exist, return an error message instead of a success message.
+        String messageToUser = (!tagWasDeleted ? MESSAGE_NO_SUCH_TAG : MESSAGE_DELETE_TAG_SUCCESS);
 
         if (autoCorrectCommand.getMessageToUser().equals("")) {
-            return new CommandResult(String.format(MESSAGE_DELETE_TAG_SUCCESS, tagToDelete));
+            return new CommandResult(String.format(messageToUser, tagToDelete));
         } else {
             return new CommandResult(autoCorrectCommand.getMessageToUser()
                     + "\n"
@@ -475,6 +472,41 @@
         return Stream.of(prefixes).allMatch(prefix -> argumentMultimap.getValue(prefix).isPresent());
     }
 }
+```
+###### /java/seedu/address/model/ModelManager.java
+``` java
+    /**
+     * Deletes a tag from the address book
+     *
+     * @param t tag object
+     * @return a variable indicator if at least one tag was deleted
+     */
+    @Override
+    public boolean deleteTag(Tag t) {
+        // Get all contacts in AddressBook
+        ObservableList<ReadOnlyPerson> persons = addressBook.getPersonList();
+        boolean tagWasDeleted = false;
+
+        try {
+            for (ReadOnlyPerson unmodifiablePerson : persons) {
+                Person updatedPerson = new Person(unmodifiablePerson);
+                // Remove the desired tag from every person where applicable
+                Set<Tag> tags = new HashSet<>(updatedPerson.getTags());
+                if (tags.contains(t)) {
+                    tagWasDeleted = true;
+                    tags.remove(t);
+                    updatedPerson.setTags(tags);
+                    addressBook.updatePerson(unmodifiablePerson, updatedPerson);
+                }
+            }
+        } catch (PersonNotFoundException pnfe) {
+            assert false : "The target person cannot be missing";
+        } catch (DuplicatePersonException dpe) {
+            assert false : "Update will cause two contacts to be the same";
+        }
+        return tagWasDeleted;
+    }
+
 ```
 ###### /java/seedu/address/ui/CommandBox.java
 ``` java

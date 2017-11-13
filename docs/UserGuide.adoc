@@ -279,7 +279,7 @@ Command Format: `exit`
 Need to reorganize your social groups? `deletetag` enables you to delete tags from all your contacts in `Contact Plus` ! +
 
 Command Format: `deletetag tag_name` +
-Quick demo: link:#how-to-use-deletetag-command[here]
+Quick demo: <<how-to-use-deletetag-command,here>>
 
 ==== Description
 
@@ -380,12 +380,9 @@ Command Format: `COMMAND_WORD PARAMETERS p2/PHONE_NUMBER OTHER_PARAMETERS` +
 ****
 
 ==== Examples
-* `add n/John Doe p/98765432 p2/73624789 e/johnd@example.com a/John street, block 123, #01-01`
-+
-image:addsecondphone.png[width="700"]
-* `edit 1 p/91234567 p2/73624789 e/johndoe@example.com`
-+
-image:addsecondphone2.png[width="700"]
+* `add n/John Doe p/98765432 p2/73624789 e/johnd@example.com a/John street, block 123, #01-01` +
+* `edit 1 p/91234567 p2/73624789 e/johndoe@example.com` +
+
 
 //end::secondphone[]
 
@@ -395,7 +392,7 @@ image:addsecondphone2.png[width="700"]
 If you need to find persons whose names, phone no., emails and addresses,
 match a set of specified criteria, `multifilter` will help you to do so. +
 Format: `multifilter [n/NAME] [p/PHONE NO.] [e/EMAIL] [a/ADDRESS]` +
-Quick demo: link:#how-to-use-multifilter[here]
+Quick demo: <<how-to-use-multifilter,here>>
 
 ==== Description [[multifilter-description]]
 
@@ -443,9 +440,9 @@ NOTE: If no filters are used, all contacts will be displayed.
 
 |===
 | *Your input* | *Result*
-| `mf a/gey`| Returns contacts whose address contain `gey`
-| `mf` | Returns all contacts
-| `mf n/iv p/9 e/g a/ge` | Returns contacts who match ALL of the following criteria: +
+| `mf a/gey`| Displays contacts whose address contain `gey`
+| `mf` | Displays all contacts because no filters were applied.
+| `mf n/iv p/9 e/g a/ge` | Displays contacts who match ALL of the following criteria: +
 
 1. Name contains `iv` +
 2. Phone no. contains `9` +
@@ -453,7 +450,11 @@ NOTE: If no filters are used, all contacts will be displayed.
 4. Address contains `ge` +
 
 An example of a matching contact for this command would be +
-`Ivan` that has phone no. `999`, email `g@y.com` and address `123 geylang road`
+`Ivan` that has phone no. `999`, email `g@y.com` and address `123 geylang road`.
+
+| `mf ivan` | Displays all contacts because `ivan` is not preceeded  by any valid
+filter field such as n/. See <<multifilter-format, this>> for the
+list of filter fields that you can use.
 
 |===
 
@@ -465,11 +466,11 @@ An example of a matching contact for this command would be +
 Lazy to memorize command names? Press a shortcut key to automatically complete the text that you enter into the command box. +
 
 Command Format: [Some text] +
-Quick demo:  link:#how-to-use-autocomplete[here]
+Quick demo:  <<how-to-use-autocomplete,here>>
 
 [TIP]
 This feature automatically completes/suggests names of commands.
-To automatically fill in the format of commands, see link:#extended-autocomplete-feature[`extended autocomplete`].
+To automatically fill in the format of commands, see <<extended-autocomplete-feature,`extended autocomplete`>>.
 
 
 ==== Description [[autocomplete-description]]
@@ -613,11 +614,11 @@ This feature enables you to automatically fill in the format of the command whos
 the text that you entered. +
 
 Command Format: [COMMAND_WORD] +
-Quick demo: link:#how-to-use-extended-autocomplete[here]
+Quick demo: <<how-to-use-extended-autocomplete,here>>
 
 [TIP]
 This feature automatically fills in the format of a correctly
-spelt command. To automatically complete a command name, see link:#autocomplete-feature[`autocomplete`].
+spelt command. To automatically complete a command name, see <<autocomplete-feature,`autocomplete`>>.
 
 ==== Description
 
@@ -692,9 +693,9 @@ NOTE: The keyborad shortcuts are created only for commands with heavy text input
 
 //tag::music-feature[]
 Sound effect is designed to help you to discern audibly whether your command is performed successfully or otherwise.
-Various sound clips are played for each system events to keep you informed of the status of your actions.
+Various sound clips are played for different system events to keep you informed of the status of your actions.
 
-NOTE: This sound effect is set by Contact Plus by default.
+NOTE: This sound effect is enabled by Contact Plus by default.
 
 ==== Description
 
@@ -752,7 +753,7 @@ This command enables you to retrieve personal tasks that you have stored in
 `Contact Plus`. +
 
 Command Format: `listtask` +
-Quick demo: link:#how-to-use-listtask[here]
+Quick demo: <<how-to-use-listtask,here>>
 
 ==== Description
 
@@ -788,13 +789,13 @@ image:listtask-command-post.png[width="800"]
 
 This command enables you to remove unnecessary/unwanted tasks from `Contact Plus`. +
 Command Format: `deletetask INDEX_1/INDEX_2/INDEX_3 ...` +
-Quick demo: link:#how-to-use-deletetask[here]
+Quick demo: <<how-to-use-deletetask,here>>
 
 ==== Description
 
 ****
 * `INDEX_1`, `INDEX_2`, etc. refer to the task numbers that
-are shown when you use the link:#listtask-command[`listtask`] command to show your tasks
+are shown when you use the <<listtask,`listtask`>> command to show your tasks
 (See <<how-to-use-deletetask,how to use>> for an example).
 * `INDEX_1`, `INDEX_2`, etc. must be positive integers
 (i.e. they must be whole numbers greater than 0 such as 1, 2, 3, etc.).
@@ -836,6 +837,34 @@ image:deletetask-command-post.png[width="400"]
 image:deletetask-proof.png[width="800"]
 
 //end::deletetask-command[]
+
+=== Sound effect for system events [Since v1.3]
+
+//tag::music-feature[]
+
+Various sound clips are played for each system event to
+keep you informed of the status of your actions.
+
+==== Description
+
+*************
+* System events are classified into 2 types: command success and command failure.
+* One sound clip will be played for each of these event types.
+* Currently, there is no way to disable the sound effect.
+*************
+
+==== Example
+
+|===
+
+| *Your input* | *Result*
+| `delete 1` | Success sound clip is played if command is successful. +
+
+Failure sound clip is played if command is unsuccessful.
+
+|===
+
+//end::music-feature[]
 
 === Edit task: `edittask` [Since v1.4] [[edittask-command]]
 
@@ -943,7 +972,7 @@ image:LightTheme.png[width="500"]
 |===
 // end::themeselect[]
 
-=== Tab Switching [Since v1.5][[switch-tab]]
+=== Tab Switching [Since v1.5][[switchtab]]
 
 //tag::switchtab[]
 
@@ -960,16 +989,17 @@ the application will automatically switch it for you based on the command you en
 *************
 
 ==== Examples
-. Before entering any command, you are at the `Task` tab.
-+
+
+1. Before entering any command, you are at the `Task` tab. +
+
 image:switchTab1.png[width="800"]
 
-. Enter command `delete 1/2` and press kbd:[ENTER].
-+
+2. Enter command `delete 1/2` and press kbd:[ENTER]. +
+
 image:switchTab2.png[width="800"]
 
-. The tab will be automatically switched to the `Map` tab.
-+
+3. The tab will be automatically switched to the `Map` tab. +
+
 image:switchTab3.png[width="800"]
 
 //end::switchtab[]

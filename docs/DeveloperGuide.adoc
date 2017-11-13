@@ -459,12 +459,16 @@ case AddCommand.COMMAND_WORD: case AddCommand.COMMAND_WORD_ALIAS:
 //tag::autocomplete-mechanism[]
 
 The `autocomplete` feature is implemented in `AutoCompleteUtil` class. It enables commands to be automatically suggested and
-completed for users. For example, when the user type, "sea", and press kbd:[TAB] key, the complete command `search` appears on the command line. This feature saves time for users and improves the efficiency of the application in general.
+completed for users. For example, when the user types, "sea", and press kbd:[TAB] key, the complete command `search` appears on the command line. This feature saves time for users and improves the efficiency of the application in general.
 It is invoked in subclasses of `Logic` (e.g. `LogicManager`).
 
 The interaction between `AutoCompleteUtil` and `Logic` classes can be seen from the following sequence diagram:
 
 image::AutoCompleteCommand.sequenceDiagram.png[width="800"]
+
+As seen in the sequence diagram, `Logic` will get a list of all available commands from the `AutoCompleteUtil` class. Thereafter, it will pass
+this list, together with the user's input string, to the `autoCompleteCommand()` method in the `AutoCompleteUtil` class, which will
+generate and return a list of suggested commands.
 
 ==== Prerequisites/Dependencies [[autocomplete-dependencies]]
 
@@ -527,7 +531,7 @@ is determined based on the `Command` entered by the user.
 image::extended-autocomplete-snippet.png[width="800"]
 
 * The `COMMAND_WORD` and `AUTOCOMPLETE_FORMAT` fields must exist in all class files that represent commands.
-* For definition of `COMMAND_WORD`, see <<autocomplete-dependencies, section 4.4.1>>
+* For definition of `COMMAND_WORD`, see <<autocomplete-dependencies, this>>
 * The `AUTOCOMPLETE_FORMAT` field is defined as a string that contains the format of the command that is represented by the enclosing class.
 For example, if `test` command has the format of `test positive_integer` then `AUTOCOMPLETE_FORMAT` must be defined as
 `test positive_integer` in the `TestCommand` class.
@@ -564,12 +568,19 @@ Cons: Finite number of keys on the keyboard make it impossible to do a one-to-on
 //tag::deletetag-mechanism[]
 
 This mechanism is modelled by the `DeleteTagCommand` class. An instance of
-`DeleteTagCommand` is instantiated by the `AddressBookParser` class when the
-user attempts to delete tasks. The following sequence diagram shows the process from the
+`DeleteTagCommand` is created by the `AddressBookParser` class when the
+user attempts to delete tags. The following sequence diagram shows the process from the
 moment the user enters the `deletetag` command until the remaining tags
 are displayed in the interface of `Contact Plus`.
 
 image::DeleteTagCommand-sequence-diagram.png[width="800"]
+
+The following code snippet shows how the `DeleteTagCommand` class
+handles the user input - if there is no tag with the specified name, then
+an error message is shown instead of a success message.
+
+image::deletetag-snippet.png[]
+
 
 ==== Prerequisites/Dependencies
 
@@ -578,7 +589,7 @@ delete it from the address book.
 
 ==== Design Considerations
 
-**Aspect:** Implementation of `deletetag` command. +
+**Aspect:** Implementation of `deletetag()` command. +
 
 **Alternative 1 (current choice):** Delete the specified tag from all contacts in the address book. +
 **Pros:** Easy to implement. +
@@ -588,7 +599,7 @@ to every person who had that tag previously (except the one from which he wanted
 **Alternative 2:** Enable the user to choose several contacts from which he/she wishes to delete the tag. +
 **Pros:** User has more control over which users to remove the tag from. Hence, this implementation removes
  the problem from alternative 1. +
-**Cons:** Implementation is more complex as contacts have to validated before handling the tag names.
+**Cons:** Implementation is more complex as contacts have to be validated before handling the tag names.
 
 //end::deletetag-mechanism[]
 
@@ -634,8 +645,8 @@ The following code snippet shows the main logic in `NameWithTagContainsKeywordsP
 //tag::multifilter-mechanism[]
 
 This mechanism is modelled by the `MultiFilterCommand` class. An instance of
-`MultiFilterCommand` is instantiated by the `AddressBookParser` class when the
-user attempts to delete tasks. The following sequence diagram shows the process from the
+`MultiFilterCommand` is created by the `AddressBookParser` class.
+The following sequence diagram shows the process from the
 moment the user enters the `multifilter` command until the results
 are displayed in the interface of `Contact Plus`.
 
@@ -894,7 +905,7 @@ image::AddTaskCommand_sequence_diagram.png[width="800"]
 //tag::listtask-mechanism[]
 
 This mechanism is modelled by the `ListTaskCommand` class. An instance of
-`ListTaskCommand` is instantiated by the `AddressBookParser` class when the
+`ListTaskCommand` is created by the `AddressBookParser` class when the
 user attempts to list tasks. The following sequence diagram shows the process from the
 moment the user enters the `listtask` command until the tasks
 are displayed in the interface of `Contact Plus`.
@@ -926,7 +937,7 @@ the tasks in the address book.
 //tag::deletetask-mechanism[]
 
 This mechanism is modelled by the `DeleteTaskCommand` class. An instance of
-`DeleteTaskCommand` is instantiated by the `AddressBookParser` class when the
+`DeleteTaskCommand` is created by the `AddressBookParser` class when the
 user attempts to delete tasks. The following sequence diagram shows the process from the
 moment the user enters the `deletetask` command until the remaining tasks
 are displayed in the interface of `Contact Plus`.
@@ -1007,8 +1018,10 @@ delete it from the address book.
 
 === Sound Effect for Commands
 
-This mechanism is supported by the `AudioUtil` class. The static method
-`playClip()`, which plays a specified .wav format sound clip, is invoked on `AudioUtil` class when a command is issued by
+// tag::music-feature[]
+
+This mechanism is implemented in the `AudioUtil` class. The static method
+`playClip()`, which plays a specified .wav format sound clip, is invoked on the `AudioUtil` class when a command is issued by
 the user. Distinct sound clips will be played based on whether the command
 was successfully executed or it failed to execute (due to various reasons such
 as parse error). A visualization of this is shown in the following sequence diagram:
@@ -1031,7 +1044,7 @@ only this format has been tried and tested. Other audio file formats may/may not
 **Aspect:** Implementation of sound effects. +
 
 **Alternative 1 (current choice):** Play preset clips on command success or failure. +
-**Pros:** Easy to implement as the clips to be played are always the same and are only played
+**Pros:** Easy to implement as the clips to be played are always the same and will only be played
 during two events. +
 **Cons:** The sound clips are limited to two types - success or failure.
 
@@ -1041,7 +1054,7 @@ a predefined list. +
 **Cons:** Technically challenging as additional commands have to be implemented to list
 the available audio clips and select the desired ones.
 
-
+//end::music-feature[]
 
 
 === Logging

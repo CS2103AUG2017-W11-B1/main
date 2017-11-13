@@ -192,4 +192,8 @@ public class AutoCorrectCommand {
 
         return commandPool;
     }
+
+    public static void clearMessageToUser() {
+        messageToUser = "";
+    }
 }
