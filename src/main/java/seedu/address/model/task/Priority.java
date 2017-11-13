@@ -34,7 +34,7 @@ public class Priority {
      * Returns true is the given integer is a valid priority level
      */
     public static boolean isValidPriority(String test) {
-        return Integer.parseInt(test) <= 2 && Integer.parseInt(test) >= 0;
+        return (test.isEmpty()) ? false : (Integer.parseInt(test) <= 2 && Integer.parseInt(test) >= 0);
     }
 
     @Override
