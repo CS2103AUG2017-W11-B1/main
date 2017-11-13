@@ -1,7 +1,10 @@
 = Jiayao Li - Project Portfolio
+:toc:
+:toc-title:
 ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 :imagesDir: ../images
 :stylesDir: ../stylesheets
+:experimental:
 
 == Project: Contact Plus
 Contact Plus is a command-line based contact-managing application used for busy students on campus as well as anyone who needs a contact-managing application. In addition to the management of contacts, this application
