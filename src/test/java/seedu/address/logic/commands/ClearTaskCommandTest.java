@@ -3,8 +3,10 @@ package seedu.address.logic.commands;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
+import org.junit.Rule;
 import org.junit.Test;
 
+import org.junit.rules.ExpectedException;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.UndoRedoStack;
 import seedu.address.model.Model;
@@ -25,6 +27,7 @@ public class ClearTaskCommandTest {
         Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
         assertCommandSuccess(prepareCommand(model), model, ClearTaskCommand.MESSAGE_SUCCESS, model);
     }
+
 
     /**
      * Generates a new {@code ClearCommand} which upon execution, clears the contents in {@code model}.

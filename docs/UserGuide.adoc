@@ -319,7 +319,7 @@ Too lazy to type the full command? The alias feature allows you to type a shorte
 
 A list of available aliases can be found  link:#list-of-alias[here].
 
-Command Format: `command_alise` +
+Command Format: `command_alias` +
 Quick demo: link:#how-to-use-alias-command[here]
 
 ==== How to use [[how-to-use-alias-command]]

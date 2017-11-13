@@ -33,7 +33,6 @@ import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.DeleteTaskCommand;
 import seedu.address.logic.commands.EditCommand;
-import seedu.address.logic.commands.EditTaskCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.ListTaskCommand;
 import seedu.address.logic.commands.MultiFilterCommand;
@@ -292,8 +291,7 @@ public class CommandBox extends UiPart<Region> {
             commandTextField.setText("");
 
             //@@author zhangshuoyang
-            if (parser.parseCommand(userInput) instanceof AddTaskCommand
-                    || parser.parseCommand(userInput) instanceof EditTaskCommand) {
+            if (parser.parseCommand(userInput) instanceof AddTaskCommand) {
                 // Process and display the most recently added task in a separate text field
                 StringBuffer lastTaskFieldOutput = new StringBuffer();
                 List<ReadOnlyTask> listOfTask = logic.getFilteredTaskList();
@@ -309,11 +307,7 @@ public class CommandBox extends UiPart<Region> {
                     Scanner s = new Scanner(new File(curr + "/taskAdded.txt"));
 
                     taskDisplayed.clear();
-                    if (parser.parseCommand(userInput) instanceof AddTaskCommand) {
-                        taskDisplayed.appendText("===Last Task Added=== " + "\n");
-                    } else {
-                        taskDisplayed.appendText("===Last Task Edited=== " + "\n");
-                    }
+                    taskDisplayed.appendText("===Last Task Added=== " + "\n");
                     while (s.hasNext()) {
                         String temp = s.next();
                         if (("Description:").equals(temp)

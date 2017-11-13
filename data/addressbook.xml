@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addressbook>
-    <tasks>
-        <description>CS ASSIGNMENT</description>
-        <priority>1</priority>
-        <duedate>25/10/2017</duedate>
-    </tasks>
-    <tasks>
-        <description>CS ASSIGNMENT</description>
-        <priority>2</priority>
-        <duedate>25/10/2017</duedate>
-    </tasks>
+    <tags>owesMoney</tags>
+    <tags>family</tags>
+    <tags>friends</tags>
 </addressbook>

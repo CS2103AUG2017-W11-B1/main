@@ -30,7 +30,7 @@ public class ClearTaskCommand extends UndoableCommand {
             try {
                 model.deleteTask(model.getFilteredTaskList().get(i));
             } catch (TaskNotFoundException e) {
-                assert false : "The target task cannot be missing";
+                assert false : "The task cannot be missing";
             }
         }
 
