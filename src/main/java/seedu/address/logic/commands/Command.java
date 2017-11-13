@@ -144,6 +144,7 @@ public abstract class Command {
         mapOfCommandsToFormats.put(SearchCommand.COMMAND_WORD, SearchCommand.AUTOCOMPLETE_FORMAT);
         mapOfCommandsToFormats.put(SelectCommand.COMMAND_WORD, SelectCommand.AUTOCOMPLETE_FORMAT);
         mapOfCommandsToFormats.put(UndoCommand.COMMAND_WORD, UndoCommand.AUTOCOMPLETE_FORMAT);
+        mapOfCommandsToFormats.put(SwitchThemeCommand.COMMAND_WORD, SwitchThemeCommand.AUTOCOMPLETE_FORMAT);
     }
     //@@author chairz
     /**
@@ -184,5 +185,6 @@ public abstract class Command {
         mapOfCommandsToHelp.put(SearchCommand.COMMAND_WORD, SearchCommand.MESSAGE_USAGE);
         mapOfCommandsToHelp.put(SelectCommand.COMMAND_WORD, SelectCommand.MESSAGE_USAGE);
         mapOfCommandsToHelp.put(UndoCommand.COMMAND_WORD, UndoCommand.MESSAGE_USAGE);
+        mapOfCommandsToHelp.put(SwitchThemeCommand.COMMAND_WORD, SwitchThemeCommand.MESSAGE_USAGE);
     }
 }

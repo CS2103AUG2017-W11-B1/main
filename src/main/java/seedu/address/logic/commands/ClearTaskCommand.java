@@ -2,7 +2,9 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
+import seedu.address.logic.parser.AddressBookParser;
 import seedu.address.logic.parser.AutoCorrectCommand;
+import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.task.exceptions.TaskNotFoundException;
 
 //@@author JYL123
@@ -28,8 +30,15 @@ public class ClearTaskCommand extends UndoableCommand {
             try {
                 model.deleteTask(model.getFilteredTaskList().get(i));
             } catch (TaskNotFoundException e) {
-                assert false : "The target task cannot be missing";
+                assert false : "The task cannot be missing";
             }
+        }
+
+        AddressBookParser addressBookParser = new AddressBookParser();
+        try {
+            addressBookParser.parseCommand("listtask");
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
 
         if (autoCorrectCommand.getMessageToUser().equals("")) {
