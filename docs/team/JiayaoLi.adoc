@@ -10,7 +10,7 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 Contact Plus is a command-line based contact-managing application used for busy students on campus as well as anyone who needs a contact-managing application. In addition to the management of contacts, this application
 can be served as a task-managing application as well. The user interacts with this application using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 6 kLoC.
 
-*Code contributed*: [https://github.com/CS2103AUG2017-W11-B1/main/blob/master/collated/main/JYL123.md[Functional code]] [https://github.com/CS2103AUG2017-W11-B1/main/blob/master/collated/test/JYL123.md[Test code]] {give links to collated code files}
+*Code contributed*: [https://github.com/CS2103AUG2017-W11-B1/main/blob/master/collated/main/JYL123.md[Functional code]] [https://github.com/CS2103AUG2017-W11-B1/main/blob/master/collated/test/JYL123.md[Test code]]
 
 === Enhancement Added: Alias for commands [Since v1.0]
 
