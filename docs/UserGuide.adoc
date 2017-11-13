@@ -380,8 +380,12 @@ Command Format: `COMMAND_WORD PARAMETERS p2/PHONE_NUMBER OTHER_PARAMETERS` +
 ****
 
 ==== Examples
-* `add n/John Doe p/98765432 p2/73624789 e/johnd@example.com a/John street, block 123, #01-01` +
-* `edit 1 p/91234567 p2/73624789 e/johndoe@example.com` +
+* `add n/John Doe p/98765432 p2/73624789 e/johnd@example.com a/John street, block 123, #01-01`
++
+image:addsecondphone.png[width="700"]
+* `edit 1 p/91234567 p2/73624789 e/johndoe@example.com`
++
+image:addsecondphone2.png[width="700"]
 
 
 //end::secondphone[]
