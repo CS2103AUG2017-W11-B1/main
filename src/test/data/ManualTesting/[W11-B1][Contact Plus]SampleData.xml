@@ -52,8 +52,8 @@
         <address>847-5304 Dui, Rd.</address>
     </persons>
     <persons>
-        <name>David</name>
-        <phone>46384635</phone>
+        <name>Thomas Scott</name>
+        <phone>56063801</phone>
         <phone2>-</phone2>
         <email>risus.Morbi.metus@arcuMorbisit.org</email>
         <address>663-4645 At, Av.</address>
@@ -149,23 +149,6 @@
         <email>ut.ipsum.ac@malesuada.com</email>
         <address>764-9726 Eget Rd.</address>
     </persons>
-
-    <persons>
-        <name>John Doe</name>
-        <phone>98765432</phone>
-        <phone2>-</phone2>
-        <email>johnd@example.com</email>
-        <address>311, Clementi Ave 2,#02-25</address>
-    </persons>
-    <tags>owesMoney</tags>
-    <tags>Friend</tags>
-    <tags>boyfriend</tags>
-    <tags>colleagues</tags>
-    <tags>friend</tags>
-    <tags>classmates</tags>
-    <tags>neighbours</tags>
-    <tags>criminal</tags>
-    <tags>family</tags>
     <tags>friends</tags>
     <tasks>
         <description>btuqrpinthhciqaeqvmp</description>

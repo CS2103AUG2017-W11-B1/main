@@ -90,7 +90,7 @@ public class SwitchThemeCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Switch to selected theme\n"
-            + "1. Dark;   2. Light;   3. Ugly\n"
+            + "1. Dark;   2. Light;   3. Colourful\n"
             + "Parameters: INDEX (must be 1, 2 or 3)\n"
             + "Example: " + COMMAND_WORD + " 1";
 
@@ -104,7 +104,7 @@ public class SwitchThemeCommand extends Command {
 
     @Override
     public CommandResult execute() throws CommandException {
-        String[] themeArr = {"Dark", "Light", "Ugly"};
+        String[] themeArr = {"Dark", "Light", "Colourful"};
         if (index.getZeroBased() >= themeArr.length || index.getZeroBased() < 0) {
             throw new CommandException(Messages.MESSAGE_INVALID_THEME_INDEX);
         }

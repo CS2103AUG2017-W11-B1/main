@@ -181,7 +181,8 @@
 ###### /java/seedu/address/logic/commands/DeleteTagCommandTest.java
 ``` java
     /**
-     * Returns a {@code DeleteTagCommand} with the parameter {@code tag_name}.
+     * @params name of a a tag
+     * @return DeleteTagCommand object
      */
     private DeleteTagCommand prepareCommand(String tagName) {
         DeleteTagCommand deleteTagCommand = null;
@@ -205,6 +206,18 @@
     private void deleteTagHelper(String tagName) throws CommandException {
         DeleteTagCommand deleteTagCommand = prepareCommand(tagName);
         deleteTagCommand.execute();
+    }
+
+```
+###### /java/seedu/address/logic/commands/DeleteTagCommandTest.java
+``` java
+    @After
+    /**
+     * Clears the autocorrect status messages to prevent them from persisting among
+     * tests
+     */
+    public void clearAutocorrectStatusMessage() {
+        AutoCorrectCommand.clearMessageToUser();
     }
 }
 ```
@@ -262,6 +275,8 @@
     @Test
     public void executeValidIndexFilteredListSuccess() throws Exception {
         showFirstTaskOnly(model);
+        AutoCorrectCommand autoCorrectCommand = new AutoCorrectCommand();
+        autoCorrectCommand.setMessageToUser("");
 
         ReadOnlyTask taskToDelete = model.getFilteredTaskList().get(INDEX_FIRST_TASK.get(0).getZeroBased());
         DeleteTaskCommand deleteCommand = prepareCommand(INDEX_FIRST_TASK);
@@ -667,6 +682,31 @@
         return parsedCommand;
     }
 
+```
+###### /java/seedu/address/logic/commands/SearchCommandTest.java
+``` java
+    @After
+    /**
+     * Clears the autocorrect status messages to prevent them from persisting among
+     * tests
+     */
+    public void clearAutocorrectStatusMessage() {
+        AutoCorrectCommand.clearMessageToUser();
+    }
+
+}
+```
+###### /java/seedu/address/logic/parser/AutoCorrectCommandTest.java
+``` java
+    @After
+    /**
+     * Clears the autocorrect status messages to prevent them from persisting among
+     * tests
+     */
+    public void clearAutocorrectStatusMessage() {
+        AutoCorrectCommand.clearMessageToUser();
+    }
+}
 ```
 ###### /java/seedu/address/logic/parser/MultiFilterCommandParserTest.java
 ``` java

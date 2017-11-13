@@ -193,8 +193,9 @@ public class AddTaskCommandTest {
         }
 
         @Override
-        public void deleteTag(Tag t) throws DuplicatePersonException, PersonNotFoundException {
+        public boolean deleteTag(Tag t) {
             fail("This method should not be called.");
+            return false;
         }
     }
 
